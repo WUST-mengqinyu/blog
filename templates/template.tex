@@ -1,0 +1,924 @@
+
+\documentclass[twoside]{article}
+\usepackage[colorlinks,linkcolor=black]{hyperref}
+\usepackage{xeCJK}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amsthm}
+\usepackage{listings,xcolor}
+\usepackage{geometry}
+\usepackage{fontspec}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\lstset{
+    language    = c++,
+    breaklines  = true,
+    captionpos  = b,
+    tabsize     = 4,
+    numbers     = left,
+    columns     = fullflexible,
+    keepspaces  = true,
+    commentstyle = \color[RGB]{0,128,0},
+    keywordstyle = \color[RGB]{0,0,255},
+    basicstyle   = \small\ttfamily,
+    rulesepcolor = \color{red!20!green!20!blue!20},
+    showstringspaces = false,
+}
+\title{badcw's template}
+\author{So Like Coding? You Baldy}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{badcw's template, So Like Coding? You Baldy}
+\begin{document}\small
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5cm}\includegraphics[width=0.75\textwidth]{logo.jpg} \\ [2cm]
+\HRule \\ [1cm]
+\textbf{\Huge{badcw's template}} \\ [0.5cm]
+\HRule \\ [4cm]
+\textbf{\Huge{WUST}} \\ [1cm]
+\LARGE{So Like Coding? You Baldy}
+\vfill
+\Large{\today}
+\end{center}
+\clearpage
+\end{titlepage}
+\tableofcontents\clearpage
+\pagestyle{fancy}
+\lfoot{}
+\cfoot{\thepage}\rfoot{}
+\setcounter{section}{-1}
+\setcounter{page}{1}
+\clearpage\section{2019New}
+\subsection{2019New}
+\subsubsection{mint}
+\begin{lstlisting}
+const int mod = 998244353;
+
+struct mint {
+  int n;
+  mint(int n_ = 0) : n(n_) {}
+};
+
+mint operator+(mint a, mint b) { return (a.n += b.n) >= mod ? a.n - mod : a.n; }
+mint operator-(mint a, mint b) { return (a.n -= b.n) < 0 ? a.n + mod : a.n; }
+mint operator*(mint a, mint b) { return 1LL * a.n * b.n % mod; }
+mint &operator+=(mint &a, mint b) { return a = a + b; }
+mint &operator-=(mint &a, mint b) { return a = a - b; }
+mint &operator*=(mint &a, mint b) { return a = a * b; }
+ostream &operator<<(ostream &o, mint a) { return o << a.n; }
+
+mint dp[20][2][2][2][1 << 10];
+mint dp2[20][2][2][2][1 << 10];\end{lstlisting}
+\subsubsection{不重叠区间贪心}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+const int maxn = 5e5+5;
+pair<int, int> a[maxn];
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> a[i].second >> a[i].first;
+    }
+    sort(a + 1, a + 1 + n);
+    int res = 1;
+    int tmp = a[1].first;
+//    printf("%d %d\n", a[1].second, a[1].first);
+    for (int i = 2; i <= n; ++i) {
+        if (a[i].second > tmp) {
+            res ++;
+//            printf("%d %d\n", a[i].second, a[i].first);
+            tmp = a[i].first;
+        }
+    }
+    printf("%d\n", res);
+    return 0;
+}
+
+\end{lstlisting}
+\subsubsection{主席树区间k大}
+\begin{lstlisting}
+/*************************************************************************
+	> File Name: a.cpp
+	> Author: badcw
+	> Mail: 952223482@qq.com
+	> Created Time: 2018年07月21日 星期六 08时47分54秒
+ ************************************************************************/
+
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+const int maxn = 100005;
+int n, m;
+int a[maxn];
+int root[maxn];
+int cnt = 0;
+vector<int> b;
+struct node {
+    int l, r, val;
+}p[maxn * 40];
+
+void update(int l, int r, int pre, int &now, int pos) {
+    now = ++cnt;
+    p[now] = p[pre];
+    p[now].val++;
+    if (l == r) {
+        return;
+    }
+    int mid = l + r >> 1;
+    if (pos <= mid) update(l, mid, p[pre].l, p[now].l, pos);
+    else update(mid + 1, r, p[pre].r, p[now].r, pos);
+}
+
+int query(int l, int r, int x, int y, int k) {
+    if (l == r) return b[l - 1];
+    int mid = l + r >> 1;
+    int temp = p[p[y].l].val - p[p[x].l].val;
+    if (k <= temp) return query(l, mid, p[x].l, p[y].l, k);
+    return query(mid + 1, r, p[x].r, p[y].r, k - temp);
+}
+
+int main(int argc,char *argv[])
+{
+    while (scanf("%d%d", &n, &m) != EOF) {
+        b.clear();
+        cnt = 0;
+        for (int i = 1; i <= n; ++i) scanf("%d", &a[i]), b.push_back(a[i]);
+        sort(b.begin(), b.end());
+        b.erase(unique(b.begin(), b.end()), b.end());
+        for (int i = 1; i <= n; ++i) {
+            update(1, b.size(), root[i - 1], root[i], lower_bound(b.begin(), b.end(), a[i]) - b.begin() + 1);
+        }
+        int L, R, k;
+        while (m--) {
+            scanf("%d%d%d", &L, &R, &k);
+            printf("%d\n", query(1, b.size(), root[L - 1], root[R], k));
+        }
+    }
+    return 0;
+}\end{lstlisting}
+\subsubsection{莫队}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+const int maxn = 200005;
+
+struct MO {
+    int l, r, id;
+}q[maxn];
+
+int n, m, col[maxn], block, belong[maxn];
+ll vis[maxn * 10], ans;
+ll res[maxn];
+bool cmp(const MO& a, const MO& b) { return belong[a.l] == belong[b.l] ? a.r < b.r : a.l < b.l; }
+void add(ll x) {
+    vis[x] ++;
+    ans += x * (vis[x] * vis[x] - (vis[x] - 1) * (vis[x] - 1));
+}
+
+void del(ll x) {
+    vis[x] --;
+    ans -= x * ((vis[x] + 1) * (vis[x] + 1) - vis[x] * vis[x]);
+}
+
+int main() {
+    scanf("%d%d", &n, &m);
+    block = sqrt(n);
+    for (int i = 1; i <= n; ++i) {
+        scanf("%d", &col[i]);
+        belong[i] = i / block + 1;
+    }
+    for (int i = 1; i <= m; ++i) {
+        scanf("%d%d", &q[i].l, &q[i].r);
+        q[i].id = i;
+    }
+    sort(q + 1, q + 1 + m, cmp);
+    int l = 1, r = 0;
+    for (int i = 1; i <= m; ++i) {
+        while(r < q[i].r) add(col[++r]);
+        while(r > q[i].r) del(col[r--]);
+        while(l < q[i].l) del(col[l++]);
+        while(l > q[i].l) add(col[--l]);
+        res[q[i].id] = ans;
+    }
+    for (int i = 1; i <= m; ++i) printf("%lld\n", res[i]);
+    return 0;
+}
+\end{lstlisting}
+\subsubsection{数位dp计和}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+const int mod = 998244353;
+pair<ll, ll> dp[20][1<<10];
+bool vis[20][1<<10];
+int k;
+int t[20];
+ll base[20];
+
+pair<ll, ll> dfs(int pos, int state, bool limit, bool lead) {
+    if (pos == -1) return __builtin_popcount(state) <= k ? make_pair(1, 0) : make_pair(0, 0);
+    if (!limit && !lead && vis[pos][state]) return dp[pos][state];
+    int up = limit ? t[pos] : 9;
+    pair<ll, ll> res = {0, 0};
+    for (int i = 0; i <= up; ++i) {
+        int n_s = state;
+        if (lead && i == 0) n_s = 0;
+        else n_s = state | (1 << i);
+        auto tmp = dfs(pos - 1, n_s, limit && i == t[pos], lead && i == 0);
+        ll pre = 1ll * i * base[pos] % mod;
+        (res.first += tmp.first) %= mod;
+        (res.second += tmp.second + pre * tmp.first) %= mod;
+    }
+    if (!limit && !lead) dp[pos][state] = res, vis[pos][state] = 1;
+    return res;
+}
+
+ll solve(ll x) {
+    int pos = 0;
+    do {
+        t[pos ++] = x % 10;
+    } while (x /= 10);
+    return dfs(pos - 1, 0, true, true).second;
+}
+
+int main(int argc,char *argv[])
+{
+    base[0] = 1;
+    for (int i = 1; i < 20; ++i) base[i] = base[i - 1] * 10;
+    ll l, r;
+    scanf("%lld%lld%d", &l, &r, &k);
+    printf("%lld\n", (solve(r) - solve(l - 1) + mod) % mod);
+    return 0;
+}
+\end{lstlisting}
+\subsubsection{相交回文串对数}
+\begin{lstlisting}
+#include<bits/stdc++.h>
+
+#define ll long long
+using namespace std;
+
+const int maxn = 2e6+6;
+const int N = 26;
+const int mod = 51123987;
+
+struct Palindromic_Tree {
+    vector<pair<int, int> > next[maxn];
+//    int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符构成
+    int fail[maxn]{};//fail指针，失配后跳转到fail指针指向的节点
+    int cnt[maxn]{}; //表示节点i表示的本质不同的串的个数（建树时求出的不是完全的，最后count()函数跑一遍以后才是正确的）
+    int num[maxn]{}; //表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数
+    int len[maxn]{};//len[i]表示节点i表示的回文串的长度（一个节点表示一个回文串）
+    int S[maxn]{};//存放添加的字符
+    int last{};//指向新添加一个字母后所形成的最长回文串表示的节点。
+    int n{};//表示添加的字符个数。
+    int p{};//表示添加的节点个数。
+
+    int newnode(int l) {//新建节点
+        next[p].clear();
+//        for (int i = 0; i < N; ++i) next[p][i] = 0;
+//        cnt[p] = 0;
+//        num[p] = 0;
+        len[p] = l;
+        return p++;
+    }
+
+    void init() {//初始化
+        n = last = p = 0;
+        newnode(0);
+        newnode(-1);
+        S[n] = -1;//开头放一个字符集中没有的字符，减少特判
+        fail[0] = 1;
+    }
+
+    int get_fail(int x) {//和KMP一样，失配后找一个尽量最长的
+        while (S[n - len[x] - 1] != S[n]) x = fail[x];
+        return x;
+    }
+
+    int find(int u, int c) {
+        vector<pair<int, int> > & x = next[u];
+        int sz = x.size();
+        for(int i = 0; i < sz; ++i) {
+            if(x[i].first == c) return x[i].second;
+        }
+        return 0;
+    }
+
+    int add(int c) {
+        S[++n] = c;
+        int cur = get_fail(last);//通过上一个回文串找这个回文串的匹配位置
+        int x = find(cur, c);
+        if (!x) {
+//        if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
+            int now = newnode(len[cur] + 2);//新建节点
+            x = now;
+            fail[now] = find(get_fail(fail[cur]), c);
+            next[cur].emplace_back(make_pair(c, now));
+//            fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以便失配后跳转
+//            next[cur][c] = now;
+            num[now] = num[fail[now]] + 1;
+        }
+        last = x;
+//        last = next[cur][c];
+//        cnt[last]++;
+        return num[last];
+    }
+
+    void count() {
+        for (int i = p - 1; i >= 0; --i) cnt[fail[i]] += cnt[i];
+        //父亲累加儿子的cnt，因为如果fail[v]=u，则u一定是v的子回文串！
+    }
+} solve;
+
+char s[maxn];
+
+ll a[maxn], b[maxn];
+int main() {
+    solve.init();
+    int n;
+    scanf("%d", &n);
+    scanf("%s", s);
+    for (int i = 0; i < n; ++i) {
+        a[i] = solve.add(s[i] - 'a');
+    }
+    solve.init();
+    for (int i = n - 1; i >= 0; --i) {
+        b[i] = (b[i + 1] + solve.add(s[i] - 'a')) % mod;
+    }
+    ll res = (b[0] * (b[0] - 1) / 2) % mod;
+    for (int i = 0; i < n; ++i) {
+        res = ((res - (a[i] * b[i + 1]) + mod) % mod) % mod;
+    }
+    printf("%lld\n", res);
+    return 0;
+}
+\end{lstlisting}
+\clearpage\section{秃子的模板}
+\subsection{秃子的模板}
+\subsubsection{System of Difference Constraints}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int maxn=1000+10;
+const int inf=0x3f3f3f3f;
+
+struct Edge {int nex,to,w; } edge[10*maxn];
+
+int head[maxn],cnt,dis[maxn],n;
+bool vis[maxn];
+
+void init()
+{
+	cnt=0;
+	memset(head,0xff,sizeof head);
+}
+
+void add(int u,int v,int w)
+{
+	edge[cnt].nex=head[u];
+	edge[cnt].to=v;
+	edge[cnt].w=w;
+	head[u]=++cnt;
+}
+
+void spfa(int u)
+{
+	int u,v,w;
+	for(int i=1;i<=n;i++) dis[i]=inf,vis[i]=false;
+	dis[u]=0;
+	queue<int> que;
+	que.push(u);
+	vis[u]=true;
+	while(!que.empty())
+	{
+		u=que.front();
+		que.pop();
+		vis[u]=false;
+		for(int i=head[u];~i;i=edge[i].nex)
+		{
+			v=edge[i].v,w=edge[i].w;
+			if(dis[u]+w<dis[v])
+			{
+				dis[v]=dis[u]+w;
+				if(!vis[v])
+				{
+					que.push(v);
+					vis[v]=true;
+				}
+			}
+		}
+	}
+}\end{lstlisting}
+\subsubsection{Aho-Corasick automation}
+\begin{lstlisting}
+const int maxn=5e5+10;
+
+class AC_automatiion
+{
+public:
+	int trie[maxn][26],cnt;
+	int tag[maxn];
+	int fail[maxn];
+
+	void init()
+	{
+	    memset(trie,0,sizeof trie);
+	    memset(tag,0,sizeof tag);
+	    memset(fail,0,sizeof fail);
+	    cnt=0;
+	}
+
+	void insert(char *str)
+	{
+		int root=0;
+		for(int i=0;str[i];i++)
+		{
+			int id=str[i]-'a';
+			if(!trie[root][id]) trie[root][id]=++cnt;
+			root=trie[root][id];
+		}
+		tag[root]++;
+	}
+
+	void build()
+	{
+		queue<int> que;
+		for(int i=0;i<26;i++) if(trie[0][i]) que.push(trie[0][i]);
+		while(!que.empty())
+		{
+			int k=que.front(); que.pop();
+			for(int i=0;i<26;i++)
+			{
+				if(trie[k][i]) {
+					fail[trie[k][i]]=trie[fail[k]][i];
+					que.push(trie[k][i]);
+				}
+				else trie[k][i]=trie[fail[k]][i];
+			}
+		}
+	}
+
+	int query(char *str)
+	{
+		int p=0,res=0;
+		for(int i=0;str[i];i++)
+		{
+			p=trie[p][str[i]-'a'];
+			for(int j=p;j&&~tag[j];j=fail[j]) res+=tag[j],tag[j]=-1;
+		}
+		return res;
+	}
+}AC;\end{lstlisting}
+\subsubsection{Persistence Trie}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int maxn = 6e5 + 10;
+
+int trie[maxn*24][2], latest[maxn*24];
+int s[maxn], root[maxn], n, m, tot;
+
+void insert(int i, int k, int p, int q)
+{
+	if(k < 0) {
+		latest[q] = i;
+		 return;
+	}
+	int c= s[i] >> k & 1;
+	if(p) trie[q][c^1] = trie[p][c^1];
+	trie[q][c] = ++tot;
+	insert(i, k - 1, trie[p][c], trie[q][c]);
+	latest[q] = max(latest[trie[q][0]], latest[trie[q][1]]);
+}
+
+int ask(int now, int val, int k, int limit)
+{
+	if(k < 0) return s[latest[now]] ^ val;
+	int c = val >> k & 1;
+	if(latest[trie[now][c^1]] >= limit) return ask(trie[now][c ^ 1], val, k - 1, limit);
+	else return ask(trie[now][c], val, k - 1, limit);
+}
+
+int main()
+{
+    int n, m;
+    scanf("%d%d", &n, &m);
+    latest[0] = -1;
+    root[0] = ++tot;
+    insert(0, 23, 0, root[0]);
+    for(int i = 1, x; i <= n; i++)
+    {
+        scanf("%d", &x);
+        s[i] = s[i - 1] ^ x;
+        root[i] = ++tot;
+        insert(i, 23, root[i - 1], root[i]);
+    }
+    for(int i = 1, x, l, r; i <= m; i++)
+    {
+        char op[2];
+        scanf("%s", op);
+        if(op[0] == 'A')
+        {
+            scanf("%d", &x);
+            root[++n] = ++tot;
+            s[n] = s[n - 1] ^ x;
+            insert(n, 23, root[n - 1], root[n]);
+        }
+        else
+        {
+            scanf("%d%d%d", &l, &r, &x);
+            printf("%d\n", ask(root[r - 1], x ^ s[n], 23, l - 1));
+        }
+    }
+    return 0;
+}
+\end{lstlisting}
+\subsubsection{Linear Basis}
+\begin{lstlisting}
+typedef long long ll;
+
+const int MAX_BASE=63;
+const int maxn=1e5+10;
+
+int n;
+ll a[maxn],b[MAX_BASE+5];
+
+void cal()
+{
+    for(int i=0;i<n;i++)
+    {
+        for(int j=MAX_BASE;j>=0;j--)
+        {
+            if(a[i]>>j&1)
+            {
+                if(b[j]) a[i]^=b[j];
+                else
+                {
+                    b[j]=a[i];
+                    for(int k=j-1;k>=0;k--) if(b[k]&&(b[j]>>k&1)) b[j]^=b[k];
+                    for(int k=j+1;k<=MAX_BASE;k++) if(b[k]>>j&1) b[k]^=b[j];
+                    break;
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+\subsubsection{MincostMaxflow}
+\begin{lstlisting}
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+const int maxn=10000+10;
+const int inf=0x3f3f3f3f;
+
+struct Edge { int from, to, cap, flow, cost; };
+
+struct MCMF
+{
+	int n,m;
+	vector<Edge> edges;
+	vector<int> G[maxn];
+	bool inq[maxn];
+	int dis[maxn], path[maxn], a[maxn];
+
+	void init(int n)
+	{
+		this->n=n;
+		for(int i=0;i<=n;i++)
+			G[i].clear();
+		edges.clear();
+	}
+
+	void addEdge(int from, int to, int cap, int cost)
+	{
+		edges.push_back(Edge{from,to,cap,0,cost});
+		edges.push_back(Edge{to,from,0,0,-cost});
+		m=edges.size();
+		G[from].push_back(m-2);
+		G[to].push_back(m-1);
+	}
+
+	bool Bellman_Ford(int s, int t, int& flow, int& cost)
+	{
+		for(int i=0; i<=n; i++) dis[i]=inf;
+		memset(inq, 0, sizeof inq);
+		dis[s]=0, inq[s]=true, path[s]=0, a[s]=inf;
+		queue<int> Q;
+		Q.push(s);
+		while(!Q.empty())
+		{
+			int u=Q.front(); Q.pop();
+			inq[u]=false;
+			for(int i=0;i<G[u].size();i++)
+			{
+				Edge& e=edges[G[u][i]];
+				if(e.cap>e.flow&&dis[e.to]>dis[u]+e.cost)
+				{
+					dis[e.to]=dis[u]+e.cost;
+					path[e.to]=G[u][i];
+					a[e.to]=min(a[u],e.cap-e.flow);
+					if(!inq[e.to])
+					{
+						Q.push(e.to);
+						inq[e.to]=true;
+					}
+				}
+			}
+		}
+		if(dis[t]==inf) return false;
+		flow+=a[t];
+		cost+=dis[t]*a[t];
+		for(int u=t;u!=s;u=edges[path[u]].from)
+		{
+			edges[path[u]].flow+=a[t];
+			edges[path[u]^1].flow-=a[t];
+		}
+		return true;
+	}
+
+	int mincostMaxFlow(int s, int t, int& cost)
+	{
+		int flow=0;
+		cost=0;
+		while(Bellman_Ford(s,t,flow,cost));
+		return flow;
+	}
+};
+\end{lstlisting}
+\subsubsection{Suffix Array}
+\begin{lstlisting}
+const int maxn=1e5+10;
+
+char s[maxn];
+int sa[maxn],t[maxn],t2[maxn],c[maxn],n;
+int ra[maxn],height[maxn];
+
+void build_sa(int m)
+{
+	int *x=t,*y=t2;
+	for(int i=0;i<m;i++) c[i]=0;
+	for(int i=0;i<n;i++) c[x[i]=s[i]]++;
+	for(int i=1;i<m;i++) c[i]+=c[i-1];
+	for(int i=n-1;i>=0;i--) sa[--c[x[i]]]=i;
+	for(int k=1;k<=n;k<<=1)
+	{
+		int p=0;
+		for(int i=n-k;i<n;i++) y[p++]=i;
+		for(int i=0;i<n;i++) if(sa[i]>=k) y[p++]=sa[i]-k;
+		for(int i=0;i<m;i++) c[i]=0;
+		for(int i=0;i<n;i++) c[x[y[i]]]++;
+		for(int i=0;i<m;i++) c[i]+=c[i-1];
+		for(int i=n-1;i>=0;i--) sa[--c[x[y[i]]]]=y[i];
+		swap(x,y);
+		p=1;x[sa[0]]=0;
+		for(int i=1;i<n;i++)
+			x[sa[i]]=y[sa[i-1]]==y[sa[i]]&&y[sa[i-1]+k]==y[sa[i]+k]?p-1:p++;
+		if(p>=n) break;
+		m=p;
+	}
+}
+
+void getHeight()
+{
+    for(int i=0;i<n;i++) ra[sa[i]]=i;
+    for(int i=0,k=0;i<n;i++)
+    {
+        if(k) k--;
+        int j=sa[ra[i]-1];
+        while(i+k<n&&j+k<n&&s[i+k]==s[j+k]) k++;
+        height[ra[i]]=k;
+    }
+}
+\end{lstlisting}
+\clearpage\section{hld and more}
+\subsection{hld}
+\begin{lstlisting}
+/*
+sz[]数组，以x为根的子树节点个数
+top[]数组，当前节点的所在链的顶端节点
+son[]数组，重儿子
+deep[]数组，当前节点的深度
+fa[]数组，当前节点的父亲
+idx[]数组，树中每个节点剖分后的新编号
+rnk[]数组，idx的逆，表示线段上中当前位置表示哪个节点
+*/
+struct HLD {
+#define type int
+
+    struct edge {
+        int a, b;
+        type v;
+
+        edge(int _a, int _b, type _v = 0) : a(_a), b(_b), v(_v) {}
+    };
+
+    struct node {
+        int to;
+        type w;
+
+        node() {}
+
+        node(int _to, type _w) : to(_to), w(_w) {}
+    };
+
+    vector<int> mp[maxn];
+    vector<edge> e;
+
+    void init(int _n) {
+        n = _n;
+        for (int i = 0; i <= n; i++) mp[i].clear();
+        e.clear();
+        e.push_back(edge(0, 0));
+    }
+
+    void add_edge(int a, int b, type v = 0) {
+//        e.push_back(edge(a,b,v));
+        mp[a].push_back(b);
+        mp[b].push_back(a);
+    }
+
+    void dfs1(int x, int pre, int h) {
+        int i, to;
+        deep[x] = h;
+        fa[x] = pre;
+        sz[x] = 1;
+        for (i = 0; i < (int) (mp[x].size()); i++) {
+            to = mp[x][i];
+            if (to == pre) continue;
+            dfs1(to, x, h + 1);
+            sz[x] += sz[to];
+            if (son[x] == -1 || sz[to] > sz[son[x]]) son[x] = to;
+        }
+    }
+
+    void dfs2(int x, int tp) {
+        int i, to;
+        top[x] = tp;
+        idx[x] = ++tot;
+        rnk[idx[x]] = x;
+        if (son[x] == -1) return;
+        dfs2(son[x], tp);
+        for (i = 0; i < (int) (mp[x].size()); i++) {
+            to = mp[x][i];
+            if (to != son[x] && to != fa[x]) dfs2(to, to);
+        }
+    }
+
+    void work(int _rt = 1) {
+        memset(son, -1, sizeof son);
+        tot = 0;
+        dfs1(_rt, 0, 0);
+        dfs2(_rt, _rt);
+    }
+
+    int LCA(int x, int y) {
+        while (top[x] != top[y]) {
+            if (deep[top[x]] < deep[top[y]]) swap(x, y);
+            x = fa[top[x]];
+        }
+        if (deep[x] > deep[y]) swap(x, y);
+        return x;
+    }
+
+    void modify_node(int x, int y, type val) {
+        while (top[x] != top[y]) {
+            if (deep[top[x]] < deep[top[y]]) swap(x, y);
+            le = idx[top[x]], re = idx[x];
+            k = val;
+            update(1, 1, n);
+            x = fa[top[x]];
+        }
+        if (deep[x] > deep[y]) swap(x, y);
+        le = idx[x], re = idx[y];
+        k = val;
+        update(1, 1, n);
+    }
+
+    type query_node(int x, int y) {
+        type res = 0;
+        while (top[x] != top[y]) {
+            if (deep[top[x]] < deep[top[y]]) swap(x, y);
+            le = idx[top[x]], re = idx[x];
+            res += query(1, 1, n);
+            x = fa[top[x]];
+        }
+        if (deep[x] > deep[y]) swap(x, y);
+        le = idx[x], re = idx[y];
+        res += query(1, 1, n);
+        return res;
+    }
+
+    //path
+//    void init_path()
+//    {
+//        v[idx[rt]]=0;
+//        for(int i=1;i<n;i++)
+//        {
+//            if(deep[e[i].a]<deep[e[i].b]) swap(e[i].a,e[i].b);
+//            a[idx[e[i].a]]=e[i].v;
+//        }
+//        build(n);
+//    }
+    void modify_edge(int id, type val) {
+        if (deep[e[id].a] > deep[e[id].b]) {
+            le = idx[e[id].a], re = idx[e[id].a];
+            k = val;
+            update(1, 1, n);
+        } else {
+            le = idx[e[id].b], re = idx[e[id].b];
+            k = val;
+            update(1, 1, n);
+        }
+    }
+
+    void modify_path(int x, int y, type val) {
+        while (top[x] != top[y]) {
+            if (deep[top[x]] < deep[top[y]]) swap(x, y);
+            le = idx[top[x]], re = idx[x];
+            k = val;
+            update(1, 1, n);
+            x = fa[top[x]];
+        }
+        if (deep[x] > deep[y]) swap(x, y);
+        if (x != y) {
+            le = idx[x] + 1, re = idx[y];
+            k = val;
+            update(1, 1, n);
+        }
+    }
+
+    type query_path(int x, int y) {
+        type res = 0;
+        while (top[x] != top[y]) {
+            if (deep[top[x]] < deep[top[y]]) swap(x, y);
+            le = idx[top[x]], re = idx[x];
+            res += query(1, 1, n);
+            x = fa[top[x]];
+        }
+        if (deep[x] > deep[y]) swap(x, y);
+        if (x != y) {
+            le = idx[x] + 1, re = idx[y];
+            res += query(1, 1, n);
+        }
+        return res;
+    }
+
+#undef type
+} hld;
+\end{lstlisting}
+\subsection{dijkstra}
+\begin{lstlisting}
+const int maxn=1e5+10;
+const int inf=2147483647;
+
+int head[maxn], dis[maxn], cnt, n;
+
+struct Edge { int nex,to,w; }edge[20*maxn];
+
+void add(int u,int v,int w)
+{
+    edge[++cnt].nex=head[u];
+    edge[cnt].w=w;
+    edge[cnt].to=v;
+    head[u]=cnt;
+}
+
+void dijkstra(int s)
+{
+    priority_queue<pair<int, int> vector<pair<int, int> >, greater<pair<int, int> > > que;
+    memset(dis, 0x3f, sizeof dis);
+    que.push({0, s}); dis[s] = 0;
+    while(!que.empty())
+    {
+        aoto f = que.top(); que.pop();
+        int u = f.second, d = f.first;
+        if(d != dis[u]) continue;
+        for(int i = head[u]; ~i; i = edge[i].nex)
+        {
+            int v = edge[i].to, w = edge[i].w;
+            if(dis[u] + w < dis[v])
+            {
+                dis[v] = dis[u] + w;
+                que.push({dis[v], v});
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\end{document}
