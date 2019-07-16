@@ -1,5 +1,6 @@
 site_name: My Docs
-repo_name: https://blog.verly-badcw.top
+repo_name: https://github.com/WUST-mengqinyu/blog
+site_url: https://blog.verly-badcw.top
 theme: yeti
 
 extra_javascript:
