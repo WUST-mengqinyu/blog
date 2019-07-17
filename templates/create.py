@@ -115,7 +115,10 @@ def Search(level, pwd, folder=''):
         item.replace(' ', '\\ ')
         if '.cpp' in item:
             if not item[:2] == '00':
-                TargetFile.write(SECTION[level + 1] % item[3:-4])
+                try:
+                    TargetFile.write(SECTION[level + 1] % item[3:-4])
+                except:
+                    print(item)
             ReadCpp(pwd + item)
         elif '.tex' in item:
             if not item[:2] == '00':
