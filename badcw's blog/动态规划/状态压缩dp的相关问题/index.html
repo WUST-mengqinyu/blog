@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://blog.verly-badcw.top/badcw's blog/状态压缩dp的相关问题/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <link rel="canonical" href="https://blog.verly-badcw.top/badcw's blog/动态规划/状态压缩dp的相关问题/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
         <title>状态压缩dp的相关问题 - My Docs</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../..">My Docs</a>
+                    <a class="navbar-brand" href="../../..">My Docs</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -47,15 +47,25 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="../..">wiki</a>
+                                <a href="../../..">wiki</a>
                             </li>
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Badcw's blog <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
+  <li class="dropdown-submenu">
+    <a href="#">动态规划</a>
+    <ul class="dropdown-menu">
+            
 <li class="active">
     <a href="./">状态压缩dp的相关问题</a>
 </li>
+            
+<li >
+    <a href="../矩阵快速幂dp/">矩阵快速幂</a>
+</li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                         </ul>
@@ -67,12 +77,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../..">
+                                <a rel="next" href="../../..">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li class="disabled">
-                                <a rel="prev" >
+                            <li >
+                                <a rel="prev" href="../矩阵快速幂dp/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -389,6 +399,12 @@ int main() {
 <p>
 <script type="math/tex"> dp[i + 1][j + 1][stat>>1|(1<<m-1)] += dp[i][j][stat] * (bitcount(stat) + 1) </script> 表示取最后一个，方案与前m个位置情况相关</p>
 </li>
+<li>
+<p>此题large版本的n范围扩大到了1e9，就涉及到一个不怎么常见的操作：轮廓线+矩阵快速幂，一般来讲轮廓线的第一维是可以用滚动数组代替的，因为往往确定了枚举顺序之后每一位其实就只与前一位有关，所以出成矩阵快速幂也是可以理解的，但是这个题目很怪异的是就算不算第一维，它还有一维取的数量和一个mask，那么这样一来矩阵快速幂需要维护的是一个矩阵本身，也就是三维矩阵快速幂，众所周知矩阵到二维递推基本无解，复杂度能上天，但是本题的m限制在了4以内而且k在12以内。将这个二维矩阵按mapindex缩成一维之后矩阵大小也只有<script type="math/tex">12*(1<<4)</script>，总体复杂度就是<script type="math/tex">O(logn*(k*(1<<m))^3)</script>，还是在可接受范围之内</p>
+</li>
+<li>
+<p>此题large版本的递推矩阵确实不太好计算，具体方式见<a href="../矩阵快速幂dp/#2">矩阵快速幂</a></p>
+</li>
 </ul>
 <h2 id="6dp">6、分辨状压dp和费用流</h2>
 <p>众所周知费用流和状压dp都是用来解决小范围数据的np问题的。那么当拿到一个题看的数据范围20甚至10以内怎样分辨也是一个问题。</p>
@@ -402,12 +418,12 @@ int main() {
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "../..",
+            var base_url = "../../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="../../js/base.js" defer></script>
+        <script src="../../../js/base.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-        <script src="../../search/main.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
