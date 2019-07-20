@@ -14,7 +14,7 @@ void dfs(int u, int pre)
 int LCA(int u, int v)
 {
 	if(dep[u] < dep[v]) swap(u, v);
-	int u = dep[u] - dep[v];
+	int d = dep[u] - dep[v];
 	for(int i = 0; (1 << i) <= d; i ++) 
 		if((1 << i) & d) u = fa[u][i];
 	if(u == v) return u;
