@@ -27,7 +27,7 @@ $$\begin{cases}
 
 \paragraph{单调队列滑动窗口最大值}
 \begin{lstlisting}
-// k为滑动窗口的大小
+// k为滑动窗口的大小，数列下标从1开始，d为序列长度+1
 deque<int> q;
 for (int i = 0, j = 0; i + k <= d; i++)
 {
