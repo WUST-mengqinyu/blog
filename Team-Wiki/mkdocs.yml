@@ -1,0 +1,9 @@
+site_name: My Docs
+repo_name: https://github.com/WUST-mengqinyu/blog
+site_url: https://blog.verly-badcw.top
+theme: yeti
+
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+markdown_extensions:
+    - mdx_math
