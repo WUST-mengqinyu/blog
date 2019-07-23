@@ -1,5 +1,7 @@
 
-# General
+# Team Wiki
+
+## General
 
 **Name**：就这么喜欢写代码吗？你这个小秃头(2019)
 
@@ -7,7 +9,7 @@
 
 **DashBoard**: [Team DashBoard](http://www.weaselcrow.com/pro/cf/team/?h=badcw;Verly)
 
-# Personal Page
+## Personal Pages
 
 
 
@@ -16,7 +18,7 @@
 
 
 
-# Training Logs
+## Training Logs
 
 | Name                                                         | Date      | Solved | A    | B    | C    | D    | E    | F    | G    | H    | I    | J    | K    | L    | M    |
 | ------------------------------------------------------------ | --------- | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
