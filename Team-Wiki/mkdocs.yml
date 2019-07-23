@@ -1,6 +1,6 @@
-site_name: My Docs
-repo_name: https://github.com/WUST-mengqinyu/blog
-site_url: https://blog.verly-badcw.top
+site_name: Team Wiki
+repo_name: https://github.com/WUST-mengqinyu/Team-Wiki
+site_url: https://wiki.verly-badcw.top
 theme: yeti
 
 extra_javascript:
