@@ -1,29 +1,22 @@
-# Team Wiki
 
-## General
+# General
 
-### Name
+**Name**：就这么喜欢写代码吗？你这个小秃头(2019)
 
-就这么喜欢写代码吗？你这个小秃头(2019)
+**Members**:[badcw](https://codeforces.com/profile/badcw),[Verly](https://codeforces.com/profile/Verly) ,[MesutZ](https://codeforces.com/profile/MesutZ)
 
-###Members
+**DashBoard**: [Team DashBoard](http://www.weaselcrow.com/pro/cf/team/?h=badcw;Verly)
 
-| ID                                              | Personal Page |
-| ----------------------------------------------- | ------------- |
-| [badcw](https://codeforces.com/profile/badcw)   |               |
-| [Verly](https://codeforces.com/profile/Verly)   |               |
-| [MesutZ](https://codeforces.com/profile/MesutZ) |               |
-
-### DashBoard
-[Team DashBoard](http://www.weaselcrow.com/pro/cf/team/?h=badcw;Verly)
-
-## Todo List
-
-### Personal
+# Personal Page
 
 
 
-## Training Logs
+
+
+
+
+
+# Training Logs
 
 | Name                                                         | Date      | Solved | A    | B    | C    | D    | E    | F    | G    | H    | I    | J    | K    | L    | M    |
 | ------------------------------------------------------------ | --------- | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
