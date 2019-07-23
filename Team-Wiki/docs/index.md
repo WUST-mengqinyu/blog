@@ -1,4 +1,27 @@
-# Team-Wiki
+# Team Wiki
+
+## General
+
+### Name
+
+就这么喜欢写代码吗？你这个小秃头(2019)
+
+###Members
+
+| ID                                              | Personal Page |
+| ----------------------------------------------- | ------------- |
+| [badcw](https://codeforces.com/profile/badcw)   |               |
+| [Verly](https://codeforces.com/profile/Verly)   |               |
+| [MesutZ](https://codeforces.com/profile/MesutZ) |               |
+
+### DashBoard
+[Team DashBoard](http://www.weaselcrow.com/pro/cf/team/?h=badcw;Verly)
+
+## Todo List
+
+### Personal
+
+
 
 ## Training Logs
 
