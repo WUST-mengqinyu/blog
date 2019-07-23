@@ -1,29 +1,51 @@
-const int mod = 1e9 + 7;
-typedef long long ll;
+struct Matrix {
+    int sz;
+    // int n, m;
+    ll a[maxn][maxn];
+    Matrix(int sz_ = 0):sz(sz_) {
+        memset(a, 0, sizeof a);
+    }
+    void pr() {
+        printf("*\n");
+        for(int i = 0; i < sz; ++i) {
+            for (int j = 0; j < sz; ++j) {
+                printf("%lld ", a[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    void tr() {
+        for (int i = 0; i < sz; ++i) {
+            for (int j = i + 1; j < sz; ++j) {
+                swap(a[i][j], a[j][i]);
+            }
+        }
+    }
+}res, t1;
 
-int cur;
-struct Matrix {ll a[105][105]; };
+void init() {
+    ;
+}
 
 Matrix mul(Matrix a, Matrix b)
 {
     Matrix res;
-    memset(res.a, 0, sizeof res.a);
-    for(int i = 0; i < cur; i++)
-        for(int j = 0; j < cur; j++)
-            for(int k = 0; k < cur; k++)
+    // if (a.m != b.n) return res;
+    for(int i = 0; i < res.sz; i++) // a.n
+        for(int j = 0; j < res.sz; j++) // b.m
+            for(int k = 0; k < res.sz; k++) // a.m, b.n
                 (res.a[i][j] +=a.a[i][k] * b.a[k][j] % mod) %= mod;
     return res;
 }
 
-Matrix pow(Matrix a, ll n)
+Matrix pow(ll n)
 {
-    Matrix ans, base = a;
-    for(int i = 0; i < cur; i++) ans.a[i][i] = 1;
-    while(n)
-    {
-        if(n & 1) ans = mul(ans, base);
-        base = mul(base, base);
+    init();
+    //for(int i = 0; i < cur; i++) res.a[i][i] = 1;
+    while(n > 0) {
+        if(n & 1) res = mul(res, t1);
+        t1 = mul(t1, t1);
         n >>= 1;
     }
-    return ans;
+    return res;
 }
