@@ -29,7 +29,7 @@ void init() {
 
 Matrix mul(Matrix a, Matrix b)
 {
-    Matrix res;
+    Matrix res(a.sz);
     // if (a.m != b.n) return res;
     for(int i = 0; i < res.sz; i++) // a.n
         for(int j = 0; j < res.sz; j++) // b.m
