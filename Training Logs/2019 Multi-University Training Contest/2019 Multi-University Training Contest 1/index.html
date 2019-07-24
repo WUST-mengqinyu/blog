@@ -150,10 +150,12 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#2019-multi-university-training-contest-1">2019 Multi-University Training Contest 1</a></li>
+            <li><a href="#a-blank">A. Blank</a></li>
             <li><a href="#b-operation">B. Operation</a></li>
             <li><a href="#d-vacation">D. Vacation</a></li>
             <li><a href="#e-path">E. Path</a></li>
             <li><a href="#i-string">I. String</a></li>
+            <li><a href="#m-code">M. Code</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -199,6 +201,145 @@
 </tr>
 </tbody>
 </table>
+<h2 id="a-blank">A. <a href="https://cn.vjudge.net/contest/313418#problem/A">Blank</a></h2>
+<p>用0123构造一个序列，有m个条件，每个条件描述的是<code>l</code>到<code>r</code>内恰好有<code>k</code>种数，求方案数。</p>
+<p><code>dp[i][j][k][t]</code>表示设0123分别出现的最后位置为<code>i_,j_,k_,t_</code>，那么将这四个位置从大到小排序后得到<code>i,j,k,t</code>，所表示的合法方案数。由于每个地方都要填数，其实<code>i</code>必然是当前位置，所以可以滚动数组枚举一维<code>i</code>，然后递推式很轻易的推出来，如下：
+<script type="math/tex; mode=display">
+\begin{cases}
+dp[i -1][j][k][t] \to dp[i][j][k][t]\\
+dp[i -1][j][k][t] \to dp[i][i-1][j][k]\\
+dp[i -1][j][k][t] \to dp[i][i-1][j][t]\\
+dp[i -1][j][k][t] \to dp[i][i-1][k][t]\\
+\end{cases}
+</script>
+注意要去掉所有不合法的情况，对每个r记录所有的<code>(l,k)</code>，然后枚举i到r时，如果
+<script type="math/tex; mode=display">
+1(当前位必有一种数)+(j\ge l) + (k \ge l) + (t \ge l) \neq k
+</script>
+就把该状态改为0。</p>
+<p>然后就注意一下多组清零的细节。</p>
+<pre><code class="cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   文件名称：A.cpp
+*   创 建 者： badcw
+*   创建日期： 19-7-23
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
+using namespace std;
+
+const int maxn = 105;
+const int mod = 998244353;
+ll qp(ll a, ll n) {
+    ll res = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1) res = res * a % mod;
+        a = a * a % mod;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}
+
+template &lt;class T&gt;
+inline bool scan(T&amp; ret) {
+    char c;
+    int sgn;
+    if (c = getchar(), c == EOF) return 0; // EOF
+    while (c != '-' &amp;&amp; (c &lt; '0' || c &gt; '9')) c = getchar();
+    sgn = (c == '-') ? -1 : 1;
+    ret = (c == '-') ? 0 : (c - '0');
+    while (c = getchar(), c &gt;= '0' &amp;&amp; c &lt;= '9') ret = ret * 10 + (c - '0');
+    ret *= sgn;
+    return 1;
+}
+
+//template &lt;class T&gt;
+//inline void out(T x) {
+//    if (x &gt; 9) out(x / 10);
+//    putchar(x % 10 + '0');
+//}
+
+struct mint {
+  int n;
+  mint(int n_ = 0) : n(n_) {}
+};
+
+mint operator+(mint a, mint b) { return (a.n += b.n) &gt;= mod ? a.n - mod : a.n; }
+mint operator-(mint a, mint b) { return (a.n -= b.n) &lt; 0 ? a.n + mod : a.n; }
+mint operator*(mint a, mint b) { return 1LL * a.n * b.n % mod; }
+mint &amp;operator+=(mint &amp;a, mint b) { return a = a + b; }
+mint &amp;operator-=(mint &amp;a, mint b) { return a = a - b; }
+mint &amp;operator*=(mint &amp;a, mint b) { return a = a * b; }
+ostream &amp;operator&lt;&lt;(ostream &amp;o, mint a) { return o &lt;&lt; a.n; }
+
+ll mul2(ll x,ll y,ll p)
+{
+    ll res=(x*y-(ll)((long double)x/p*y+1.0e-8)*p);
+    return res&lt;0?res+p:res;
+}
+
+mint dp[2][maxn][maxn][maxn];
+int n, m;
+vector&lt;pair&lt;int, int&gt; &gt; lim[maxn];
+
+int main(int argc, char* argv[]) {
+//    freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);
+//    freopen(&quot;my.out&quot;, &quot;w&quot;, stdout);
+    int T;
+    scanf(&quot;%d&quot;, &amp;T);
+    for (int kase = 1; kase &lt;= T; ++kase) {
+        scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+        for (int i = 1; i &lt;= n; ++i) lim[i].clear();
+        for (int i = 1, u, v, w; i &lt;= m; ++i) {
+            scanf(&quot;%d%d%d&quot;, &amp;u, &amp;v, &amp;w);
+            lim[v].emplace_back(u, w);
+        }
+        int now = 0;
+        mint res = 0;
+        dp[1][0][0][0] = 1;
+        for (int i = 1; i &lt;= n; ++i) {
+            for (int j = 0; j &lt;= i; ++j) {
+                for (int k = 0; k &lt;= j; ++k) {
+                    for (int t = 0; t &lt;= k; ++t) {
+                        dp[now][j][k][t] = 0;
+                    }
+                }
+            }
+            for (int j = 0; j &lt; i; ++j) {
+                for (int k = 0; k &lt;= j; ++k) {
+                    for (int t = 0; t &lt;= k; ++t) {
+                        dp[now][j][k][t] += dp[!now][j][k][t];
+                        dp[now][i - 1][j][k] += dp[!now][j][k][t];
+                        dp[now][i - 1][k][t] += dp[!now][j][k][t];
+                        dp[now][i - 1][j][t] += dp[!now][j][k][t];
+                    }
+                }
+            }
+            for (int j = 0; j &lt; i; ++j) {
+                for (int k = 0; k &lt;= j; ++k) {
+                    for (int t = 0; t &lt;= k; ++t) {
+                        for (auto x : lim[i]) {
+                            if (1 + (j &gt;= x.first) + (k &gt;= x.first) + (t &gt;= x.first) != x.second) {
+                                dp[now][j][k][t] = 0;
+                            }
+                        }
+                        if (i == n) {
+                            res += dp[now][j][k][t];
+                        }
+                    }
+                }
+            }
+            now = !now;
+        }
+        printf(&quot;%d\n&quot;, res.n);
+    }
+    return 0;
+}
+</code></pre>
+
 <h2 id="b-operation">B. Operation</h2>
 <p>对每个点维护一个线性基，插入操作为继承上一个点的线性基并插入当前点的值。</p>
 <p>维护每个基底组成的点g[i]，在未知L的情况下使查询LR尽可能大，考虑贪心，使组成线性基的点尽可能靠近当前点。</p>
@@ -543,6 +684,117 @@ int main()
         s1[m] = 0;
         if(now &lt; m) printf(&quot;-1\n&quot;);
         else printf(&quot;%s\n&quot;, s1);
+    }
+    return 0;
+}
+</code></pre>
+
+<h2 id="m-code">M. <a href="https://cn.vjudge.net/problem/HDU-6590">Code</a></h2>
+<p>题意：给n个点，求感知机是否有解（即能否二分类，用一条直线将两种点分开）</p>
+<p>题解：分别求两类的凸包，判是否凸包相交，方法是枚举凸包内的每个点看是否在另个凸包内，如果存在这样的点两凸包就相交。</p>
+<p>代码：</p>
+<pre><code class="cpp">#include&lt;bits/stdc++.h&gt;
+#pragma GCC optimize(&quot;Ofast&quot;)
+#pragma GCC optimize (&quot;unroll-loops&quot;)
+#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
+#pragma comment(linker, &quot;/STACK:102400000,102400000&quot;)
+
+using namespace std;
+const int maxn = 1e6 + 5;
+#define mp make_pair
+#define fi first
+#define se second
+#define pb push_back
+typedef double db;
+const db eps=1e-6;
+const db pi=acos(-1);
+int sign(db k){
+    if (k&gt;eps) return 1; else if (k&lt;-eps) return -1; return 0;
+}
+int cmp(db k1,db k2){return sign(k1-k2);}
+int inmid(db k1,db k2,db k3){return sign(k1-k3)*sign(k2-k3)&lt;=0;}// k3 在 [k1,k2] 内
+
+struct point{
+    db x,y;
+    point operator + (const point &amp;k1) const{return (point){k1.x+x,k1.y+y};}
+    point operator - (const point &amp;k1) const{return (point){x-k1.x,y-k1.y};}
+    point operator * (db k1) const{return (point){x*k1,y*k1};}
+    point operator / (db k1) const{return (point){x/k1,y/k1};}
+    int operator == (const point &amp;k1) const{return cmp(x,k1.x)==0&amp;&amp;cmp(y,k1.y)==0;}
+    // 逆时针旋转
+    point turn(db k1){return (point){x*cos(k1)-y*sin(k1),x*sin(k1)+y*cos(k1)};}
+    point turn90(){return (point){-y,x};}
+    bool operator &lt; (const point k1) const{
+        int a=cmp(x,k1.x);
+        if (a==-1) return 1; else if (a==1) return 0; else return cmp(y,k1.y)==-1;
+    }
+    db abs(){return sqrt(x*x+y*y);}
+    db abs2(){return x*x+y*y;}
+    db dis(point k1){return ((*this)-k1).abs();}
+    point unit(){db w=abs(); return (point){x/w,y/w};}
+    void scan(){double k1,k2; scanf(&quot;%lf%lf&quot;,&amp;k1,&amp;k2); x=k1; y=k2;}
+    void print(){printf(&quot;%.11lf %.11lf\n&quot;,x,y);}
+    db getw(){return atan2(y,x);}
+    point getdel(){if (sign(x)==-1||(sign(x)==0&amp;&amp;sign(y)==-1)) return (*this)*(-1); else return (*this);}
+    int getP() const{return sign(y)==1||(sign(y)==0&amp;&amp;sign(x)==-1);}
+};
+int inmid(point k1,point k2,point k3){return inmid(k1.x,k2.x,k3.x)&amp;&amp;inmid(k1.y,k2.y,k3.y);}
+db cross(point k1,point k2){return k1.x*k2.y-k1.y*k2.x;}
+int onS(point k1,point k2,point q){return inmid(k1,k2,q)&amp;&amp;sign(cross(k1-q,k2-k1))==0;}
+vector&lt;point&gt; ConvexHull(vector&lt;point&gt;A,int flag=1){ // flag=0 不严格 flag=1 严格
+    int n=A.size(); vector&lt;point&gt;ans(n*2);
+    sort(A.begin(),A.end()); int now=-1;
+    for (int i=0;i&lt;A.size();i++){
+        while (now&gt;0&amp;&amp;sign(cross(ans[now]-ans[now-1],A[i]-ans[now-1]))&lt;flag) now--;
+        ans[++now]=A[i];
+    } int pre=now;
+    for (int i=n-2;i&gt;=0;i--){
+        while (now&gt;pre&amp;&amp;sign(cross(ans[now]-ans[now-1],A[i]-ans[now-1]))&lt;flag) now--;
+        ans[++now]=A[i];
+    } ans.resize(now); return ans;
+}
+//快速判断点是否在凸包内
+int contain(vector&lt;point&gt;A,point q){ // 2 内部 1 边界 0 外部
+    int pd=0; A.push_back(A[0]);
+    for (int i=1;i&lt;A.size();i++){
+        point u=A[i-1],v=A[i];
+        if (onS(u,v,q)) return 1; if (cmp(u.y,v.y)&gt;0) swap(u,v);
+        if (cmp(u.y,q.y)&gt;=0||cmp(v.y,q.y)&lt;0) continue;
+        if (sign(cross(u-v,q-v))&lt;0) pd^=1;
+    }
+    return pd&lt;&lt;1;
+}
+int main()
+{
+    int n, T;
+    scanf(&quot;%d&quot;, &amp;T);
+    while (T--) {
+        scanf(&quot;%d&quot;, &amp;n);
+        int op;
+        vector&lt;point&gt; t1, t2;
+        point x;
+        for (int i = 0; i &lt; n; i++) {
+            scanf(&quot;%lf%lf&quot;, &amp;x.x, &amp;x.y);
+            scanf(&quot;%d&quot;, &amp;op);
+            if (op == 1) t1.push_back(x);
+            else t2.push_back(x);
+        }
+        t1 = ConvexHull(t1);
+        t2 = ConvexHull(t2);
+        int flag = 1;
+        for (auto i : t1) {
+            if (contain(t2, i)) {
+                flag = 0;
+                break;
+            }
+        }
+        for (auto j : t2) {
+            if (contain(t1, j)) {
+                flag = 0;
+                break;
+            }
+        }
+        printf(&quot;%s\n&quot;, flag ? &quot;Successful!&quot; : &quot;Infinite loop!&quot;);
     }
     return 0;
 }
