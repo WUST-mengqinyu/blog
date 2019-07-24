@@ -5,6 +5,154 @@
 | --------- | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 2019/7/22 | 6/13   | Ø    | O    | .    | Ø    | O    | .    | .    | .    | Ø    | .    | .    | .    | Ø    |
 
+## A. [Blank](https://cn.vjudge.net/contest/313418#problem/A)
+
+用0123构造一个序列，有m个条件，每个条件描述的是`l`到`r`内恰好有`k`种数，求方案数。
+
+`dp[i][j][k][t]`表示设0123分别出现的最后位置为`i_,j_,k_,t_`，那么将这四个位置从大到小排序后得到`i,j,k,t`，所表示的合法方案数。由于每个地方都要填数，其实`i`必然是当前位置，所以可以滚动数组枚举一维`i`，然后递推式很轻易的推出来，如下：
+$$
+\begin{cases}
+dp[i -1][j][k][t] \to dp[i][j][k][t]\\
+dp[i -1][j][k][t] \to dp[i][i-1][j][k]\\
+dp[i -1][j][k][t] \to dp[i][i-1][j][t]\\
+dp[i -1][j][k][t] \to dp[i][i-1][k][t]\\
+\end{cases}
+$$
+注意要去掉所有不合法的情况，对每个r记录所有的`(l,k)`，然后枚举i到r时，如果
+$$
+1(当前位必有一种数)+(j\ge l) + (k \ge l) + (t \ge l) \neq k
+$$
+就把该状态改为0。
+
+然后就注意一下多组清零的细节。
+
+```cpp
+/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   文件名称：A.cpp
+*   创 建 者： badcw
+*   创建日期： 19-7-23
+*
+================================================================*/
+#include <bits/stdc++.h>
+
+#define ll long long
+using namespace std;
+
+const int maxn = 105;
+const int mod = 998244353;
+ll qp(ll a, ll n) {
+    ll res = 1;
+    while (n > 0) {
+        if (n & 1) res = res * a % mod;
+        a = a * a % mod;
+        n >>= 1;
+    }
+    return res;
+}
+
+template <class T>
+inline bool scan(T& ret) {
+    char c;
+    int sgn;
+    if (c = getchar(), c == EOF) return 0; // EOF
+    while (c != '-' && (c < '0' || c > '9')) c = getchar();
+    sgn = (c == '-') ? -1 : 1;
+    ret = (c == '-') ? 0 : (c - '0');
+    while (c = getchar(), c >= '0' && c <= '9') ret = ret * 10 + (c - '0');
+    ret *= sgn;
+    return 1;
+}
+
+//template <class T>
+//inline void out(T x) {
+//    if (x > 9) out(x / 10);
+//    putchar(x % 10 + '0');
+//}
+
+struct mint {
+  int n;
+  mint(int n_ = 0) : n(n_) {}
+};
+
+mint operator+(mint a, mint b) { return (a.n += b.n) >= mod ? a.n - mod : a.n; }
+mint operator-(mint a, mint b) { return (a.n -= b.n) < 0 ? a.n + mod : a.n; }
+mint operator*(mint a, mint b) { return 1LL * a.n * b.n % mod; }
+mint &operator+=(mint &a, mint b) { return a = a + b; }
+mint &operator-=(mint &a, mint b) { return a = a - b; }
+mint &operator*=(mint &a, mint b) { return a = a * b; }
+ostream &operator<<(ostream &o, mint a) { return o << a.n; }
+
+ll mul2(ll x,ll y,ll p)
+{
+	ll res=(x*y-(ll)((long double)x/p*y+1.0e-8)*p);
+	return res<0?res+p:res;
+}
+
+mint dp[2][maxn][maxn][maxn];
+int n, m;
+vector<pair<int, int> > lim[maxn];
+
+int main(int argc, char* argv[]) {
+//    freopen("data.in", "r", stdin);
+//    freopen("my.out", "w", stdout);
+    int T;
+    scanf("%d", &T);
+    for (int kase = 1; kase <= T; ++kase) {
+        scanf("%d%d", &n, &m);
+        for (int i = 1; i <= n; ++i) lim[i].clear();
+        for (int i = 1, u, v, w; i <= m; ++i) {
+            scanf("%d%d%d", &u, &v, &w);
+            lim[v].emplace_back(u, w);
+        }
+        int now = 0;
+        mint res = 0;
+        dp[1][0][0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                for (int k = 0; k <= j; ++k) {
+                    for (int t = 0; t <= k; ++t) {
+                        dp[now][j][k][t] = 0;
+                    }
+                }
+            }
+            for (int j = 0; j < i; ++j) {
+                for (int k = 0; k <= j; ++k) {
+                    for (int t = 0; t <= k; ++t) {
+                        dp[now][j][k][t] += dp[!now][j][k][t];
+                        dp[now][i - 1][j][k] += dp[!now][j][k][t];
+                        dp[now][i - 1][k][t] += dp[!now][j][k][t];
+                        dp[now][i - 1][j][t] += dp[!now][j][k][t];
+                    }
+                }
+            }
+            for (int j = 0; j < i; ++j) {
+                for (int k = 0; k <= j; ++k) {
+                    for (int t = 0; t <= k; ++t) {
+                        for (auto x : lim[i]) {
+                            if (1 + (j >= x.first) + (k >= x.first) + (t >= x.first) != x.second) {
+                                dp[now][j][k][t] = 0;
+                            }
+                        }
+                        if (i == n) {
+                            res += dp[now][j][k][t];
+                        }
+                    }
+                }
+            }
+            now = !now;
+        }
+        printf("%d\n", res.n);
+    }
+    return 0;
+}
+```
+
+
+
+
+
 ## B. Operation
 
 对每个点维护一个线性基，插入操作为继承上一个点的线性基并插入当前点的值。
@@ -370,6 +518,124 @@ int main()
         s1[m] = 0;
         if(now < m) printf("-1\n");
         else printf("%s\n", s1);
+    }
+    return 0;
+}
+```
+
+
+
+## M. [Code](https://cn.vjudge.net/problem/HDU-6590)
+
+题意：给n个点，求感知机是否有解（即能否二分类，用一条直线将两种点分开）
+
+题解：分别求两类的凸包，判是否凸包相交，方法是枚举凸包内的每个点看是否在另个凸包内，如果存在这样的点两凸包就相交。
+
+代码：
+
+```cpp
+#include<bits/stdc++.h>
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize ("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#pragma comment(linker, "/STACK:102400000,102400000")
+
+using namespace std;
+const int maxn = 1e6 + 5;
+#define mp make_pair
+#define fi first
+#define se second
+#define pb push_back
+typedef double db;
+const db eps=1e-6;
+const db pi=acos(-1);
+int sign(db k){
+    if (k>eps) return 1; else if (k<-eps) return -1; return 0;
+}
+int cmp(db k1,db k2){return sign(k1-k2);}
+int inmid(db k1,db k2,db k3){return sign(k1-k3)*sign(k2-k3)<=0;}// k3 在 [k1,k2] 内
+
+struct point{
+    db x,y;
+    point operator + (const point &k1) const{return (point){k1.x+x,k1.y+y};}
+    point operator - (const point &k1) const{return (point){x-k1.x,y-k1.y};}
+    point operator * (db k1) const{return (point){x*k1,y*k1};}
+    point operator / (db k1) const{return (point){x/k1,y/k1};}
+    int operator == (const point &k1) const{return cmp(x,k1.x)==0&&cmp(y,k1.y)==0;}
+    // 逆时针旋转
+    point turn(db k1){return (point){x*cos(k1)-y*sin(k1),x*sin(k1)+y*cos(k1)};}
+    point turn90(){return (point){-y,x};}
+    bool operator < (const point k1) const{
+        int a=cmp(x,k1.x);
+        if (a==-1) return 1; else if (a==1) return 0; else return cmp(y,k1.y)==-1;
+    }
+    db abs(){return sqrt(x*x+y*y);}
+    db abs2(){return x*x+y*y;}
+    db dis(point k1){return ((*this)-k1).abs();}
+    point unit(){db w=abs(); return (point){x/w,y/w};}
+    void scan(){double k1,k2; scanf("%lf%lf",&k1,&k2); x=k1; y=k2;}
+    void print(){printf("%.11lf %.11lf\n",x,y);}
+    db getw(){return atan2(y,x);}
+    point getdel(){if (sign(x)==-1||(sign(x)==0&&sign(y)==-1)) return (*this)*(-1); else return (*this);}
+    int getP() const{return sign(y)==1||(sign(y)==0&&sign(x)==-1);}
+};
+int inmid(point k1,point k2,point k3){return inmid(k1.x,k2.x,k3.x)&&inmid(k1.y,k2.y,k3.y);}
+db cross(point k1,point k2){return k1.x*k2.y-k1.y*k2.x;}
+int onS(point k1,point k2,point q){return inmid(k1,k2,q)&&sign(cross(k1-q,k2-k1))==0;}
+vector<point> ConvexHull(vector<point>A,int flag=1){ // flag=0 不严格 flag=1 严格
+    int n=A.size(); vector<point>ans(n*2);
+    sort(A.begin(),A.end()); int now=-1;
+    for (int i=0;i<A.size();i++){
+        while (now>0&&sign(cross(ans[now]-ans[now-1],A[i]-ans[now-1]))<flag) now--;
+        ans[++now]=A[i];
+    } int pre=now;
+    for (int i=n-2;i>=0;i--){
+        while (now>pre&&sign(cross(ans[now]-ans[now-1],A[i]-ans[now-1]))<flag) now--;
+        ans[++now]=A[i];
+    } ans.resize(now); return ans;
+}
+//快速判断点是否在凸包内
+int contain(vector<point>A,point q){ // 2 内部 1 边界 0 外部
+    int pd=0; A.push_back(A[0]);
+    for (int i=1;i<A.size();i++){
+        point u=A[i-1],v=A[i];
+        if (onS(u,v,q)) return 1; if (cmp(u.y,v.y)>0) swap(u,v);
+        if (cmp(u.y,q.y)>=0||cmp(v.y,q.y)<0) continue;
+        if (sign(cross(u-v,q-v))<0) pd^=1;
+    }
+    return pd<<1;
+}
+int main()
+{
+    int n, T;
+    scanf("%d", &T);
+    while (T--) {
+        scanf("%d", &n);
+        int op;
+        vector<point> t1, t2;
+        point x;
+        for (int i = 0; i < n; i++) {
+            scanf("%lf%lf", &x.x, &x.y);
+            scanf("%d", &op);
+            if (op == 1) t1.push_back(x);
+            else t2.push_back(x);
+        }
+        t1 = ConvexHull(t1);
+        t2 = ConvexHull(t2);
+        int flag = 1;
+        for (auto i : t1) {
+            if (contain(t2, i)) {
+                flag = 0;
+                break;
+            }
+        }
+        for (auto j : t2) {
+            if (contain(t1, j)) {
+                flag = 0;
+                break;
+            }
+        }
+        printf("%s\n", flag ? "Successful!" : "Infinite loop!");
     }
     return 0;
 }
