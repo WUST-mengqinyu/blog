@@ -154,6 +154,7 @@
             <li><a href="#b-operation">B. Operation</a></li>
             <li><a href="#d-vacation">D. Vacation</a></li>
             <li><a href="#e-path">E. Path</a></li>
+            <li><a href="#f-typewriter">F. Typewriter</a></li>
             <li><a href="#i-string">I. String</a></li>
             <li><a href="#m-code">M. Code</a></li>
     </ul>
@@ -617,9 +618,102 @@ signed main()
 }
 </code></pre>
 
+<h2 id="f-typewriter">F. Typewriter</h2>
+<p>令<code>dp[i]</code>表示打出前i个字符的花费。对于第一种操作，<code>dp[i]=dp[i-1]+p</code>，对于第二种操作，考虑有一个最小的<script type="math/tex">j</script>，使<script type="math/tex">s(j+1,i)</script>是<script type="math/tex">s(1,j)</script>的子串，此时花费为<code>dp[i]=dp[j]+q</code>，有状态转移方程<script type="math/tex; mode=display">dp[i]=min(dp[i-1]+p,dp[j]+q)</script>
+</p>
+<p>对第二种情况，考虑用后缀自动机维护串<script type="math/tex">s(1,j)</script>，当SAM内不存在<script type="math/tex">s(j+1,i)</script>时不断往后添加字符并使<code>j=j+1</code>，直到找到串<script type="math/tex">s(j+1,i)</script>，复杂度<script type="math/tex">O(n)</script>。</p>
+<h3 id="code_3">Code</h3>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int maxn = 2e5 + 10;
+char s[maxn];
+ll p, q, dp[maxn];
+
+struct SuffixAutomation
+{
+    int last, cnt;
+    int ch[maxn &lt;&lt; 1][26], fa[maxn &lt;&lt; 1], len[maxn &lt;&lt; 1];
+
+    void init()
+    {
+        last = cnt = 1;
+        memset(ch[1], 0, sizeof ch[1]);
+        fa[1] = len[1] = 0;
+    }
+
+    int inline newnode()
+    {
+        ++cnt;
+        memset(ch[cnt], 0, sizeof ch[cnt]);
+        fa[cnt] = len[cnt] = 0;
+        return cnt;
+    }
+
+    void ins(int c)
+    {
+        int p = last , np = newnode();
+        last = np, len[np] = len[p] + 1;
+        for(; p &amp;&amp; !ch[p][c]; p = fa[p]) ch[p][c] = np;
+        if(!p) fa[np] = 1;
+        else
+        {
+            int q = ch[p][c];
+            if(len[p] + 1 == len[q]) fa[np] = q;
+            else
+            {
+                int nq = newnode();
+                len[nq] = len[p] + 1;
+                memcpy(ch[nq], ch[q], sizeof ch[q]);
+                fa[nq] = fa[q], fa[q] = fa[np] = nq;
+                for(; ch[p][c] == q; p = fa[p]) ch[p][c] = nq;
+            }
+        }
+    }
+
+    ll solve()
+    {
+        int n = strlen(s);
+        init();
+        ins(s[0] - 'a');
+        dp[0] = p;
+        int pos = 1, j = 0;
+        for(int i = 1; i &lt; n; i ++)
+        {
+            dp[i] = dp[i - 1] + p;
+            for(;;)
+            {
+                while(pos != 1 &amp;&amp; len[fa[pos]] &gt;= i - j - 1) pos = fa[pos];
+                if(ch[pos][s[i] - 'a'])
+                {
+                    pos = ch[pos][s[i] - 'a'];
+                    break;
+                }
+                else ins(s[++ j] - 'a');
+            }
+            dp[i] = min(dp[i], dp[j] + q);
+        }
+        return dp[n - 1];
+    }
+}sam;
+
+
+int main()
+{
+    while(scanf(&quot;%s&quot;, s) != EOF)
+    {
+        scanf(&quot;%lld%lld&quot;, &amp;p, &amp;q);
+        printf(&quot;%lld\n&quot;, sam.solve());
+    }
+    return 0;
+}
+</code></pre>
+
 <h2 id="i-string">I. String</h2>
 <p>逐位构造答案，贪心地加入能够加入的字典序最小的字符（判断加入之后剩下的后缀中每种字符的数目是否满足条件）。</p>
-<h3 id="code_3">Code</h3>
+<h3 id="code_4">Code</h3>
 <pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
