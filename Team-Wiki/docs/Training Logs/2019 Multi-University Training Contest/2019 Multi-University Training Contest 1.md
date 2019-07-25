@@ -447,6 +447,103 @@ signed main()
 }
 ```
 
+## F. Typewriter
+
+令`dp[i]`表示打出前i个字符的花费。对于第一种操作，`dp[i]=dp[i-1]+p`，对于第二种操作，考虑有一个最小的\(j\)，使\(s(j+1,i)\)是\(s(1,j)\)的子串，此时花费为`dp[i]=dp[j]+q`，有状态转移方程$$dp[i]=min(dp[i-1]+p,dp[j]+q)$$
+
+对第二种情况，考虑用后缀自动机维护串\(s(1,j)\)，当SAM内不存在\(s(j+1,i)\)时不断往后添加字符并使`j=j+1`，直到找到串\(s(j+1,i)\)，复杂度\(O(n)\)。
+
+### Code
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+
+const int maxn = 2e5 + 10;
+char s[maxn];
+ll p, q, dp[maxn];
+
+struct SuffixAutomation
+{
+	int last, cnt;
+	int ch[maxn << 1][26], fa[maxn << 1], len[maxn << 1];
+
+	void init()
+	{
+	    last = cnt = 1;
+	    memset(ch[1], 0, sizeof ch[1]);
+	    fa[1] = len[1] = 0;
+    }
+
+    int inline newnode()
+    {
+        ++cnt;
+        memset(ch[cnt], 0, sizeof ch[cnt]);
+        fa[cnt] = len[cnt] = 0;
+        return cnt;
+    }
+
+	void ins(int c)
+	{
+		int p = last , np = newnode();
+		last = np, len[np] = len[p] + 1;
+		for(; p && !ch[p][c]; p = fa[p]) ch[p][c] = np;
+		if(!p) fa[np] = 1;
+		else
+		{
+			int q = ch[p][c];
+			if(len[p] + 1 == len[q]) fa[np] = q;
+			else
+			{
+				int nq = newnode();
+				len[nq] = len[p] + 1;
+				memcpy(ch[nq], ch[q], sizeof ch[q]);
+				fa[nq] = fa[q], fa[q] = fa[np] = nq;
+				for(; ch[p][c] == q; p = fa[p]) ch[p][c] = nq;
+			}
+		}
+	}
+
+	ll solve()
+	{
+	    int n = strlen(s);
+	    init();
+	    ins(s[0] - 'a');
+	    dp[0] = p;
+	    int pos = 1, j = 0;
+	    for(int i = 1; i < n; i ++)
+        {
+            dp[i] = dp[i - 1] + p;
+            for(;;)
+            {
+                while(pos != 1 && len[fa[pos]] >= i - j - 1) pos = fa[pos];
+                if(ch[pos][s[i] - 'a'])
+                {
+                    pos = ch[pos][s[i] - 'a'];
+                    break;
+                }
+                else ins(s[++ j] - 'a');
+            }
+            dp[i] = min(dp[i], dp[j] + q);
+        }
+        return dp[n - 1];
+	}
+}sam;
+
+
+int main()
+{
+    while(scanf("%s", s) != EOF)
+    {
+        scanf("%lld%lld", &p, &q);
+        printf("%lld\n", sam.solve());
+    }
+    return 0;
+}
+```
+
 ## I. String
 
 逐位构造答案，贪心地加入能够加入的字典序最小的字符（判断加入之后剩下的后缀中每种字符的数目是否满足条件）。
