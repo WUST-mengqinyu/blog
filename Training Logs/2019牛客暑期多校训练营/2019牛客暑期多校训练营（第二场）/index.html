@@ -107,7 +107,7 @@
 </li>
             
 <li >
-    <a href="../../2019 Multi-University Training Contest/2019 Multi-University Training Contest 2/">2019 Multi University Training Contest 2</a>
+    <a href="../../2019 Multi-University Training Contest/2019 Multi-University Training Contest 2/">2019 Multi-University Training Contest 2</a>
 </li>
     </ul>
   </li>
@@ -153,53 +153,22 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#aeddy-walker">A、Eddy Walker</a></li>
-        <li class="main "><a href="#beddy-walker-2">B、Eddy Walker 2</a></li>
-        <li class="main "><a href="#dkth-minimum-clique">D、Kth Minimum Clique</a></li>
-        <li class="main "><a href="#emaze">E、MAZE</a></li>
-        <li class="main "><a href="#fpartition-problem">F、Partition problem</a></li>
-        <li class="main "><a href="#hsecond-large-rectangle">H、Second Large Rectangle</a></li>
-        <li class="main "><a href="#jsubarray">J、Subarray</a></li>
+        <li class="main active"><a href="#2019">2019牛客暑期多校训练营（第二场）</a></li>
+            <li><a href="#aeddy-walker">A、Eddy Walker</a></li>
+            <li><a href="#beddy-walker-2">B、Eddy Walker 2</a></li>
+            <li><a href="#dkth-minimum-clique">D、Kth Minimum Clique</a></li>
+            <li><a href="#emaze">E、MAZE</a></li>
+            <li><a href="#fpartition-problem">F、Partition problem</a></li>
+            <li><a href="#hsecond-large-rectangle">H、Second Large Rectangle</a></li>
+            <li><a href="#jsubarray">J、Subarray</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Date</th>
-<th>Solved</th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>E</th>
-<th>F</th>
-<th>G</th>
-<th>H</th>
-<th>I</th>
-<th>J</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2019牛客暑期多校训练营（第二场）</td>
-<td>2019/7/20</td>
-<td>6/10</td>
-<td>Ø</td>
-<td>Ø</td>
-<td>.</td>
-<td>Ø</td>
-<td>Ø</td>
-<td>Ø</td>
-<td>.</td>
-<td>O</td>
-<td>.</td>
-<td>Ø</td>
-</tr>
-</tbody>
-</table>
+<h1 id="2019">2019牛客暑期多校训练营（第二场）</h1>
+<p>| Date      | Solved | A    | B    | C    | D    | E    | F    | G    | H    | I    | J    |
+| -------------------------------- | --------- | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 2019/7/20 | 6/10   | Ø    | Ø    | .    | Ø    | Ø    | Ø    | .    | O    | .    | Ø    |</p>
 <h2 id="aeddy-walker">A、<a href="https://ac.nowcoder.com/acm/contest/882/A">Eddy Walker</a></h2>
 <p>题意：有T次操作，每次需要在n次内在m位置结束，每次都是从0出发往前往后都是等概率，然后成环所以0往前是n-1，求发生的总概率（每次与之前的发生概率是有关的）</p>
 <p>题解：首先除非n为1，否则0这个点必不可能是终点，因为它每次都从0开始，然后往前往后概率相等且成环所以是等概率事件，每个点的概率就是<script type="math/tex">\frac{1}{n-1}</script>，然后把前缀乘起来就是答案。</p>
