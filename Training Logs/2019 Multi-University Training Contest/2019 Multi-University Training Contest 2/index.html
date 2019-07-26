@@ -200,7 +200,7 @@
 </tbody>
 </table>
 <h2 id="ii-love-palindrome-string">I、<a href="https://cn.vjudge.net/contest/314097#problem/I">I Love Palindrome String</a></h2>
-<p>题意：求所有长度为1～n的子串满足<script type="math/tex">S_i^j</script>和<script type="math/tex">S_i^{i+j/2}</script>为回文串的个数</p>
+<p>题意：求所有长度为1～n的子串满足<script type="math/tex">S_i^j</script>和<script type="math/tex">S_i^{(i+j)/2}</script>为回文串的个数</p>
 <p>题解：对所有回文串来说，它前半段是否是回文串都是确定是，所以回文树维护所有本质不同串，每增加一个节点就计算这个节点的前半段是否是回文串，可以直接上一手hash快速判断，然后如果是，该本质串的长度就要加个它个数的权值，最后整合起来即可，复杂度<script type="math/tex">O(n)</script>。</p>
 <p>代码：</p>
 <pre><code class="cpp">/*================================================================
