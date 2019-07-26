@@ -2,7 +2,247 @@
 | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 2019/7/24 | 6/12   |  .   |  .   |  .   |  .   |  O   |  .   |  .   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |
 
-## I、[I Love Palindrome String](https://cn.vjudge.net/contest/314097#problem/I)
+
+
+## E. Everything Is Generated In Equal Probability
+
+暴力跑出前两项，按题意模拟题目给的随机算法算出第3,4项，~~丢进OEIS~~找规律得到通项。~~复杂度O(1)~~
+
+前5项分别是0,1/3,8/9,5/3,8/3，把分母通分成9之后的分子序列是0,3,8,15,24，那么通项就是$$F(i)=\frac{(i+1)(i-1)}{9}$$
+
+### Code
+
+#### Random
+
+```cpp
+#include <bits/stdc++.h>
+#define random(a,b) ((a)+rand()%((b)-(a)+1))
+
+using namespace std;
+
+int ip(int a[], int len)
+{
+    int cnt = 0;
+    for(int i = 0; i < len; i ++)
+        for(int j = i + 1; j < len; j ++)
+            if(a[i] > a[j]) cnt ++;
+    return cnt;
+}
+
+int cal(int a[], int len)
+{
+    int cnt = 0;
+    if(len > 0)
+    {
+        cnt = ip(a, len);
+        int x = random(0, (1 <<(len + 1)) - 1);
+        int tmp[10], len1 = 0;
+        for(int i = 0; i < len; i ++) if((x >> i) & 1) tmp[len1 ++] = a[i];
+        cnt += cal(tmp, len1);
+    }
+    return cnt;
+}
+
+int a[10], b[10];
+
+int main()
+{
+    int tm = 90000;
+    int n = 5;
+    for(int i = 0; i < 10; i ++) a[i] = i + 1;
+    long long cnt = 0;
+    for(int i = 0; i < tm; i ++)
+    {
+        int len = random(1, n);
+        for(int j = 0; j < len; j ++) b[j] = a[j];
+        random_shuffle(b, b + len);
+        cnt += cal(b, len);
+    }
+    printf("%lld\n", cnt);
+    return 0;
+}
+```
+
+#### Solution
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+
+const int mod = 998244353;
+
+ll inv(ll a, ll n = mod - 2)
+{
+    ll ans = 1, base = a;
+    while(n)
+    {
+        if(n & 1) (ans *= base) %= mod;
+        (base *= base) %= mod;
+        n >>= 1;
+    }
+    return ans;
+}
+
+int main()
+{
+    long long n;
+    while(scanf("%lld", &n) != EOF)
+        printf("%lld\n", (n + 1) * (n - 1) % mod * inv(9) % mod);
+    return 0;
+}
+```
+
+## H. Harmonious Army
+
+ 出了一万遍的最小割模型，然而比赛的时候看都没看这题。
+
+大概BZOJ2127，BZOJ2132，BZOJ3894都是这个模型的题。
+
+![pic](https://images2015.cnblogs.com/blog/790791/201603/790791-20160322161742151-1423086674.png)
+
+对这个模型建像上图这样的网络流，我们令\(S=A+B+C\)表示三种收益的和，图上每一种割法表示减去一部分的收益，假设当前割集之和为\(X\)，我们需要构造网络使S-割集=当前选法的收益，这个时候的最小割即为所求解。
+
+割集为{a,b}时表示两人选的都是Mages，收益为C，需要减去的收益为\(S-C=A+B\)，有\(a+b=A+B\)
+
+割集为{c,d}时表示两人选的都是Warriors，收益为A，需要减去的收益为\(S-A=B+C\)，有\(c+d=B+C\)
+
+割集为{a,e,d}或者{b,e,c}时表示一个人选Mage，另一个人选Warrior，收益为B，需要减去的收益为\(S-B=A+C\)，有\(a+e+d=A+C\),\(b+e+c=A+C\)
+
+不妨令a=b,c=d,可以得到一组解\(a=b=(A+B)/2\)，\(c=d=(C+D)/2\)，\(e=-B+(A+C)/2\)
+
+对于每一组(x,y)建这样的网络跑最小割，用总收益减去最小割即为所求解。
+
+为了避免建图过程中出现小数可以把所有权值x2，输出时再/2
+
+### Code
+
+```cpp
+#include <bits/stdc++.h>
+#define int long long
+
+using namespace std;
+
+
+const int MAX_V = 1000 + 10;
+const int INF = 0x3f3f3f3f3f3f3f3f;
+
+struct Dinic
+{
+	//用于表示边的结构体（终点，流量，反向边）
+	struct edge{int to, cap, rev;};
+
+	vector<edge> G[MAX_V];	//图的邻接表表示
+	int level[MAX_V];	//顶点到源点的距离标号
+	int iter[MAX_V];	//当前弧
+
+	void init(int n)
+	{
+		for(int i = 0; i <= n; i ++) G[i].clear();
+	}
+
+	void add(int from, int to, int cap)
+	{
+		G[from].push_back((edge){to, cap, G[to].size()});
+		G[to].push_back((edge){from, 0, G[from].size() - 1});
+	}
+
+	//计算从源点出发的距离标号
+	void bfs(int s)
+	{
+		memset(level, -1, sizeof(level));
+		queue<int> que;
+		level[s] = 0;
+		que.push(s);
+		while(!que.empty())
+		{
+			int v = que.front(); que.pop();
+			for(int i = 0; i < G[v].size(); i++)
+			{
+				edge &e = G[v][i];
+				if(e.cap > 0 && level[e.to] < 0)
+				{
+					level[e.to] = level[v] + 1;
+					que.push(e.to);
+				}
+			}
+		}
+	}
+
+	//通过DFS寻找增广路
+	int dfs(int v, int t, int f)
+	{
+		if(v == t) return f;
+		for(int &i = iter[v]; i<G[v].size(); i++)
+		{
+			edge &e = G[v][i];
+			if(e.cap > 0 && level[v] < level[e.to])
+			{
+				int d = dfs(e.to, t, min(f, e.cap));
+				if(d > 0)
+				{
+					e.cap -= d;
+					G[e.to][e.rev].cap += d;
+					return d;
+				}
+			}
+		}
+		return 0;
+	}
+
+	//求解从s到t的最大流
+	int max_flow(int s, int t)
+	{
+		int flow = 0;
+		for(;;)
+		{
+			bfs(s);
+			if(level[t] < 0) return flow;
+			memset(iter, 0, sizeof(iter));
+			int f;
+			while((f = dfs(s,t,INF)) > 0) flow += f;
+		}
+	}
+}ans;
+
+int w1[510], w2[510];
+
+signed main()
+{
+    int n, m, u, v, a, b, c;
+    while(scanf("%lld%lld", &n, &m) != EOF)
+    {
+        int S = 0, T = n + 1;
+        ans.init(T);
+        for(int i = 0; i <= T; i ++) w1[i] = w2[i] = 0;
+        int res = 0;
+        while(m --)
+        {
+            scanf("%lld%lld%lld%lld%lld", &u, &v, &a, &b, &c);
+            res += 2 * (a + b + c);
+            w1[u] += a + b;
+            w1[v] += a + b;
+            w2[u] += b + c;
+            w2[v] += b + c;
+            ans.add(u, v, a + c - 2 * b);
+            ans.add(v, u, a + c - 2 * b);
+        }
+        for(int i = 1; i <= n; i ++)
+        {
+            ans.add(S, i, w1[i]);
+            ans.add(i, T, w2[i]);
+        }
+        res -= ans.max_flow(S, T);
+        res /= 2;
+        printf("%lld\n", res);
+    }
+    return 0;
+}
+```
+
+
+## I. [I Love Palindrome String](https://cn.vjudge.net/contest/314097#problem/I)
 
 题意：求所有长度为1～n的子串满足\(S_i^j\)和\(S_i^{(i+j)/2}\)为回文串的个数
 
@@ -172,7 +412,7 @@ int main(int argc, char* argv[]) {
 
 
 
-## J、[Just Skip The Problem](https://cn.vjudge.net/problem/HDU-6600)
+## J. [Just Skip The Problem](https://cn.vjudge.net/problem/HDU-6600)
 
  题意：要确定一个2进制位为n的数x，求最少需要多少次询问，每次询问可以回答它&x是否为0。问所有的最少次数的方案数。
 
@@ -237,7 +477,7 @@ int main(int argc, char* argv[]) {
 
 
 
-## K、[Keen On Everything But Triangle](https://cn.vjudge.net/problem/HDU-6601)
+## K. [Keen On Everything But Triangle](https://cn.vjudge.net/problem/HDU-6601)
 
  题意：给一个序列，求l到r中使用三个数字能组成的三角形中的最长周长。
 
@@ -358,7 +598,7 @@ int main(int argc, char* argv[]) {
 
 
 
-## L、[Longest Subarray](https://cn.vjudge.net/contest/314097#problem/L)
+## L. [Longest Subarray](https://cn.vjudge.net/contest/314097#problem/L)
 题意：给nck，表示序列长度为n，序列中元素集为c，要求最长的子序列使得序列中所有的元素个数要么是0要么不小于k。
 
 题解：这也太容易去想dp解法了吧，然后发现复杂度能上天，c维dp。然后考虑维护对每个右端点每个数的能用的区间，显然除了右端点当前的值，其他值的区间与上一个右端点相同，多一个在当前区间能取，所以考虑线段树维护每个点能取多少个值，当前点首先加上c-1个值，然后考虑当前值的区间变化，一个是0区间被去掉了，所以从当前点值的上一个到当前点-1区间-1，再一个是当前点的前k个多了一个，所以从k-1到k区间+1，然后找最左边值为c的点与当前点作差更新答案，这个操作常用于线段树，实际上和单点查询一个复杂度。就是优先左儿子，如果左儿子有解直接返回结果，否则返回右儿子，实际上我维护最大值之后它有没有解很容易。这个题最好是维护一下每个点在哪出现，然后第一个出现的地方直接设为0，否则有点难以处理边界，我re了一面。
