@@ -382,6 +382,68 @@ int main() {
 </code></pre>
 
 <h2 id="dkth-minimum-clique">D、<a href="https://ac.nowcoder.com/acm/contest/882/D">Kth Minimum Clique</a></h2>
+<p>维护一个所有点之间两两有边相连的集合，初始时为空。BFS求解第k大点权和。</p>
+<p>每次取点权和最小的点集，检查新加入的点是否与点集内的所有点相连，如果是，则将该点加入点集，用优先队列维护。</p>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int N = 100 + 10;
+typedef long long ll;
+
+int n, k; ll w[N];
+bitset&lt;N&gt; mp[N];
+
+struct node
+{
+    ll val;
+    bitset&lt;N&gt; Set;
+    bool operator &lt; (const node &amp; x) const {
+        return val &gt; x.val;
+    }
+};
+
+ll bfs()
+{
+    priority_queue&lt;node&gt; que;
+    bitset&lt;N&gt; x; x.reset();
+    que.push({0, x});
+    while(!que.empty())
+    {
+        node f = que.top(); que.pop();
+        k --;
+        if(!k) return f.val;
+        int pos = 0;
+        for(int i = 0; i &lt; n; i ++) if(f.Set[i]) pos = i + 1;
+        for(int u = pos; u &lt; n; u ++)
+        {
+            if((mp[u] &amp; f.Set) == f.Set)
+            {
+                f.Set[u] = 1;
+                que.push({f.val + w[u], f.Set});
+                f.Set[u] = 0;
+            }
+        }
+    }
+    return -1;
+}
+
+int main()
+{
+    char s[N];
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;k);
+    for(int i = 0; i &lt; n; i ++) scanf(&quot;%lld&quot;, &amp;w[i]);
+    for(int i = 0; i &lt; n; i ++)
+    {
+        scanf(&quot;%s&quot;, s);
+        for(int j = 0; j &lt; n; j ++)
+            if(s[j] == '1') mp[i][j] = 1;
+    }
+    printf(&quot;%lld\n&quot;, bfs());
+    return 0;
+}
+</code></pre>
+
 <h2 id="emaze">E、<a href="https://ac.nowcoder.com/acm/contest/882/E">MAZE</a></h2>
 <p>题意：最多50000行10列的01矩阵，每次操作对单点取反，每次询问求第一行的某个点到最后一行的某个点的方案数（可以向左向右向下走）。</p>
 <p>题解：显然考虑一个dp

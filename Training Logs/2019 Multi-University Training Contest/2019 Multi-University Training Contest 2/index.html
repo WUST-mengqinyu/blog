@@ -153,10 +153,14 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#ii-love-palindrome-string">I、I Love Palindrome String</a></li>
-        <li class="main "><a href="#jjust-skip-the-problem">J、Just Skip The Problem</a></li>
-        <li class="main "><a href="#kkeen-on-everything-but-triangle">K、Keen On Everything But Triangle</a></li>
-        <li class="main "><a href="#llongest-subarray">L、Longest Subarray</a></li>
+        <li class="main active"><a href="#e-everything-is-generated-in-equal-probability">E. Everything Is Generated In Equal Probability</a></li>
+            <li><a href="#code">Code</a></li>
+        <li class="main "><a href="#h-harmonious-army">H. Harmonious Army</a></li>
+            <li><a href="#code_1">Code</a></li>
+        <li class="main "><a href="#i-i-love-palindrome-string">I. I Love Palindrome String</a></li>
+        <li class="main "><a href="#j-just-skip-the-problem">J. Just Skip The Problem</a></li>
+        <li class="main "><a href="#k-keen-on-everything-but-triangle">K. Keen On Everything But Triangle</a></li>
+        <li class="main "><a href="#l-longest-subarray">L. Longest Subarray</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -199,7 +203,228 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ii-love-palindrome-string">I、<a href="https://cn.vjudge.net/contest/314097#problem/I">I Love Palindrome String</a></h2>
+<h2 id="e-everything-is-generated-in-equal-probability">E. Everything Is Generated In Equal Probability</h2>
+<p>暴力跑出前两项，按题意模拟题目给的随机算法算出第3,4项，~~丢进OEIS~~找规律得到通项。~~复杂度O(1)~~</p>
+<p>前5项分别是0,1/3,8/9,5/3,8/3，把分母通分成9之后的分子序列是0,3,8,15,24，那么通项就是<script type="math/tex; mode=display">F(i)=\frac{(i+1)(i-1)}{9}</script>
+</p>
+<h3 id="code">Code</h3>
+<h4 id="random">Random</h4>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+#define random(a,b) ((a)+rand()%((b)-(a)+1))
+
+using namespace std;
+
+int ip(int a[], int len)
+{
+    int cnt = 0;
+    for(int i = 0; i &lt; len; i ++)
+        for(int j = i + 1; j &lt; len; j ++)
+            if(a[i] &gt; a[j]) cnt ++;
+    return cnt;
+}
+
+int cal(int a[], int len)
+{
+    int cnt = 0;
+    if(len &gt; 0)
+    {
+        cnt = ip(a, len);
+        int x = random(0, (1 &lt;&lt;(len + 1)) - 1);
+        int tmp[10], len1 = 0;
+        for(int i = 0; i &lt; len; i ++) if((x &gt;&gt; i) &amp; 1) tmp[len1 ++] = a[i];
+        cnt += cal(tmp, len1);
+    }
+    return cnt;
+}
+
+int a[10], b[10];
+
+int main()
+{
+    int tm = 90000;
+    int n = 5;
+    for(int i = 0; i &lt; 10; i ++) a[i] = i + 1;
+    long long cnt = 0;
+    for(int i = 0; i &lt; tm; i ++)
+    {
+        int len = random(1, n);
+        for(int j = 0; j &lt; len; j ++) b[j] = a[j];
+        random_shuffle(b, b + len);
+        cnt += cal(b, len);
+    }
+    printf(&quot;%lld\n&quot;, cnt);
+    return 0;
+}
+</code></pre>
+
+<h4 id="solution">Solution</h4>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int mod = 998244353;
+
+ll inv(ll a, ll n = mod - 2)
+{
+    ll ans = 1, base = a;
+    while(n)
+    {
+        if(n &amp; 1) (ans *= base) %= mod;
+        (base *= base) %= mod;
+        n &gt;&gt;= 1;
+    }
+    return ans;
+}
+
+int main()
+{
+    long long n;
+    while(scanf(&quot;%lld&quot;, &amp;n) != EOF)
+        printf(&quot;%lld\n&quot;, (n + 1) * (n - 1) % mod * inv(9) % mod);
+    return 0;
+}
+</code></pre>
+
+<h2 id="h-harmonious-army">H. Harmonious Army</h2>
+<p>出了一万遍的最小割模型，然而比赛的时候看都没看这题。</p>
+<p>大概BZOJ2127，BZOJ2132，BZOJ3894都是这个模型的题。</p>
+<p><img alt="pic" src="https://images2015.cnblogs.com/blog/790791/201603/790791-20160322161742151-1423086674.png" /></p>
+<p>对这个模型建像上图这样的网络流，我们令<script type="math/tex">S=A+B+C</script>表示三种收益的和，图上每一种割法表示减去一部分的收益，假设当前割集之和为<script type="math/tex">X</script>，我们需要构造网络使S-割集=当前选法的收益，这个时候的最小割即为所求解。</p>
+<p>割集为{a,b}时表示两人选的都是Mages，收益为C，需要减去的收益为<script type="math/tex">S-C=A+B</script>，有<script type="math/tex">a+b=A+B</script>
+</p>
+<p>割集为{c,d}时表示两人选的都是Warriors，收益为A，需要减去的收益为<script type="math/tex">S-A=B+C</script>，有<script type="math/tex">c+d=B+C</script>
+</p>
+<p>割集为{a,e,d}或者{b,e,c}时表示一个人选Mage，另一个人选Warrior，收益为B，需要减去的收益为<script type="math/tex">S-B=A+C</script>，有<script type="math/tex">a+e+d=A+C</script>,<script type="math/tex">b+e+c=A+C</script>
+</p>
+<p>不妨令a=b,c=d,可以得到一组解<script type="math/tex">a=b=(A+B)/2</script>，<script type="math/tex">c=d=(C+D)/2</script>，<script type="math/tex">e=-B+(A+C)/2</script>
+</p>
+<p>对于每一组(x,y)建这样的网络跑最小割，用总收益减去最小割即为所求解。</p>
+<p>为了避免建图过程中出现小数可以把所有权值x2，输出时再/2</p>
+<h3 id="code_1">Code</h3>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+#define int long long
+
+using namespace std;
+
+
+const int MAX_V = 1000 + 10;
+const int INF = 0x3f3f3f3f3f3f3f3f;
+
+struct Dinic
+{
+    //用于表示边的结构体（终点，流量，反向边）
+    struct edge{int to, cap, rev;};
+
+    vector&lt;edge&gt; G[MAX_V];  //图的邻接表表示
+    int level[MAX_V];   //顶点到源点的距离标号
+    int iter[MAX_V];    //当前弧
+
+    void init(int n)
+    {
+        for(int i = 0; i &lt;= n; i ++) G[i].clear();
+    }
+
+    void add(int from, int to, int cap)
+    {
+        G[from].push_back((edge){to, cap, G[to].size()});
+        G[to].push_back((edge){from, 0, G[from].size() - 1});
+    }
+
+    //计算从源点出发的距离标号
+    void bfs(int s)
+    {
+        memset(level, -1, sizeof(level));
+        queue&lt;int&gt; que;
+        level[s] = 0;
+        que.push(s);
+        while(!que.empty())
+        {
+            int v = que.front(); que.pop();
+            for(int i = 0; i &lt; G[v].size(); i++)
+            {
+                edge &amp;e = G[v][i];
+                if(e.cap &gt; 0 &amp;&amp; level[e.to] &lt; 0)
+                {
+                    level[e.to] = level[v] + 1;
+                    que.push(e.to);
+                }
+            }
+        }
+    }
+
+    //通过DFS寻找增广路
+    int dfs(int v, int t, int f)
+    {
+        if(v == t) return f;
+        for(int &amp;i = iter[v]; i&lt;G[v].size(); i++)
+        {
+            edge &amp;e = G[v][i];
+            if(e.cap &gt; 0 &amp;&amp; level[v] &lt; level[e.to])
+            {
+                int d = dfs(e.to, t, min(f, e.cap));
+                if(d &gt; 0)
+                {
+                    e.cap -= d;
+                    G[e.to][e.rev].cap += d;
+                    return d;
+                }
+            }
+        }
+        return 0;
+    }
+
+    //求解从s到t的最大流
+    int max_flow(int s, int t)
+    {
+        int flow = 0;
+        for(;;)
+        {
+            bfs(s);
+            if(level[t] &lt; 0) return flow;
+            memset(iter, 0, sizeof(iter));
+            int f;
+            while((f = dfs(s,t,INF)) &gt; 0) flow += f;
+        }
+    }
+}ans;
+
+int w1[510], w2[510];
+
+signed main()
+{
+    int n, m, u, v, a, b, c;
+    while(scanf(&quot;%lld%lld&quot;, &amp;n, &amp;m) != EOF)
+    {
+        int S = 0, T = n + 1;
+        ans.init(T);
+        for(int i = 0; i &lt;= T; i ++) w1[i] = w2[i] = 0;
+        int res = 0;
+        while(m --)
+        {
+            scanf(&quot;%lld%lld%lld%lld%lld&quot;, &amp;u, &amp;v, &amp;a, &amp;b, &amp;c);
+            res += 2 * (a + b + c);
+            w1[u] += a + b;
+            w1[v] += a + b;
+            w2[u] += b + c;
+            w2[v] += b + c;
+            ans.add(u, v, a + c - 2 * b);
+            ans.add(v, u, a + c - 2 * b);
+        }
+        for(int i = 1; i &lt;= n; i ++)
+        {
+            ans.add(S, i, w1[i]);
+            ans.add(i, T, w2[i]);
+        }
+        res -= ans.max_flow(S, T);
+        res /= 2;
+        printf(&quot;%lld\n&quot;, res);
+    }
+    return 0;
+}
+</code></pre>
+
+<h2 id="i-i-love-palindrome-string">I. <a href="https://cn.vjudge.net/contest/314097#problem/I">I Love Palindrome String</a></h2>
 <p>题意：求所有长度为1～n的子串满足<script type="math/tex">S_i^j</script>和<script type="math/tex">S_i^{(i+j)/2}</script>为回文串的个数</p>
 <p>题解：对所有回文串来说，它前半段是否是回文串都是确定是，所以回文树维护所有本质不同串，每增加一个节点就计算这个节点的前半段是否是回文串，可以直接上一手hash快速判断，然后如果是，该本质串的长度就要加个它个数的权值，最后整合起来即可，复杂度<script type="math/tex">O(n)</script>。</p>
 <p>代码：</p>
@@ -362,7 +587,7 @@ int main(int argc, char* argv[]) {
 }
 </code></pre>
 
-<h2 id="jjust-skip-the-problem">J、<a href="https://cn.vjudge.net/problem/HDU-6600">Just Skip The Problem</a></h2>
+<h2 id="j-just-skip-the-problem">J. <a href="https://cn.vjudge.net/problem/HDU-6600">Just Skip The Problem</a></h2>
 <p>题意：要确定一个2进制位为n的数x，求最少需要多少次询问，每次询问可以回答它&amp;x是否为0。问所有的最少次数的方案数。</p>
 <p>题解：推一推显然每次问它某个2进制位就行，最少n次，然后就是n个数的全排列，由于模数只有<code>1e6+3</code>，直接推前<code>1e6+3</code>项的阶乘，后面全是0即可。</p>
 <pre><code class="cpp">/*================================================================
@@ -421,7 +646,7 @@ int main(int argc, char* argv[]) {
 }
 </code></pre>
 
-<h2 id="kkeen-on-everything-but-triangle">K、<a href="https://cn.vjudge.net/problem/HDU-6601">Keen On Everything But Triangle</a></h2>
+<h2 id="k-keen-on-everything-but-triangle">K. <a href="https://cn.vjudge.net/problem/HDU-6601">Keen On Everything But Triangle</a></h2>
 <p>题意：给一个序列，求l到r中使用三个数字能组成的三角形中的最长周长。</p>
 <p>题解：首先了解到这三条边必然是（数值大小上）相邻的三个。反证法易证，就直接是一定有更相邻的数可以使得答案更大，然后考虑从小到大不合法的方案，显然<code>1 1 2 3 5 8 ...</code>这个序列是最小的能构不成三角形的序列，而我们都知道斐波那契数列递增巨快，推出来大概44项就超过1e9了，然后就维护区间前44项大值即可。本来写了一波巨优美的线段树+莫队，然后就暴毙在莫队的根号复杂度下了。</p>
 <p>代码：</p>
@@ -535,7 +760,7 @@ int main(int argc, char* argv[]) {
 }
 </code></pre>
 
-<h2 id="llongest-subarray">L、<a href="https://cn.vjudge.net/contest/314097#problem/L">Longest Subarray</a></h2>
+<h2 id="l-longest-subarray">L. <a href="https://cn.vjudge.net/contest/314097#problem/L">Longest Subarray</a></h2>
 <p>题意：给nck，表示序列长度为n，序列中元素集为c，要求最长的子序列使得序列中所有的元素个数要么是0要么不小于k。</p>
 <p>题解：这也太容易去想dp解法了吧，然后发现复杂度能上天，c维dp。然后考虑维护对每个右端点每个数的能用的区间，显然除了右端点当前的值，其他值的区间与上一个右端点相同，多一个在当前区间能取，所以考虑线段树维护每个点能取多少个值，当前点首先加上c-1个值，然后考虑当前值的区间变化，一个是0区间被去掉了，所以从当前点值的上一个到当前点-1区间-1，再一个是当前点的前k个多了一个，所以从k-1到k区间+1，然后找最左边值为c的点与当前点作差更新答案，这个操作常用于线段树，实际上和单点查询一个复杂度。就是优先左儿子，如果左儿子有解直接返回结果，否则返回右儿子，实际上我维护最大值之后它有没有解很容易。这个题最好是维护一下每个点在哪出现，然后第一个出现的地方直接设为0，否则有点难以处理边界，我re了一面。</p>
 <p>代码：</p>
