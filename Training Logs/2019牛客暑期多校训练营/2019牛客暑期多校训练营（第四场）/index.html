@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第三场）/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第四场）/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>2019牛客暑期多校训练营（第三场） - Team Wiki</title>
+        <title>2019牛客暑期多校训练营（第四场） - Team Wiki</title>
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -124,16 +124,16 @@
     <a href="../2019牛客暑期多校训练营（第一场）/">2019牛客暑期多校训练营（第一场）</a>
 </li>
             
-<li class="active">
-    <a href="./">2019牛客暑期多校训练营（第三场）</a>
+<li >
+    <a href="../2019牛客暑期多校训练营（第三场）/">2019牛客暑期多校训练营（第三场）</a>
 </li>
             
 <li >
     <a href="../2019牛客暑期多校训练营（第二场）/">2019牛客暑期多校训练营（第二场）</a>
 </li>
             
-<li >
-    <a href="../2019牛客暑期多校训练营（第四场）/">2019牛客暑期多校训练营（第四场）</a>
+<li class="active">
+    <a href="./">2019牛客暑期多校训练营（第四场）</a>
 </li>
     </ul>
   </li>
@@ -148,12 +148,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../2019牛客暑期多校训练营（第一场）/">
+                                <a rel="next" href="../2019牛客暑期多校训练营（第二场）/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../2019牛客暑期多校训练营（第二场）/">
+                            <li class="disabled">
+                                <a rel="prev" >
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -165,18 +165,18 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#bcrazy-binary-string">B、Crazy Binary String</a></li>
-        <li class="main "><a href="#fplanting-trees">F、Planting Trees</a></li>
-        <li class="main "><a href="#hmagic-line">H、Magic Line</a></li>
-        <li class="main "><a href="#jlru-management">J、LRU management</a></li>
+        <li class="main active"><a href="#2019">2019牛客暑期多校训练营（第四场）</a></li>
+            <li><a href="#ameeting">A、meeting</a></li>
+            <li><a href="#istring">I、string</a></li>
+            <li><a href="#knumber">K、number</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
+<h1 id="2019">2019牛客暑期多校训练营（第四场）</h1>
 <table>
 <thead>
 <tr>
-<th>Name</th>
 <th>Date</th>
 <th>Solved</th>
 <th>A</th>
@@ -189,36 +189,36 @@
 <th>H</th>
 <th>I</th>
 <th>J</th>
+<th>K</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>2019牛客暑期多校训练营（第三场）</td>
-<td>2019/7/25</td>
-<td>6/10</td>
-<td>.</td>
+<td>2019/7/27</td>
+<td>7/11</td>
 <td>O</td>
-<td>.</td>
-<td>Ø</td>
-<td>.</td>
-<td>Ø</td>
 <td>Ø</td>
 <td>O</td>
+<td>O</td>
+<td>.</td>
+<td>.</td>
+<td>.</td>
 <td>.</td>
 <td>Ø</td>
+<td>O</td>
+<td>O</td>
 </tr>
 </tbody>
 </table>
-<h2 id="bcrazy-binary-string">B、<a href="https://ac.nowcoder.com/acm/contest/883/B">Crazy Binary String</a></h2>
-<p>给一个01串求最长的01相等的子串和子序列长度</p>
-<p>子串肯定是<script type="math/tex">max(num(0),num(1))</script>，子序列直接记录前缀01个数差，出现过说明该子序列是01平衡的。</p>
-<p>代码：</p>
+<h2 id="ameeting">A、<a href="https://ac.nowcoder.com/acm/contest/884/A">meeting</a></h2>
+<p>求一棵树上到所有关键点距离最大值最小的点距离。</p>
+<p>我的做法直接上dfs序线段树维护每个子树的距离最值，每次dfs时总把子树外的关键点距离+1，子树内-1，枚举出最小值即可。</p>
 <pre><code class="cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
-*   文件名称：B.cpp
+*   文件名称：A.cpp
 *   创 建 者： badcw
-*   创建日期： 19-7-25
+*   创建日期： 2019/7/27
 *
 ================================================================*/
 #include &lt;bits/stdc++.h&gt;
@@ -257,40 +257,264 @@ inline bool scan(T&amp; ret) {
 //    putchar(x % 10 + '0');
 //}
 
+int n, m;
+vector&lt;int&gt; edge[maxn];
 int a[maxn];
-int pre[maxn];
-int pre1[maxn];
-map&lt;int, int&gt; pos;
+
+int val[maxn &lt;&lt; 2], lazy[maxn &lt;&lt; 2];
+int idx[maxn], tot, res, sz[maxn];
+int st[maxn];
+
+int le, re, k;
+
+inline void pushdown(int rt) {
+    if (lazy[rt]) {
+        lazy[rt &lt;&lt; 1] += lazy[rt];
+        lazy[rt &lt;&lt; 1 | 1] += lazy[rt];
+        val[rt &lt;&lt; 1] += lazy[rt];
+        val[rt &lt;&lt; 1 | 1] += lazy[rt];
+        lazy[rt] = 0;
+    }
+}
+
+inline void build(int rt, int l, int r) {
+    val[rt] = 0;
+    if (l == r) {
+        val[rt] = st[l];
+        return;
+    }
+    int mid = l + r &gt;&gt; 1;
+    build(rt &lt;&lt; 1, l, mid);
+    build(rt &lt;&lt; 1 | 1, mid + 1, r);
+    val[rt] = max(val[rt &lt;&lt; 1], val[rt &lt;&lt; 1 | 1]);
+}
+
+inline void update(int rt, int l, int r) {
+    if (re &lt; le || le &lt;= 0 || re &gt; n) return;
+    if (le &lt;= l &amp;&amp; r &lt;= re) {
+        val[rt] += k;
+        lazy[rt] += k;
+        return;
+    }
+    int mid = l + r &gt;&gt; 1;
+    pushdown(rt);
+    if (le &lt;= mid) update(rt &lt;&lt; 1, l, mid);
+    if (re &gt; mid) update(rt &lt;&lt; 1 | 1, mid + 1, r);
+    val[rt] = max(val[rt &lt;&lt; 1], val[rt &lt;&lt; 1 | 1]);
+}
+
+inline void dfs(int u, int pre, int dep) {
+    idx[u] = ++tot;
+    if (a[u]) {
+        st[tot] = dep;
+//        printf(&quot;%d: %d\n&quot;, tot, dep);
+//        le = tot, re = tot;
+//        k = dep;
+//        update(1, 1, n);
+    }
+    sz[u] = 1;
+    for (auto v : edge[u]) {
+        if (v == pre) continue;
+        dfs(v, u, dep + 1);
+        sz[u] += sz[v];
+    }
+}
+
+inline void dfs2(int u, int pre) {
+    for (auto v : edge[u]) {
+        if (v == pre) continue;
+        le = 1, re = idx[v] - 1;
+        k = 1;
+        update(1, 1, n);
+        le = idx[v], re = idx[v] + sz[v] - 1;
+        k = -1;
+        update(1, 1, n);
+        le = re + 1;
+        re = n;
+        k = 1;
+        update(1, 1, n);
+        res = min(res, val[1]);
+        dfs2(v, u);
+        le = 1, re = idx[v] - 1;
+        k = -1;
+        update(1, 1, n);
+        le = idx[v], re = idx[v] + sz[v] - 1;
+        k = 1;
+        update(1, 1, n);
+        le = re + 1;
+        re = n;
+        k = -1;
+        update(1, 1, n);
+    }
+}
 
 int main(int argc, char* argv[]) {
-    int n;
-    scanf(&quot;%d&quot;, &amp;n);
-    int tt = 0;
-    for (int i = 1; i &lt;= n; ++i) {
-        scanf(&quot;%01d&quot;, &amp;a[i]);
-        pre[i] = pre[i - 1] + (a[i] == 0);
-        pre1[i] = pre1[i - 1] + (a[i] == 1);
-        if (pre[i] == pre1[i]) tt = max(tt, i);
-        else {
-            if (pos[pre[i] - pre1[i]]) tt = max(tt, i - pos[pre[i] - pre1[i]]);
-            else pos[pre[i] - pre1[i]] = i;
-        }
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1, u, v; i &lt; n; ++i) {
+        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+        edge[u].push_back(v);
+        edge[v].push_back(u);
     }
-    printf(&quot;%d %d\n&quot;, tt, min(pre[n], pre1[n]) * 2);
+    for (int i = 1, x; i &lt;= m; ++i) {
+        scanf(&quot;%d&quot;, &amp;x);
+        a[x] = 1;
+    }
+    dfs(1, 0, 0);
+    build(1, 1, n);
+//    printf(&quot;%d\n&quot;, val[1]);
+    res = val[1];
+    dfs2(1, 0);
+    printf(&quot;%d\n&quot;, res);
     return 0;
 }
 </code></pre>
 
-<h2 id="fplanting-trees">F、<a href="https://ac.nowcoder.com/acm/contest/883/F">Planting Trees</a></h2>
-<p>给一矩阵，求最大的极差不超过m的矩阵大小。</p>
-<p>暗示<script type="math/tex">n^3</script>复杂度，直接枚举上下端的同时维护所有列的最大最小值，然后单调队列跑对于每个<script type="math/tex">l</script>的最右端<script type="math/tex">r</script>。</p>
+<h2 id="istring">I、<a href="https://ac.nowcoder.com/acm/contest/884/I">string</a></h2>
+<p>给一个串求倒序不同子串的最大集合大小。指集合内没有另一个串与现在这个串倒序相同。</p>
+<p>首先回文串是倒序与本身相同但是是符合题意的串，然后考虑所有子串，直接构造一个<code>s#s'</code>的串，<code>s'</code>表示<code>s</code>的倒序串，那么这个串的本质不同子串个数就是<code>s</code>中的倒序不同串×2+<code>s</code>中的倒序相同串对数×2+回文串，然后要求的是<code>s</code>中的倒序不同串+<code>s</code>中的倒序相同串对数+回文串。所以再跑个回文串数量相加除二即可。</p>
 <p>代码：</p>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 4e5 + 10;
+char s[maxn];
+
+struct SuffixAutomation
+{
+    int last, cnt;
+    int ch[maxn &lt;&lt; 1][27], fa[maxn &lt;&lt; 1], len[maxn &lt;&lt; 1];
+    long long ans = 0;
+
+    void init()
+    {
+        last = cnt = 1;
+        memset(ch[1], 0, sizeof ch[1]);
+        fa[1] = len[1] = 0;
+    }
+
+    void ins(int c)
+    {
+        int p = last , np = ++ cnt;
+        last = np, len[np] = len[p] + 1;
+        for(; p &amp;&amp; !ch[p][c]; p = fa[p]) ch[p][c] = np;
+        if(!p) fa[np] = 1;
+        else
+        {
+            int q = ch[p][c];
+            if(len[p] + 1 == len[q]) fa[np] = q;
+            else
+            {
+                int nq = ++ cnt;
+                len[nq] = len[p] + 1;
+                memcpy(ch[nq], ch[q], sizeof ch[q]);
+                fa[nq] = fa[q], fa[q] = fa[np] = nq;
+                for(; ch[p][c] == q; p = fa[p]) ch[p][c] = nq;
+            }
+        }
+        ans += len[np] - len[fa[np]];
+    }
+}sam;
+
+const int N = 26;
+
+struct Palindromic_Tree {
+//    vector&lt;pair&lt;int, int&gt; &gt; next[maxn];
+    int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符构成
+    int fail[maxn]{};//fail指针，失配后跳转到fail指针指向的节点
+    int cnt[maxn]{}; //表示节点i表示的本质不同的串的个数（建树时求出的不是完全的，最后count()函数跑一遍以后才是正确的）
+    int num[maxn]{}; //表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数
+    int len[maxn]{};//len[i]表示节点i表示的回文串的长度（一个节点表示一个回文串）
+    int S[maxn]{};//存放添加的字符
+    int last{};//指向新添加一个字母后所形成的最长回文串表示的节点。
+    int n{};//表示添加的字符个数。
+    int p{};//表示添加的节点个数。
+
+    int newnode(int l) {//新建节点
+//        next[p].clear();
+        for (int i = 0; i &lt; N; ++i) next[p][i] = 0;
+//        cnt[p] = 0;
+//        num[p] = 0;
+        len[p] = l;
+        return p++;
+    }
+
+    void init() {//初始化
+        n = last = p = 0;
+        newnode(0);
+        newnode(-1);
+        S[n] = -1;//开头放一个字符集中没有的字符，减少特判
+        fail[0] = 1;
+    }
+
+    int get_fail(int x) {//和KMP一样，失配后找一个尽量最长的
+        while (S[n - len[x] - 1] != S[n]) x = fail[x];
+        return x;
+    }
+
+//    int find(int u, int c) {
+//        vector&lt;pair&lt;int, int&gt; &gt; &amp; x = next[u];
+//        int sz = x.size();
+//        for(int i = 0; i &lt; sz; ++i) {
+//            if(x[i].first == c) return x[i].second;
+//        }
+//        return 0;
+//    }
+
+    int add(int c) {
+        S[++n] = c;
+        int cur = get_fail(last);//通过上一个回文串找这个回文串的匹配位置
+//        int x = find(cur, c);
+//        if (!x) {
+        if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
+            int now = newnode(len[cur] + 2);//新建节点
+//            x = now;
+//            fail[now] = find(get_fail(fail[cur]), c);
+//            next[cur].emplace_back(make_pair(c, now));
+            fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以便失配后跳转
+            next[cur][c] = now;
+            num[now] = num[fail[now]] + 1;
+        }
+//        last = x;
+        last = next[cur][c];
+//        cnt[last]++;
+        return num[last];
+    }
+
+    void count() {
+        for (int i = p - 1; i &gt;= 0; --i) cnt[fail[i]] += cnt[i];
+        //父亲累加儿子的cnt，因为如果fail[v]=u，则u一定是v的子回文串！
+    }
+} solve;
+
+int main()
+{
+    scanf(&quot;%s&quot;, s);
+    sam.init();
+    int n = strlen(s);
+    for(int i = 0; i &lt; n; i ++) sam.ins(s[i] - 'a');
+    long long res = 0;
+    sam.ins(26);
+    for(int i = n - 1; i &gt;= 0; i --) sam.ins(s[i] - 'a');
+    res += sam.ans;
+    res -= 1ll * (n + 1) * (n + 1);
+    solve.init();
+    for(int i = 0; i &lt; n; i ++) solve.add(s[i] - 'a');
+    long long ans = solve.p - 2;
+    printf(&quot;%lld\n&quot;, (ans + res) / 2);
+    return 0;
+}
+</code></pre>
+
+<h2 id="knumber">K、<a href="https://ac.nowcoder.com/acm/contest/884/K">number</a></h2>
+<p>给一个数字串求能被300整除的数字子串数量（可含前导零，可含相同串）</p>
+<p>众所周知能被3整除的数数位和为3的倍数，所以计一个前缀数位和，然后计一个后缀零个数，那么枚举当前位为非0的最后一位，它对答案的贡献就是<script type="math/tex">pre[i][0] * (lst[i+1]-1)</script>，然后注意一下把全0的方案数加上去就行了。</p>
 <pre><code class="cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
-*   文件名称：F.cpp
+*   文件名称：k.cpp
 *   创 建 者： badcw
-*   创建日期： 19-7-26
+*   创建日期： 2019/7/27
 *
 ================================================================*/
 #include &lt;bits/stdc++.h&gt;
@@ -298,7 +522,7 @@ int main(int argc, char* argv[]) {
 #define ll long long
 using namespace std;
 
-const int maxn = 505;
+const int maxn = 1e5+5;
 const int mod = 1e9+7;
 ll qp(ll a, ll n) {
     ll res = 1;
@@ -329,303 +553,44 @@ inline bool scan(T&amp; ret) {
 //    putchar(x % 10 + '0');
 //}
 
-int n, m;
-int mat[maxn][maxn];
-int mn[maxn], mx[maxn];
+char s[maxn];
+ll pre[maxn][3];
+ll lst[maxn];
 
 int main(int argc, char* argv[]) {
-    int T;
-    scanf(&quot;%d&quot;, &amp;T);
-    while (T--) {
-        scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-        for (int i = 1; i &lt;= n; ++i) {
-            for (int j = 1; j &lt;= n; ++j) {
-                scanf(&quot;%d&quot;, &amp;mat[i][j]);
-            }
+    scanf(&quot;%s&quot;, s + 1);
+    int len = 0;
+    for (int i = 1; s[i]; ++i) {
+//        for (int j = 0; j &lt; 3; ++j)
+//            pre[i][j] = pre[i - 1][j];
+        int tmp = (s[i] - '0') % 3;
+        ll tt[3];
+        for (int j = 0; j &lt; 3; ++j) {
+            tt[j] = pre[i - 1][(j - tmp + 3) % 3];
         }
-        int res = 0;
-        for (int i = 1; i &lt;= n; ++i) {
-            for (int j = 1; j &lt;= n; ++j) {
-                mn[j] = 0x3f3f3f3f;
-                mx[j] = 0;
-            }
-            for (int j = i; j &lt;= n; ++j) {
-                for (int k = 1; k &lt;= n; ++k) {
-                    mn[k] = min(mn[k], mat[j][k]);
-                    mx[k] = max(mx[k], mat[j][k]);
-                }
-                int r = 1;
-                deque&lt;int&gt; mxdq, mndq;
-                for (int l = 1; l &lt;= n; ++l) {
-                    if (res &gt;= (n - l + 1) * (j - i + 1)) break;
-                    if (r &lt; l) r = l;
-                    while (mxdq.size() &amp;&amp; mxdq.front() &lt; l) mxdq.pop_front();
-                    while (mndq.size() &amp;&amp; mndq.front() &lt; l) mndq.pop_front();
-                    int mxtmp = -1, mntmp = 0x3f3f3f3f;
-                    if (mxdq.size()) mxtmp = mx[mxdq.front()];
-                    if (mndq.size()) mntmp = mn[mndq.front()];
-                    while (r &lt;= n &amp;&amp; max(mx[r], mxtmp) - min(mn[r], mntmp) &lt;= m) {
-                        while (mxdq.size() &amp;&amp; mx[mxdq.back()] &lt; mx[r]) mxdq.pop_back();
-                        mxdq.push_back(r);
-                        mxtmp = mx[mxdq.front()];
-                        while (mndq.size() &amp;&amp; mn[mndq.back()] &gt; mn[r]) mndq.pop_back();
-                        mndq.push_back(r);
-                        mntmp = mn[mndq.front()];
-                        r++;
-                    }
-                    res = max(res, (r - l) * (j - i + 1));
-                }
-            }
+        for (int j = 0; j &lt; 3; ++j) {
+            pre[i][j] += tt[j];
         }
-        printf(&quot;%d\n&quot;, res);
+        pre[i][tmp] ++;
+//        pre[i][(s[i] - '0') % 3] ++;
+        len ++;
     }
-    return 0;
-}
-</code></pre>
-
-<h2 id="hmagic-line">H、<a href="https://ac.nowcoder.com/acm/contest/883/H">Magic Line</a></h2>
-<p>给n个二维点，求一条直线把这些点分成相等的两部分。注意直线不能穿过给定点。</p>
-<p>考虑按横坐标排序后，数量中点的横坐标如果不重叠就可以直接做一条垂直于x的直线分割，否则可以做一条在中间点稍微倾斜一点的直线即可。注释代码是check部分。</p>
-<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-typedef double db;
-const db EPS = 1e-9;
-inline int sign(db a)
-{
-    return a&lt;-EPS?-1:a&gt;EPS;
-}
-inline int cmp(db a,db b)
-{
-    return sign(a-b);
-}
-struct P
-{
-    db x,y;
-    P(){}
-    P(db _x,db _y):x(_x),y(_y){}
-    P operator+(P p)
-    {
-        return {x+p.x,y+p.y};
-    }
-    P operator-(P p)
-    {
-        return {x-p.x,y-p.y};
-    }
-    P operator*(db d)
-    {
-        return {x*d,y*d};
-    }
-    P operator/(db d)
-    {
-        return {x/d,y/d};
-    }
-    db abs2()
-    {
-        return x*x+y*y;
-    }
-    db abs()
-    {
-        return sqrt(abs2());
-    }
-    db distTo(P p)
-    {
-        return (*this-p).abs();
-    }
-    P unit()
-    {
-        return *this/abs();
-    }
-    P rot90()
-    {
-        return P(-y,x);
-    }
-};
-//#define cross(p1,p2,p3) ((p2.x-p1.x)*(p3.y-p1.y)-(p3.x-p1.x)*(p2.y-p1.y))
-//#define crossOp(p1,p2,p3) sign(cross(p1,p2,p3))
-//P x[1005];
-//P p,q;
-
-const int maxn = 1005;
-int n;
-pair&lt;int, int&gt; a[maxn];
-
-int main() {
-    int T;
-    scanf(&quot;%d&quot;, &amp;T);
-    while (T--) {
-        scanf(&quot;%d&quot;, &amp;n);
-        for (int i = 1; i &lt;= n; ++i) {
-            scanf(&quot;%d%d&quot;, &amp;a[i].first, &amp;a[i].second);
-//            x[i].x = a[i].first;
-//            x[i].y = a[i].second;
-        }
-        sort(a + 1, a + 1 + n);
-        if (a[n / 2].first != a[n / 2 + 1].first) {
-            printf(&quot;%d 1000000000 %d -1000000000\n&quot;, a[n / 2].first, a[n / 2].first + 1);
-//            p.x = a[n / 2].first, p.y = 1000000000;
-//            q.x = a[n / 2].first + 1, q.y = -1000000000;
-        } else {
-            int t = a[n / 2].second + a[n / 2 + 1].second;
-            printf(&quot;%d %d %d -500000000\n&quot;, a[n / 2].first - 1, 500000000 + t, a[n / 2].first + 1);
-//            p.x = a[n / 2].first - 1, p.y = 500000000 + t;
-//            q.x = a[n / 2].first + 1, q.y = -500000000;
-        }
-//        int cnt1=0,cnt2=0;
-//        for(int i=1;i&lt;=n;i++)
-//        {
-//            if(crossOp(x[i],p,q)==-1)
-//                cnt1++;
-//            else
-//                cnt2++;
-//        }
-//        printf(&quot;%d %d\n&quot;,cnt1,cnt2);
-
-//        int res = a[n / 2].first;
-    }
-    return 0;
-}
-/*
-10
-8
-0 0 0 -1 -1 0 -1 1 -1 2 -1 3 -1 -1 -2 0
- 4
-0 0
-1 0
-0 1
-0 -1
-4
-0 1
--1 0
-1 0
-0 -1
-*/
-
-</code></pre>
-
-<h2 id="jlru-management">J、<a href="https://ac.nowcoder.com/acm/contest/883/J">LRU management</a></h2>
-<p>按题意模拟一个链表，赛中的splay不知道为什么写挂了。也可以直接上map+list。具体来说有：</p>
-<ul>
-<li>往链表尾部添加一个键值对</li>
-<li>删除链表中一个键值对</li>
-<li>查询链表中某个键的值</li>
-<li>查询一个键的下一个或者上一个键的值</li>
-<li>删除链表首部键值对</li>
-</ul>
-<p>这几种操作，模拟即可。</p>
-<pre><code class="cpp">/*================================================================
-*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
-*
-*   文件名称：J.cpp
-*   创 建 者： badcw
-*   创建日期： 19-7-25
-*
-================================================================*/
-#include &lt;bits/stdc++.h&gt;
-
-#define ll long long
-using namespace std;
-
-const int maxn = 5e5+5;
-const int mod = 1e9+7;
-ll qp(ll a, ll n) {
-    ll res = 1;
-    while (n &gt; 0) {
-        if (n &amp; 1) res = res * a % mod;
-        a = a * a % mod;
-        n &gt;&gt;= 1;
-    }
-    return res;
-}
-
-template &lt;class T&gt;
-inline bool scan(T&amp; ret) {
-    char c;
-    int sgn;
-    if (c = getchar(), c == EOF) return 0; // EOF
-    while (c != '-' &amp;&amp; (c &lt; '0' || c &gt; '9')) c = getchar();
-    sgn = (c == '-') ? -1 : 1;
-    ret = (c == '-') ? 0 : (c - '0');
-    while (c = getchar(), c &gt;= '0' &amp;&amp; c &lt;= '9') ret = ret * 10 + (c - '0');
-    ret *= sgn;
-    return 1;
-}
-
-template &lt;class T&gt;
-inline void out(T x) {
-    if (x &gt; 9) out(x / 10);
-    putchar(x % 10 + '0');
-}
-
-unordered_map&lt;ll, pair&lt;list&lt;ll&gt;::iterator, int &gt; &gt; mp;
-list&lt;ll&gt; ls;
-int sz;
-int T;
-
-int main(int argc, char* argv[]) {
-//    ios::sync_with_stdio(0);
-//    cin.tie(0);
-//    cout.tie(0);
-    scan(T);
-    int n, m;
-    while (T--) {
-        scan(m), scan(n);
-//        cin &gt;&gt; m &gt;&gt; n;
-        ls.clear();
-        mp.clear();
-        sz = 0;
-        int tp, val, s;
-//        string s;
-        for (int i = 1; i &lt;= m; ++i) {
-            scan(tp), scan(s), scan(val);
-//            cin &gt;&gt; tp &gt;&gt; s &gt;&gt; val;
-            if (tp == 0) {
-                if (mp.count(s)) {
-                    val = mp[s].second;
-                    ls.erase(mp[s].first);
-                    mp.erase(s);
-                    sz --;
-                }
-                if (sz == n) {
-                    mp.erase(*ls.begin());
-                    ls.pop_front();
-                    sz --;
-                }
-                ls.push_back(s);
-                mp[s] = make_pair(prev(ls.end()), val);
-                sz ++;
-                out(val);
-                putchar('\n');
-//                cout &lt;&lt; val &lt;&lt; endl;
-            } else {
-                if (mp.count(s) == 0) {
-                    puts(&quot;Invalid&quot;);
-//                    cout &lt;&lt; &quot;Invalid&quot; &lt;&lt; endl;
-                } else {
-                    if (val == 0) {
-                        out(mp[s].second);
-                        putchar('\n');
-//                        cout &lt;&lt; mp[s].second &lt;&lt; endl;
-                    }
-                    else if (val == 1) {
-                        if (next(mp[s].first) != ls.end()) {
-                            out(mp[*next(mp[s].first)].second);
-                            putchar('\n');
-                        }
-//                            cout &lt;&lt; mp[*next(mp[s].first)].second &lt;&lt; endl;
-                        else puts(&quot;Invalid&quot;);
-                    } else {
-                        if (prev(mp[s].first) != ls.end()) {
-                            out(mp[*prev(mp[s].first)].second);
-                            putchar('\n');
-                        }
-//                            cout &lt;&lt; mp[*prev(mp[s].first)].second &lt;&lt; endl;
-                        else puts(&quot;Invalid&quot;);
-                    }
-                }
-            }
+    ll tot = 0;
+    for (int i = len; i &gt;= 1; --i) {
+        if (s[i] == '0') lst[i] = lst[i + 1] + 1;
+        else {
+            tot += (lst[i + 1] * (lst[i + 1] - 1) / 2) + lst[i + 1];
+            lst[i] = 0;
         }
     }
+    tot += lst[1] * (lst[1] - 1) / 2 + lst[1];
+    ll res = 0;
+//    printf(&quot;%lld\n&quot;, tot);
+    for (int i = 1; i &lt; len; ++i) {
+        if (lst[i + 1] &gt;= 1 &amp;&amp; s[i] != '0') res += pre[i][0] * (lst[i + 1] - 1);
+//        res += pre[i][0] * lst[i + 1];
+    }
+    printf(&quot;%lld\n&quot;, res + tot);
     return 0;
 }
 </code></pre></div>

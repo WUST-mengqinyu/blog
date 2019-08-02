@@ -131,6 +131,10 @@
 <li >
     <a href="../../2019牛客暑期多校训练营/2019牛客暑期多校训练营（第二场）/">2019牛客暑期多校训练营（第二场）</a>
 </li>
+            
+<li >
+    <a href="../../2019牛客暑期多校训练营/2019牛客暑期多校训练营（第四场）/">2019牛客暑期多校训练营（第四场）</a>
+</li>
     </ul>
   </li>
                                 </ul>
@@ -168,9 +172,42 @@
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>| Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |
-| --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| 2019/7/29 | 6/12   |  .   |  Ø   |  .   |  Ø   |  .   |  O   |  O   |  .   |  Ø   |  .   |  .   |</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Solved</th>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+<th align="center">F</th>
+<th align="center">G</th>
+<th align="center">H</th>
+<th align="center">I</th>
+<th align="center">J</th>
+<th align="center">K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2019/7/29</td>
+<td>6/12</td>
+<td align="center">.</td>
+<td align="center">Ø</td>
+<td align="center">.</td>
+<td align="center">Ø</td>
+<td align="center">.</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">.</td>
+<td align="center">Ø</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="d-distribution-of-books"><a href="https://cn.vjudge.net/problem/HDU-6606">D - Distribution of books</a></h2>
 <p>给一个序列，要求从前往后连续选m块，每块至少一个数，使得选取块的和最大值最小。</p>
 <p>首先肯定是考虑二分的，直接二分答案就是能否选到m个不大于当前值的块即可。然后考虑怎么check，一个显然的<script type="math/tex">O(n^2)</script>的check是<script type="math/tex">dp[i] = max(dp[j]) + 1 (\sum_{k=j}^i a[k] <= mid)</script>，其实就已经很显然了，对每个dp值维护一个前缀dp权值线段树即可。</p>
