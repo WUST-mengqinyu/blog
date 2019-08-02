@@ -17,3 +17,14 @@ inline void out(T x) {
     if (x > 9) out(x / 10);
     putchar(x % 10 + '0');
 }
+
+inline int read() {
+    int x = 0;
+    char ch = getchar();
+    while (ch > '9' || ch < '0')ch = getchar();
+    while (ch >= '0' && ch <= '9') {
+        x = x * 10 + ch - '0';
+        ch = getchar();
+    }
+    return x;
+}
