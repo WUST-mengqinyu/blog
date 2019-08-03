@@ -1,8 +1,8 @@
 /*1、操作将u，v合并 2、操作回退 */
-
+const int maxn = 2e5+5;
 int n, m, sz;
-int root[200005], ls[2000005], rs[2000005], v[2000005], deep[2000005];
-int has[200005];
+int root[maxn],ls[maxn*40],rs[maxn*40],v[maxn*40],deep[maxn*40];
+int has[maxn];
 
 void build(int &k, int l, int r) {
     if (!k)k = ++sz;
@@ -78,8 +78,7 @@ int main() {
                 if (deep[p] > deep[q])swap(p, q);
                 modify(1, n, root[i - 1], root[i], v[p], v[q]);
                 if (deep[p] == deep[q])add(root[i], 1, n, v[q]);
-            }
-            if (f == 2) {
+            } else if (f == 2) {
                 k = read();
                 root[i] = root[k];
                 has[i] = has[k];
