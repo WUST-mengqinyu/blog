@@ -1,3 +1,4 @@
-#/usr/bin/fish
+#!/usr/bin/fish
 git add *
 git commit -m (date)
+git push
