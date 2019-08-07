@@ -9,7 +9,7 @@ bool check(ll a, ll n)
     ll t = qp(a, d, n);
     while(d != n - 1 && t != 1 && t != n - 1)
     {
-        t *= t;
+        t = mul(t, t, n);
         d <<= 1;
     } 
     return t == n - 1 || d & 1;
