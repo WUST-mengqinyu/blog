@@ -34,6 +34,7 @@ public:
         while (!que.empty())
         {
             int k = que.front();
+            // tag[k] += tag[fail[k]];
             que.pop();
             for (int i = 0; i < 26; i++)
             {
@@ -55,5 +56,14 @@ public:
             for (int j = p; j && ~tag[j]; j = fail[j]) res += tag[j], tag[j] = -1;
         }
         return res;
+    }
+
+    void query(string str, ll *res) { // 查询所有前缀的匹配串个数，build时把fail指针上的tag加到当前tag
+        int p = 0;
+        for (int i = 0; i < (int)str.length(); i++)
+        {
+            p = trie[p][str[i] - 'a'];
+            res[i] = tag[p];
+        }
     }
 } AC;

@@ -20,12 +20,15 @@ struct Palindromic_Tree {
     int last{};//指向新添加一个字母后所形成的最长回文串表示的节点。
     int n{};//表示添加的字符个数。
     int p{};//表示添加的节点个数。
+    //0向前加，1向后加字符
+    //int last[2];
+    //int lpos, rpos;
 
     int newnode(int l) {//新建节点
         next[p].clear();
 //        for (int i = 0; i < N; ++i) next[p][i] = 0;
 //        cnt[p] = 0;
-//        num[p] = 0;
+        num[p] = 0;
         len[p] = l;
         return p++;
     }
@@ -36,9 +39,16 @@ struct Palindromic_Tree {
         newnode(-1);
         S[n] = -1;//开头放一个字符集中没有的字符，减少特判
         fail[0] = 1;
+        // lpos 为字符串最大长度
+        // last[0] = last[1] = 0;
+        // lpos = 100000, rpos = lpos - 1;
+        // S[lpos - 1] = S[rpos + 1] = -1;
     }
 
     int get_fail(int x) {//和KMP一样，失配后找一个尽量最长的
+        // op 0 向前， 1 向后
+        // if (op == 0) while (S[lpos + len[x] + 1] != S[lpos]) x = fail[x];
+        // else while(S[rpos - len[x] - 1] != S[rpos]) x = fail[x];
         while (S[n - len[x] - 1] != S[n]) x = fail[x];
         return x;
     }
@@ -53,6 +63,9 @@ struct Palindromic_Tree {
     }
 
     int add(int c) {
+        // 注意清空左右字符
+        // if (op == 0) S[--lpos] = c, S[lpos - 1] = -1;
+        // else S[++rpos] = c, S[rpos + 1] = -1;
         S[++n] = c;
         int cur = get_fail(last);//通过上一个回文串找这个回文串的匹配位置
         int x = find(cur, c);
@@ -67,6 +80,8 @@ struct Palindromic_Tree {
             num[now] = num[fail[now]] + 1;
         }
         last = x;
+        // 修改最终长度
+        // if (len[last[op]] == rpos - lpos + 1) last[op ^ 1] = last[op];
 //        last = next[cur][c];
 //        cnt[last]++;
         return num[last];
