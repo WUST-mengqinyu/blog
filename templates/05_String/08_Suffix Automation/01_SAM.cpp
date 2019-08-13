@@ -52,7 +52,7 @@ struct SuffixAutomation
             否则不断向父节点上跳，直到当前节点有字符p的转移出边，或者跳到根节点；
         */
         int p = 1, ans = 0, now_len = 0;
-	    for(int i = 0; s2[i]; i ++)
+        for(int i = 0; s2[i]; i ++)
         {
             if(ch[p][s2[i] - 'a']) p = ch[p][s2[i] - 'a'], now_len ++;
             else
@@ -63,7 +63,7 @@ struct SuffixAutomation
             }
             ans = max(now_len, ans);
         }
-	}
+    }
 
     void cal()
     {
