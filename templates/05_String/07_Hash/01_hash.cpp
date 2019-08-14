@@ -1,5 +1,6 @@
 typedef unsigned long long ull;
 struct mhash {
+    // 自然溢出无模数 805306457
     ull base[maxn];
     ull hash_index[maxn];
     ull seed; //31, 131
