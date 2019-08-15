@@ -1,7 +1,3 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
 const int maxn = 1e5 + 10;
 const double eps = 1e-8;
 const double delta = 0.98;

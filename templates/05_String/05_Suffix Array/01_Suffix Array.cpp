@@ -1,7 +1,8 @@
 char s[maxn];
 int sa[maxn], t[maxn], t2[maxn], c[maxn], n;
 
-void build_sa(int n, int m)
+//build_sa(n + 1, 130), sa, rk, height下标从1开始
+void build_sa(int n, int m) 
 {
     int *x = t, *y = t2;
     for(int i = 0; i < m; i++) c[i] = 0;
@@ -30,7 +31,7 @@ int rk[maxn], height[maxn];
 
 void getHeight()
 {
-    for(int i = 0; i < n; i++) rk[sa[i]] = i;
+    for(int i = 1; i <= n; i++) rk[sa[i]] = i;
     for(int i = 0, k = 0; i < n; i++)
     {
         if(k) k--;
@@ -38,4 +39,22 @@ void getHeight()
         while(s[i + k] == s[j + k]) k++;
         height[rk[i]] = k;
     }
+    for(int i = n; i >= 1; i--) ++sa[i], rk[i] = rk[i - 1];
+}
+
+int d[maxn][20];
+
+void RMQ_init()
+{
+    for(int i = 1; i <= n; i ++) d[i][0] = sa[i];
+    for(int j = 1; (1 << j) - 1 <= n; j ++)
+        for(int i = 1; i + (1 << j) - 1 <= n; i ++)
+            d[i][j] = min(d[i][j - 1], d[i + (1 << (j - 1))][j - 1]);
+}
+
+int RMQ(int l, int r)
+{
+    int k = 0;
+    while((1 << (k + 1)) <= r - l + 1) k ++;
+    return min(d[l][k], d[r - (1 << k) + 1][k]);
 }
