@@ -1,6 +1,8 @@
+//复杂度O(n^0.5*m),注意这个板子的下标是从0开始的
+
 const int MAXN = 3010;//左边节点数量、右边节点数量
 const int MAXM = 3010 * 3010;//边的数量
-const int INF = 0x7FFFFFFF;
+const int INF = 0x3f3f3f3f;
 
 struct Edge
 {
