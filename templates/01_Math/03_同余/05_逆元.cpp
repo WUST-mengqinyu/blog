@@ -34,3 +34,16 @@ void getinv(int n,ll p)
 	inv[1]=1;
 	for(i=2;i<=n;i++) inv[i]=(p-p/i)*inv[p%i]%p;
 }
+
+// log逆元
+ll dlog(ll g, ll b, ll p) {
+    ll m = sqrt(p - 1);
+    map<ll, ll> powers;
+    for (long j = 0; j < m; j++) powers[qp(g, j, p)] = j;
+    long gm = qp(g, -m + 2 * (p - 1), p);
+    for (int i = 0; i < m; i++) {
+        if (powers[b]) return i * m + powers[b];
+        b = b * gm % p;
+    }
+    return -1;
+}

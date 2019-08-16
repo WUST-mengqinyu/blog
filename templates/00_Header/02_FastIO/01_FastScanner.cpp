@@ -28,3 +28,6 @@ inline int read() {
     }
     return x;
 }
+
+// 代替gets
+scanf("%[^\n]%*c", ss)
