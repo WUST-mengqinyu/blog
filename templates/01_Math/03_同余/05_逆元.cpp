@@ -2,7 +2,7 @@
 1.费马小定理 
 条件:mod为素数 
 */
-ll inv(ll x,ll p){return qp(x,p-2);}
+ll inv(ll x){return qp(x,mod-2);}
 
 /*
 2.扩展欧几里得
