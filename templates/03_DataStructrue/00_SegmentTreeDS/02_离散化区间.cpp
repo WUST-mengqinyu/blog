@@ -1,5 +1,8 @@
-// 注意三个数组要开离散化数量的两倍，如果不需要sz可以不用这个数组。
-int lpos[maxn << 1], rpos[maxn << 1], tot, sz[maxn << 1];
+// 原题1e5个个区间有2e5个端点，离散化出来4e5个区间
+// 然后线段树需要4e5*4=16e5的大小
+// 注意三个数组要开离散化数量的四倍，如果不需要sz可以不用这个数组。
+int val[maxn << 4];
+int lpos[maxn << 2], rpos[maxn << 2], tot, sz[maxn << 2];
 sort(xpos.begin(), xpos.end());
 xpos.erase(unique(xpos.begin(), xpos.end()), xpos.end());
 tot = 1;
