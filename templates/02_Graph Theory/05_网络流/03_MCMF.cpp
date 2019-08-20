@@ -55,7 +55,8 @@ struct MCMF
 				}
 			}
 		}
-		if(dis[t] == inf) return false;
+		if(dis[t] == inf) return false;		//求最小费用最大流
+		//if(1ll * dis[t] * a[t] > 0) return false; 求可行流最小费用，因此当费用增量大于0时不继续增加流量
 		flow += a[t];
 		cost += dis[t] * a[t];
 		for(int u = t; u != s; u = edges[path[u]].from)

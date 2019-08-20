@@ -7,7 +7,7 @@ int Len[maxn << 1];
 
 int init(char *str)
 {
-    int i, len = strlen(str);
+    int len = strlen(str);
     tmp[0] = '@';
     for (int i = 1; i <= 2 * len; i += 2)
     {

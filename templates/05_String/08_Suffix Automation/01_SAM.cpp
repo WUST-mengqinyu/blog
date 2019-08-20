@@ -4,7 +4,7 @@ struct SuffixAutomation
 {
 	int last, cnt;
 	int ch[maxn << 1][26], fa[maxn << 1], len[maxn << 1], pos[maxn << 1];
-    int sz[maxn << 1];
+    int sz[maxn << 1], a[maxn << 1], c[maxn << 1];
 
 	void init()
 	{
@@ -65,17 +65,12 @@ struct SuffixAutomation
         }
     }
 
-    void cal()
+    void Toposort()
     {
         long long ans = 0;
         for(int i = 1; i <= cnt; i ++) c[len[i]] ++;
         for(int i = 1; i <= cnt; i ++) c[i] += c[i - 1];
         for(int i = 1; i <= cnt; i ++) a[c[len[i]] --] = i;
-        for(int i = cnt; i; i --)
-        {
-            int p = a[i];
-            sz[fa[p]] += sz[p];
-            if(sz[p] > 1) ans = max(ans, 1ll * sz[p] * len[p]);
-        }
+        for(int i = cnt; i; i --) sz[fa[a[i]]] += sz[a[i]];
     }
 }sam;

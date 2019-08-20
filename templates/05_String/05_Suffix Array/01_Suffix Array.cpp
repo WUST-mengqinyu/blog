@@ -1,7 +1,7 @@
 char s[maxn];
 int sa[maxn], t[maxn], t2[maxn], c[maxn], n;
 
-//build_sa(n + 1, 130), sa, rk, height下标从1开始
+//build_sa(n + 1, 130), sa, height下标从1开始,rk下标从0开始
 void build_sa(int n, int m) 
 {
     int *x = t, *y = t2;
@@ -39,22 +39,28 @@ void getHeight()
         while(s[i + k] == s[j + k]) k++;
         height[rk[i]] = k;
     }
-    for(int i = n; i >= 1; i--) ++sa[i], rk[i] = rk[i - 1];
 }
 
-int d[maxn][20];
+int dp[maxn][20];
 
-void RMQ_init()
+void RMQ()
 {
-    for(int i = 1; i <= n; i ++) d[i][0] = sa[i];
-    for(int j = 1; (1 << j) - 1 <= n; j ++)
+    for(int i = 1; i <= n; i ++) dp[i][0] = height[i];
+    for(int j = 1; (1 << j) < maxn; j ++)
         for(int i = 1; i + (1 << j) - 1 <= n; i ++)
-            d[i][j] = min(d[i][j - 1], d[i + (1 << (j - 1))][j - 1]);
+            dp[i][j] = min(dp[i][j - 1], dp[i + (1 << (j - 1))][j - 1]);
 }
 
-int RMQ(int l, int r)
+int query(int l, int r)
 {
     int k = 0;
     while((1 << (k + 1)) <= r - l + 1) k ++;
-    return min(d[l][k], d[r - (1 << k) + 1][k]);
+    return min(dp[l][k], dp[r - (1 << k) + 1][k]);
+}
+
+int lcp(int x, int y)
+{
+    x = rk[x], y = rk[y];
+    if(x > y) swap(x, y);
+    return query(x + 1, y);
 }
