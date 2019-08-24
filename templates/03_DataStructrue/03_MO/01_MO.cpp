@@ -1,7 +1,4 @@
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-const int maxn = 200005;
+// const int maxn = 50005;
 
 struct MO {
     int l, r, id;

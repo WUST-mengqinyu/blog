@@ -31,3 +31,8 @@ ll qp(ll x, ll n) {
 int main() {
     return 0;
 }
+
+freopen("data.in","r",stdin);
+freopen("data.out","w",stdout);
+clock_t ST = clock();
+cerr << "time: " << ((clock()-ST)*1000.0 / CLOCKS_PER_SEC) << "ms" << endl;
