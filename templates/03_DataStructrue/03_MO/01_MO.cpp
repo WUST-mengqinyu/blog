@@ -5,17 +5,17 @@ struct MO {
 }q[maxn];
 
 int n, m, col[maxn], block, belong[maxn];
-ll vis[maxn * 10], ans;
-ll res[maxn];
+int vis[maxn * 10];
+ll res[maxn], ans;
 bool cmp(const MO& a, const MO& b) { return belong[a.l] == belong[b.l] ? a.r < b.r : a.l < b.l; }
-void add(ll x) {
+void add(int x) {
     vis[x] ++;
-    ans += x * (vis[x] * vis[x] - (vis[x] - 1) * (vis[x] - 1));
+    ans += 1ll * x * (vis[x] * vis[x] - (vis[x] - 1) * (vis[x] - 1));
 }
 
-void del(ll x) {
+void del(int x) {
     vis[x] --;
-    ans -= x * ((vis[x] + 1) * (vis[x] + 1) - vis[x] * vis[x]);
+    ans -= 1ll * x * ((vis[x] + 1) * (vis[x] + 1) - vis[x] * vis[x]);
 }
 
 int main() {

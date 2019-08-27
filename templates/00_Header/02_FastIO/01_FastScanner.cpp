@@ -18,6 +18,15 @@ inline void out(T x) {
     putchar(x % 10 + '0');
 }
 
+void out2(int x, int flag = 1) {
+    if (x == 0) {
+        if (flag) putchar('0');
+        return;
+    }
+    out2(x >> 1, 0);
+    putchar('0' + x % 2);
+}
+
 inline int read() {
     int x = 0;
     char ch = getchar();

@@ -1,15 +1,4 @@
-/*************************************************************************
-	> File Name: a.cpp
-	> Author: badcw
-	> Mail: 952223482@qq.com
-	> Created Time: 2018年07月21日 星期六 08时47分54秒
- ************************************************************************/
-
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-
-const int maxn = 100005;
+// const int maxn = 100005;
 int n, m;
 int a[maxn];
 int root[maxn];
