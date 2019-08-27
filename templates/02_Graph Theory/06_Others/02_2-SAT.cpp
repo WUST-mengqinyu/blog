@@ -5,6 +5,7 @@ int low[maxn], dfn[maxn], color[maxn], cnt, scc_cnt;
 bool instack[maxn];
 
 vector<int> g[maxn];
+stack<int> st;
 
 void Tarjan(int u)
 {
@@ -27,7 +28,7 @@ void Tarjan(int u)
     }
 }
 
-void 2_SAT()
+void TWO_SAT()
 {
     scanf("%d%d", &n, &m);
     for(int i = 0; i < m; i ++)
@@ -38,4 +39,13 @@ void 2_SAT()
     }
     cnt = scc_cnt = 0;
     for(int i = 1; i <= (n << 1); i ++) if(!dfn[i]) Tarjan(i);
+}
+
+void out()
+{
+    for(int i = 1; i <= n; i ++)
+        if(color[i] == color[i + n]) { puts("IMPOSSIBLE"); return; }
+    puts("POSSIBLE");
+    for(int i = 1; i <= n; i ++)
+        printf("%d ", color[i] < color[i + n]);
 }

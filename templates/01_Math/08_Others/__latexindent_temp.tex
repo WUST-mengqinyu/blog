@@ -68,12 +68,11 @@ $$\sum_{i=1}^n i^k = \frac{1}{k+1} \sum_{i=1}^{k+1}C_{k+1}^i B_{k+1-i}(n+1)^i$$
 \item 二项式反演：$$f_n = \sum_{i = 0} ^ n (-1) ^ i \binom{n}{i} g_i \Leftrightarrow g_n = \sum_{i = 0} ^ n (-1) ^ i \binom{n}{i} f_i$$
 $$f_n = \sum_{i = 0} ^ n \binom{n}{i} g_i \Leftrightarrow g_n = \sum_{i = 0} ^ n (-1) ^ {n - i} \binom{n}{i} f_i$$
 
-\item 莫比乌斯反演:
+\item 莫比乌斯反演
 \begin{enumerate}
 \item 令$f(d)=\sum_{i=1}^{n}\sum_{j=1}^{m}[gcd(i,j)=d]$
 \item $F(n)=\sum_{n|d}f(d)=\lfloor\frac{N}{n}\rfloor\lfloor\frac{M}{n}\rfloor$
 \item 有$f(n)=\sum_{n|d}\mu(\lfloor\frac{d}{n}\rfloor)F(d)$
-\item $\phi(n)=\sum_{d|n}d*\mu(n/d)$
 \end{enumerate}
 
 

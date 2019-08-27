@@ -1,6 +1,6 @@
 //计算欧拉phi函数，phi(n)且与n互素的正整数个数
 
-int oula(int n){
+int Euler(int n){
     int rea=n;
     for(int i=2; i*i<=n; i++)
         if(n%i==0)//第一次找到的必为素因子

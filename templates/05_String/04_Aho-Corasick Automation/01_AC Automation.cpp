@@ -1,11 +1,9 @@
-const int maxn = 5e5 + 10;
-
 class AC_automation
 {
 public:
     int trie[maxn][26], cnt;
     int tag[maxn];
-    int fail[maxn];
+    int fail[maxn], num[maxn], res[maxn], in[maxn], Map[maxn];
 
     void init()
     {
@@ -15,7 +13,7 @@ public:
         cnt = 0;
     }
 
-    void insert(char *str)
+    void insert(char *str, int id)
     {
         int root = 0;
         for (int i = 0; str[i]; i++)
@@ -24,7 +22,8 @@ public:
             if (!trie[root][id]) trie[root][id] = ++cnt;
             root = trie[root][id];
         }
-        tag[root]++;
+        if(!tag[root]) tag[root] = id;
+        Map[id] = tag[root];
     }
 
     void build()
@@ -34,7 +33,6 @@ public:
         while (!que.empty())
         {
             int k = que.front();
-            // tag[k] += tag[fail[k]];
             que.pop();
             for (int i = 0; i < 26; i++)
             {
@@ -42,28 +40,32 @@ public:
                 {
                     fail[trie[k][i]] = trie[fail[k]][i];
                     que.push(trie[k][i]);
+                    in[fail[trie[k][i]]] ++;
                 } else trie[k][i] = trie[fail[k]][i];
             }
         }
     }
 
-    int query(char *str)
+    void toposort()
     {
-        int p = 0, res = 0;
-        for (int i = 0; str[i]; i++)
+        queue<int> que;
+        for(int i = 1; i <= cnt; i ++) if(in[i] == 0) que.push(i);
+        while(!que.empty())
         {
-            p = trie[p][str[i] - 'a'];
-            for (int j = p; j && ~tag[j]; j = fail[j]) res += tag[j], tag[j] = -1;
+            int u = que.front(); que.pop();
+            res[tag[u]] = num[u];
+            int v = fail[u]; in[v] --;
+            num[v] += num[u];
+            if(in[v] == 0) que.push(v);
         }
-        return res;
     }
 
-    void query(string str, ll *res) { // 查询所有前缀的匹配串个数，build时把fail指针上的tag加到当前tag
-        int p = 0;
-        for (int i = 0; i < (int)str.length(); i++)
-        {
-            p = trie[p][str[i] - 'a'];
-            res[i] = tag[p];
-        }
+    void query(char *str, int n)
+    {
+        int u = 0, len = strlen(s);
+        for(int i = 0; i < len; i ++)
+            u = trie[u][str[i] - 'a'], num[u] ++;
+        toposort();
+        for(int i = 1; i <= n; i ++) printf("%d\n", res[Map[i]]);
     }
 } AC;
