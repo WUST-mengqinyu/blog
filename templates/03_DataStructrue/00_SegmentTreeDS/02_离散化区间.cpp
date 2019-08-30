@@ -3,6 +3,7 @@
 // 注意三个数组要开离散化数量的四倍，如果不需要sz可以不用这个数组。
 int val[maxn << 4];
 int lpos[maxn << 2], rpos[maxn << 2], tot, sz[maxn << 2];
+vector<int> xpos;
 sort(xpos.begin(), xpos.end());
 xpos.erase(unique(xpos.begin(), xpos.end()), xpos.end());
 tot = 1;

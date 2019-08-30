@@ -1,10 +1,9 @@
-const int maxn = 1e6 + 10;
-bool vis[maxn];
-vector<int> prime;
-
-void init()
-{
-	for(int i = 2; i < maxn; i ++) if(!vis[i])
-		for(int j = i * i; j < maxn; j += i) vis[i] = true;
-	for(int i = 2; i < maxn; i ++) if(!vis[i]) prime.push_back(i);
+bool vis[(int)1e6+5];
+int prim[(int)1e5], tot; // tot = 78499
+void init() {
+    for (int i = 2; i < 1e6+5; ++i) {
+        if (vis[i]) continue;
+        prim[++tot] = i;
+        for (int j = i + i; j < 1e6+5; j += i) vis[j] = 1;
+    }
 }
