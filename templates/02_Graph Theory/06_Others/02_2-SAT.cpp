@@ -38,7 +38,7 @@ void Tarjan(int u)
     }
 }
 
-inline int add(int a, int b) { g[a].push_back(b); }
+inline void add(int a, int b) { g[a].push_back(b); }
 
 inline void AND(int a, int b, int c)
 {
@@ -58,13 +58,13 @@ inline void XOR(int a, int b, int c)
     else add(a, b + n), add(a + n, b), add(b, a + n), add(b + n, a);
 }
 
-void TWO_SAT()
+bool TWO_SAT()
 {
     input();
     for(int i = 1; i <= (n << 1); i ++) if(!dfn[i]) Tarjan(i);
     for(int i = 1; i <= n; i ++)
-        if(color[i] == color[i + n]) { puts("IMPOSSIBLE"); return; }
-    puts("POSSIBLE");
+        if(color[i] == color[i + n]) return false;
     for(int i = 1; i <= n; i ++)
-        printf("%d ", color[i] < color[i + n]);
+        printf("%d ", color[i] > color[i + n]);
+    return true;
 }
