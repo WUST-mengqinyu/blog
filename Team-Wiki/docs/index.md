@@ -18,6 +18,7 @@
 
 | Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
 | ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| [The Preliminary Contest for ICPC Asia Shenyang 2019](../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shenyang 2019) | 2019/9/14 | 6/11   |  .   |  Ø   |  O   |  O   |  .   |  O   |  .   |  O   |  .   |  .   |  O   |    |    |
 | [2019牛客暑期多校训练营（第四场）](../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第四场）) | 2019/7/27 | 7/11   |  O   |  Ø   |  O   |  O   |  .   |  .   |  .   |  .   |  Ø   |  O   |  O   |      |      |
 | [2019 Multi-University Training Contest 3](../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 3) | 2019/7/29 | 5/11   |  .   |  Ø   |  .   |  Ø   |  .   |  O   |  O   |  .   |  Ø   |  .   |  .   |      |      |
 | [2019牛客暑期多校训练营（第三场）](../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第三场）) | 2019/7/25 | 6/10   |  .   |  O   |  .   |  Ø   |  .   |  Ø   |  Ø   |  O   |  .   |  Ø   |      |      |      |
