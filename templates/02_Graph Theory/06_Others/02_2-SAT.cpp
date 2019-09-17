@@ -1,3 +1,13 @@
+/*2-SAT连边含义：选A必选B
+    点$x_i$表示选，$x_i'$表示不选
+    1.必选$x_i$，等价于$x_i=1$：$x_i'→x_i$
+    2.必不选$x_i$，等价于$x_i=0$，$x_i→x_i'$
+    3.$x_i$与$x_j$中至少选择一个，等价于$x_iORx_j=1$，连边$x_i'→x_j$,$x_j'→x_i$
+    4.$x_i$与$x_j$不都选，等价于$x_iANDx_j=0$，连边$x_i→x_j',x_j→x_i'$
+    5.$x_i$与$x_j$情况相同，等价于$x_iXORx_j=0$，连边$x_i→x_j$,$x_i'→x_j'$,$x_j→x_i$,$x_j'→x_i'$
+    6.$x_i$与$x_j$情况相反，等价于$x_iXORx_j=1$，连边$x_i→x_j'$,$x_i'→x_j$,$x_j→x_i'$,$x_j'→x_i$
+*/
+
 const int maxn = 2e6 + 10;
 
 int n, m, a, va, b, vb;
@@ -28,21 +38,30 @@ void Tarjan(int u)
     }
 }
 
-void TWO_SAT()
+inline int add(int a, int b) { g[a].push_back(b); }
+
+inline void AND(int a, int b, int c)
 {
-    scanf("%d%d", &n, &m);
-    for(int i = 0; i < m; i ++)
-    {
-        scanf("%d%d%d%d", &a, &va, &b, &vb);
-        g[ a + n * (va & 1) ].push_back(b + n * (vb ^ 1));
-        g[ b + n * (vb & 1) ].push_back(a + n * (va ^ 1));
-    }
-    cnt = scc_cnt = 0;
-    for(int i = 1; i <= (n << 1); i ++) if(!dfn[i]) Tarjan(i);
+    if(c == 1) add(a, a + n), add(b, b + n);
+    else add(a + n, b), add(b + n, a);
 }
 
-void out()
+inline void OR(int a, int b, int c)
 {
+    if(c == 0) add(a + n, a), add(b + n, b);
+    else add(a, b + n), add(b, a + n);
+}
+
+inline void XOR(int a, int b, int c)
+{
+    if(c == 0) add(a, b), add(a + n, b + n), add(b, a), add(b + n, a + n);
+    else add(a, b + n), add(a + n, b), add(b, a + n), add(b + n, a);
+}
+
+void TWO_SAT()
+{
+    input();
+    for(int i = 1; i <= (n << 1); i ++) if(!dfn[i]) Tarjan(i);
     for(int i = 1; i <= n; i ++)
         if(color[i] == color[i + n]) { puts("IMPOSSIBLE"); return; }
     puts("POSSIBLE");
