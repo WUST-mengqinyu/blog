@@ -184,8 +184,9 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#tag">tag</a></li>
-        <li class="main "><a href="#dcounting-sequences-i">D、Counting Sequences I</a></li>
-        <li class="main "><a href="#gsubstring">G、Substring</a></li>
+        <li class="main "><a href="#d-counting-sequences-i">D. Counting Sequences I</a></li>
+        <li class="main "><a href="#f-rhyme-scheme">F. Rhyme scheme</a></li>
+        <li class="main "><a href="#g-substring">G. Substring</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -232,8 +233,70 @@
 </table>
 <h2 id="tag">tag</h2>
 <p><code>#B sort（假线段树）# D 暴力 #　E 生成函数  #F dp # G暴力（unordermap hash） #J 背包 #L暴力</code></p>
-<h2 id="dcounting-sequences-i">D、Counting Sequences I</h2>
-<h2 id="gsubstring">G、Substring</h2>
+<h2 id="d-counting-sequences-i">D. Counting Sequences I</h2>
+<h2 id="f-rhyme-scheme">F. Rhyme scheme</h2>
+<p>题意：给定一类字符串的构造方案：前i-1位的最大字符为'mx'，则第i位可以取的范围为['A','mx' + 1]。每组询问输出长度为n的串中字典序第k大的字符串。</p>
+<p>题解：构造出的字符串方案数应该为贝尔数。根据题意，rhyme scheme可以形成一棵字典树，并且每个节点的子树大小取决于字典树路径上的最大字符。考虑dp求解某个子树对应的字符个数，令<script type="math/tex">dp[i][j]</script>表示在第i层，根节点到当前节点路径字符的最大值为j的子树大小，有dp方程<code>dp[i][j]=j*dp[i-1][j]+dp[i][j+1]</code>。询问时在字典树上从上往下走，假设根节点到当前节点路径上的最大值为mx，那么前mx个点的子树大小为<code>dp[n-dep][mx]</code>，最后一个节点的子树大小为<code>dp[n-dep][mx+1]</code>，不断往下走即可求出解。</p>
+<pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+__int128 dp[30][30], k;
+
+template &lt;class T&gt;
+inline bool scan(T &amp;ret){
+    char c;
+    int sgn;
+    if (c = getchar(), c == EOF) return 0; //EOF
+    while (c != '-' &amp;&amp; (c &lt; '0' || c &gt; '9')) c = getchar();
+    sgn = (c == '-') ? -1 : 1;
+    ret = (c == '-') ? 0 : (c - '0');
+    while (c = getchar(), c &gt;= '0' &amp;&amp; c &lt;= '9') ret = ret * 10 + (c - '0');
+    ret *= sgn;
+    return 1;
+}
+
+template &lt;class T&gt;
+inline void out(T x) {
+    if (x &gt; 9) out(x / 10);
+    putchar(x % 10 + '0');
+}
+
+int main()
+{
+    int T, n;
+    scanf(&quot;%d&quot;, &amp;T);
+    for(int i = 0; i &lt; 30; i ++) dp[0][i] = 1;
+    for(int i = 1; i &lt; 30; i ++)
+        for(int j = 0; j &lt; 30; j ++)
+            dp[i][j] = dp[i - 1][j] * j + dp[i - 1][j + 1];
+    for(int i = T - 1; i &gt;= 0; i --)
+    {
+        for(int j = 1; j &lt;= T - i; j ++)
+        {
+            out(dp[i][j]);
+            printf(&quot; &quot;);
+        }
+        puts(&quot;&quot;);
+    }
+
+    for(int _ = 1; _ &lt;= T; _ ++)
+    {
+        scanf(&quot;%d&quot;, &amp;n); scan(k);
+        printf(&quot;Case #%d: &quot;, _);
+        int c = 0, mx = 0;
+        for(int i = 1; i &lt;= n; i ++)
+        {
+            for(c = 0; c &lt; mx &amp;&amp; k &gt; dp[n - i][mx]; c ++) k -= dp[n - i][mx];
+            mx = max(c + 1, mx);
+            printf(&quot;%c&quot;, 'A' + c);
+        }
+        puts(&quot;&quot;);
+    }
+}
+</code></pre>
+
+<h2 id="g-substring">G. Substring</h2>
 <p>题意：给一个s串，给m个t串，分别求s串与每个t串乱序匹配的子串数量，乱序匹配指两串长度相等，首尾字符相等，中间重排之后相等即可。</p>
 <p>题解：数据范围中t的总长不超过1e5，所以离线查询，对每种长度按窗口处理一次s，复杂度O（能过），乱序匹配用加法hash就可以了，这个范围甚至不会溢出longlong。唯一比较nb的点在于它的细节卡内存，unordermap只需要管那些t串满足的解，所以count先判断是否存在需要这个解，然后再加就可以了。</p>
 <p>代码：</p>
