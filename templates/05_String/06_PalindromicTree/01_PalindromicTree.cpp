@@ -1,17 +1,10 @@
-// 求相交回文串数量
-
-#include<bits/stdc++.h>
-
-#define ll long long
-using namespace std;
-
 const int maxn = 2e6+6;
 const int N = 26;
 const int mod = 51123987;
 
 struct Palindromic_Tree {
-    vector<pair<int, int> > next[maxn];
-//    int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符构成
+//    vector<pair<int, int> > next[maxn];
+    int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符构成
     int fail[maxn]{};//fail指针，失配后跳转到fail指针指向的节点
     int cnt[maxn]{}; //表示节点i表示的本质不同的串的个数（建树时求出的不是完全的，最后count()函数跑一遍以后才是正确的）
     int num[maxn]{}; //表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数
@@ -25,9 +18,9 @@ struct Palindromic_Tree {
     //int lpos, rpos;
 
     int newnode(int l) {//新建节点
-        next[p].clear();
-//        for (int i = 0; i < N; ++i) next[p][i] = 0;
-//        cnt[p] = 0;
+//        next[p].clear();
+        for (int i = 0; i < N; ++i) next[p][i] = 0;
+        cnt[p] = 0;
         num[p] = 0;
         len[p] = l;
         return p++;
@@ -53,14 +46,14 @@ struct Palindromic_Tree {
         return x;
     }
 
-    int find(int u, int c) {
-        vector<pair<int, int> > & x = next[u];
-        int sz = x.size();
-        for(int i = 0; i < sz; ++i) {
-            if(x[i].first == c) return x[i].second;
-        }
-        return 0;
-    }
+//    int find(int u, int c) {
+//        vector<pair<int, int> > & x = next[u];
+//        int sz = x.size();
+//        for(int i = 0; i < sz; ++i) {
+//            if(x[i].first == c) return x[i].second;
+//        }
+//        return 0;
+//    }
 
     int add(int c) {
         // 注意清空左右字符
@@ -68,22 +61,22 @@ struct Palindromic_Tree {
         // else S[++rpos] = c, S[rpos + 1] = -1;
         S[++n] = c;
         int cur = get_fail(last);//通过上一个回文串找这个回文串的匹配位置
-        int x = find(cur, c);
-        if (!x) {
-//        if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
+//        int x = find(cur, c);
+//        if (!x) {
+        if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
             int now = newnode(len[cur] + 2);//新建节点
-            x = now;
-            fail[now] = find(get_fail(fail[cur]), c);
-            next[cur].emplace_back(make_pair(c, now));
-//            fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以便失配后跳转
-//            next[cur][c] = now;
+//            x = now;
+//            fail[now] = find(get_fail(fail[cur]), c);
+//            next[cur].emplace_back(make_pair(c, now));
+            fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以便失配后跳转
+            next[cur][c] = now;
             num[now] = num[fail[now]] + 1;
         }
-        last = x;
+//        last = x;
         // 修改最终长度
         // if (len[last[op]] == rpos - lpos + 1) last[op ^ 1] = last[op];
-//        last = next[cur][c];
-//        cnt[last]++;
+        last = next[cur][c];
+        cnt[last]++;
         return num[last];
     }
 
@@ -95,23 +88,18 @@ struct Palindromic_Tree {
 
 char s[maxn];
 
+// 求相交回文串数量
 ll a[maxn], b[maxn];
 int main() {
     solve.init();
     int n;
     scanf("%d", &n);
     scanf("%s", s);
-    for (int i = 0; i < n; ++i) {
-        a[i] = solve.add(s[i] - 'a');
-    }
+    for (int i = 0; i < n; ++i) a[i] = solve.add(s[i] - 'a');
     solve.init();
-    for (int i = n - 1; i >= 0; --i) {
-        b[i] = (b[i + 1] + solve.add(s[i] - 'a')) % mod;
-    }
+    for (int i = n - 1; i >= 0; --i) b[i] = (b[i + 1] + solve.add(s[i] - 'a')) % mod;
     ll res = (b[0] * (b[0] - 1) / 2) % mod;
-    for (int i = 0; i < n; ++i) {
-        res = ((res - (a[i] * b[i + 1]) + mod) % mod) % mod;
-    }
+    for (int i = 0; i < n; ++i) res = ((res - (a[i] * b[i + 1]) + mod) % mod) % mod;
     printf("%lld\n", res);
     return 0;
 }

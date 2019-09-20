@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Personal Page/badcw/Codeforces/Codeforces Round 586 (Div. 1 + Div. 2)/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Personal Page/badcw/字符串/回文树/">
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Codeforces Round 586 (Div. 1 + Div. 2) - Team Wiki</title>
+        <title>回文树 - Team Wiki</title>
         <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../../css/base.css" rel="stylesheet">
@@ -81,8 +81,8 @@
     <a href="#">Codeforces</a>
     <ul class="dropdown-menu">
             
-<li class="active">
-    <a href="./">Codeforces Round 586 (Div. 1 + Div. 2)</a>
+<li >
+    <a href="../../Codeforces/Codeforces Round 586 (Div. 1 + Div. 2)/">Codeforces Round 586 (Div. 1 + Div. 2)</a>
 </li>
     </ul>
   </li>
@@ -105,8 +105,8 @@
     <a href="#">字符串</a>
     <ul class="dropdown-menu">
             
-<li >
-    <a href="../../字符串/回文树/">回文树</a>
+<li class="active">
+    <a href="./">回文树</a>
 </li>
     </ul>
   </li>
@@ -186,12 +186,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../../../Verly/智力康复专题/网络流24题/">
+                                <a rel="next" href="../../动态规划/矩阵快速幂dp/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../../动态规划/状态压缩dp的相关问题/">
+                                <a rel="prev" href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 1/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -203,35 +203,125 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#a-cards">A. Cards</a></li>
-        <li class="main "><a href="#b-multiplication-table">B. Multiplication Table</a></li>
-        <li class="main "><a href="#c-substring-game-in-the-lesson">C. Substring Game in the Lesson</a></li>
-        <li class="main "><a href="#d-alex-and-julian">D. Alex and Julian</a></li>
-        <li class="main "><a href="#e-tourism">E. Tourism</a></li>
+        <li class="main active"><a href="#_1">回文树</a></li>
+            <li><a href="#_2">算法简述</a></li>
+            <li><a href="#_3">算法实现</a></li>
+            <li><a href="#_4">复杂度证明</a></li>
+            <li><a href="#_5">例题</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p><a href="https://codeforces.com/contest/1220">https://codeforces.com/contest/1220</a></p>
-<p>赛中<code>A,B,C</code>，赛后<code>D,E</code></p>
-<h2 id="a-cards">A. Cards</h2>
-<p>题意：给打乱后的只包含<code>zero</code>和<code>one</code>的串，求可能的最大字典序01串</p>
-<p>题解：记录<code>n</code>的个数为1的个数，<code>z</code>为0的个数或者0的个数为<code>(n-num(1)*3)/4</code></p>
-<h2 id="b-multiplication-table">B. Multiplication Table</h2>
-<p>题意：一个未知序列a，给出一个矩阵每个数表示<code>a_i * a_j</code>，主对角线上没有数字，求序列</p>
-<p>题解：</p>
-<p>
-<script type="math/tex; mode=display"> a_i = sqrt((a_i * a_j) * (a_i * a_k) / (a_j * a_k)) </script>
-</p>
-<h2 id="c-substring-game-in-the-lesson">C. Substring Game in the Lesson</h2>
-<p>题意：给一个串，求初始每个点为某位置时能博弈拓展串比当前串字典序小的。</p>
-<p>题解：显然先手如果能动就取最小的串即可获胜。</p>
-<h2 id="d-alex-and-julian">D. Alex and Julian</h2>
-<p>题意：给定一个B集合，对于全体整数集合建图，如果B集合中存在<code>|i-j|</code>，则<code>i，j</code>之间有边。求至少从B中删掉多少（且要任意方案）个数可以使得建图为二分图。</p>
-<p>题解：二分图当且仅当图中没有奇环。考虑B中两个数x，y，令z=gcd(x,y)，x’ = x/z， y‘ = y/z。则必定存在环长度为<code>x'+y'</code>，由gcd定义可知<code>x‘</code>与<code>y’</code>互质，而<code>x'+y'</code>又为偶数，所以<code>x’</code>，<code>y‘</code>都为奇数，如果x与y中2的因子个数不同<code>x’</code>与<code>y‘</code>中必然有一个为偶数不满足题意，所以B中两两之间2的因子数相同，即B中所有元素2的因子数相同，取出任意最大的含相同数量2因子的集合即可。</p>
-<h2 id="e-tourism">E. Tourism</h2>
-<p>题意：给一张含点权无重边无自环的无向图，求不连续重复经过同一条边的情况下从s出发能经过最大的点权和。</p>
-<p>题解：首先考虑叶子，显然到达叶子时会直接终止，显然在一个环上从任意点进入环可以从任意点出环，然后对于多个联通的环显然可以取到所有点（从任意点出发到一个环然后回到该点再取另外的环）。唯一需要考虑的是叶子节点，对于孤立连向叶子节点的链，显然只有一条可以被选中，所以取其中最长（指权值和最大）的一条即可。注意如果起点在这样的链上那么起点这条链是必取的所以起点当做单个点的环看待即可。做一个类top序取出最大链然后加上所有环即是答案。</p></div>
+<h2 id="_1">回文树</h2>
+<h3 id="_2">算法简述</h3>
+<p>利用fail指针线性地解决一切回文串计数问题。</p>
+<p>别称：回文自动机、PAM</p>
+<p>是可以完全替代Maracher算法的上位算法，除了空间复杂度均优于Maracher算法。</p>
+<h3 id="_3">算法实现</h3>
+<p>基础需要的数组如下</p>
+<pre><code class="cpp">int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符成，N为字符集大小
+int fail[maxn]{};//fail指针，失配后跳转到fail指针指向的节点
+int num[maxn]{}; //表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数
+int len[maxn]{};//len[i]表示节点i表示的回文串的长度（一个节点表示一个回文串）
+int S[maxn]{};//存放添加的字符
+int last{};//指向新添加一个字母后所形成的最长回文串表示的节点。
+int n{};//表示添加的字符个数。
+int p{};//表示添加的节点个数。
+</code></pre>
+
+<p>回文树每个节点都代表一个本质不同回文串，其中0节点表示空长回文串，1表示奇数空长回文串没有实际意义。</p>
+<p>在回文树中增加新节点</p>
+<pre><code class="cpp">int newnode(int l) {//新建节点
+    for (int i = 0; i &lt; N; ++i) next[p][i] = 0;
+    cnt[p] = 0;
+    num[p] = 0;
+    len[p] = l;
+    return p++;
+}
+</code></pre>
+
+<p>初始化回文树</p>
+<pre><code class="cpp">void init() {//初始化
+    p = 0;
+    newnode(0); // 偶数空串
+    newnode(-1); // 奇数空串
+    last = 0;
+    n = 0;
+    S[n] = -1;//开头放一个字符集中没有的字符，减少特判
+    fail[0] = 1; // 偶数空串的fail指针指向奇数空串
+}
+</code></pre>
+
+<p>获取失配fail指针</p>
+<pre><code class="cpp">int get_fail(int x) {//和KMP一样，失配后找一个尽量最长的
+    while (S[n - len[x] - 1] != S[n]) x = fail[x];
+    return x;
+}
+</code></pre>
+
+<p>往回文串中添加一个字符</p>
+<pre><code class="cpp">void add(int c) {
+    S[++n] = c;
+    int cur = get_fail(last);//通过上一个回文串找这个回文串的匹配位置
+    if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
+        int now = newnode(len[cur] + 2);//新建节点
+        fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以失配后跳转
+        next[cur][c] = now;
+        num[now] = num[fail[now]] + 1;
+    }
+    last = next[cur][c]; // last指针表示当前新增回文串的位置
+}
+</code></pre>
+
+<h3 id="_4">复杂度证明</h3>
+<p>对于一个长度为n的串，最长回文串长度不超过n，最多本质不同回文串个数不超过n，相同回文串个数不超过n，整个算法类似kmp匹配的失配运算，时间复杂度<code>O(n)</code>，空间复杂度<code>O(n*字符集大小)</code></p>
+<h3 id="_5">例题</h3>
+<p><a href="https://vjudge.net/contest/292544">https://vjudge.net/contest/292544</a></p>
+<h4 id="a-palisection">A - Palisection</h4>
+<p>题意：求一个串所有回文子串两两相交的对数</p>
+<p>题解：正向建立回文树，保存以每个点为结尾的回文串个数<code>a</code>，再反向建立回文树保存后缀回文串个数<code>b</code>，则总数为<script type="math/tex">sum*(sum-1)/2 - \sum {a_i * b_{i+1}} </script>，注意此题卡了回文树内存，需要一些奇技淫巧用时间换取空间。</p>
+<p>使用vector保存next数组以简化空间，first是字符，second是值即可。</p>
+<pre><code class="cpp">vector&lt;pair&lt;int, int&gt; &gt; next[maxn];
+</code></pre>
+
+<p>各种操作都会变得复杂一些但是总体时间复杂度算满也就是多了个字符集的常数。</p>
+<h4 id="b-palindromes-and-super-abilities">B - Palindromes and Super Abilities</h4>
+<p>题意：求前缀不同回文子串个数</p>
+<p>题解：直接建立回文树的过程中输出p-2即可</p>
+<h4 id="c-ca-loves-palindromic">C - CA Loves Palindromic</h4>
+<p>题意：求区间本质不同回文子串个数</p>
+<p>题解：串长1000，对所有的子串建立回文树保存p-2，对询问直接输出答案。</p>
+<h4 id="d-">D - 回文串</h4>
+<p>题意：求某种回文子串长度×出现次数的最大值。</p>
+<p>题解：建立回文树后对p-2个节点计算len×cnt的最大值。</p>
+<h4 id="e-trie-in-tina-town">E - Trie in Tina Town</h4>
+<p>题意：给一棵trie，求从某个点到它某个子节点为回文串的长度和。</p>
+<p>题解：dfs时带回退的建立回文树，问题转换为带修（popback和pushback）的求一个串的回文串长度×出现次数的和。这个问题只需要把last改为数组，对每个长度建立不同的last，然后动态的统计所有len的和即可。</p>
+<h4 id="f-">F - 最长双回文串</h4>
+<p>题意：给串s，求x，y都为回文串且x+y为s的子串中<code>len(x+y)</code>的最大值</p>
+<p>题解：正反建立回文树求和</p>
+<h4 id="g-">G - 拉拉队排练</h4>
+<p>题意：求前m长的回文子串的长度积。</p>
+<p>题解：求出所有非重回文子串及数量、长度。保存到数组最多只有最长回文子串的长度n项。</p>
+<h4 id="h-harry-and-magic-string">H - Harry and magic string</h4>
+<p>题意：给串s，求两个不相交子回文串的对数。</p>
+<p>题解：正反建立回文树求前后缀，积和即可。</p>
+<h4 id="i-victor-and-string">I - Victor and String</h4>
+<p>题意：首先是一个空串s，m次操作，操作有以下四种
+    - 1、pushback
+    - 2、pushfront
+    - 3、求本质不同回文子串个数
+    - 4、求回文子串个数</p>
+<p>题解：写一个支持前后插的回文树就可以了，具体方法类似树上回文树那题，建立两个last，分别表示前缀链和后缀链，让插入操作都变成一般的add，需要注意的是当当前整个串为回文串时会导致两个last翻转，需要把某一个调回原点。</p>
+<h4 id="j-the-problem-to-slow-down-you">J - The Problem to Slow Down You</h4>
+<p>题意：给两个串，求其中相同回文子串的长度和。</p>
+<p>题解：首先回文树本质仍然是自动机，所以满足trie树的性质，对于两个串来说他们的相同回文子串必然是同构的部分trie树。所以直接dfs遍历trie树将相同节点的cnt积和即可。</p>
+<h4 id="k-virus-synthesis">K - Virus synthesis</h4>
+<p>题意：给一个串s，求从空串开始，可以pushback或pushfront一个字符或者将当前串左复制翻转或右复制翻转，得到当前串至少需要多少步。</p>
+<p>题解：不会写</p>
+<h4 id="l-palindromic-substring">L - Palindromic Substring</h4>
+<h4 id="m-contest-page">M - Contest Page</h4>
+<h4 id="n-palindromes-and-super-abilities-2">N - Palindromes and Super Abilities 2</h4></div>
         </div>
 
         <footer class="col-md-12">
