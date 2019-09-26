@@ -1,3 +1,8 @@
+// Editor -> Live Templates
+// add template group acm
+// add template main
+// C++ Declaration
+
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
@@ -32,6 +37,7 @@ int main() {
     return 0;
 }
 
+// C++ Expression
 freopen("data.in","r",stdin);
 freopen("data.out","w",stdout);
 clock_t ST = clock();

@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Personal Page/badcw/Codeforces/Codeforces Round 586 (Div. 1 + Div. 2)/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Personal Page/badcw/字符串/kmp/">
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>Codeforces Round 586 (Div. 1 + Div. 2) - Team Wiki</title>
+        <title>Kmp - Team Wiki</title>
         <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../../css/base.css" rel="stylesheet">
@@ -81,12 +81,12 @@
     <a href="#">Codeforces</a>
     <ul class="dropdown-menu">
             
-<li class="active">
-    <a href="./">Codeforces Round 586 (Div. 1 + Div. 2)</a>
+<li >
+    <a href="../../Codeforces/Codeforces Round 586 (Div. 1 + Div. 2)/">Codeforces Round 586 (Div. 1 + Div. 2)</a>
 </li>
             
 <li >
-    <a href="../Codeforces Round 588 (Div. 2)/">Codeforces Round 588 (Div. 2)</a>
+    <a href="../../Codeforces/Codeforces Round 588 (Div. 2)/">Codeforces Round 588 (Div. 2)</a>
 </li>
     </ul>
   </li>
@@ -109,12 +109,12 @@
     <a href="#">字符串</a>
     <ul class="dropdown-menu">
             
-<li >
-    <a href="../../字符串/kmp/">Kmp</a>
+<li class="active">
+    <a href="./">Kmp</a>
 </li>
             
 <li >
-    <a href="../../字符串/回文树/">回文树</a>
+    <a href="../回文树/">回文树</a>
 </li>
     </ul>
   </li>
@@ -194,12 +194,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../../../Verly/智力康复专题/网络流24题/">
+                                <a rel="next" href="../../动态规划/矩阵快速幂dp/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../Codeforces Round 588 (Div. 2)/">
+                                <a rel="prev" href="../回文树/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -211,35 +211,158 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#a-cards">A. Cards</a></li>
-        <li class="main "><a href="#b-multiplication-table">B. Multiplication Table</a></li>
-        <li class="main "><a href="#c-substring-game-in-the-lesson">C. Substring Game in the Lesson</a></li>
-        <li class="main "><a href="#d-alex-and-julian">D. Alex and Julian</a></li>
-        <li class="main "><a href="#e-tourism">E. Tourism</a></li>
+        <li class="main active"><a href="#kmp">kmp算法</a></li>
+            <li><a href="#_1">算法简述</a></li>
+            <li><a href="#_2">算法实现</a></li>
+            <li><a href="#_3">例题</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p><a href="https://codeforces.com/contest/1220">https://codeforces.com/contest/1220</a></p>
-<p>赛中<code>A,B,C</code>，赛后<code>D,E</code></p>
-<h2 id="a-cards">A. Cards</h2>
-<p>题意：给打乱后的只包含<code>zero</code>和<code>one</code>的串，求可能的最大字典序01串</p>
-<p>题解：记录<code>n</code>的个数为1的个数，<code>z</code>为0的个数或者0的个数为<code>(n-num(1)*3)/4</code></p>
-<h2 id="b-multiplication-table">B. Multiplication Table</h2>
-<p>题意：一个未知序列a，给出一个矩阵每个数表示<code>a_i * a_j</code>，主对角线上没有数字，求序列</p>
-<p>题解：</p>
-<p>
-<script type="math/tex; mode=display"> a_i = sqrt((a_i * a_j) * (a_i * a_k) / (a_j * a_k)) </script>
-</p>
-<h2 id="c-substring-game-in-the-lesson">C. Substring Game in the Lesson</h2>
-<p>题意：给一个串，求初始每个点为某位置时能博弈拓展串比当前串字典序小的。</p>
-<p>题解：显然先手如果能动就取最小的串即可获胜。</p>
-<h2 id="d-alex-and-julian">D. Alex and Julian</h2>
-<p>题意：给定一个B集合，对于全体整数集合建图，如果B集合中存在<code>|i-j|</code>，则<code>i，j</code>之间有边。求至少从B中删掉多少（且要任意方案）个数可以使得建图为二分图。</p>
-<p>题解：二分图当且仅当图中没有奇环。考虑B中两个数x，y，令z=gcd(x,y)，x’ = x/z， y‘ = y/z。则必定存在环长度为<code>x'+y'</code>，由gcd定义可知<code>x‘</code>与<code>y’</code>互质，而<code>x'+y'</code>又为偶数，所以<code>x’</code>，<code>y‘</code>都为奇数，如果x与y中2的因子个数不同<code>x’</code>与<code>y‘</code>中必然有一个为偶数不满足题意，所以B中两两之间2的因子数相同，即B中所有元素2的因子数相同，取出任意最大的含相同数量2因子的集合即可。</p>
-<h2 id="e-tourism">E. Tourism</h2>
-<p>题意：给一张含点权无重边无自环的无向图，求不连续重复经过同一条边的情况下从s出发能经过最大的点权和。</p>
-<p>题解：首先考虑叶子，显然到达叶子时会直接终止，显然在一个环上从任意点进入环可以从任意点出环，然后对于多个联通的环显然可以取到所有点（从任意点出发到一个环然后回到该点再取另外的环）。唯一需要考虑的是叶子节点，对于孤立连向叶子节点的链，显然只有一条可以被选中，所以取其中最长（指权值和最大）的一条即可。注意如果起点在这样的链上那么起点这条链是必取的所以起点当做单个点的环看待即可。做一个类top序取出最大链然后加上所有环即是答案。</p></div>
+<h2 id="kmp">kmp算法</h2>
+<p>觉得自己字符串太菜了跟着算导重学一遍</p>
+<h3 id="_1">算法简述</h3>
+<p>利用next数组线性的解决字符串匹配问题</p>
+<p>定义原串<code>T[1...n]</code>，模式串<code>P（pattern）[1...m]</code>，若出现<code>T[s+1...s+m] = P[1...m]</code>则称此为一次成功的匹配，s称作有效偏移。</p>
+<p>暴力复杂度是<code>O（n×m）</code>即对于原串的每个子串做一次循环的匹配。</p>
+<h3 id="_2">算法实现</h3>
+<p>next数组：对于一个模式串<code>P</code>，它的前<code>i</code>项称作<code>P_i</code>，<code>next[i]</code>就表示最大的<code>next[i]</code>使得<code>P_{next[i]}</code>是<code>P_i</code>的后缀，定义<code>next[0]</code>为-1</p>
+<p>例如串<code>ababaca</code>的next数组1到7项为：<code>0012301</code></p>
+<p>已知<code>P[1...q]</code>与<code>T[s+1...s+q]</code>匹配，而<code>P[q+1] != T[s+q+1]</code>，则将<code>T</code>后移一位的同时将<code>q</code>变为<code>next[q]</code>即可发现<code>P[1...next[q]]</code>与<code>T[s'+1, s'+k]</code>匹配（其中<code>s'+k = s+q</code>）。这样一来就可以<code>O(m)</code>预处理<code>O(n)</code>计算结果了。</p>
+<p>getNext代码：</p>
+<pre><code class="cpp">int nex[maxm];
+
+void getNext(char *s, int len) {
+    int i = 0, j = -1;
+    nex[i] = j;
+    while(i &lt; len) {
+        if(j == -1 || s[i] == s[j]) nex[++i] = ++j;
+        else j = nex[j];
+    }
+}
+</code></pre>
+
+<p>匹配代码：</p>
+<pre><code class="cpp">// a为原串，b为模式串，下标从0开始，找第一个出现模式串的位置，找不到返回-1
+int KMP(char *a, char *b, int n, int m) {
+    getNext(b, m);
+    int i = 0, j = 0;
+    while (i &lt; n &amp;&amp; j &lt; m) {
+        if (j == -1 || a[i] == b[j]) ++i, ++j;
+        else j = nxt[j];
+    }
+    return j == m ? i - m + 1 : -1;
+}
+</code></pre>
+
+<h3 id="_3">例题</h3>
+<p>（由于本文撰写时vjudge挂了，没有在vj上挂题）</p>
+<p><a href="https://vjudge.net/contest/328570">https://vjudge.net/contest/328570</a></p>
+<h4 id="luogup3375"><a href="https://www.luogu.org/problem/P3375">luoguP3375</a></h4>
+<p>题意：求出所有模式串的起始位置并输出next数组</p>
+<p>代码：</p>
+<pre><code class="cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   文件名称：test.cpp
+*   创 建 者： badcw
+*   创建日期： 9/22/19
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
+using namespace std;
+
+const int maxn = 1e6 + 5;
+const int mod = 1e9 + 7;
+
+ll qp(ll a, ll n) {
+    ll res = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1) res = res * a % mod;
+        a = a * a % mod;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}
+
+template&lt;class T&gt;
+inline bool scan(T &amp;ret) {
+    char c;
+    int sgn;
+    if (c = getchar(), c == EOF) return 0; // EOF
+    while (c != '-' &amp;&amp; (c &lt; '0' || c &gt; '9')) c = getchar();
+    sgn = (c == '-') ? -1 : 1;
+    ret = (c == '-') ? 0 : (c - '0');
+    while (c = getchar(), c &gt;= '0' &amp;&amp; c &lt;= '9') ret = ret * 10 + (c - '0');
+    ret *= sgn;
+    return 1;
+}
+
+//template &lt;class T&gt;
+//inline void out(T x) {
+//    if (x &gt; 9) out(x / 10);
+//    putchar(x % 10 + '0');
+//}
+
+// nxt[0]表示失配到完全不匹配
+int nxt[maxn];
+
+void getNext(char *s, int len) {
+    int i = 0, j = -1;
+    nxt[i] = j;
+    while (i &lt; len) {
+        if (j == -1 || s[i] == s[j]) nxt[++i] = ++j;
+        else j = nxt[j];
+    }
+}
+
+// a为原串，b为模式串，下标从0开始，找第一个出现模式串的位置（起点为1），找不到返回-1
+int KMP(char *a, char *b, int n, int m) {
+    getNext(b, m);
+    int i = 0, j = 0;
+    while (i &lt; n &amp;&amp; j &lt; m) {
+        if (j == -1 || a[i] == b[j]) ++i, ++j;
+        else j = nxt[j];
+        if (j == m) {
+            printf(&quot;%d\n&quot;, i - m + 1);
+            j = nxt[j];
+        }
+    }
+    return j == m ? i - m + 1 : -1;
+}
+
+char s[maxn], p[maxn];
+
+int main(int argc, char *argv[]) {
+    scanf(&quot;%s%s&quot;, s, p);
+    int lens = strlen(s), lenp = strlen(p);
+    KMP(s, p, lens, lenp);
+    for (int i = 1; i &lt;= lenp; ++i) printf(&quot;%d%c&quot;, nxt[i], i == lenp ? '\n' : ' ');
+    return 0;
+}
+</code></pre>
+
+<h4 id="a-oulipo">A - Oulipo</h4>
+<p>题意：求p在s中出现的次数</p>
+<p>题解：kmp扫扫扫<code>O(n)</code></p>
+<h4 id="b-number-sequence">B - Number Sequence</h4>
+<p>题意：求p在s中第一次出现的下标</p>
+<p>题解：kmp扫到第一次j=m停</p>
+<h4 id="c-period">C - Period</h4>
+<p>题意：给定s，求s的每个前缀的最小循环节使得任意个这样的循环节并行拼成这个前缀，其中前缀本身不算。</p>
+<p>题解：kmp求最小循环节，<code>len - nxt[len]</code>就是该串的最小循环节大小。判一下能整除即是解。</p>
+<h4 id="d-power-strings">D - Power Strings</h4>
+<p>题意：给定s求最大循环次数</p>
+<p>题解：kmp求最小循环节</p>
+<h4 id="f-cyclic-nacklace">F - Cyclic Nacklace</h4>
+<p>题意：求最少补多少字符使原串成为循环串</p>
+<p>题解：求出最小循环节然后随便写一下</p>
+<h4 id="g-simpsons-hidden-talents">G - Simpsons’ Hidden Talents</h4>
+<p>题意：给s和p串，求p串的前缀等于s的后缀的最大长度。</p>
+<p>题解：求出p串的next数组，对着s跑一遍，到最后一个位置输出当前j即可。</p>
+<h4 id="_4"></h4></div>
         </div>
 
         <footer class="col-md-12">
