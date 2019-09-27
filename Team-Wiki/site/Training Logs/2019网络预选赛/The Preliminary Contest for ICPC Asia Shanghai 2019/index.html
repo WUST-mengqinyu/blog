@@ -78,6 +78,20 @@
     <ul class="dropdown-menu">
             
   <li class="dropdown-submenu">
+    <a href="#">Codeforces</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../Personal Page/badcw/Codeforces/Codeforces Round 586 (Div. 1 + Div. 2)/">Codeforces Round 586 (Div. 1 + Div. 2)</a>
+</li>
+            
+<li >
+    <a href="../../../Personal Page/badcw/Codeforces/Codeforces Round 588 (Div. 2)/">Codeforces Round 588 (Div. 2)</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
     <a href="#">动态规划</a>
     <ul class="dropdown-menu">
             
@@ -87,6 +101,20 @@
             
 <li >
     <a href="../../../Personal Page/badcw/动态规划/矩阵快速幂dp/">矩阵快速幂</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">字符串</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../Personal Page/badcw/字符串/kmp/">Kmp</a>
+</li>
+            
+<li >
+    <a href="../../../Personal Page/badcw/字符串/回文树/">回文树</a>
 </li>
     </ul>
   </li>
@@ -184,9 +212,11 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#tag">tag</a></li>
+        <li class="main "><a href="#b-light-bulbs">B. Light bulbs</a></li>
         <li class="main "><a href="#d-counting-sequences-i">D. Counting Sequences I</a></li>
         <li class="main "><a href="#f-rhyme-scheme">F. Rhyme scheme</a></li>
         <li class="main "><a href="#g-substring">G. Substring</a></li>
+        <li class="main "><a href="#j-stone-game">J. Stone game</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -233,7 +263,93 @@
 </table>
 <h2 id="tag">tag</h2>
 <p><code>#B sort（假线段树）# D 暴力 #　E 生成函数  #F dp # G暴力（unordermap hash） #J 背包 #L暴力</code></p>
+<h2 id="b-light-bulbs">B. Light bulbs</h2>
+<p>题意：给一个长度为n初始为0的序列，每次操作将区间翻转（0变1，1变0），求最终有多少个点的值为1。数据范围组数<code>1000</code>，长度<code>1e6</code>，操作<code>1000</code>次</p>
+<p>题解：初看是一个线段树区间和、单次查询整个序列的裸题，但是由于数组组数<code>1000</code>复杂度会炸掉，而操作数较少所以直接对操作差分按左右排序，扫一遍求出结果即可。复杂度<code>O(T*mlog(m))</code></p>
+<p>代码：</p>
+<pre><code class="cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   文件名称：B.cpp
+*   创 建 者： badcw
+*   创建日期： 9/15/19
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
+using namespace std;
+
+const int maxn = 1e6+5;
+const int mod = 1e9+7;
+ll qp(ll a, ll n) {
+    ll res = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1) res = res * a % mod;
+        a = a * a % mod;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}
+
+template &lt;class T&gt;
+inline bool scan(T&amp; ret) {
+    char c;
+    int sgn;
+    if (c = getchar(), c == EOF) return 0; // EOF
+    while (c != '-' &amp;&amp; (c &lt; '0' || c &gt; '9')) c = getchar();
+    sgn = (c == '-') ? -1 : 1;
+    ret = (c == '-') ? 0 : (c - '0');
+    while (c = getchar(), c &gt;= '0' &amp;&amp; c &lt;= '9') ret = ret * 10 + (c - '0');
+    ret *= sgn;
+    return 1;
+}
+
+//template &lt;class T&gt;
+//inline void out(T x) {
+//    if (x &gt; 9) out(x / 10);
+//    putchar(x % 10 + '0');
+//}
+
+vector&lt;pair&lt;int, int&gt; &gt; query;
+
+int main(int argc, char* argv[]) {
+    int T;
+    scanf(&quot;%d&quot;, &amp;T);
+    for (int kase = 1; kase &lt;= T; ++kase) {
+        int n, q;
+        scanf(&quot;%d%d&quot;, &amp;n, &amp;q);
+        query.resize(q * 2);
+        for (int i = 0; i &lt; q; ++i) {
+            int x, y;
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+            query[i].first = x;
+            query[i].second = 0;
+            query[i + q].first = y + 1;
+            query[i + q].second = 1;
+        }
+        sort(query.begin(), query.end());
+        int now = 1;
+        int pre = query[0].first;
+        int res = 0;
+        for (int i = 1; i &lt; query.size(); ++i) {
+            res += (now &amp; 1) * (query[i].first - pre);
+            if (query[i].second == 1) {
+                now --;
+            } else now ++;
+            pre = query[i].first;
+        }
+        printf(&quot;Case #%d: %d\n&quot;, kase, res);
+    }
+    return 0;
+}
+</code></pre>
+
 <h2 id="d-counting-sequences-i">D. Counting Sequences I</h2>
+<p>题意：求n个正整数，使得他们的和等于他们的积的方案数<script type="math/tex">n \le 3000</script>
+</p>
+<p>题解：论文上写了很多输出所有方案的做法，oeis上也有如果限定这些正整数为1~9时的方案数量的表，还有所有非重集的方案数的表，但是这题要求所有方案数，所以可以考虑爆搜出所有方案。对3000个数打表，每个数k爆搜出<script type="math/tex">\prod a_i = k</script>，然后可以根据<script type="math/tex"> k - \sum a_i </script>求出1的数量，对这个方案进行非重排列即可得到某个数的解。搜索6000个数以内就可以打出3000的表（论文中有证明对于n个数，要组成和与积相等的方案必不大于<code>2×n</code>）这边直接把表打好输出到文件写的代码就不放了。</p>
+<p>科普：非重排列的解法是：一共有<code>n</code>个元素，其中第<code>i</code>种元素有<code>a_i</code>个，则总排列数有<script type="math/tex"> \frac{n!}{\prod{a_i!}} </script>个。</p>
 <h2 id="f-rhyme-scheme">F. Rhyme scheme</h2>
 <p>题意：给定一类字符串的构造方案：前i-1位的最大字符为'mx'，则第i位可以取的范围为['A','mx' + 1]。每组询问输出长度为n的串中字典序第k大的字符串。</p>
 <p>题解：构造出的字符串方案数应该为贝尔数。根据题意，rhyme scheme可以形成一棵字典树，并且每个节点的子树大小取决于字典树路径上的最大字符。考虑dp求解某个子树对应的字符个数，令<script type="math/tex">dp[i][j]</script>表示在第i层，根节点到当前节点路径字符的最大值为j的子树大小，有dp方程<code>dp[i][j]=j*dp[i-1][j]+dp[i][j+1]</code>。询问时在字典树上从上往下走，假设根节点到当前节点路径上的最大值为mx，那么前mx个点的子树大小为<code>dp[n-dep][mx]</code>，最后一个节点的子树大小为<code>dp[n-dep][mx+1]</code>，不断往下走即可求出解。</p>
@@ -410,6 +526,100 @@ int main(int argc, char* argv[]) {
             printf(&quot;%d\n&quot;, res[i]);
         }
     }
+    return 0;
+}
+</code></pre>
+
+<h2 id="j-stone-game">J. Stone game</h2>
+<p>题意：给一个可重集<code>S</code>，求它的一个子集<code>S‘</code>，满足<code>(Sum(S‘)≥Sum(S−S’))∧(∀t∈S‘,Sum(S’)−t≤Sum(S−S‘))</code>的方案数，注意<code>S’</code>不同只要它所包含的数的下标存在不同的即可。</p>
+<p>题解：由于加法的特殊性，它第二个条件可以转化为<code>Sum(S’)−min(S’)≤Sum(S−S‘)</code>，于是可以枚举出每个<code>t</code>，数据范围较小直接背包求出所有方案数即可。注意相同<code>t</code>的处理办法，由于<code>t</code>是<code>S‘</code>集合中的最小元素，一个个枚举的过程中可能枚举到相同的元素，只要将排序后序号比他小的都放入<code>S</code>，它本身放入<code>S‘</code>定然不会产生重复。注意这个背包方案数是不需要重新计算的，可以倒着处理然后就是每次往背包里新增一个元素。</p>
+<p>科普：<code>dp[j] += dp[j - a[i]]</code>是求背包方案数的写法。</p>
+<p>代码：</p>
+<pre><code class="cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   文件名称：J.cpp
+*   创 建 者： badcw
+*   创建日期： 9/15/19
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
+using namespace std;
+
+const int maxn = 150005;
+const int mod = 1e9+7;
+ll qp(ll a, ll n) {
+    ll res = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1) res = res * a % mod;
+        a = a * a % mod;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}
+
+template &lt;class T&gt;
+inline bool scan(T&amp; ret) {
+    char c;
+    int sgn;
+    if (c = getchar(), c == EOF) return 0; // EOF
+    while (c != '-' &amp;&amp; (c &lt; '0' || c &gt; '9')) c = getchar();
+    sgn = (c == '-') ? -1 : 1;
+    ret = (c == '-') ? 0 : (c - '0');
+    while (c = getchar(), c &gt;= '0' &amp;&amp; c &lt;= '9') ret = ret * 10 + (c - '0');
+    ret *= sgn;
+    return 1;
+}
+
+//template &lt;class T&gt;
+//inline void out(T x) {
+//    if (x &gt; 9) out(x / 10);
+//    putchar(x % 10 + '0');
+//}
+
+ll dp[maxn];
+int n;
+int a[505];
+ll pre[maxn];
+
+int main(int argc, char* argv[]) {
+//    freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);
+//    freopen(&quot;data.out&quot;, &quot;w&quot;, stdout);
+//    clock_t ST = clock();
+    int T;
+    scanf(&quot;%d&quot;, &amp;T);
+    for (int kase = 1; kase &lt;= T; ++kase) {
+        scanf(&quot;%d&quot;, &amp;n);
+        ll sum = 0;
+        pre[0] = 0;
+        for (int i = 1; i &lt;= n; ++i) {
+            scanf(&quot;%d&quot;, &amp;a[i]);
+            pre[i] = pre[i - 1] + a[i];
+            sum += a[i];
+        }
+        sort(a + 1, a + 1 + n);
+        ll res = 0;
+        memset(dp, 0, sizeof dp);
+        dp[0] = 1;
+        for (int i = n; i &gt;= 1; --i) {
+            ll x = a[i];
+            for (int j = 0; j &lt;= sum; ++j) {
+                if (dp[j] == 0) continue;
+                ll y = j + x;
+                ll z = sum - y;
+                if (z &lt;= y &amp;&amp; z &gt;= y - x) {
+                    res = (res + dp[j]) % mod;
+                }
+            }
+            for (int j = sum; j &gt;= a[i]; --j) {
+                dp[j] = (dp[j] + dp[j - a[i]]) % mod;
+            }
+        }
+        printf(&quot;%lld\n&quot;, res);
+    }
+//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;
     return 0;
 }
 </code></pre></div>
