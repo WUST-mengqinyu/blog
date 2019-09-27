@@ -70,6 +70,13 @@ void dfs1(int u, int p) {
 }
 
 int main() {
+    // 多组清空操作
+    for (int i = 1; i <= n; ++i) {
+        adj0[i].clear();
+        adj1[i].clear();
+    }
+    euler_clock = 0;
+
     // 读入原树 link0 加边
     // 读入处理关键节点存入vector key，包含1和链的端点和他们的lca的父节点（lca如果为1就不加）。
     dfs0(1, 0);
