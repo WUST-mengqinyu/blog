@@ -1,9 +1,14 @@
+const int maxn = 2e5+5;
+// 序列
+int a[maxn];
+
 struct SegmentTree {
 #define TYPE int
+#define USELAZY 0
     TYPE val[maxn << 2];
     int sz;
-    // check this type
-    int lazy[maxn << 2];
+//    check this type
+    vector<int> lazy;
 
     inline TYPE comb(const TYPE& a, const TYPE& b) {
         TYPE res;
@@ -13,14 +18,28 @@ struct SegmentTree {
 
     int le, re, k;
 
+    inline void build(int rt, int l, int r) {
+        if (USELAZY) lazy[rt] = 0;
+        if (l == r) {
+            val[rt] = a[l];
+            return;
+        }
+        int mid = l + r >> 1;
+        build(rt << 1, l, mid);
+        build(rt << 1 | 1, mid + 1, r);
+        pushup(rt);
+    }
+    inline void build() {build(1, 1, sz);}
+
     inline void init(int sz_) {
         sz = sz_;
-        memset(lazy, 0, sizeof lazy);
-        memset(val, 0, sizeof val);
+        lazy.resize(sz_ << 2);
+        build();
     }
     inline void pushup(int rt) {val[rt] = comb(val[rt << 1], val[rt << 1 | 1]);}
     inline void deal(int rt, int kt) {
-        ;
+//        todo:
+        val[rt] = comb(val[rt], kt);
     }
     inline void pushdown(int rt, int len) {
         if (lazy[rt]) {
@@ -33,24 +52,12 @@ struct SegmentTree {
         }
     }
 
-    inline void build(int rt, int l, int r) {
-        if (l == r) {
-            val[rt] = a[l];
-            return;
-        }
-        int mid = l + r >> 1;
-        build(rt << 1, l, mid);
-        build(rt << 1 | 1, mid + 1, r);
-        pushup(rt);
-    }
-    inline void build() {build(1, 1, sz);}
-
     inline void update(int rt, int l, int r) {
         if (le <= l && r <= re) {
             deal(rt, k);
             return;
         }
-        pushdown(rt, r - l + 1);
+        if (USELAZY) pushdown(rt, r - l + 1);
         int mid = l + r >> 1;
         if (le <= mid) update(rt << 1, l, mid);
         if (re > mid) update(rt << 1 | 1, mid + 1, r);
@@ -61,7 +68,7 @@ struct SegmentTree {
         if (le <= l && r <= re) {
             return val[rt];
         }
-        pushdown(rt, r - l + 1);
+        if (USELAZY) pushdown(rt, r - l + 1);
         // check the zero type
         TYPE res;
         int mid = l + r >> 1;
@@ -80,16 +87,16 @@ struct SegmentTree {
         update(1, 1, sz);
     }
 
-    inline void pt(int rt, int l, int r) {
-        if (l == r) {
-            printf("%d ", val[l]);
-            return;
-        }
-        pushdown(rt, r - l + 1);
-        int mid = l + r >> 1;
-        if (le <= mid) pt(rt << 1, l, mid);
-        if (re > mid) pt(rt << 1 | 1, mid + 1, r);
-    }
+//    inline void pt(int rt, int l, int r) {
+//        if (l == r) {
+//            printf("%d ", val[l]);
+//            return;
+//        }
+//        pushdown(rt, r - l + 1);
+//        int mid = l + r >> 1;
+//        if (le <= mid) pt(rt << 1, l, mid);
+//        if (re > mid) pt(rt << 1 | 1, mid + 1, r);
+//    }
 
 #undef TYPE
 };

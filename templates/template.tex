@@ -60,7 +60,7 @@ tree<TYPE, null_type, less<>, rb_tree_tag, tree_order_statistics_node_update> tr
 // 可并堆
 #include <ext/pb_ds/priority_queue.hpp>
 using namespace __gnu_pbds;
-__gnu_pbds::priority_queue<int,greater<int>,pairing_heap_tag> q[MAX];
+__gnu_pbds::priority_queue<int,greater<int>,pairing_heap_tag> q[maxn];
 //q[i].join(q[j]) 将j堆并入i
  \end{lstlisting}
 \subsection{FastIO}
@@ -95,17 +95,7 @@ inline int read() {
         ch = getchar();
     }
     return x;
-}
-
-// 代替gets
-scanf("%[^\n]%*c", ss)
-
-// python一行读入
-a,b = map(int, input().split())
-
-a = []
-for i in input().split():
-    a.append(int(i))\end{lstlisting}
+}\end{lstlisting}
 \subsubsection{FastPowAndAdd}
 \begin{lstlisting}
 // 精确快速乘
@@ -126,7 +116,7 @@ ll qpmul(ll a, ll b) {
 
 // O(1)快速乘
 ll mul2(ll x,ll y,ll p) {
-	ll res=(x*y-ll((long double)x/p*y+1.0e-8)*p);
+	ll res=(x*y-(ll)((long double)x/p*y+1.0e-8)*p);
 	return res<0?res+p:res;
 }
 
@@ -153,8 +143,34 @@ ll qp(ll a) {
     }
     return res;
 }\end{lstlisting}
+\subsubsection{PythonInput}
+\begin{lstlisting}
+// python一行读入
+a,b = map(int, input().split())
+
+a = []
+for i in input().split():
+    a.append(int(i))\end{lstlisting}
+\subsubsection{SpecialInput}
+\begin{lstlisting}
+// 代替gets
+scanf("%[^\n]%*c", ss)
+
+void out2(int x, int flag = 1) {
+    if (x == 0) {
+        if (flag) putchar('0');
+        return;
+    }
+    out2(x >> 1, 0);
+    putchar('0' + x % 2);
+}\end{lstlisting}
 \subsection{header}
 \begin{lstlisting}
+// Editor -> Live Templates
+// add template group acm
+// add template main
+// C++ Declaration
+
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
@@ -172,8 +188,8 @@ inline bool scan(T &ret){
     return 1;
 }
 
-const ll mod = 998244353;
-const int maxn = 1e5+5;
+const ll mod = 1e9+7;
+const int maxn = $MAXN$;
 
 ll qp(ll x, ll n) {
     ll res = 1; x %= mod;
@@ -185,22 +201,83 @@ ll qp(ll x, ll n) {
     return res;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+    $CONTENT$
     return 0;
+}
+
+// C++ Expression debug
+freopen("data.in","r",stdin);
+freopen("data.out","w",stdout);
+clock_t ST = clock();
+cerr << "time: " << ((clock()-ST)*1000.0 / CLOCKS_PER_SEC) << "ms" << endl;
+
+
+// C++ Expression tkase
+int T;
+scanf("%d", &T);
+for (int kase = 1; kase <= T; ++kase) { $CONTENT$;
 }\end{lstlisting}
+\subsubsection{comp}
+\begin{lstlisting}
+// 1 create directory comp
+// 2 create directory comp/test
+// 3 create duipai.cpp
+// add text
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int i;
+  for (i=1;;i++){
+        printf("The result of No. %d Case is:  ",i);
+        system("python3 rand.py");
+        system("./std < test/data.in > test/std.out");
+        system("./my < test/data.in > test/my.out");
+        if (system("diff test/std.out test/my.out")){
+            printf("Wrong Answer\n");
+            return 0;
+        }
+        else printf("Accepted\n");
+    }
+    return 0;
+}
+
+
+// 4 create duipai.sh
+#!/bin/bash
+g++ std.cpp -o std
+g++ my.cpp -o my
+python3 rand.py
+./a.out
+
+// 5 create rand.py
+# coding=utf-8
+from random import randint, choice, shuffle
+# with open("../cmake-build-debug/data.in", "w") as f:
+with open("test/data.in", "w") as f:
+    n = randint(1, 10)
+    m = randint(1, 10)
+    f.write(f"{n} {m}")
+
+// 6 terminal: g++ duipai.cpp
+// 7 terminal: sudo chmod 777 duipai.sh
+// 8 add my.cpp and std.cpp
+// 9 ./duipai.sh
+
+\end{lstlisting}
 \clearpage\section{Math}
 \subsection{素数}
 \subsubsection{Eratosthenes筛法}
 \begin{lstlisting}
-const int maxn = 1e6 + 10;
-bool vis[maxn];
-vector<int> prime;
-
-void init()
-{
-	for(int i = 2; i < maxn; i ++) if(!vis[i])
-		for(int j = i * i; j < maxn; j += i) vis[i] = true;
-	for(int i = 2; i < maxn; i ++) if(!vis[i]) prime.push_back(i);
+bool vis[(int)1e6+5];
+int prim[(int)1e5], tot; // tot = 78499
+void init() {
+    for (int i = 2; i < 1e6+5; ++i) {
+        if (vis[i]) continue;
+        prim[++tot] = i;
+        for (int j = i + i; j < 1e6+5; j += i) vis[j] = 1;
+    }
 }\end{lstlisting}
 \subsubsection{Euler筛}
 \begin{lstlisting}
@@ -248,31 +325,47 @@ bool Miller_Rabin(ll n)
 \subsubsection{PollardRho快速因数分解}
 \begin{lstlisting}
 mt19937 mt(time(0));
-LL pollard_rho(LL n, LL c) {
-    LL x = uniform_int_distribution<LL>(1, n - 1)(mt), y = x;
-    auto f = [&](LL v) { LL t = mul(v, v, n) + c; return t < n ? t : t - n; };
+ll pollard_rho(ll n, ll c) {
+    ll x = uniform_int_distribution<ll>(1, n - 1)(mt), y = x;
+    auto f = [&](ll v) { ll t = mul(v, v, n) + c; return t < n ? t : t - n; };
     while (1) {
         x = f(x); y = f(f(y));
         if (x == y) return n;
-        LL d = gcd(abs(x - y), n);
+        ll d = __gcd(abs(x - y), n);
         if (d != 1) return d;
     }
 }
 
-LL fac[100], fcnt;
-void get_fac(LL n, LL cc = 19260817) {
+ll fac[100], fcnt;
+void get_fac(ll n, ll cc = 19260817) {
     if (n == 4) { fac[fcnt++] = 2; fac[fcnt++] = 2; return; }
     if (Miller_Rabin(n)) { fac[fcnt++] = n; return; }
-    LL p = n;
+    ll p = n;
     while (p == n) p = pollard_rho(n, --cc);
     get_fac(p); get_fac(n / p);
+}\end{lstlisting}
+\subsubsection{求素因子}
+\begin{lstlisting}
+vector<pair<ll, int>> getFactors(ll x)
+{
+    vector<pair<ll, int>> fact;
+    for (int i = 0; prime[i] <= x / prime[i]; i++)
+    {
+        if (x % prime[i] == 0)
+        {
+            fact.emplace_back(prime[i], 0);
+            while (x % prime[i] == 0) fact.back().second++, x /= prime[i];
+        }
+    }
+    if (x != 1) fact.emplace_back(x, 1);
+    return fact;
 }\end{lstlisting}
 \subsection{约数}
 \subsubsection{EulerPhi}
 \begin{lstlisting}
 //计算欧拉phi函数，phi(n)且与n互素的正整数个数
 
-int oula(int n){
+int Euler(int n){
     int rea=n;
     for(int i=2; i*i<=n; i++)
         if(n%i==0)//第一次找到的必为素因子
@@ -479,6 +572,51 @@ int BSGS(int a, int b, int p)
 		int val = qp(a, i, p);
 		int j = hash.find(val) == hash.end() ? -1 : hash[val];
 		if(j >= 0 && i * t - j >= 0) return i * t - j;
+	}
+	return -1;
+}\end{lstlisting}
+\subsubsection{exBSGS}
+\begin{lstlisting}
+unordered_map<int, int> Hash;
+
+int exBSGS(int a, int b, int p)
+{
+	a %= p, b %= p;
+	if(b == 1) return 0;
+	if(!b && !a) return 1;
+	if(!a) return -1;
+	if(!b)
+	{
+		int ret = 0, d;
+		while((d = __gcd(a, p)) != 1)
+		{
+			++ ret, p /= d;
+			if(p == 1) return ret;
+		}
+		return -1;
+	}
+	int ret = 0, A = a, B = b, P = p, C = 1, d;
+	while((d = __gcd(A, P)) != 1)
+	{
+		if(B % d) return -1;
+		P /= d, B /= d;
+		C = 1ll * C * (A / d) % P;
+		++ ret;
+		if(C == B) return ret;
+	}
+	Hash.clear();
+	int f = 1, t = sqrt(P) + 1;
+	for(int i = 0; i < t; i ++)
+	{
+		Hash[1ll * f * B % P] = i;
+		f = 1ll * f * A % P;
+	}
+	int tf = f;
+	f = 1ll * f * C % P;
+	for(int i = 1; i <= t; i ++)
+	{
+		if(Hash.find(f) != Hash.end()) return ret + i * t - Hash[f];
+		f = 1ll * f * tf % P;
 	}
 	return -1;
 }\end{lstlisting}
@@ -705,6 +843,100 @@ ll lucas(ll n, ll m)
     }
     return res;
 }\end{lstlisting}
+\subsubsection{exLucas}
+\begin{lstlisting}
+typedef long long ll;
+
+ll p, n, m;
+
+ll exgcd(ll a, ll b, ll &x, ll &y)
+{
+	if(!b) { x = 1; y = 0; return a; }
+	ll res = exgcd(b, a % b, x, y), t;
+	t = x, x = y, y = t - a / b * y;
+	return res;
+}
+
+ll qp(ll a, ll n, ll mod)
+{
+	ll ans = 1, base = a;
+	for(; n; n >>= 1, (base *= base) %= mod) if(n & 1) (ans *= base) %= mod;
+	return ans; 
+}
+
+ll fac(ll n, ll a, ll b)
+{
+	if(!n) return 1;
+	ll res = 1;
+	for(ll i = 2; i <= b; i ++) 
+		if(i % a) (res *= i) %= b;
+	res = qp(res, n / b, b);
+	for(ll i = 2; i <= n % b; i ++)
+		if(i % a) (res *= i) %= b;
+	return res * fac(n / a, a, b) % b;
+}
+
+ll inv(ll n, ll mod) 
+{
+	ll x, y;
+	exgcd(n, mod, x, y);
+	return (x += mod) > mod ? x - mod : x;
+}
+
+ll CRT(ll b, ll mod) { return b * inv(p / mod, mod) % p * (p / mod) % p; }
+
+ll C(ll n, ll m, ll a, ll b)
+{
+	ll up = fac(n, a, b), d1 = fac(m, a, b), d2 = fac(n - m, a, b);
+	ll k = 0;
+	for(ll i = n; i; i /= a) k += i / a;
+	for(ll i = m; i; i /= a) k -= i / a;
+	for(ll i = n - m; i; i /= a) k -= i / a;
+	return up * inv(d1, b) % b * inv(d2, b) % b * qp(a, k, b) % b; 
+}
+
+ll exlucas(ll n, ll m)
+{
+	ll res = 0, tmp = p, b;
+	int lim = sqrt(p) + 5;
+	for(int i = 2; i <= lim; i ++) if(tmp % i == 0)
+	{
+		b = 1;
+		while(tmp % i == 0) tmp /= i, b *= i;
+		(res += CRT(C(n, m, i, b), b)) %= p;
+	}
+	if(tmp > 1) (res += CRT(C(n, m, tmp, tmp), tmp)) %= p;
+	return res;
+}\end{lstlisting}
+\subsubsection{递推组合数}
+\begin{lstlisting}
+\end{lstlisting}
+$0 \leq m \leq n \leq 1000$
+\begin{lstlisting}
+const int maxn = 1010;
+ll C[maxn][maxn];
+void init() {
+    C[0][0] = 1;
+    for (int i = 1; i < maxn; i++)
+    {
+        C[i][0] = 1;
+        for (int j = 1; j <= i; j++) C[i][j] = (C[i - 1][j - 1] + C[i - 1][j]) % mod;
+    }
+}
+
+\end{lstlisting}
+$0 \leq m \leq n \leq 10^5$, 模$p$为素数
+\begin{lstlisting}
+const int maxn = 100010;
+ll f[maxn];
+ll inv[maxn]; // 阶乘的逆元
+void CalFact() {
+    f[0] = 1;
+    for (int i = 1; i < maxn; i++) f[i] = (f[i - 1] * i) % p;
+    inv[maxn - 1] = qp(f[maxn - 1], p - 2);
+    for (int i = maxn - 2; ~i; i--) inv[i] = inv[i + 1] * (i + 1) % p;
+}
+ll C(int n, int m) { return f[n] * inv[m] % p * inv[n - m] % p; }\end{lstlisting}
 \subsubsection{小模数组合数}
 \begin{lstlisting}
 \end{lstlisting}
@@ -744,35 +976,6 @@ int main()
     init();
     cout << Lucas(5,2) << endl;
 }\end{lstlisting}
-\subsubsection{递推组合数}
-\begin{lstlisting}
-\end{lstlisting}
-$0 \leq m \leq n \leq 1000$
-\begin{lstlisting}
-const int maxn = 1010;
-ll C[maxn][maxn];
-void init() {
-    C[0][0] = 1;
-    for (int i = 1; i < maxn; i++)
-    {
-        C[i][0] = 1;
-        for (int j = 1; j <= i; j++) C[i][j] = (C[i - 1][j - 1] + C[i - 1][j]) % mod;
-    }
-}
-
-\end{lstlisting}
-$0 \leq m \leq n \leq 10^5$, 模$p$为素数
-\begin{lstlisting}
-const int maxn = 100010;
-ll f[maxn];
-ll inv[maxn]; // 阶乘的逆元
-void CalFact() {
-    f[0] = 1;
-    for (int i = 1; i < maxn; i++) f[i] = (f[i - 1] * i) % p;
-    inv[maxn - 1] = qp(f[maxn - 1], p - 2);
-    for (int i = maxn - 2; ~i; i--) inv[i] = inv[i + 1] * (i + 1) % p;
-}
-ll C(int n, int m) { return f[n] * inv[m] % p * inv[n - m] % p; }\end{lstlisting}
 \subsubsection{大模数组合数}
 \begin{lstlisting}
 \end{lstlisting}
@@ -1004,6 +1207,41 @@ int main(){
     cout<<root<<endl;
     return 0;
 }\end{lstlisting}
+\subsubsection{FWT}
+\begin{lstlisting}
+//$C_k=\sum_{i \oplus j=k} A_i B_j$
+//FWT 完后需要先模一遍
+template<typename T>
+void fwt(ll a[], int n, T f) {
+    for (int d = 1; d < n; d *= 2)
+        for (int i = 0, t = d * 2; i < n; i += t)
+            for(int j = 0; j < d; j ++)
+                f(a[i + j], a[i + j + d]);
+}
+
+void AND(ll& a, ll& b) { a += b; }
+void OR(ll& a, ll& b) { b += a; }
+void XOR (ll& a, ll& b) {
+    ll x = a, y = b;
+    a = (x + y) % mod;
+    b = (x - y + mod) % mod;
+}
+void rAND(ll& a, ll& b) { a -= b; }
+void rOR(ll& a, ll& b) { b -= a; }
+void rXOR(ll& a, ll& b) {
+    static ll INV2 = (mod + 1) / 2;
+    ll x = a, y = b;
+    a = (x + y) * INV2 % mod;
+    b = (x - y + mod) * INV2 % mod;
+}
+
+//FWT 子集卷积
+a[popcount(x)][x] = A[x]
+b[popcount(x)][x] = B[x]
+fwt(a[i]) fwt(b[i])
+c[i + j][x] += a[i][x] * b[j][x]
+rfwt(c[i])
+ans[x] = c[popcount(x)][x]\end{lstlisting}
 \subsection{多项式}
 \subsubsection{拉格朗日插值}
 \begin{lstlisting}
@@ -1130,6 +1368,15 @@ $$\sum_{i=1}^n i^k = \frac{1}{k+1} \sum_{i=1}^{k+1}C_{k+1}^i B_{k+1-i}(n+1)^i$$
 \item 二项式反演：$$f_n = \sum_{i = 0} ^ n (-1) ^ i \binom{n}{i} g_i \Leftrightarrow g_n = \sum_{i = 0} ^ n (-1) ^ i \binom{n}{i} f_i$$
 $$f_n = \sum_{i = 0} ^ n \binom{n}{i} g_i \Leftrightarrow g_n = \sum_{i = 0} ^ n (-1) ^ {n - i} \binom{n}{i} f_i$$
 
+\item 莫比乌斯反演:
+\begin{enumerate}
+\item 令$f(d)=\sum_{i=1}^{n}\sum_{j=1}^{m}[gcd(i,j)=d]$
+\item $F(n)=\sum_{n|d}f(d)=\lfloor\frac{N}{n}\rfloor\lfloor\frac{M}{n}\rfloor$
+\item 有$f(n)=\sum_{n|d}\mu(\lfloor\frac{d}{n}\rfloor)F(d)$
+\item $\phi(n)=\sum_{d|n}d*\mu(n/d)$
+\end{enumerate}
+
+
 \item 2的n次方，在pow时可以精确输出最大$2^1023$，pow(2,1023)
 
 \item FFT常用素数
@@ -1184,85 +1431,77 @@ $$f_n = \sum_{i = 0} ^ n \binom{n}{i} g_i \Leftrightarrow g_n = \sum_{i = 0} ^ n
 \end{enumerate}
 \subsubsection{BM}
 \begin{lstlisting}
-using VI = vector<int>;
-const int mod = 1e9+7;
-const int maxn = 1 << 14;
-ll res[maxn], base[maxn], _c[maxn], _md[maxn];
-vector<int> Md;
-void mul(ll* a, ll* b, int k)
+//Berlekamp-Massey
+typedef vector<int> VI;
+namespace linear_seq
 {
-    for (int i = 0; i < k + k; i++) _c[i] = 0;
-    for (int i = 0; i < k; i++)
-        if (a[i])
-            for (int j = 0; j < k; j++) _c[i + j] = (_c[i + j] + a[i] * b[j]) % mod;
-    for (int i = k + k - 1; i >= k; i--)
-        if (_c[i])
-            for (int j = 0; j < Md.size(); j++) _c[i - k + Md[j]] = (_c[i - k + Md[j]] - _c[i] * _md[Md[j]]) % mod;
-    for (int i = 0; i < k; i++) a[i] = _c[i];
-}
-int solve(ll n, VI a, VI b)
-{
-    ll ans = 0, pnt = 0;
-    int k = a.size();
-    assert(a.size() == b.size());
-    for (int i = 0; i < k; i++) _md[k - 1 - i] = -a[i];
-    _md[k] = 1;
-    Md.clear();
-    for (int i = 0; i < k; i++)
-        if (_md[i] != 0) Md.push_back(i);
-    for (int i = 0; i < k; i++) res[i] = base[i] = 0;
-    res[0] = 1;
-    while ((1LL << pnt) <= n) pnt++;
-    for (int p = pnt; p >= 0; p--)
+#define rep(i,a,n) for (int i=a;i<n;i++)
+#define SZ(x) ((int)(x).size())
+#define pb(x) push_back(x)
+    const ll mod=1e9+7;
+    ll powmod(ll a,ll b){ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
+    const int N=10010;
+    ll res[N],base[N],_c[N],_md[N];
+    vector<int> Md;
+    void mul(ll *a,ll *b,int k)
     {
-        mul(res, res, k);
-        if ((n >> p) & 1)
-        {
-            for (int i = k - 1; i >= 0; i--) res[i + 1] = res[i];
-            res[0] = 0;
-            for (int j = 0; j < Md.size(); j++) res[Md[j]] = (res[Md[j]] - res[k] * _md[Md[j]]) % mod;
-        }
+        rep(i,0,k+k) _c[i]=0;
+        rep(i,0,k) if (a[i]) rep(j,0,k) _c[i+j]=(_c[i+j]+a[i]*b[j])%mod;
+        for (int i=k+k-1;i>=k;i--) if (_c[i])
+                rep(j,0,SZ(Md)) _c[i-k+Md[j]]=(_c[i-k+Md[j]]-_c[i]*_md[Md[j]])%mod;
+        rep(i,0,k) a[i]=_c[i];
     }
-    for (int i = 0; i < k; i++) ans = (ans + res[i] * b[i]) % mod;
-    if (ans < 0) ans += mod;
-    return ans;
-}
-VI BM(VI s)
-{
-    VI C(1, 1), B(1, 1);
-    int L = 0, m = 1, b = 1;
-    for (int n = 0; n < s.size(); n++)
+    int solve(ll n,VI a,VI b){
+        ll ans=0,pnt=0;
+        int k=SZ(a);
+        assert(SZ(a)==SZ(b));
+        rep(i,0,k) _md[k-1-i]=-a[i];_md[k]=1;
+        Md.clear();
+        rep(i,0,k) if (_md[i]!=0) Md.push_back(i);
+        rep(i,0,k) res[i]=base[i]=0;
+        res[0]=1;
+        while ((1ll<<pnt)<=n) pnt++;
+        for (int p=pnt;p>=0;p--) {
+            mul(res,res,k);
+            if ((n>>p)&1) {
+                for (int i=k-1;i>=0;i--) res[i+1]=res[i];res[0]=0;
+                rep(j,0,SZ(Md)) res[Md[j]]=(res[Md[j]]-res[k]*_md[Md[j]])%mod;
+            }
+        }
+        rep(i,0,k) ans=(ans+res[i]*b[i])%mod;
+        if (ans<0) ans+=mod;
+        return ans;
+    }
+    VI BM(VI s){
+        VI C(1,1),B(1,1);
+        int L=0,m=1,b=1;
+        rep(n,0,SZ(s)){
+            ll d=0;
+            rep(i,0,L+1) d=(d+(ll)C[i]*s[n-i])%mod;
+            if(d==0) ++m;
+            else if(2*L<=n){
+                VI T=C;
+                ll c=mod-d*powmod(b,mod-2)%mod;
+                while (SZ(C)<SZ(B)+m) C.pb(0);
+                rep(i,0,SZ(B)) C[i+m]=(C[i+m]+c*B[i])%mod;
+                L=n+1-L; B=T; b=d; m=1;
+            } else {
+                ll c=mod-d*powmod(b,mod-2)%mod;
+                while (SZ(C)<SZ(B)+m) C.pb(0);
+                rep(i,0,SZ(B)) C[i+m]=(C[i+m]+c*B[i])%mod;
+                ++m;
+            }
+        }
+        return C;
+    }
+    int gao(VI a,ll n)
     {
-        ll d = 0;
-        for (int i = 0; i <= L; i++) d = (d + (ll)C[i] * s[n - i]) % mod;
-        if (d == 0)
-            ++m;
-        else if (2 * L <= n)
-        {
-            VI T = C;
-            ll c = mod - d * Pow(b, mod - 2) % mod;
-            while (C.size() < B.size() + m) C.push_back(0);
-            for (int i = 0; i < B.size(); i++) C[i + m] = (C[i + m] + c * B[i]) % mod;
-            L = n + 1 - L, B = T, b = d, m = 1;
-        }
-        else
-        {
-            ll c = mod - d * Pow(b, mod - 2) % mod;
-            while (C.size() < B.size() + m) C.push_back(0);
-            for (int i = 0; i < B.size(); i++) C[i + m] = (C[i + m] + c * B[i]) % mod;
-            ++m;
-        }
+        VI c=BM(a);
+        c.erase(c.begin());
+        rep(i,0,SZ(c)) c[i]=(mod-c[i])%mod;
+        return solve(n,c,VI(a.begin(),a.begin()+SZ(c)));
     }
-    return C;
-}
-int gao(VI a, ll n)
-{
-    VI c = BM(a);
-    c.erase(c.begin());
-    for (int i = 0; i < c.size(); i++) c[i] = (mod - c[i]) % mod;
-    return solve(n, c, VI(a.begin(), a.begin() + c.size()));
-}
-\end{lstlisting}
+};//linear_seq::gao(VI{},n-1)\end{lstlisting}
 \subsubsection{exBM}
 \begin{lstlisting}
 // given first m items init[0..m-1] and coefficents trans[0..m-1] or
@@ -1536,6 +1775,165 @@ struct LinearRecurrence
     int64 mod;
     int m;
 };\end{lstlisting}
+\subsubsection{杜教筛}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+#include <tr1/unordered_map>
+
+using namespace std;
+typedef long long ll;
+
+const int N = 5e6;
+
+bool vis[N + 1];
+int mu[N + 1], sumu[N + 1], prim[N + 1], cnt;
+
+tr1::unordered_map<int, int> Smu;
+
+void get_mu(int n)
+{
+    mu[1] = 1;
+    for(int i = 2; i <= n; i ++)
+    {
+        if(!vis[i]) { prim[++ cnt] = i; mu[i] = -1; }
+        for(int j = 1; j <= cnt && prim[j] * i <= n; j ++)
+        {
+            vis[prim[j] * i] = 1;
+            if(i % prim[j] == 0) break;
+            else mu[i * prim[j]] = -mu[i];
+        }
+    }
+    for(int i = 1; i <= n; i ++) sumu[i] = sumu[i - 1] + mu[i];
+}
+
+int phi[N + 1]; ll sumphi[N + 1];
+tr1::unordered_map<ll, ll> Sphi;
+
+void get(int n)
+{
+    phi[1] = mu[1] = 1;
+    for(int i = 2; i <= n; i ++)
+    {
+        if(!vis[i])
+        {
+            prim[++ cnt] = i;
+            mu[i] = -1; phi[i] = i - 1;
+        }
+        for(int j = 1; j <= cnt && prim[j] * i <= n; j ++)
+        {
+            vis[i * prim[j]] = 1;
+            if(i % prim[j] == 0)
+            {
+                phi[i * prim[j]] = phi[i] * prim[j];
+                break;
+            }
+            else mu[i * prim[j]] = -mu[i], phi[i * prim[j]] = phi[i] * (prim[j] - 1);
+        }
+
+    }
+    for(int i = 1; i <= n; i ++) sumu[i] = sumu[i - 1] + mu[i], sumphi[i] = sumphi[i - 1] + phi[i];
+}
+
+ll getSum_mu(int x)
+{
+    if(x <= N) return sumu[x];
+    if(Smu[x]) return Smu[x];
+    int ans = 1;
+    for(int l = 2, r; l >= 0 && l <= x && r < 2147483647; l = r + 1)
+    {
+        r = x / (x / l);
+        ans -= (r - l + 1) * getSum_mu(x / l);
+    }
+    return Smu[x] = ans;
+}
+
+ll getSum_phi(ll x)
+{
+    if(x <= N) return sumphi[x];
+    if(Sphi[x]) return Sphi[x];
+    ll ans = x * (x + 1) / 2;
+    for(ll l = 2, r; l <= x; l = r + 1)
+    {
+        r = x / (x / l);
+        ans -= (r - l + 1) * getSum_phi(x / l);
+    }
+    return Sphi[x] = ans;
+}\end{lstlisting}
+\subsubsection{欧拉降幂}
+\begin{lstlisting}
+int prim[maxn], vis[maxn];
+int tot, phi[maxn];
+struct node {
+    ll res;
+    bool v;
+};
+
+node qpow(ll A, ll B, ll C) {
+    ll re = 1;
+    bool flag = true;
+    while (B) {
+        if (B & 1) {
+            if ((re *= A) >= C) flag = 0;
+            re = re % C;
+        }
+        B = B >> 1;
+        if (B) {
+            if (A >= C) flag = 0;
+            A %= C;
+            if ((A *= A) >= C) flag = 0;
+            A %= C;
+        }
+    }
+    return node{re, flag};
+}
+
+void init(int n) {
+    phi[1] = 1;
+    for (int i = 2; i <= n; i++) {
+        if (!vis[i]) {
+            prim[++tot] = i;
+            phi[i] = i - 1;
+        }
+        for (int j = 1; j <= tot && prim[j] * i <= n; j++) {
+            vis[i * prim[j]] = 1;
+            if (i % prim[j] == 0) {
+                phi[i * prim[j]] = phi[i] * prim[j];
+                break;
+            } else phi[i * prim[j]] = phi[i] * (prim[j] - 1);
+        }
+
+    }
+}
+
+
+inline ll Euler(ll x) {
+    if (x <= maxn) return phi[x];
+    return 0;
+}
+
+node f(ll a, ll k, ll p) {
+    if (p == 1) return node{0, 0};
+    if (k == 0) return node{a % p, a < p};
+    ll ep = Euler(p);
+    node tmp = f(a, k - 1, ep);
+    if (__gcd(a, p) == 1)return qpow(a, tmp.res, p);
+    if (!tmp.v) {
+        tmp.res += ep;
+    }
+    return qpow(a, tmp.res, p);
+}
+
+int main() {
+    ll a, k, p;
+    init(1e7+2);
+    int T;
+    scanf("%d", &T);
+    for (int kase = 1; kase <= T; ++kase) {
+        scanf("%lld%lld%lld", &a, &k, &p);
+        else printf("%lld\n", f(a, k, p).res);
+    }
+    return 0;
+}\end{lstlisting}
 \clearpage\section{Graph Theory}
 \subsection{路径}
 \subsubsection{Dijkstra}
@@ -1607,7 +2005,7 @@ void fleury(int start)
         else path.push_back(u);
     }
 }\end{lstlisting}
-\subsubsection{K-shortest Path}
+\subsubsection{K shortest Path(Astar)}
 \begin{lstlisting}
 const int inf = 0x3f3f3f3f;
 const int maxn = 1000 + 10;
@@ -1720,6 +2118,158 @@ int main()
         printf("%d\n", Astar(s, t));
     }
     return 0;
+}
+\end{lstlisting}
+\subsubsection{K shortest Path(可持久化可并堆)}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+#include<ext/pb_ds/priority_queue.hpp>
+
+using namespace std;
+
+const int N = '';
+const int M = '';
+const int logM = 20;
+const int inf = 0x3f3f3f3f;
+
+int n, m, k, S, T;
+
+struct Edge{ int nex, to, w; };
+
+struct Graph
+{
+    int head[N], cnt;
+    Edge edge[M];
+    void init(int n) { for(int i = 0; i <= n; i ++) head[i] = 0; cnt = 0; }
+    void addedge(int u, int v, int val) { edge[++ cnt].nex = head[u], edge[cnt].to = v, edge[cnt].w = val, head[u] = cnt; }
+}g, rg;
+
+int dis[N];
+
+void dijkstra()
+{
+    priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > que;
+    memset(dis, inf, sizeof dis);
+    que.push({0, T}); dis[T] = 0;
+    const int *head = rg.head; const Edge *edge = rg.edge;
+    while(!que.empty())
+    {
+        auto f = que.top(); que.pop();
+        int u = f.second, d = f.first;
+        if(d != dis[u]) continue;
+        for(int i = head[u]; i; i = edge[i].nex)
+        {
+            int v = edge[i].to, w = edge[i].w;
+            if(dis[u] + w < dis[v]) { dis[v] = dis[u] + w; que.push({dis[v], v}); }
+        }
+    }
+}
+
+bool tree_edge[M], vis[N];
+int fa[N], st[N], top;
+
+void dfs(int u)
+{
+    vis[u] = true;
+    st[++ top] = u;
+    for(int i = rg.head[u]; i; i = rg.edge[i].nex)
+    {
+        int v = rg.edge[i].to;
+        if(!vis[v] && dis[v] == dis[u] + rg.edge[i].w)
+        {
+            fa[v] = u;
+            tree_edge[i] = true;
+            dfs(v);
+        }
+    }
+}
+
+namespace LT
+{
+    int son[M * logM][2];
+    int ht[M * logM], val[M * logM], id[M * logM];
+    int tot;
+
+    int newnode(int _val, int _id, int _dis = 0)
+    {
+        int now = ++ tot;
+        val[now] = _val, id[now] = _id;
+        ht[now] = _dis, son[now][0] = son[now][1] = 0;
+        return now;
+    }
+
+    int _copy(int ori)
+    {
+        int now = ++tot;
+        val[now] = val[ori], id[now] = id[ori];
+        ht[now] = ht[ori], son[now][0] = son[ori][0], son[now][1] = son[ori][1];
+        return now;
+    }
+
+    int merge(int a, int b)
+    {
+        if(!a || !b) return a | b;
+        if(val[a] > val[b]) swap(a, b);
+        int now = _copy(a);
+        son[now][1] = merge(son[now][1], b);
+        if(ht[son[now][0]] < ht[son[now][1]]) swap(son[now][0], son[now][1]);
+        ht[now] = ht[son[now][1]] + 1;
+        return now;
+    }
+
+    void insert(int &rt, int val, int id) { rt = merge(newnode(val, id), rt); }
+}
+
+int rt[M];
+
+void build_heap()
+{
+    for(int i = 1; i <= top; i ++)
+    {
+        int u = st[i];
+        rt[u] = rt[fa[u]];
+        for(int i = g.head[u]; i; i = g.edge[i].nex)
+        {
+            int v = g.edge[i].to;
+            if(!tree_edge[i] && dis[v] != inf) LT::insert(rt[u], dis[v] - dis[u] + g.edge[i].w, v);
+        }
+    }
+}
+
+int solve(int k)
+{
+    if(k == 1) return dis[S];
+    __gnu_pbds::priority_queue<pair<int, int>, greater<pair<int, int> > > que;
+    que.push({dis[S] + LT::val[rt[S]], rt[S]});
+    while(!que.empty())
+    {
+        pair<int, int> f = que.top(); que.pop();
+        if((--k) == 1) return f.first;
+        int v = f.first, u = f.second;
+        int lc = LT::son[u][0], rc = LT::son[u][1], o = LT::id[u];
+        if(rt[o]) que.push({v + LT::val[rt[o]], rt[o]});
+        if(lc) que.push({v + LT::val[lc] - LT::val[u], lc});
+        if(rc) que.push({v + LT::val[rc] - LT::val[u], rc});
+    }
+    return -1;
+}
+
+void init()
+{
+    g.init(n), rg.init(n);
+    memset(rt, 0, sizeof rt);
+    memset(tree_edge, 0, sizeof tree_edge);
+    top = LT::tot = 0;
+}
+
+void getans()
+{
+    //input S-T
+    init();
+    dijkstra();
+    dfs(T);
+    build_heap();
+    cout << solve(k);
 }
 \end{lstlisting}
 \subsection{生成树}
@@ -1954,6 +2504,90 @@ void Tarjan(int u)
             belong[v] = scc;
         }while(v != u);
     }
+}\end{lstlisting}
+\subsubsection{点双联通分量}
+\begin{lstlisting}
+const int maxn = 10000 + 10;
+
+struct Edge{ int u, v; };
+vector<int> G[maxn], bcc[maxn];
+
+int dfn[maxn], low[maxn], bccno[maxn], idx, bcc_cnt, bridge;
+bool iscut[maxn];
+
+stack<Edge> st;
+
+void dfs(int u, int pre)
+{
+	dfn[u] = low[u] = ++idx;
+	int child = 0;
+	for(auto v : G[u])
+	{
+		if(v == pre) continue;
+		if(!dfn[v])
+		{
+			child ++;
+			st.push({u, v});
+			dfs(v, u);
+			low[u] = min(low[u], low[v]);
+			if(low[v] >= dfn[u])
+			{
+				iscut[u] = true;
+				bcc[++bcc_cnt].clear();
+				Edge x;
+				do
+				{
+					x = st.top(); st.pop();
+					if(bccno[x.u] != bcc_cnt) { bcc[bcc_cnt].push_back(x.u); bccno[x.u] = bcc_cnt; }
+					if(bccno[x.v] != bcc_cnt) { bcc[bcc_cnt].push_back(x.v); bccno[x.v] = bcc_cnt; }
+				} while(x.u != u || x.v != v);
+			}
+			if(low[v] > dfn[u]) ++ bridge;
+		}
+		else if(dfn[v] < dfn[u])
+		{
+			st.push({u, v});
+			low[u] = min(low[u], dfn[v]);
+		}
+	}
+	if(pre < 0 && child == 1) iscut[u] = 0;
+}
+
+void find_bcc(int n)
+{
+	memset(dfn, 0, sizeof dfn);
+	memset(iscut, 0, sizeof iscut);
+	memset(bccno, 0, sizeof bccno);
+	for(int i = 1; i <= bcc_cnt; i ++) bcc[i].clear();
+	idx = bcc_cnt = bridge = 0;
+	for(int i = 0; i < n; i ++) if(!dfn[i]) dfs(i, -1);
+}
+\end{lstlisting}
+\subsubsection{边双联通分量}
+\begin{lstlisting}
+const int maxn = 10000 + 10;
+
+int low[maxn], dfn[maxn], head[maxn], cnt, idx;
+int cutEdge[maxn << 2];
+struct  Edge { int nex, v; }edge[maxn << 2];
+
+void add(int u, int v) { edge[cnt].nex = head[u], edge[cnt].v = v, head[u] = cnt ++; }
+
+void dfs(int u, int pre)
+{
+	low[u] = dfn[u] = ++idx;
+	for(int i = head[u]; ~i; i = edge[i].nex)
+	{
+		int v = edge[i].v;
+		if(v == pre) continue;
+		if(!dfn[v])
+		{
+			dfs(v, u);
+			low[u] = min(low[u], low[v]);
+			if(low[v] > dfn[u]) cutEdge[i] = cutEdge[i ^ 1] = 1;
+		}
+		else if(dfn[v] < dfn[u]) low[u] = min(low[u], dfn[v]);
+	}
 }\end{lstlisting}
 \subsection{二分图匹配}
 \begin{enumerate}
@@ -2349,8 +2983,8 @@ int iter[MAX_V];	//当前弧
 
 void add(int from, int to, int cap)
 {
-	G[from].push_back((edge){to, cap, G[to].size()});
-	G[to].push_back((edge){from, 0, G[from].size() - 1});
+	G[from].push_back((edge){to, cap, (int)G[to].size()});
+	G[to].push_back((edge){from, 0, (int)G[from].size() - 1});
 }
 
 //计算从源点出发的距离标号
@@ -2690,6 +3324,16 @@ void Toposort(int n)
 }\end{lstlisting}
 \subsubsection{2-SAT}
 \begin{lstlisting}
+/*2-SAT连边含义：选A必选B
+    点$x_i$表示选，$x_i'$表示不选
+    1.必选$x_i$，等价于$x_i=1$：$x_i'→x_i$
+    2.必不选$x_i$，等价于$x_i=0$，$x_i→x_i'$
+    3.$x_i$与$x_j$中至少选择一个，等价于$x_iORx_j=1$，连边$x_i'→x_j$,$x_j'→x_i$
+    4.$x_i$与$x_j$不都选，等价于$x_iANDx_j=0$，连边$x_i→x_j',x_j→x_i'$
+    5.$x_i$与$x_j$情况相同，等价于$x_iXORx_j=0$，连边$x_i→x_j$,$x_i'→x_j'$,$x_j→x_i$,$x_j'→x_i'$
+    6.$x_i$与$x_j$情况相反，等价于$x_iXORx_j=1$，连边$x_i→x_j'$,$x_i'→x_j$,$x_j→x_i'$,$x_j'→x_i$
+*/
+
 const int maxn = 2e6 + 10;
 
 int n, m, a, va, b, vb;
@@ -2697,6 +3341,7 @@ int low[maxn], dfn[maxn], color[maxn], cnt, scc_cnt;
 bool instack[maxn];
 
 vector<int> g[maxn];
+stack<int> st;
 
 void Tarjan(int u)
 {
@@ -2719,20 +3364,41 @@ void Tarjan(int u)
     }
 }
 
-void 2_SAT()
+inline void add(int a, int b) { g[a].push_back(b); }
+
+inline void AND(int a, int b, int c)
 {
-    scanf("%d%d", &n, &m);
-    for(int i = 0; i < m; i ++)
-    {
-        scanf("%d%d%d%d", &a, &va, &b, &vb);
-        g[ a + n * (va & 1) ].push_back(b + n * (vb ^ 1));
-        g[ b + n * (vb & 1) ].push_back(a + n * (va ^ 1));
-    }
-    cnt = scc_cnt = 0;
+    if(c == 1) add(a, a + n), add(b, b + n);
+    else add(a + n, b), add(b + n, a);
+}
+
+inline void OR(int a, int b, int c)
+{
+    if(c == 0) add(a + n, a), add(b + n, b);
+    else add(a, b + n), add(b, a + n);
+}
+
+inline void XOR(int a, int b, int c)
+{
+    if(c == 0) add(a, b), add(a + n, b + n), add(b, a), add(b + n, a + n);
+    else add(a, b + n), add(a + n, b), add(b, a + n), add(b + n, a);
+}
+
+bool TWO_SAT()
+{
+    input();
     for(int i = 1; i <= (n << 1); i ++) if(!dfn[i]) Tarjan(i);
+    for(int i = 1; i <= n; i ++)
+        if(color[i] == color[i + n]) return false;
+    for(int i = 1; i <= n; i ++)
+        printf("%d ", color[i] > color[i + n]);
+    return true;
 }\end{lstlisting}
 \subsubsection{差分约束系统}
 \begin{lstlisting}
+//以$x_i-x_j≤y$为约束条件，建图求最短路后得到的是最大解。所有的解都不大于且尽可能逼近$dis[x0]$
+//最短路对应最大解，最长路对应最小解
+
 const int maxn = 1000 + 10;
 const int inf = 0x3f3f3f3f;
 
@@ -2785,6 +3451,90 @@ void spfa(int u)
             }
         }
     }
+}\end{lstlisting}
+\subsubsection{支配树}
+\begin{lstlisting}
+const int N = 2e5 + 10;
+
+int n, m;
+
+struct G
+{
+	vector<int> edge[N];
+	inline void add(int u, int v) { edge[u].push_back(v); }
+}a, b, c, d;
+
+int dfn[N], id[N], fa[N], cnt;
+
+void dfs(int u)
+{
+	dfn[u] = ++ cnt; id[cnt] = u;
+	int len = a.edge[u].size();
+	for(auto v : a.edge[u]) if(!dfn[v]) { fa[v] = u; dfs(v); }
+}
+
+int semi[N], idom[N], belong[N], val[N];
+
+int find(int x)
+{
+	if(x == belong[x]) return x;
+	int tmp = find(belong[x]);
+	if(dfn[semi[val[belong[x]]]] < dfn[semi[val[x]]]) val[x] = val[belong[x]];
+	return belong[x] = tmp;
+}
+
+void tarjan()
+{
+	for(int i = cnt; i > 1; i --)
+	{
+		int u = id[i];
+		for(auto v : b.edge[u])
+		{
+			if(!dfn[v]) continue;
+			find(v);
+			if(dfn[semi[val[v]]] < dfn[semi[u]]) semi[u] = semi[val[v]];
+		}
+		c.add(semi[u], u);
+		belong[u] = fa[u];
+		u = fa[u];
+		for(auto v : c.edge[u])
+		{
+			find(v);
+			if(semi[val[v]] == u) idom[v] = u;
+			else idom[v] = val[v];
+		}
+	}
+	for(int i = 2; i <= cnt; i ++)
+	{
+		int u = id[i];
+		if(idom[u] != semi[u]) idom[u] = idom[idom[u]];
+	}
+}
+
+int ans[N];
+
+void dfs_ans(int u)
+{
+	ans[u] = 1;
+	for(auto v : d.edge[u]) dfs_ans(v), ans[u] += ans[v];
+}
+
+void solve()
+{
+    int u, v;
+    scanf("%d%d", &n, &m);
+    while(m --)
+    {
+        scanf("%d%d", &u, &v);
+        a.add(u, v);
+        b.add(v, u);
+    }
+	for(int i = 1; i <= n; i ++) semi[i] = belong[i] = val[i] = i;
+	dfs(1);
+	tarjan();
+	for(int i = 2; i <= n; i ++) d.add(idom[i], i);
+	dfs_ans(1);
+	for(int i = 1; i <= n; i ++) printf("%d ", ans[i]);
 }\end{lstlisting}
 \clearpage\section{DataStructrue}
 \subsection{SegmentTreeDS}
@@ -2893,6 +3643,7 @@ struct SegmentTree {
 // 注意三个数组要开离散化数量的四倍，如果不需要sz可以不用这个数组。
 int val[maxn << 4];
 int lpos[maxn << 2], rpos[maxn << 2], tot, sz[maxn << 2];
+vector<int> xpos;
 sort(xpos.begin(), xpos.end());
 xpos.erase(unique(xpos.begin(), xpos.end()), xpos.end());
 tot = 1;
@@ -3000,6 +3751,261 @@ int merge(int x, int y)
 }
 insert(root[i], 1, n, a[i]);
 query(root[p], 1, n, x);\end{lstlisting}
+\subsubsection{扫描线}
+\begin{lstlisting}
+// 范用型扫描线，del储存上界+1，add储存下届，先del后add即可
+struct node {
+    int lpos, rpos, linepos;
+    bool operator < (const node& oth) const {
+        return linepos < oth.linepos;
+    }
+};
+vector<node> add, del;
+int delpos = 0;
+int res = 0;
+for (int addpos = 0; addpos < add.size(); ++addpos) {
+    while (delpos < del.size() && del[delpos].linepos <= add[addpos].linepos) {
+        up(del[delpos].lpos, del[delpos].rpos, -1);
+        delpos ++;
+    }
+    up(add[addpos].lpos, add[addpos].rpos, 1);
+    res = max(res, val[1]);
+}
+
+// 求面积并
+#define maxn 222
+#define tmp (st<<1)
+#define mid ((l+r)>>1)
+#define lson l,mid,tmp
+#define rson mid+1,r,tmp|1
+using namespace std;
+int cnt[maxn<<2];
+double sum[maxn<<2];
+double x[maxn];
+struct Seg{
+    double h,l,r;
+    int s;
+    Seg(){}
+    Seg(double a,double b,double c,int d):l(a),r(b),h(c),s(d){}
+    bool operator<(const Seg &cmp)const{
+        return h<cmp.h;
+    }
+}ss[maxn];
+void push_up(int st,int l,int r){
+    if(cnt[st])sum[st]=x[r+1]-x[l];
+    else if(l==r)sum[st]=0;
+    else sum[st]=sum[tmp]+sum[tmp|1];
+}
+void update(int L,int R,int c,int l,int r,int st){
+    if(L<=l&&r<=R){
+        cnt[st]+=c;
+        push_up(st,l,r);
+        return ;
+    }
+    if(L<=mid)update(L,R,c,lson);
+    if(R>mid)update(L,R,c,rson);
+    push_up(st,l,r);
+}
+int main(){
+    int n,tot=1,m;
+    while(scanf("%d",&n)&&n){
+        double a,b,c,d;
+        m=0;
+        while(n--){
+            scanf("%lf%lf%lf%lf",&a,&b,&c,&d);
+            x[m]=a;
+            ss[m++]=Seg(a,c,b,1);
+            x[m]=c;
+            ss[m++]=Seg(a,c,d,-1);
+        }
+        sort(x,x+m);
+        sort(ss,ss+m);
+        double ans=0;
+        for(int i=0;i<m;++i){
+            int l=lower_bound(x,x+m,ss[i].l)-x;
+            int r=lower_bound(x,x+m,ss[i].r)-x-1;
+            update(l,r,ss[i].s,0,m-1,1);
+            ans+=sum[1]*(ss[i+1].h-ss[i].h);
+        }
+        printf("Test case #%dnTotal explored area: %.2lfnn",tot++,ans);
+    }
+    return 0;
+}
+
+// 面积交
+#include<bits/stdc++.h>
+#define maxn 100005
+#define lson l,mid,rt<<1
+#define rson mid+1,r,rt<<1|1
+#define pb push_back
+using namespace std;
+
+double tree[maxn<<2],tree2[maxn<<2];
+int lazy[maxn<<2];
+vector<double>ve;
+
+struct seg{
+    double l,r,h;
+    int flag;
+    seg(){}
+    seg(double _l,double _r,double _h,int _flag){l=_l,r=_r,h=_h,flag=_flag;}
+    bool operator<(const seg &b)const{return h<b.h;}
+}s[maxn];
+
+void push_up(int l,int r,int rt){
+    if(lazy[rt]) tree[rt]=ve[r]-ve[l-1];
+    else if(l==r) tree[rt]=0;
+    else tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+}
+
+void push_up2(int l,int r,int rt){
+    if(lazy[rt]>1) tree2[rt]=ve[r]-ve[l-1];
+    else if(l==r) tree2[rt]=0;
+    else if(lazy[rt]==1)tree2[rt]=tree[rt<<1]+tree[rt<<1|1];
+    else tree2[rt]=tree2[rt<<1]+tree2[rt<<1|1];
+}
+
+void build(int l,int r,int rt){
+    tree[rt]=0,lazy[rt]=0;
+    if(l==r) return;
+    int mid=l+r>>1;
+    build(lson);
+    build(rson);
+}
+
+void add(int L,int R,int v,int l,int r,int rt){
+    if(L<=l&&R>=r){
+        lazy[rt]+=v;
+        push_up(l,r,rt);
+        push_up2(l,r,rt);
+        return;
+    }
+    int mid=l+r>>1;
+    if(L<=mid) add(L,R,v,lson);
+    if(R>mid) add(L,R,v,rson);
+    push_up(l,r,rt);
+    push_up2(l,r,rt);
+}
+
+int getid(double x){ return lower_bound(ve.begin(),ve.end(),x)-ve.begin()+1;}
+
+int main(){
+    int n;
+    int Case=1;
+    int T;
+    scanf("%d",&T);
+    while(T--){
+        scanf("%d",&n);
+        ve.clear();
+        int tot=0;
+        double x1,y1,x2,y2;
+        for(int i=1;i<=n;i++){
+            scanf("%lf %lf %lf %lf",&x1,&y1,&x2,&y2);
+            ve.pb(x1),ve.pb(x2);
+            s[++tot]=seg(x1,x2,y1,1);
+            s[++tot]=seg(x1,x2,y2,-1);
+        }
+        sort(ve.begin(),ve.end());
+        ve.erase(unique(ve.begin(),ve.end()),ve.end());
+        sort(s+1,s+tot+1);
+        int N=ve.size();
+        build(1,N,1);
+        double ans=0;
+        for(int i=1;i<tot;i++){
+            int L=getid(s[i].l);
+            int R=getid(s[i].r)-1;
+            add(L,R,s[i].flag,1,N,1);
+            ans+=tree2[1]*(s[i+1].h-s[i].h);
+        }
+        printf("%.2f\n",ans);
+    }
+}
+
+// 求周长并
+#include<bits/stdc++.h>
+#define maxn 100005
+#define lson l,mid,rt<<1
+#define rson mid+1,r,rt<<1|1
+#define pb push_back
+using namespace std;
+
+int tree[maxn<<2];
+int lazy[maxn<<2];
+vector<int>ve[2];
+int k;
+
+struct seg{
+    int l,r,h;
+    int flag;
+    seg(){}
+    seg(int _l,int _r,int _h,int _flag){l=_l,r=_r,h=_h,flag=_flag;}
+    bool operator<(const seg &b)const{return h<b.h;}
+}s[maxn];
+
+void push_up(int l,int r,int rt){
+    if(lazy[rt]) tree[rt]=ve[k][r]-ve[k][l-1];
+    else if(l==r) tree[rt]=0;
+    else tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+}
+
+void build(int l,int r,int rt){
+    tree[rt]=0,lazy[rt]=0;
+    if(l==r) return;
+    int mid=l+r>>1;
+    build(lson);
+    build(rson);
+}
+
+void add(int L,int R,int v,int l,int r,int rt){
+    if(L<=l&&R>=r){
+        lazy[rt]+=v;
+        push_up(l,r,rt);
+        return;
+    }
+    int mid=l+r>>1;
+    if(L<=mid) add(L,R,v,lson);
+    if(R>mid) add(L,R,v,rson);
+    push_up(l,r,rt);
+}
+
+int getid(int x){return lower_bound(ve[k].begin(),ve[k].end(),x)-ve[k].begin()+1;}
+
+int main(){
+    int n;
+    while(~scanf("%d",&n)){
+        ve[0].clear();
+        ve[1].clear();
+        int x1,y1,x2,y2;
+        for(int i=1;i<=n;i++){
+            scanf("%d %d %d %d",&x1,&y1,&x2,&y2);
+            ve[0].pb(x1),ve[0].pb(x2);
+            ve[1].pb(y1),ve[1].pb(y2);
+            s[i]=seg(x1,x2,y1,1);
+            s[i+n]=seg(x1,x2,y2,-1);
+            s[i+n+n]=seg(y1,y2,x1,1);
+            s[i+n+n+n]=seg(y1,y2,x2,-1);
+        }
+        int ans=0;
+        int pos=1;
+        for(k=0;k<2;k++){
+            sort(ve[k].begin(),ve[k].end());
+            ve[k].erase(unique(ve[k].begin(),ve[k].end()),ve[k].end());
+            sort(s+pos,s+pos+n+n);
+            int N=ve[k].size();
+            build(1,N,1);
+            int pre=0;
+            for(int i=pos;i<pos+n+n;i++){
+                int L=getid(s[i].l);
+                int R=getid(s[i].r)-1;
+                add(L,R,s[i].flag,1,N,1);
+                ans+=abs(tree[1]-pre);
+                pre=tree[1];
+            }
+            pos+=n+n;
+        }
+        printf("%d\n",ans);
+    }
+}\end{lstlisting}
 \subsection{HLD}
 \subsubsection{HLD}
 \begin{lstlisting}
@@ -3191,63 +4197,71 @@ struct HLD {
 \subsection{RMQ}
 \subsubsection{RMQ}
 \begin{lstlisting}
-//一维RMQ
-//MAX=1e6时 第二维开22 内存(int型)占10w
-int v[MAX],maxx[MAX][22],minn[MAX][22];
-void RMQ(int n)
-{
-	int i,j;
-	for(i=1;i<=n;i++)
-	{
-		maxx[i][0]=minn[i][0]=v[i];//下标rmq 初始化赋值成i
-		for(j=1;1<<(j-1)<=n;j++)
-		{
-			maxx[i][j]=0;
-			minn[i][j]=INF;
-		}
-	}
-	for(j=1;1<<(j-1)<=n;j++)
-	{
-		for(i=1;i+(1<<j)-1<=n;i++)
-		{
-			int t=1<<(j-1);
-			maxx[i][j]=max(maxx[i][j-1],maxx[i+t][j-1]);
-			minn[i][j]=min(minn[i][j-1],minn[i+t][j-1]);
-		}
-	}
+int A[maxn];
+int maxx[maxn][22];
+void RMQ(int n) {
+    for (int i = 1; i <= n; i++)
+        maxx[i][0] = A[i];
+    for (int j = 1; (1 << j) <= n; j++) {
+        for (int i = 1; i + (1 << j) - 1 <= n; i++) {
+            maxx[i][j] = max(maxx[i][j - 1], maxx[i + (1 << (j - 1))][j - 1]);
+        }
+    }
 }
-int query(int l,int r)
-{
-	int j=(int)(log10(r-l+1)/log10(2))+1;
-	int i=r-(1<<(j-1))+1;
-	return max(maxx[l][j-1],maxx[i][j-1]);
-//	return min(minn[l][j-1],minn[i][j-1]);
-}\end{lstlisting}
+int query(int l, int r) {
+    int k = 0;
+    while ((1 << (k + 1)) <= r - l + 1) k++;
+    return max(maxx[l][k], maxx[r - (1 << k) + 1][k]);
+}
+
+template <typename T, class F = function<T(const T&, const T&)>>
+class SparseTable {
+ public:
+  int n;
+  vector<vector<T>> mat;
+  F func;
+ 
+  SparseTable(const vector<T>& a, const F& f) : func(f) {
+    n = static_cast<int>(a.size());
+    int max_log = 32 - __builtin_clz(n);
+    mat.resize(max_log);
+    mat[0] = a;
+    for (int j = 1; j < max_log; j++) {
+      mat[j].resize(n - (1 << j) + 1);
+      for (int i = 0; i <= n - (1 << j); i++) {
+        mat[j][i] = func(mat[j - 1][i], mat[j - 1][i + (1 << (j - 1))]);
+      }
+    }
+  }
+ 
+  T get(int from, int to) const {
+    assert(0 <= from && from <= to && to <= n - 1);
+    int lg = 32 - __builtin_clz(to - from + 1) - 1;
+    return func(mat[lg][from], mat[lg][to - (1 << lg) + 1]);
+  }
+};
+//静态区间最大值
+SparseTable<int> solve(v, [&](int i, int j) {return max(i, j);});\end{lstlisting}
 \subsubsection{RMQbyIndex}
 \begin{lstlisting}
 //下标RMQ
 int v[MAX],maxx[MAX][22],minn[MAX][22];
 int pmax(int a,int b){return v[a]>v[b]?a:b;}
 int pmin(int a,int b){return v[a]<v[b]?a:b;}
-void RMQ(int n)
-{
+void RMQ(int n) {
 	int i,j;
-	for(i=1;i<=n;i++)
-	{
+	for(i=1;i<=n;i++) {
 		maxx[i][0]=minn[i][0]=i;
 	}
-	for(j=1;1<<(j-1)<=n;j++)
-	{
-		for(i=1;i+(1<<j)-1<=n;i++)
-		{
+	for(j=1;1<<(j-1)<=n;j++) {
+		for(i=1;i+(1<<j)-1<=n;i++) {
 			int t=1<<(j-1);
 			maxx[i][j]=pmax(maxx[i][j-1],maxx[i+t][j-1]);
 			minn[i][j]=pmin(minn[i][j-1],minn[i+t][j-1]);
 		}
 	}
 }
-int query(int l,int r)
-{
+int query(int l,int r) {
 	int j=(int)(log10(r-l+1)/log10(2))+1;
 	int i=r-(1<<(j-1))+1;
 	return pmax(maxx[l][j-1],maxx[i][j-1]);
@@ -3309,27 +4323,24 @@ int query(int x1,int y1,int x2,int y2)
 \subsection{MO}
 \subsubsection{MO}
 \begin{lstlisting}
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-const int maxn = 200005;
+// const int maxn = 50005;
 
 struct MO {
     int l, r, id;
 }q[maxn];
 
 int n, m, col[maxn], block, belong[maxn];
-ll vis[maxn * 10], ans;
-ll res[maxn];
+int vis[maxn * 10];
+ll res[maxn], ans;
 bool cmp(const MO& a, const MO& b) { return belong[a.l] == belong[b.l] ? a.r < b.r : a.l < b.l; }
-void add(ll x) {
+void add(int x) {
     vis[x] ++;
-    ans += x * (vis[x] * vis[x] - (vis[x] - 1) * (vis[x] - 1));
+    ans += 1ll * x * (vis[x] * vis[x] - (vis[x] - 1) * (vis[x] - 1));
 }
 
-void del(ll x) {
+void del(int x) {
     vis[x] --;
-    ans -= x * ((vis[x] + 1) * (vis[x] + 1) - vis[x] * vis[x]);
+    ans -= 1ll * x * ((vis[x] + 1) * (vis[x] + 1) - vis[x] * vis[x]);
 }
 
 int main() {
@@ -3434,57 +4445,336 @@ int main() {
     for (int i = 1; i <= t; ++i) printf("%d\n", res[i]);
     return 0;
 }\end{lstlisting}
+\subsubsection{分块}
+\begin{lstlisting}
+// 非预处理数组版
+inline int belong(int x) { return (x - 1) / block + 1; }
+inline int lpos(int x) { return 1 + (x - 1) * block; }
+inline int rpos(int x) { return min(n, x * block); }
+int sz = (n - 1) / block + 1;
+
+// 预处理版，maxn大于1e6已经不可能处理了
+const int maxb = 1005;
+int n, m;
+int belong[maxn], lpos[maxb], rpos[maxb];
+int val[maxn], lazy[maxb];
+int block;
+
+scanf("%d", &n);
+block = sqrt(n);
+for (int i = 1; i <= n; ++i) {
+    scanf("%d", &val[i]);
+    belong[i] = (i - 1) / block + 1;
+}
+int sz = (n - 1) / block + 1;
+for (int i = 1; i <= sz; ++i) {
+    lpos[i] = 1 + (i - 1) * block;
+    rpos[i] = i * block;
+}
+rpos[sz] = n;\end{lstlisting}
+\subsubsection{弹飞绵羊}
+\begin{lstlisting}
+int n, m;
+int belong[maxn], lpos[maxn], rpos[maxn];
+int val[maxn], nxt[maxn], k[maxn], lst[maxn];
+int block;
+
+void update(int pos) {
+    int llim = lpos[belong[pos]], rlim = rpos[belong[pos]];
+    for (int i = pos; i >= llim; --i) {
+        if (val[i] + i > rlim) {
+            k[i] = 1;
+            nxt[i] = val[i] + i;
+            if (val[i] + i > n) lst[i] = i;
+            else lst[i] = lst[nxt[i]];
+        } else {
+            k[i] = 1 + k[val[i] + i];
+            nxt[i] = nxt[val[i] + i];
+            lst[i] = lst[val[i] + i];
+        }
+    }
+}
+
+void init() {
+    for (int i = n; i >= 1; --i) {
+        int rlim = rpos[belong[i]];
+        if (val[i] + i > rlim) {
+            k[i] = 1;
+            nxt[i] = val[i] + i;
+            if (val[i] + i > n) lst[i] = i;
+            else lst[i] = lst[nxt[i]];
+        } else {
+            k[i] = 1 + k[val[i] + i];
+            nxt[i] = nxt[val[i] + i];
+            lst[i] = lst[val[i] + i];
+        }
+    }
+}
+
+int query(int pos) {
+    int res = 0;
+    while (pos <= n) {
+        res += k[pos];
+        if (nxt[pos] > n) printf("%d ", lst[pos]);
+        pos = nxt[pos];
+    }
+    return res;
+}
+
+int main(int argc, char* argv[]) {
+    scanf("%d%d", &n, &m);
+    block = sqrt(n) * 1.6 + 1;
+    for (int i = 1; i <= n; ++i) {
+        scanf("%d", &val[i]);
+        belong[i] = (i - 1) / block + 1;
+    }
+    int sz = (n - 1) / block + 1;
+    for (int i = 1; i <= sz; ++i) {
+        lpos[i] = 1 + (i - 1) * block;
+        rpos[i] = i * block;
+    }
+    rpos[sz] = n;
+    init();
+    while (m--) {
+        int op;
+        scanf("%d", &op);
+        if (op == 1) {
+            int pos;
+            scanf("%d", &pos);
+            printf("%d\n", query(pos));
+        } else {
+            int pos, kl;
+            scanf("%d%d", &pos, &kl);
+            val[pos] = kl;
+            update(pos);
+        }
+    }
+    return 0;
+}\end{lstlisting}
+\subsubsection{树莫队}
+\begin{lstlisting}
+// rnk保存欧拉序
+int sz[maxn], top[maxn], son[maxn], deep[maxn], fa[maxn], idx[maxn], ed[maxn], rnk[maxn*2];
+int tot, n, m;
+vector<int> edge[maxn];
+int val[maxn];
+vector<int> xpos;
+
+inline void dfs1(int u, int pre, int h) {
+    deep[u] = h;
+    fa[u] = pre;
+    sz[u] = 1;
+    for (auto to : edge[u]) {
+        if (to == pre) continue;
+        dfs1(to, u, h + 1);
+        sz[u] += sz[to];
+        if (son[u] == 0 || sz[to] > sz[son[u]]) son[u] = to;
+    }
+}
+
+inline void dfs2(int u, int tp) {
+    top[u] = tp;
+    idx[u] = ++tot, rnk[tot] = u;
+    if (son[u] == 0) {
+        ed[u] = ++tot, rnk[tot] = u;
+        return;
+    }
+    dfs2(son[u], tp);
+    for (auto to : edge[u]) {
+        if (to != son[u] && to != fa[u]) dfs2(to, to);
+    }
+    ed[u] = ++tot, rnk[tot] = u;
+}
+
+inline int LCA(int x, int y) {
+    while (top[x] != top[y]) {
+        if (deep[top[x]] < deep[top[y]]) swap(x, y);
+        x = fa[top[x]];
+    }
+    if (deep[x] > deep[y]) swap(x, y);
+    return x;
+}
+
+int belong[maxn*2], block;
+int res[maxn], ans;
+// 每个点是否访问（欧拉序去重）
+int vis[maxn];
+// 标记数组
+int pre[maxn];
+struct MO {
+    int l, r, id, lca;
+    bool operator < (const MO& oth) const {
+        return belong[l] == belong[oth.l] ? r < oth.r : belong[l] < belong[oth.l];
+    }
+}q[maxm];
+
+inline void add(int x) {
+    pre[x] ++;
+    if (pre[x] == 1) ans ++;
+}
+
+inline void del(int x) {
+    pre[x] --;
+    if (pre[x] == 0) ans --;
+}
+
+inline void deal(int x) {
+    vis[x] ? del(val[x]) : add(val[x]);
+    vis[x] = !vis[x];
+}
+
+int main(int argc, char* argv[]) {
+    scanf("%d%d", &n, &m);
+    block = sqrt(n);
+    xpos.resize(n + 1);
+    for (int i = 1; i <= n; ++i) {
+        scanf("%d", &val[i]);
+        xpos[i] = val[i];
+    }
+    sort(xpos.begin(), xpos.end());
+    xpos.erase(unique(xpos.begin(), xpos.end()), xpos.end());
+    for (int i = 1; i <= n; ++i) val[i] = lower_bound(xpos.begin(), xpos.end(), val[i]) - xpos.begin();
+    // 欧拉序长度为n两倍所以分块要分两倍大小
+    for (int i = 1; i <= n * 2; ++i) {
+        belong[i] = (i - 1) / block + 1;
+    }
+    for (int i = 1, u, v; i < n; ++i) {
+        scanf("%d%d", &u, &v);
+        edge[u].push_back(v);
+        edge[v].push_back(u);
+    }
+    // 树剖预处理lca
+    dfs1(1, 0, 0);
+    dfs2(1, 1);
+    for (int i = 1, x, y; i <= m; ++i) {
+        scanf("%d%d", &x, &y);
+        if (idx[x] > idx[y]) swap(x, y);
+        int _lca = LCA(x, y);
+        q[i].id = i;
+        if (_lca == x) q[i].l = idx[x], q[i].r = idx[y], q[i].lca = 0;
+        else q[i].l = ed[x], q[i].r = idx[y], q[i].lca = _lca;
+//        cerr << q[i].l << " " << q[i].r << " " << q[i].id << " " << q[i].lca << endl;
+    }
+    sort(q + 1, q + 1 + m);
+    int l = 1, r = 0;
+    for (int i = 1; i <= m; ++i) {
+        while(r < q[i].r) deal(rnk[++r]);
+        while(r > q[i].r) deal(rnk[r--]);
+        while(l < q[i].l) deal(rnk[l++]);
+        while(l > q[i].l) deal(rnk[--l]);
+        if (q[i].lca) deal(q[i].lca);
+        res[q[i].id] = ans;
+        if (q[i].lca) deal(q[i].lca);
+    }
+    for (int i = 1; i <= m; ++i) {
+        printf("%d\n", res[i]);
+    }
+    return 0;
+}\end{lstlisting}
 \subsection{VirtualTree}
 \subsubsection{VirtualTree}
 \begin{lstlisting}
-const int maxn = "Edit";
-vector<int> vtree[maxn];
-void build(vector<int>& vec)
-{
-    sort(vec.begin(), vec.end(), [&](int x, int y) { return dfn[x] < dfn[y]; });
-    static int s[maxn];
-    int top = 0;
-    s[top] = 0;
-    vtree[0].clear();
-    for (auto& u : vec)
-    {
-        int vlca = lca(u, s[top]);
-        vtree[u].clear();
-        if (vlca == s[top])
-            s[++top] = u;
-        else
-        {
-            while (top && dep[s[top - 1]] >= dep[vlca])
-            {
-                vtree[s[top - 1]].push_back(s[top]);
-                top--;
-            }
-            if (s[top] != vlca)
-            {
-                vtree[vlca].clear();
-                vtree[vlca].push_back(s[top--]);
-                s[++top] = vlca;
-            }
-            s[++top] = u;
+const int pow2 = 19;
+const int maxn = 1 << pow2;
+vector<int> adj0[maxn], adj1[maxn];
+int st[maxn << 1][pow2 + 1], dep[maxn], euler[maxn], euler_clock;
+// fa0 是原树的父节点
+// fa1 是虚树的父节点
+// len 是虚树每个节点的权重，每个节点代表原树的几个节点，也是虚树到它父节点的链的长度
+int stk[maxn], fa0[maxn], fa1[maxn], len[maxn];
+ll val[maxn];
+
+void link0(int u, int v) { adj0[u].emplace_back(v); adj0[v].emplace_back(u); }
+void link1(int u, int v) { adj1[u].emplace_back(v); adj1[v].emplace_back(u); }
+void dfs0(int u, int p) {
+    fa0[u] = p;
+    dep[u] = dep[p] + 1;
+    st[++euler_clock][0] = u;
+    euler[u] = euler_clock;
+    for (const auto& v : adj0[u]) if (v != p) {
+            dfs0(v, u);
+            st[++euler_clock][0] = u;
         }
+}
+inline bool cmp(int u, int v) {return dep[u] < dep[v];}
+inline int upper(int u, int v) {return cmp(u, v) ? u : v;}
+void lca_init() {
+    for (int i = 0; i != 31 - __builtin_clz(euler_clock); ++i)
+        for (int j = 1; j + (1 << (i + 1)) <= euler_clock; ++j)
+            st[j][i + 1] = upper(st[j][i], st[j + (1 << i)][i]);
+}
+inline int lca(int u, int v) {
+    if (u == v) return u;
+    u = euler[u];
+    v = euler[v];
+    if (u > v) swap(u, v);
+    int temp = 31 - __builtin_clz(++v - u);
+    return upper(st[u][temp], st[v - (1 << temp)][temp]);
+}
+void build(vector<int>& key) {
+    sort(key.begin(), key.end(), [&] (int u, int v) { return euler[u] < euler[v]; });
+    key.resize(unique(key.begin(), key.end()) - key.begin());
+    int top = 0;
+    for (const auto& u : key) {
+        if (!top) {
+            stk[++top] = u;
+            continue;
+        }
+        int p = lca(u, stk[top]);
+        while (euler[p] < euler[stk[top]]) {
+            if (euler[p] >= euler[stk[top - 1]]) {
+                link1(p, stk[top]);
+                if (stk[--top] != p) stk[++top] = p;
+                break;
+            }
+            link1(stk[top - 1], stk[top]);
+            --top;
+        }
+        stk[++top] = u;
     }
-    for (int i = 0; i < top; ++i) vtree[s[i]].push_back(s[i + 1]);
+    while (top > 1) {
+        link1(stk[top - 1], stk[top]);
+        --top;
+    }
+}
+
+void dfs1(int u, int p) {
+    fa1[u] = p;
+    val[u] = 0;
+    len[u] = dep[u] - dep[p];
+    for (const auto& v : adj1[u]) if (v != p) dfs1(v, u);
+}
+
+int main() {
+    // 多组清空操作
+    for (int i = 1; i <= n; ++i) {
+        adj0[i].clear();
+        adj1[i].clear();
+    }
+    euler_clock = 0;
+
+    // 读入原树 link0 加边
+    // 读入处理关键节点存入vector key，包含1和链的端点和他们的lca的父节点（lca如果为1就不加）。
+    dfs0(1, 0);
+    lca_init();
+
+    vector<int> key(1, 1);
+    for (auto& q : query) {
+        cin >> q.u >> q.v;
+        key.emplace_back(q.u);
+        key.emplace_back(q.v);
+        int p = lca(q.u, q.v);
+        if (p != 1) key.emplace_back(fa0[p]);
+    }
+
+    build(key);
+    dfs1(1, 0);
+    return 0;
 }\end{lstlisting}
 \subsection{PersistentDS}
 \subsubsection{主席树区间k大}
 \begin{lstlisting}
-/*************************************************************************
-	> File Name: a.cpp
-	> Author: badcw
-	> Mail: 952223482@qq.com
-	> Created Time: 2018年07月21日 星期六 08时47分54秒
- ************************************************************************/
-
-#include <bits/stdc++.h>
-#define ll long long
-using namespace std;
-
-const int maxn = 100005;
+// const int maxn = 100005;
 int n, m;
 int a[maxn];
 int root[maxn];
@@ -3628,21 +4918,20 @@ int main() {
 \subsection{Tree}
 \subsubsection{LCA}
 \begin{lstlisting}
-const int maxn = 1e5 + 10;
+// const int maxn = 1e5 + 10;
 
+// 普通倍增lca
 int n, dep[maxn], fa[maxn][30];
 vector<int> edge[maxn];
 
-void dfs(int u, int pre)
-{
+void dfs(int u, int pre) {
 	dep[u] = dep[pre] + 1, fa[u][0] = pre;
 	for(int i = 1; (1 << i) <= n; i ++) 
 		fa[u][i] = fa[fa[u][i - 1]][i - 1];
 	for(auto v : edge[u]) if(v != pre) dfs(v, u);
 }
 
-int LCA(int u, int v)
-{
+int LCA(int u, int v) {
 	if(dep[u] < dep[v]) swap(u, v);
 	int d = dep[u] - dep[v];
 	for(int i = 0; (1 << i) <= d; i ++) 
@@ -3653,7 +4942,40 @@ int LCA(int u, int v)
 			u = fa[u][i], v = fa[v][i];
 	return fa[u][0];
 }
-\end{lstlisting}
+
+
+// 欧拉序lca
+// pow2 = 19
+// maxn = 1 << pow2
+int st[maxn << 1][pow2 + 1], dep[maxn], euler[maxn], euler_clock， fa[maxn];
+void dfs(int u, int p) {
+    fa[u] = p;
+    dep[u] = dep[p] + 1;
+    st[++euler_clock][0] = u;
+    euler[u] = euler_clock;
+    for (const auto& v : adj0[u]) if (v != p) {
+            dfs(v, u);
+            st[++euler_clock][0] = u;
+        }
+}
+void lca_init() {
+    for (int i = 0; i != 31 - __builtin_clz(euler_clock); ++i)
+        for (int j = 1; j + (1 << (i + 1)) <= euler_clock; ++j)
+            st[j][i + 1] = upper(st[j][i], st[j + (1 << i)][i]);
+}
+inline int lca(int u, int v) {
+    if (u == v) return u;
+    u = euler[u];
+    v = euler[v];
+    if (u > v) swap(u, v);
+    int temp = 31 - __builtin_clz(++v - u);
+    return upper(st[u][temp], st[v - (1 << temp)][temp]);
+}
+
+// dfs(1, 0);
+// lca_init();
+
+// 另有树剖lca详见hld模板\end{lstlisting}
 \subsubsection{前向星}
 \begin{lstlisting}
 // 清零 head 和 tot
@@ -3765,44 +5087,76 @@ int main(int argc, char* argv[]) {
 \subsection{Others}
 \subsubsection{BITinNM}
 \begin{lstlisting}
-struct Fenwick_Tree
-{
-	#define type int
-	type bit[MAX][MAX];
-	int n,m;
-	void init(int _n,int _m){n=_n;m=_m;mem(bit,0);}
-	int lowbit(int x){return x&(-x);}
-	void update(int x,int y,type v)
-	{
-		int i,j;
-		for(i=x;i<=n;i+=lowbit(i))
-		{
-			for(j=y;j<=m;j+=lowbit(j))
-			{
-				bit[i][j]+=v;
-			}
-		}
-	}
-	type get(int x,int y)
-	{
-		type i,j,res=0;
-		for(i=x;i>0;i-=lowbit(i))
-		{
-			for(j=y;j>0;j-=lowbit(j))
-			{
-				res+=bit[i][j];
-			}
-		}
-		return res;
-	}
-	type query(int x1,int x2,int y1,int y2)
-	{
-		x1--;
-		y1--;
-		return get(x2,y2)-get(x1,y2)-get(x2,y1)+get(x1,y1);
-	}
-	#undef type
-}tr;\end{lstlisting}
+struct Fenwick_Tree {
+#define type int
+    type bit[maxn][maxn];
+    int n, m;
+    void init(int _n, int _m) {
+        n = _n;
+        m = _m;
+        mem(bit, 0);
+    }
+    int lowbit(int x) { return x & (-x); }
+    void update(int x, int y, type v) {
+        int i, j;
+        for (i = x; i <= n; i += lowbit(i)) {
+            for (j = y; j <= m; j += lowbit(j)) {
+                bit[i][j] += v;
+            }
+        }
+    }
+    type get(int x, int y) {
+        type i, j, res = 0;
+        for (i = x; i > 0; i -= lowbit(i)) {
+            for (j = y; j > 0; j -= lowbit(j)) {
+                res += bit[i][j];
+            }
+        }
+        return res;
+    }
+    type query(int x1, int x2, int y1, int y2) {
+        x1--;
+        y1--;
+        return get(x2, y2) - get(x1, y2) - get(x2, y1) + get(x1, y1);
+    }
+#undef type
+} tr;
+
+// 二维区间前缀和写法（非树状数组）
+inline void range_add(int xa, int ya, int xb, int yb) { add(xa, ya, 1), add(xa, yb + 1, -1), add(xb + 1, ya, -1), add(xb + 1, yb + 1, 1); }
+inline ll range_ask(int xa, int ya, int xb, int yb){ return ask(xb, yb) - ask(xb, ya - 1) - ask(xa - 1, yb) + ask(xa - 1, ya - 1); }
+inline void build() {
+	for (int i = 1; i < n + 5; ++i) {
+        for (int j = 1; j < m + 5; ++j) {
+            if (st[i][j] > 1) st[i][j] = 1;
+            st[i][j] += st[i - 1][j] + st[i][j - 1] - st[i - 1][j - 1];
+        }
+    }
+}
+
+// 二维树状数组区间加与求和
+ll t1[maxn][maxn], t2[maxn][maxn], t3[maxn][maxn], t4[maxn][maxn];
+void add(ll x, ll y, ll z){
+    for(int X = x; X <= n; X += X & -X)
+        for(int Y = y; Y <= m; Y += Y & -Y){
+            t1[X][Y] += z;
+            t2[X][Y] += z * x;
+            t3[X][Y] += z * y;
+            t4[X][Y] += z * x * y;
+        }
+}
+ll ask(ll x, ll y){
+    ll res = 0;
+    for(int i = x; i; i -= i & -i)
+        for(int j = y; j; j -= j & -j)
+            res += (x + 1) * (y + 1) * t1[i][j]
+                - (y + 1) * t2[i][j]
+                - (x + 1) * t3[i][j]
+                + t4[i][j];
+    return res;
+}
+
+// 区间加，询问单点：直接维护前缀差分数组，求单点=普通求前缀和\end{lstlisting}
 \subsubsection{静态区间k大划分树}
 \begin{lstlisting}
 // const int maxn = 100010;
@@ -4704,32 +6058,27 @@ int main()
 \subsection{KMP}
 \subsubsection{KMP}
 \begin{lstlisting}
-const int maxn=1e6+10;
+// nxt[0]表示失配到完全不匹配
+int nxt[maxm];
 
-char a[maxn],b[maxn];
-int nex[maxn];
-
-void getNext()
-{
-    int n = strlen(b), i = 0, j = -1;
-    nex[i] = j;
-    while(i < n)
-    {
-        if(j == -1 || b[i] == b[j]) nex[++ i] = ++j;
-        else j = nex[j];
+void getNext(char *s, int len) {
+    int i = 0, j = -1;
+    nxt[i] = j;
+    while (i < len) {
+        if (j == -1 || s[i] == s[j]) nxt[++i] = ++j;
+        else j = nxt[j];
     }
 }
 
-int KMP()
-{
-    int n = strlen(a), m = strlen(b);
-    getNext(b);
+// a为原串，b为模式串，下标从0开始，找第一个出现模式串的位置（起点为1），找不到返回-1
+int KMP(char *a, char *b, int n, int m) {
+    getNext(b, m);
     int i = 0, j = 0;
-    while(i < n && j < m)
-    {
-        if(j == -1 || a[i] == b[j]) i ++, j ++;
-        else j = nex[j];
+    while (i < n && j < m) {
+        if (j == -1 || a[i] == b[j]) ++i, ++j;
+        else j = nxt[j];
     }
+    return j == m ? i - m + 1 : -1;
 }\end{lstlisting}
 \subsubsection{exKMP}
 \begin{lstlisting}
@@ -4951,14 +6300,12 @@ int manacher(char *str)
 \subsection{Aho-Corasick Automation}
 \subsubsection{AC Automation}
 \begin{lstlisting}
-const int maxn = 5e5 + 10;
-
 class AC_automation
 {
 public:
     int trie[maxn][26], cnt;
     int tag[maxn];
-    int fail[maxn];
+    int fail[maxn], num[maxn], res[maxn], in[maxn], Map[maxn];
 
     void init()
     {
@@ -4968,7 +6315,7 @@ public:
         cnt = 0;
     }
 
-    void insert(char *str)
+    void insert(char *str, int id)
     {
         int root = 0;
         for (int i = 0; str[i]; i++)
@@ -4977,7 +6324,8 @@ public:
             if (!trie[root][id]) trie[root][id] = ++cnt;
             root = trie[root][id];
         }
-        tag[root]++;
+        if(!tag[root]) tag[root] = id;
+        Map[id] = tag[root];
     }
 
     void build()
@@ -4987,7 +6335,6 @@ public:
         while (!que.empty())
         {
             int k = que.front();
-            // tag[k] += tag[fail[k]];
             que.pop();
             for (int i = 0; i < 26; i++)
             {
@@ -4995,29 +6342,33 @@ public:
                 {
                     fail[trie[k][i]] = trie[fail[k]][i];
                     que.push(trie[k][i]);
+                    in[fail[trie[k][i]]] ++;
                 } else trie[k][i] = trie[fail[k]][i];
             }
         }
     }
 
-    int query(char *str)
+    void toposort()
     {
-        int p = 0, res = 0;
-        for (int i = 0; str[i]; i++)
+        queue<int> que;
+        for(int i = 1; i <= cnt; i ++) if(in[i] == 0) que.push(i);
+        while(!que.empty())
         {
-            p = trie[p][str[i] - 'a'];
-            for (int j = p; j && ~tag[j]; j = fail[j]) res += tag[j], tag[j] = -1;
+            int u = que.front(); que.pop();
+            res[tag[u]] = num[u];
+            int v = fail[u]; in[v] --;
+            num[v] += num[u];
+            if(in[v] == 0) que.push(v);
         }
-        return res;
     }
 
-    void query(string str, ll *res) { // 查询所有前缀的匹配串个数，build时把fail指针上的tag加到当前tag
-        int p = 0;
-        for (int i = 0; i < (int)str.length(); i++)
-        {
-            p = trie[p][str[i] - 'a'];
-            res[i] = tag[p];
-        }
+    void query(char *str, int n)
+    {
+        int u = 0, len = strlen(s);
+        for(int i = 0; i < len; i ++)
+            u = trie[u][str[i] - 'a'], num[u] ++;
+        toposort();
+        for(int i = 1; i <= n; i ++) printf("%d\n", res[Map[i]]);
     }
 } AC;\end{lstlisting}
 \subsection{Suffix Array}
@@ -5092,20 +6443,13 @@ int lcp(int x, int y)
 \subsection{PalindromicTree}
 \subsubsection{PalindromicTree}
 \begin{lstlisting}
-// 求相交回文串数量
-
-#include<bits/stdc++.h>
-
-#define ll long long
-using namespace std;
-
 const int maxn = 2e6+6;
 const int N = 26;
 const int mod = 51123987;
 
 struct Palindromic_Tree {
-    vector<pair<int, int> > next[maxn];
-//    int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符构成
+//    vector<pair<int, int> > next[maxn];
+    int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符构成
     int fail[maxn]{};//fail指针，失配后跳转到fail指针指向的节点
     int cnt[maxn]{}; //表示节点i表示的本质不同的串的个数（建树时求出的不是完全的，最后count()函数跑一遍以后才是正确的）
     int num[maxn]{}; //表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数
@@ -5119,9 +6463,9 @@ struct Palindromic_Tree {
     //int lpos, rpos;
 
     int newnode(int l) {//新建节点
-        next[p].clear();
-//        for (int i = 0; i < N; ++i) next[p][i] = 0;
-//        cnt[p] = 0;
+//        next[p].clear();
+        for (int i = 0; i < N; ++i) next[p][i] = 0;
+        cnt[p] = 0;
         num[p] = 0;
         len[p] = l;
         return p++;
@@ -5147,14 +6491,14 @@ struct Palindromic_Tree {
         return x;
     }
 
-    int find(int u, int c) {
-        vector<pair<int, int> > & x = next[u];
-        int sz = x.size();
-        for(int i = 0; i < sz; ++i) {
-            if(x[i].first == c) return x[i].second;
-        }
-        return 0;
-    }
+//    int find(int u, int c) {
+//        vector<pair<int, int> > & x = next[u];
+//        int sz = x.size();
+//        for(int i = 0; i < sz; ++i) {
+//            if(x[i].first == c) return x[i].second;
+//        }
+//        return 0;
+//    }
 
     int add(int c) {
         // 注意清空左右字符
@@ -5162,22 +6506,22 @@ struct Palindromic_Tree {
         // else S[++rpos] = c, S[rpos + 1] = -1;
         S[++n] = c;
         int cur = get_fail(last);//通过上一个回文串找这个回文串的匹配位置
-        int x = find(cur, c);
-        if (!x) {
-//        if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
+//        int x = find(cur, c);
+//        if (!x) {
+        if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
             int now = newnode(len[cur] + 2);//新建节点
-            x = now;
-            fail[now] = find(get_fail(fail[cur]), c);
-            next[cur].emplace_back(make_pair(c, now));
-//            fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以便失配后跳转
-//            next[cur][c] = now;
+//            x = now;
+//            fail[now] = find(get_fail(fail[cur]), c);
+//            next[cur].emplace_back(make_pair(c, now));
+            fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以便失配后跳转
+            next[cur][c] = now;
             num[now] = num[fail[now]] + 1;
         }
-        last = x;
+//        last = x;
         // 修改最终长度
         // if (len[last[op]] == rpos - lpos + 1) last[op ^ 1] = last[op];
-//        last = next[cur][c];
-//        cnt[last]++;
+        last = next[cur][c];
+        cnt[last]++;
         return num[last];
     }
 
@@ -5189,23 +6533,18 @@ struct Palindromic_Tree {
 
 char s[maxn];
 
+// 求相交回文串数量
 ll a[maxn], b[maxn];
 int main() {
     solve.init();
     int n;
     scanf("%d", &n);
     scanf("%s", s);
-    for (int i = 0; i < n; ++i) {
-        a[i] = solve.add(s[i] - 'a');
-    }
+    for (int i = 0; i < n; ++i) a[i] = solve.add(s[i] - 'a');
     solve.init();
-    for (int i = n - 1; i >= 0; --i) {
-        b[i] = (b[i + 1] + solve.add(s[i] - 'a')) % mod;
-    }
+    for (int i = n - 1; i >= 0; --i) b[i] = (b[i + 1] + solve.add(s[i] - 'a')) % mod;
     ll res = (b[0] * (b[0] - 1) / 2) % mod;
-    for (int i = 0; i < n; ++i) {
-        res = ((res - (a[i] * b[i + 1]) + mod) % mod) % mod;
-    }
+    for (int i = 0; i < n; ++i) res = ((res - (a[i] * b[i + 1]) + mod) % mod) % mod;
     printf("%lld\n", res);
     return 0;
 }
@@ -5230,14 +6569,17 @@ struct mhash {
         seed = seedt;
         for (int i = 1; i < maxn; ++i) base[i] = base[i - 1] * seed;
     }
-    void hash(char *p, int n) { // from 1 to n
+    void H(char *p, int n) { // from 1 to n
         hash_index[0] = 0;
         for (int i = 1; i <= n; ++i) hash_index[i] = hash_index[i - 1] * seed + p[i] - 'a';
     }
     ull gethash(int s, int e) {
         return hash_index[e] - hash_index[s - 1] * base[e - s + 1];
     }
-};\end{lstlisting}
+};
+
+// 26个素数，解决加法hash
+int prime[] = {34183,13513,152993,13591,19687,350869,111187,766091,769297,633469,752273,298651,617191,880421,136067,1408397,726899,458921,2133701,2599847,2730947,4696343,10267237,18941059,34078909,69208409};\end{lstlisting}
 \subsubsection{doubleHash}
 \begin{lstlisting}
 namespace Hash{
@@ -6448,5 +7790,153 @@ ll xor_sum(ll n) {
     if (t&1) return t/2ull^1;
     return t/2ull^n;
 }\end{lstlisting}
+\subsection{约瑟夫环第k个}
+\begin{lstlisting}
+ll kth(ll n,ll m,ll k) {
+	if(m==1) return k;
+	ll res=(m-1)%(n-k+1);
+	for(ll i=n-k+2,stp=0;i<=n;i+=stp,res+=stp*m) {
+		if(res+m>=i) {
+			res=(res+m)%i;
+			i++;
+			stp=0;
+		}
+		else {
+			stp=(i-res-2)/(m-1);
+			if(i+stp>n)
+			{
+				res+=(n-(i-1))*m;
+				break;
+			}
+		}
+	}
+	return res+1;
+}\end{lstlisting}
+\subsection{二分}
+\begin{lstlisting}
+// a为二分数组，x为需要查找的数，返回最左端和最右端
+pair<int, int> F(vector<int> a, int x) {
+    int l = 0, r = a.size() - 1;
+    int lres = -1;
+    while (l <= r) {
+        int mid = l + r >> 1;
+        int tt = a[mid];
+        if (tt >= x) {
+            r = mid - 1;
+        } else if (tt < x) {
+            l = mid + 1;
+        }
+    }
+    if (l >= a.size() || a[l] != x) return make_pair(-1, -1);
+    lres = l;
+    l = 0, r = a.size() - 1;
+    while (l <= r) {
+        int mid = l + r >> 1;
+        int tt = a[mid];
+        if (tt > x) {
+            r = mid - 1;
+        } else if (tt <= x) {
+            l = mid + 1;
+        }
+    }
+    return make_pair(lres, r);
+}\end{lstlisting}
+\subsection{猛男IO挂}
+\begin{lstlisting}
+const int LEN = 100000;
+struct fastio {
+    int it, len;
+    char s[LEN + 5];
+    fastio() {
+        it = len = 0;
+    }
+    char get() {
+        if (it < len) return s[it++];
+        it = 0, len = fread(s, 1, LEN, stdin);
+        return len ? s[it++] : EOF;
+    }
+    bool notend() {
+        char c;
+        for (c = get(); c == ' ' || c == '\n'; c = get());
+        if (it) it--;
+        return c != EOF;
+    }
+    void put(char c) {
+        if (it == LEN) fwrite(s, 1, LEN, stdout), it = 0;
+        s[it++] = c;
+    }
+    void flush() {
+        fwrite(s, 1, it, stdout);
+    }
+} buff, bufo;
+inline int getint() {
+    char c;
+    int res = 0, sig = 1;
+    for (c = buff.get(); c < '0' || c > '9'; c = buff.get()) if (c == '-') sig = -1;
+    for (; c >= '0' && c <= '9'; c = buff.get()) res = res * 10 + (c - '0');
+    return sig * res;
+}
+inline ll getll() {
+    char c;
+    ll res = 0, sig = 1;
+    for (c = buff.get(); c < '0' || c > '9'; c = buff.get()) if (c == '-') sig = -1;
+    for (; c >= '0' && c <= '9'; c = buff.get()) res = res * 10 + (c - '0');
+    return sig * res;
+}
+inline void putint(int x, char suf) {
+    if (!x) bufo.put('0');
+    else {
+        if (x < 0) bufo.put('-'), x = -x;
+        int k = 0;
+        char s[15];
+        while (x) {
+            s[++k] = x % 10 + '0';
+            x /= 10;
+        }
+        for (; k; k--) bufo.put(s[k]);
+    }
+    bufo.put(suf);
+}
+inline void putll(ll x, char suf) {
+    if (!x) bufo.put('0');
+    else {
+        if (x < 0) bufo.put('-'), x = -x;
+        int k = 0;
+        char s[25];
+        while (x) {
+            s[++k] = x % 10 + '0';
+            x /= 10;
+        }
+        for (; k; k--) bufo.put(s[k]);
+    }
+    bufo.put(suf);
+}
+inline char get_char() {
+    char c;
+    for (c = buff.get(); c == ' ' || c == '\n'; c = buff.get());
+    return c;
+}\end{lstlisting}
+\subsection{贪心结论}
+\begin{lstlisting}
+// n个区间，挪到使得某个点被所有区间覆盖需要的最少步数时，选择的点是所有区间端点的中位数（mid~mid+1答案都是一样的）\end{lstlisting}
+\subsection{builtin}
+\begin{lstlisting}
+__builtin_popcount(unsigned int n) // 1的个数
+__builtin_parity(unsigned int n) // 奇数个1返回1，偶数个返回0
+__builtin_ctz(unsigned int n) // 判断n的二进制末尾后面0的个数
+__builtin_clz(unsigned int n) //返回前导0的个数
+\end{lstlisting}
+\subsection{n以内k因子的个数}
+\begin{lstlisting}
+// 返回1～n中k因子的个数
+ll dig(ll n, ll k) {
+    ll res = 0;
+    while (n > 0) {
+        res += n / k;
+        n /= k;
+    }
+    return res;
+}
+\end{lstlisting}
 
 \end{document}

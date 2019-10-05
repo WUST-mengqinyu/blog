@@ -1,3 +1,5 @@
+const int maxn = 1e7+50;
+
 int prim[maxn], vis[maxn];
 int tot, phi[maxn];
 struct node {
@@ -66,8 +68,10 @@ int main() {
     int T;
     scanf("%d", &T);
     for (int kase = 1; kase <= T; ++kase) {
+        // k次a次方模p的值
         scanf("%lld%lld%lld", &a, &k, &p);
-        else printf("%lld\n", f(a, k, p).res);
+        if (k == 0) printf("%lld\n", 1 % p);
+        else printf("%lld\n", f(a, k - 1, p).res);
     }
     return 0;
 }
