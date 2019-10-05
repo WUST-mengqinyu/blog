@@ -1861,6 +1861,8 @@ ll getSum_phi(ll x)
 }\end{lstlisting}
 \subsubsection{欧拉降幂}
 \begin{lstlisting}
+const int maxn = 1e7+50;
+
 int prim[maxn], vis[maxn];
 int tot, phi[maxn];
 struct node {
@@ -1929,8 +1931,10 @@ int main() {
     int T;
     scanf("%d", &T);
     for (int kase = 1; kase <= T; ++kase) {
+        // k次a次方模p的值
         scanf("%lld%lld%lld", &a, &k, &p);
-        else printf("%lld\n", f(a, k, p).res);
+        if (k == 0) printf("%lld\n", 1 % p);
+        else printf("%lld\n", f(a, k - 1, p).res);
     }
     return 0;
 }\end{lstlisting}
@@ -3540,12 +3544,17 @@ void solve()
 \subsection{SegmentTreeDS}
 \subsubsection{SegmentTree}
 \begin{lstlisting}
+const int maxn = 2e5+5;
+// 序列
+int a[maxn];
+
 struct SegmentTree {
 #define TYPE int
+#define USELAZY 0
     TYPE val[maxn << 2];
     int sz;
-    // check this type
-    int lazy[maxn << 2];
+//    check this type
+    vector<int> lazy;
 
     inline TYPE comb(const TYPE& a, const TYPE& b) {
         TYPE res;
@@ -3555,14 +3564,28 @@ struct SegmentTree {
 
     int le, re, k;
 
+    inline void build(int rt, int l, int r) {
+        if (USELAZY) lazy[rt] = 0;
+        if (l == r) {
+            val[rt] = a[l];
+            return;
+        }
+        int mid = l + r >> 1;
+        build(rt << 1, l, mid);
+        build(rt << 1 | 1, mid + 1, r);
+        pushup(rt);
+    }
+    inline void build() {build(1, 1, sz);}
+
     inline void init(int sz_) {
         sz = sz_;
-        memset(lazy, 0, sizeof lazy);
-        memset(val, 0, sizeof val);
+        lazy.resize(sz_ << 2);
+        build();
     }
     inline void pushup(int rt) {val[rt] = comb(val[rt << 1], val[rt << 1 | 1]);}
     inline void deal(int rt, int kt) {
-        ;
+//        todo:
+        val[rt] = comb(val[rt], kt);
     }
     inline void pushdown(int rt, int len) {
         if (lazy[rt]) {
@@ -3575,24 +3598,12 @@ struct SegmentTree {
         }
     }
 
-    inline void build(int rt, int l, int r) {
-        if (l == r) {
-            val[rt] = a[l];
-            return;
-        }
-        int mid = l + r >> 1;
-        build(rt << 1, l, mid);
-        build(rt << 1 | 1, mid + 1, r);
-        pushup(rt);
-    }
-    inline void build() {build(1, 1, sz);}
-
     inline void update(int rt, int l, int r) {
         if (le <= l && r <= re) {
             deal(rt, k);
             return;
         }
-        pushdown(rt, r - l + 1);
+        if (USELAZY) pushdown(rt, r - l + 1);
         int mid = l + r >> 1;
         if (le <= mid) update(rt << 1, l, mid);
         if (re > mid) update(rt << 1 | 1, mid + 1, r);
@@ -3603,7 +3614,7 @@ struct SegmentTree {
         if (le <= l && r <= re) {
             return val[rt];
         }
-        pushdown(rt, r - l + 1);
+        if (USELAZY) pushdown(rt, r - l + 1);
         // check the zero type
         TYPE res;
         int mid = l + r >> 1;
@@ -3622,23 +3633,23 @@ struct SegmentTree {
         update(1, 1, sz);
     }
 
-    inline void pt(int rt, int l, int r) {
-        if (l == r) {
-            printf("%d ", val[l]);
-            return;
-        }
-        pushdown(rt, r - l + 1);
-        int mid = l + r >> 1;
-        if (le <= mid) pt(rt << 1, l, mid);
-        if (re > mid) pt(rt << 1 | 1, mid + 1, r);
-    }
+//    inline void pt(int rt, int l, int r) {
+//        if (l == r) {
+//            printf("%d ", val[l]);
+//            return;
+//        }
+//        pushdown(rt, r - l + 1);
+//        int mid = l + r >> 1;
+//        if (le <= mid) pt(rt << 1, l, mid);
+//        if (re > mid) pt(rt << 1 | 1, mid + 1, r);
+//    }
 
 #undef TYPE
 };
 \end{lstlisting}
 \subsubsection{离散化区间}
 \begin{lstlisting}
-// 原题1e5个个区间有2e5个端点，离散化出来4e5个区间
+// 原题1e5个区间有2e5个端点，离散化出来4e5个区间
 // 然后线段树需要4e5*4=16e5的大小
 // 注意三个数组要开离散化数量的四倍，如果不需要sz可以不用这个数组。
 int val[maxn << 4];
@@ -3753,7 +3764,7 @@ insert(root[i], 1, n, a[i]);
 query(root[p], 1, n, x);\end{lstlisting}
 \subsubsection{扫描线}
 \begin{lstlisting}
-// 范用型扫描线，del储存上界+1，add储存下届，先del后add即可
+// 范用型扫描线，del储存上界+1，add储存下界，先del后add即可
 struct node {
     int lpos, rpos, linepos;
     bool operator < (const node& oth) const {
@@ -6579,7 +6590,10 @@ struct mhash {
 };
 
 // 26个素数，解决加法hash
-int prime[] = {34183,13513,152993,13591,19687,350869,111187,766091,769297,633469,752273,298651,617191,880421,136067,1408397,726899,458921,2133701,2599847,2730947,4696343,10267237,18941059,34078909,69208409};\end{lstlisting}
+int prime[] = {34183,13513,152993,13591,19687,350869,111187,766091,769297,
+               633469,752273,298651,617191,880421,136067,
+               1408397,726899,458921,2133701,2599847,2730947,4696343,10267237,
+               18941059,34078909,69208409};\end{lstlisting}
 \subsubsection{doubleHash}
 \begin{lstlisting}
 namespace Hash{

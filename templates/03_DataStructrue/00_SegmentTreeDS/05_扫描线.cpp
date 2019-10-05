@@ -1,4 +1,4 @@
-// 范用型扫描线，del储存上界+1，add储存下届，先del后add即可
+// 范用型扫描线，del储存上界+1，add储存下界，先del后add即可
 struct node {
     int lpos, rpos, linepos;
     bool operator < (const node& oth) const {

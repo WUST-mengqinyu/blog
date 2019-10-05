@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.4.12)  5 OCT 2019 17:36
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.4.12)  5 OCT 2019 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1515,12 +1515,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [115]
-[116]
-Overfull \hbox (459.8938pt too wide) in paragraph at lines 6582--6582
-[][] 
- []
-
-[117]
+[116] [117]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [118]
@@ -1556,17 +1551,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [135]
 [136] [137] [138] [139] [140]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7942.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7956.
  [141]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7942.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7956.
  (./template.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7942.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7942.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7942.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7956.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7956.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7956.
  ) 
 Here is how much of TeX's memory you used:
  29263 strings out of 493007
- 535933 string characters out of 6136719
+ 535943 string characters out of 6136719
  1019481 words of memory out of 5000000
  33060 multiletter control sequences out of 15000+600000
  533326 words of font info for 56 fonts, out of 8000000 for 9000
