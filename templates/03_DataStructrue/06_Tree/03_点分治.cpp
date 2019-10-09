@@ -1,7 +1,7 @@
 int n, k;
 
 // 清零 head 和 tot
-const int maxm = 2e4+5;
+const int maxm = maxn * 2;
 int ver[maxm], Next[maxm], head[maxn], edge[maxm];
 int tot;
 void addEdge(int u, int v, int w){
