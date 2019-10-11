@@ -1,7 +1,10 @@
-# coding=utf-8
+# -*- coding: UTF-8 -*-
 import os
 import sys
 import json
+
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 TexHead = r"""
 \documentclass[twoside]{article}
@@ -144,12 +147,12 @@ if __name__ == '__main__':
     TargetFile.write(TexHead)
     TargetFile.write('\\title{%s}\n' % TITLE)
     TargetFile.write('\\author{%s}\n' % TEAM)
-    TargetFile.write('\\pagestyle{fancy}\n\\fancyhf{}\n\\fancyhead[C]{%s, %s}\n' % (TITLE, TEAM))
+    TargetFile.write('\\pagestyle{fancy}\n\\fancyhf{}\n\\fancyhead[C]{%s}\n' % (TEAM))
     TargetFile.write('\\begin{document}\\small\n')
     TargetFile.write('\\begin{titlepage}\n\\begin{center}\n\\vspace*{0.5cm}\\includegraphics[width=0.75\\textwidth]{logo.jpg} \\\\ [2cm]\n')
     TargetFile.write('\\HRule \\\\ [1cm]\n')
     TargetFile.write('\\textbf{\\Huge{%s}} \\\\ [0.5cm]\n' % TITLE)
-    TargetFile.write('\\HRule \\\\ [4cm]\n')
+    TargetFile.write('\\HRule \\\\ [1cm]\n')
     TargetFile.write('\\textbf{\\Huge{%s}} \\\\ [1cm]\n\\LARGE{%s}\n' % (SCHOOL, TEAM))
     TargetFile.write('\\vfill\n\\Large{\\today}\n\\end{center}\n')
     TargetFile.write('\\clearpage\n\end{titlepage}\n')

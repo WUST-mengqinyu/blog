@@ -47,10 +47,12 @@
 \contentsline {subsubsection}{\numberline {1.7.1}拉格朗日插值}{22}{subsubsection.1.7.1}
 \contentsline {subsubsection}{\numberline {1.7.2}拉格朗日插值(连续取值)}{22}{subsubsection.1.7.2}
 \contentsline {subsection}{\numberline {1.8}Others}{23}{subsection.1.8}
-\contentsline {subsubsection}{\numberline {1.8.1}BM}{25}{subsubsection.1.8.1}
-\contentsline {subsubsection}{\numberline {1.8.2}exBM}{27}{subsubsection.1.8.2}
-\contentsline {subsubsection}{\numberline {1.8.3}杜教筛}{31}{subsubsection.1.8.3}
-\contentsline {subsubsection}{\numberline {1.8.4}欧拉降幂}{33}{subsubsection.1.8.4}
+\contentsline {subsubsection}{\numberline {1.8.1}BM}{23}{subsubsection.1.8.1}
+\contentsline {subsubsection}{\numberline {1.8.2}exBM}{24}{subsubsection.1.8.2}
+\contentsline {subsubsection}{\numberline {1.8.3}杜教筛}{29}{subsubsection.1.8.3}
+\contentsline {subsubsection}{\numberline {1.8.4}欧拉降幂}{30}{subsubsection.1.8.4}
+\contentsline {subsubsection}{\numberline {1.8.5}公式}{32}{subsubsection.1.8.5}
+\contentsline {subsubsection}{\numberline {1.8.6}博弈}{34}{subsubsection.1.8.6}
 \contentsline {section}{\numberline {2}Graph Theory}{35}{section.2}
 \contentsline {subsection}{\numberline {2.1}路径}{35}{subsection.2.1}
 \contentsline {subsubsection}{\numberline {2.1.1}Dijkstra}{35}{subsubsection.2.1.1}
@@ -62,113 +64,112 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Prim}{41}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}最小树形图}{41}{subsubsection.2.2.3}
 \contentsline {subsubsection}{\numberline {2.2.4}Matrix Tree}{42}{subsubsection.2.2.4}
-\contentsline {subsection}{\numberline {2.3}连通性}{43}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}割点}{43}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}桥}{43}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}强连通分量}{44}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}点双联通分量}{45}{subsubsection.2.3.4}
-\contentsline {subsubsection}{\numberline {2.3.5}边双联通分量}{46}{subsubsection.2.3.5}
-\contentsline {subsection}{\numberline {2.4}二分图匹配}{46}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}Hungary Algorithm}{46}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}Hopcroft-karp Algorithm}{47}{subsubsection.2.4.2}
-\contentsline {subsubsection}{\numberline {2.4.3}二分图多重匹配}{49}{subsubsection.2.4.3}
-\contentsline {subsubsection}{\numberline {2.4.4}二分图最大权匹配(KM算法)}{50}{subsubsection.2.4.4}
-\contentsline {subsubsection}{\numberline {2.4.5}一般图匹配带花树}{51}{subsubsection.2.4.5}
-\contentsline {subsection}{\numberline {2.5}网络流}{53}{subsection.2.5}
-\contentsline {subsubsection}{\numberline {2.5.1}Dinic}{53}{subsubsection.2.5.1}
-\contentsline {subsubsection}{\numberline {2.5.2}ISAP}{54}{subsubsection.2.5.2}
-\contentsline {subsubsection}{\numberline {2.5.3}MCMF}{56}{subsubsection.2.5.3}
-\contentsline {subsubsection}{\numberline {2.5.4}Trick}{57}{subsubsection.2.5.4}
-\contentsline {subsection}{\numberline {2.6}Others}{58}{subsection.2.6}
-\contentsline {subsubsection}{\numberline {2.6.1}拓扑排序}{58}{subsubsection.2.6.1}
-\contentsline {subsubsection}{\numberline {2.6.2}2-SAT}{59}{subsubsection.2.6.2}
-\contentsline {subsubsection}{\numberline {2.6.3}差分约束系统}{60}{subsubsection.2.6.3}
-\contentsline {subsubsection}{\numberline {2.6.4}支配树}{61}{subsubsection.2.6.4}
-\contentsline {section}{\numberline {3}DataStructrue}{63}{section.3}
-\contentsline {subsection}{\numberline {3.1}SegmentTreeDS}{63}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}SegmentTree}{63}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}离散化区间}{64}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}动态区间最大子段和}{65}{subsubsection.3.1.3}
-\contentsline {subsubsection}{\numberline {3.1.4}动态开点权值线段树}{66}{subsubsection.3.1.4}
-\contentsline {subsubsection}{\numberline {3.1.5}扫描线}{66}{subsubsection.3.1.5}
-\contentsline {subsection}{\numberline {3.2}HLD}{71}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}HLD}{71}{subsubsection.3.2.1}
-\contentsline {subsection}{\numberline {3.3}RMQ}{74}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}RMQ}{74}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}RMQbyIndex}{75}{subsubsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.3}RMQinNM}{75}{subsubsection.3.3.3}
-\contentsline {subsection}{\numberline {3.4}MO}{76}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}MO}{76}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}MObyModify}{77}{subsubsection.3.4.2}
-\contentsline {subsubsection}{\numberline {3.4.3}分块}{78}{subsubsection.3.4.3}
-\contentsline {subsubsection}{\numberline {3.4.4}弹飞绵羊}{79}{subsubsection.3.4.4}
-\contentsline {subsubsection}{\numberline {3.4.5}树莫队}{80}{subsubsection.3.4.5}
-\contentsline {subsection}{\numberline {3.5}VirtualTree}{82}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}VirtualTree}{82}{subsubsection.3.5.1}
-\contentsline {subsection}{\numberline {3.6}PersistentDS}{84}{subsection.3.6}
-\contentsline {subsubsection}{\numberline {3.6.1}主席树区间k大}{84}{subsubsection.3.6.1}
-\contentsline {subsubsection}{\numberline {3.6.2}可持久化数组}{85}{subsubsection.3.6.2}
-\contentsline {subsection}{\numberline {3.7}Tree}{87}{subsection.3.7}
-\contentsline {subsubsection}{\numberline {3.7.1}LCA}{87}{subsubsection.3.7.1}
-\contentsline {subsubsection}{\numberline {3.7.2}前向星}{88}{subsubsection.3.7.2}
-\contentsline {subsubsection}{\numberline {3.7.3}点分治}{88}{subsubsection.3.7.3}
-\contentsline {subsection}{\numberline {3.8}Others}{90}{subsection.3.8}
-\contentsline {subsubsection}{\numberline {3.8.1}BITinNM}{90}{subsubsection.3.8.1}
-\contentsline {subsubsection}{\numberline {3.8.2}静态区间k大划分树}{91}{subsubsection.3.8.2}
-\contentsline {section}{\numberline {4}Geometry}{93}{section.4}
-\contentsline {subsection}{\numberline {4.1}Class}{93}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}geo}{93}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}3D凸包}{102}{subsubsection.4.1.2}
-\contentsline {section}{\numberline {5}String}{108}{section.5}
-\contentsline {subsection}{\numberline {5.1}KMP}{108}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}KMP}{108}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}exKMP}{108}{subsubsection.5.1.2}
-\contentsline {subsection}{\numberline {5.2}Trie}{109}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Trie}{109}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Persistence Trie}{109}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}01Trie}{110}{subsubsection.5.2.3}
-\contentsline {subsection}{\numberline {5.3}Manachar}{111}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Manacher}{111}{subsubsection.5.3.1}
-\contentsline {subsection}{\numberline {5.4}Aho-Corasick Automation}{112}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}AC Automation}{112}{subsubsection.5.4.1}
-\contentsline {subsection}{\numberline {5.5}Suffix Array}{113}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {5.5.1}Suffix Array}{113}{subsubsection.5.5.1}
-\contentsline {subsection}{\numberline {5.6}PalindromicTree}{114}{subsection.5.6}
-\contentsline {subsubsection}{\numberline {5.6.1}PalindromicTree}{114}{subsubsection.5.6.1}
-\contentsline {subsection}{\numberline {5.7}Hash}{116}{subsection.5.7}
-\contentsline {subsubsection}{\numberline {5.7.1}hash}{116}{subsubsection.5.7.1}
-\contentsline {subsubsection}{\numberline {5.7.2}doubleHash}{117}{subsubsection.5.7.2}
-\contentsline {subsubsection}{\numberline {5.7.3}二维hash}{120}{subsubsection.5.7.3}
-\contentsline {subsubsection}{\numberline {5.7.4}树hash同构}{120}{subsubsection.5.7.4}
-\contentsline {subsection}{\numberline {5.8}Suffix Automation}{121}{subsection.5.8}
-\contentsline {subsubsection}{\numberline {5.8.1}SAM}{121}{subsubsection.5.8.1}
-\contentsline {subsection}{\numberline {5.9}Others}{123}{subsection.5.9}
-\contentsline {subsubsection}{\numberline {5.9.1}最小表示法}{123}{subsubsection.5.9.1}
-\contentsline {section}{\numberline {6}dp}{124}{section.6}
-\contentsline {subsection}{\numberline {6.1}BitDP}{124}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}数位dp计和}{124}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}两个数数位dp}{124}{subsubsection.6.1.2}
-\contentsline {subsection}{\numberline {6.2}Subsequence}{125}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}MaxSum}{125}{subsubsection.6.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2}LIS}{126}{subsubsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.3}LongestCommonIncrease}{126}{subsubsection.6.2.3}
-\contentsline {subsubsection}{\numberline {6.2.4}LCS}{126}{subsubsection.6.2.4}
-\contentsline {subsection}{\numberline {6.3}Others}{128}{subsection.6.3}
-\contentsline {paragraph}{问题}{128}{section*.3}
-\contentsline {paragraph}{单调队列滑动窗口最大值}{128}{lstlisting.-116}
-\contentsline {subsubsection}{\numberline {6.3.1}矩阵快速幂}{128}{subsubsection.6.3.1}
-\contentsline {section}{\numberline {7}Others}{130}{section.7}
-\contentsline {subsection}{\numberline {7.1}mint类}{130}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}不重叠区间贪心}{130}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}BigInt类}{130}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}date}{136}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}Frac类}{136}{subsection.7.5}
-\contentsline {subsection}{\numberline {7.6}模拟退火(最小圆覆盖)}{137}{subsection.7.6}
-\contentsline {subsection}{\numberline {7.7}string类}{138}{subsection.7.7}
-\contentsline {subsection}{\numberline {7.8}前缀异或和}{139}{subsection.7.8}
-\contentsline {subsection}{\numberline {7.9}约瑟夫环第k个}{139}{subsection.7.9}
-\contentsline {subsection}{\numberline {7.10}二分}{139}{subsection.7.10}
-\contentsline {subsection}{\numberline {7.11}猛男IO挂}{140}{subsection.7.11}
-\contentsline {subsection}{\numberline {7.12}贪心结论}{141}{subsection.7.12}
-\contentsline {subsection}{\numberline {7.13}builtin}{141}{subsection.7.13}
-\contentsline {subsection}{\numberline {7.14}n以内k因子的个数}{141}{subsection.7.14}
+\contentsline {subsubsection}{\numberline {2.2.5}Steiner Tree}{43}{subsubsection.2.2.5}
+\contentsline {subsection}{\numberline {2.3}连通性}{44}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}割点}{44}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}桥}{45}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}强连通分量}{45}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}点双联通分量}{46}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.5}边双联通分量}{47}{subsubsection.2.3.5}
+\contentsline {subsection}{\numberline {2.4}二分图匹配}{48}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Hungary Algorithm}{48}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Hopcroft-karp Algorithm}{48}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}二分图多重匹配}{50}{subsubsection.2.4.3}
+\contentsline {subsubsection}{\numberline {2.4.4}二分图最大权匹配(KM算法)}{51}{subsubsection.2.4.4}
+\contentsline {subsubsection}{\numberline {2.4.5}一般图匹配带花树}{52}{subsubsection.2.4.5}
+\contentsline {subsection}{\numberline {2.5}网络流}{54}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}Dinic}{54}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}ISAP}{56}{subsubsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.3}MCMF}{57}{subsubsection.2.5.3}
+\contentsline {subsubsection}{\numberline {2.5.4}Trick}{59}{subsubsection.2.5.4}
+\contentsline {subsubsection}{\numberline {2.5.5}Stoer Wagner}{60}{subsubsection.2.5.5}
+\contentsline {subsection}{\numberline {2.6}Others}{60}{subsection.2.6}
+\contentsline {subsubsection}{\numberline {2.6.1}拓扑排序}{60}{subsubsection.2.6.1}
+\contentsline {subsubsection}{\numberline {2.6.2}2-SAT}{61}{subsubsection.2.6.2}
+\contentsline {subsubsection}{\numberline {2.6.3}差分约束系统}{62}{subsubsection.2.6.3}
+\contentsline {subsubsection}{\numberline {2.6.4}支配树}{63}{subsubsection.2.6.4}
+\contentsline {subsubsection}{\numberline {2.6.5}Stable Matching Problem}{65}{subsubsection.2.6.5}
+\contentsline {section}{\numberline {3}DataStructrue}{67}{section.3}
+\contentsline {subsection}{\numberline {3.1}SegmentTreeDS}{67}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}SegmentTree}{67}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}离散化区间}{68}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}动态区间最大子段和}{69}{subsubsection.3.1.3}
+\contentsline {subsubsection}{\numberline {3.1.4}动态开点权值线段树}{70}{subsubsection.3.1.4}
+\contentsline {subsubsection}{\numberline {3.1.5}扫描线}{70}{subsubsection.3.1.5}
+\contentsline {subsection}{\numberline {3.2}HLD}{75}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}HLD}{75}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.3}RMQ}{78}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}RMQ}{78}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}RMQbyIndex}{79}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}RMQinNM}{79}{subsubsection.3.3.3}
+\contentsline {subsection}{\numberline {3.4}MO}{80}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}MO}{80}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}MObyModify}{81}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}分块}{82}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}弹飞绵羊}{83}{subsubsection.3.4.4}
+\contentsline {subsubsection}{\numberline {3.4.5}树莫队}{84}{subsubsection.3.4.5}
+\contentsline {subsection}{\numberline {3.5}VirtualTree}{86}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}VirtualTree}{86}{subsubsection.3.5.1}
+\contentsline {subsection}{\numberline {3.6}PersistentDS}{88}{subsection.3.6}
+\contentsline {subsubsection}{\numberline {3.6.1}主席树区间k大}{88}{subsubsection.3.6.1}
+\contentsline {subsubsection}{\numberline {3.6.2}可持久化数组}{89}{subsubsection.3.6.2}
+\contentsline {subsection}{\numberline {3.7}Tree}{91}{subsection.3.7}
+\contentsline {subsubsection}{\numberline {3.7.1}LCA}{91}{subsubsection.3.7.1}
+\contentsline {subsubsection}{\numberline {3.7.2}前向星}{92}{subsubsection.3.7.2}
+\contentsline {subsubsection}{\numberline {3.7.3}点分治}{92}{subsubsection.3.7.3}
+\contentsline {subsection}{\numberline {3.8}Others}{94}{subsection.3.8}
+\contentsline {subsubsection}{\numberline {3.8.1}BITinNM}{94}{subsubsection.3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.2}静态区间k大划分树}{95}{subsubsection.3.8.2}
+\contentsline {section}{\numberline {4}String}{97}{section.4}
+\contentsline {subsection}{\numberline {4.1}KMP}{97}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}KMP}{97}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}exKMP}{97}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Trie}{98}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Trie}{98}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Persistence Trie}{98}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}01Trie}{99}{subsubsection.4.2.3}
+\contentsline {subsection}{\numberline {4.3}Manachar}{100}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Manacher}{100}{subsubsection.4.3.1}
+\contentsline {subsection}{\numberline {4.4}Aho-Corasick Automation}{101}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}AC Automation}{101}{subsubsection.4.4.1}
+\contentsline {subsection}{\numberline {4.5}Suffix Array}{102}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Suffix Array}{102}{subsubsection.4.5.1}
+\contentsline {subsection}{\numberline {4.6}PalindromicTree}{103}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}PalindromicTree}{103}{subsubsection.4.6.1}
+\contentsline {subsection}{\numberline {4.7}Hash}{105}{subsection.4.7}
+\contentsline {subsubsection}{\numberline {4.7.1}hash}{105}{subsubsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.2}doubleHash}{106}{subsubsection.4.7.2}
+\contentsline {subsubsection}{\numberline {4.7.3}二维hash}{109}{subsubsection.4.7.3}
+\contentsline {subsubsection}{\numberline {4.7.4}树hash同构}{109}{subsubsection.4.7.4}
+\contentsline {subsection}{\numberline {4.8}Suffix Automation}{110}{subsection.4.8}
+\contentsline {subsubsection}{\numberline {4.8.1}SAM}{110}{subsubsection.4.8.1}
+\contentsline {subsection}{\numberline {4.9}Others}{112}{subsection.4.9}
+\contentsline {subsubsection}{\numberline {4.9.1}最小表示法}{112}{subsubsection.4.9.1}
+\contentsline {section}{\numberline {5}dp}{113}{section.5}
+\contentsline {subsection}{\numberline {5.1}BitDP}{113}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}数位dp计和}{113}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}两个数数位dp}{113}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}Subsequence}{114}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}MaxSum}{114}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}LIS}{115}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}LongestCommonIncrease}{115}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}LCS}{115}{subsubsection.5.2.4}
+\contentsline {subsection}{\numberline {5.3}Others}{117}{subsection.5.3}
+\contentsline {paragraph}{问题}{117}{section*.3}
+\contentsline {paragraph}{单调队列滑动窗口最大值}{117}{lstlisting.-118}
+\contentsline {subsubsection}{\numberline {5.3.1}矩阵快速幂}{117}{subsubsection.5.3.1}
+\contentsline {section}{\numberline {6}Others}{119}{section.6}
+\contentsline {subsection}{\numberline {6.1}mint类}{119}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}不重叠区间贪心}{119}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}BigInt类}{119}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}date}{125}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Frac类}{125}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}模拟退火(最小圆覆盖)}{126}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}string类}{127}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.8}前缀异或和}{128}{subsection.6.8}
+\contentsline {subsection}{\numberline {6.9}约瑟夫环第k个}{128}{subsection.6.9}
+\contentsline {subsection}{\numberline {6.10}二分}{128}{subsection.6.10}
+\contentsline {subsection}{\numberline {6.11}猛男IO挂}{129}{subsection.6.11}
+\contentsline {subsection}{\numberline {6.12}贪心结论}{130}{subsection.6.12}
+\contentsline {subsection}{\numberline {6.13}builtin}{131}{subsection.6.13}
+\contentsline {subsection}{\numberline {6.14}n以内k因子的个数}{131}{subsection.6.14}
