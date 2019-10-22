@@ -477,6 +477,32 @@ int main(int argc, char* argv[]) {
     }
     return 0;
 }\end{lstlisting}
+\subsubsection{Exgcd}
+\begin{lstlisting}
+ll exgcd(ll a, ll b, ll &x, ll &y) {
+    ll d = a;
+    if (b) d = exgcd(b, a % b, y, x), y -= x * (a / b);
+    else x = 1, y = 0;
+    return d;
+}
+
+// ax + by = c
+// x = x + k*dx
+// y = y - k*dx
+// 当x和y都非负时返回1，x，y即为当前最小非负整数解（优先x）
+bool solve(ll a, ll b, ll c, ll &x, ll &y, ll &dx, ll &dy) {
+    x = y = dx = dy = 0;
+    if (a == 0 && b == 0) return 0;
+    ll x0, y0;
+    ll d = exgcd(a, b, x0, y0);
+    if (c % d != 0) return 0;
+    dx = b / d, dy = a / d;
+    x = (x0 % dx * ((c / d) % dx) % dx + dx) % dx;
+    y = (c - a * x) / b;
+    // 删掉这一句返回x的最小非负整数解
+    if (y < 0) return 0;
+    return 1;
+}\end{lstlisting}
 \subsection{同余}
 \subsubsection{扩展欧几里得算法}
 \begin{lstlisting}
@@ -763,50 +789,140 @@ void Gaussian_Elimination()
 }\end{lstlisting}
 \subsubsection{线性基}
 \begin{lstlisting}
-typedef long long ll;
+struct Base {
+#define TYPE ll
+    static const int len = 64;
+    bool rel; int sz;
+    TYPE a[len];
 
-struct LinearBasis
-{
-    ll d[64], tot;
+    void init() {
+        rel = sz = 0;
+        memset(a, 0, sizeof a);
+    }
 
-    void ins(ll x)  //插入线性基
-    {
-        for(int i = 63; i >= 0; i --)
-        {
-            if((x >> i) & 1)
-            {
+    TYPE &operator[](int x) {
+        return a[x];
+    }
+
+    TYPE operator[](int x) const {
+        return a[x];
+    }
+
+
+    void ins(ll x) {
+        for(int i = 63; i >= 0; i --) {
+            if((x >> i) & 1) {
                 if(!d[i]) return void(d[i] = x);
                 x ^= d[i];
             }
         }
     }
 
-    ll max_xor()    //在一个序列中取若干个数，使其异或和最大
-    {
-        ll ans = 0;
-        for(int i = 63; i >= 0; i --) 
-            if((ans ^ d[i]) > ans) ans ^= d[i];
+    void insert(TYPE t) {
+        for (int i = len - 1; i >= 0; --i) {
+            if (!(t >> i & 1)) continue;
+            if (a[i]) t ^= a[i];
+            else {
+                for (int j = 0; j < i; ++j) if (t >> j & 1) t ^= a[j];
+                for (int j = i+1; j < len; ++j) if (a[j] >> i & 1) a[j] ^= t;
+                a[i] = t;
+                ++sz;
+                return;
+            }
+        }
+        rel = true;
+    }
+
+    bool check(TYPE x) {
+        for (int i = len - 1; i >= 0; i--)
+            if ((x >> i) & 1) {
+                if (a[i]) x ^= a[i];
+                else return false;
+            }
+        return true;
+    }
+    TYPE mx() {
+        TYPE res = 0;
+        for (int i = len - 1; i >= 0; --i) {
+            if ((res ^ (a[i])) > res) res ^= a[i];
+        }
+        return res;
+    }
+//    vector<TYPE> v;
+//    void basis() {for (int i = 0; i < len; ++i) if (a[i]) v.push_back(a[i]);}
+//    TYPE k_th(TYPE k) {
+//        k -= rel;
+//        if(k >= (((TYPE)1) << sz)) return -1;
+//        TYPE ans = 0;
+//        for(int i = 0; i < (int)v.size(); i ++) if(k & (((TYPE)1) << i)) ans ^= v[i];
+//        return ans;
+//    }
+//    void init()
+//    {
+//        sz = 0;
+//        for(int i = 0; i < len; i ++) if(a[i])
+//                for(int j = 0; j < i; j ++)
+//                    if(a[i] & (1ll << j)) a[i] ^= a[j];
+//        for(int i = 0; i < len; i ++) if(a[i]) a[sz ++] = a[i];
+//    }
+    friend Base intersection(const Base &a, const Base &b) {
+        Base ans = {}, c = b, d = b;
+        for (int i = 0; i < len; i++) {
+            TYPE x = a[i];
+            if (!x)continue;
+            int j = i;
+            TYPE T = 0;
+            for (; j >= 0; --j) {
+                if ((x >> j) & 1)
+                    if (c[j]) {
+                        x ^= c[j];
+                        T ^= d[j];
+                    }
+                    else break;
+            }
+            if (!x)ans[i] = T;
+            else {
+                c[j] = x;
+                d[j] = T;
+            }
+        }
         return ans;
     }
 
-    void init()
-    {
-        for(int i = 0; i < 64; i ++) if(d[i])
-            for(int j = 0; j < i; j ++)
-                if(d[i] & (1ll << j)) d[i] ^= d[j];
-        for(int i = 0; i < 64; i ++) if(d[i]) d[tot ++] = d[i];
+#undef TYPE
+};
+
+// 前缀线性基
+struct LinearBasis {
+    int f[20], g[20];
+
+    void ins(int x, int idx) {
+        for (int i = 19; ~i; i--) {
+            if ((x >> i) & 1) {
+                if (f[i]) {
+                    if (g[i] <= idx) {
+                        x ^= f[i];
+                        f[i] ^= x;
+                        swap(g[i], idx);
+                    }
+                    else x ^= f[i];
+                } else {
+                    f[i] = x;
+                    g[i] = idx;
+                    break;
+                }
+            }
+        }
     }
 
-    ll k_th(ll k)   //取任意个元素进行异或的第k小个数
-    {
-        //考虑能异或出0的情况，tot表示线性基中的元素个数
-        k -= (n != tot);
-        if(k > (1ll << tot)) return -1;
-        ll ans = 0;
-        for(int i = 0; i < tot; i ++) if(k & (1ll << i)) ans ^= d[i];
-        return ans;
+    int query(int l) {
+        int res = 0;
+        for (int i = 19; ~i; i--)
+            if (g[i] >= l)
+                res = max(res, res ^ f[i]);
+        return res;
     }
-};\end{lstlisting}
+} base[maxn];\end{lstlisting}
 \subsection{组合数学}
 \subsubsection{Lucas}
 \begin{lstlisting}
@@ -5318,6 +5434,129 @@ int main(int argc, char* argv[]) {
     }
     return 0;
 }\end{lstlisting}
+\subsection{Splay}
+\begin{lstlisting}
+/*
+1. 插入x数
+2. 删除x数(若有多个相同的数，因只删除一个)
+3. 查询x数的排名(若有多个相同的数，因输出最小的排名)
+4. 查询排名为x的数
+5. 求x的前驱(前驱定义为小于x，且最大的数)
+6. 求x的后继(后继定义为大于x，且最小的数)
+*/
+
+const int N = 1e5 + 7;
+
+struct Splay {
+	int ch[N][2], fa[N], val[N], cnt[N], size[N], tol, root;
+	inline bool chk(int x) {
+		return ch[fa[x]][1] == x;
+	}
+	inline void pushup(int x) {
+		size[x] = size[ch[x][0]] + size[ch[x][1]] + cnt[x];
+	}
+	void rotate(int x) {
+		int y = fa[x], z = fa[y], k = chk(x), w = ch[x][k ^ 1];
+		ch[y][k] = w; fa[w] = y;
+		ch[z][chk(y)] = x; fa[x] = z;
+		ch[x][k ^ 1] = y; fa[y] = x;
+		pushup(y); pushup(x);
+	}
+	void splay(int x, int goal = 0) {
+		while (fa[x] != goal) {
+			int y = fa[x], z = fa[y];
+			if (z != goal) {
+				if (chk(x) == chk(y)) rotate(y);
+				else rotate(x);
+			}
+			rotate(x);
+		}
+		if (!goal) root = x;
+	}
+	void insert(int x) {
+		int cur = root, p = 0;
+		while (cur && val[cur] != x) {
+			p = cur;
+			cur = ch[cur][x > val[cur]];
+		}
+		if (cur) {
+			cnt[cur]++;
+		} else {
+			cur = ++tol;
+			if (p) ch[p][x > val[p]] = cur;
+			ch[cur][0] = ch[cur][1] = 0;
+			fa[cur] = p; val[cur] = x;
+			cnt[cur] = size[cur] = 1;
+		}
+		splay(cur);
+	}
+	void find(int x) {
+		int cur = root;
+		while (ch[cur][x > val[cur]] && x != val[cur])
+			cur = ch[cur][x > val[cur]];
+		splay(cur);
+	}
+	int kth(int k) {
+		int cur = root;
+		while (1) {
+			if (ch[cur][0] && k <= size[ch[cur][0]])
+				cur = ch[cur][0];
+			else if (k > size[ch[cur][0]] + cnt[cur])
+				k -= size[ch[cur][0]] + cnt[cur], cur = ch[cur][1];
+			else 
+				break;
+		}
+		return cur;
+	}
+	int pre(int x) {
+		find(x);
+		if (val[root] < x) return root;
+		int cur = ch[root][0];
+		while (ch[cur][1]) cur = ch[cur][1];
+		return cur;
+	}
+	int succ(int x) {
+		find(x);
+		if (val[root] > x) return root;
+		int cur = ch[root][1];
+		while (ch[cur][0]) cur = ch[cur][0];
+		return cur;
+	}
+	void del(int x) {
+		int last = pre(x), nxt = succ(x);
+		splay(last); splay(nxt, last);
+		int del = ch[nxt][0];
+		if (cnt[del] > 1)
+			cnt[del]--, splay(del);
+		else
+			ch[nxt][0] = 0;
+	}
+	int getrk(int x) {
+		find(x);
+		return size[ch[root][0]];
+	}
+} splay;
+
+int n;
+
+int main() {
+	//freopen("in.txt", "r", stdin);
+	splay.insert(0x3f3f3f3f);
+	splay.insert(0xcfcfcfcf);
+	read(n);
+	while (n--) {
+		int opt, x;
+		read(opt, x);
+		if (opt == 1) splay.insert(x);
+		else if (opt == 2) splay.del(x);
+		else if (opt == 3) print(splay.getrk(x));
+		else if (opt == 4) print(splay.val[splay.kth(x + 1)]);
+		else if (opt == 5) print(splay.val[splay.pre(x)]);
+		else print(splay.val[splay.succ(x)]);
+	}
+	flush();
+	return 0;
+}\end{lstlisting}
 \subsection{Others}
 \subsubsection{BITinNM}
 \begin{lstlisting}
@@ -6674,6 +6913,60 @@ Matrix pow(ll n)
     }
     return res;
 }\end{lstlisting}
+\subsubsection{单调栈}
+\begin{lstlisting}
+// 求左边第一个比a[i]小的和右边最后一个不比a[i]小的位置
+for (int i = 1; i <= n; i++) {
+    while (top && a[sta[top - 1]] >= a[i]) top--;
+    la[i] = (top == 0) ? 1 : sta[top - 1] + 1;
+    sta[top++] = i;
+}
+top = 0;
+for (int i = n; i >= 1; i--) {
+    while (top && a[sta[top - 1]] >= a[i]) top--;
+    ra[i] = (top == 0) ? n : sta[top - 1] - 1;
+    sta[top++] = i;
+}\end{lstlisting}
+\subsubsection{单调队列}
+\begin{lstlisting}
+// 循环序列的最大子段和
+int a[maxn];
+int pre[maxn * 2];
+int qu[maxn * 2];
+int n, resl, resr, res, k;
+
+int main(int argc, char* argv[]) {
+    int T;
+    scanf("%d", &T);
+    for (int kase = 1; kase <= T; ++kase) {
+        scanf("%d%d", &n, &k);
+        for (int i = 1; i <= n; ++i) {
+            scanf("%d", &a[i]);
+            pre[i] = pre[i - 1] + a[i];
+        }
+        for (int i = n + 1; i <= 2 * n; ++i) {
+            pre[i] = pre[i - 1] + a[i - n];
+        }
+        res = -0x3f3f3f3f;
+        resl = resr = -1;
+        int l = 1, r = 0;
+        for (int i = 1; i <= 2 * n; ++i) {
+            while (l <= r && pre[qu[r]] >= pre[i - 1]) r--;
+            qu[++r] = i - 1;
+            while (l <= r && qu[l] < i - k) l++;
+            int tmp = pre[i] - pre[qu[l]];
+            if (tmp > res) {
+                res = tmp;
+                resl = qu[l] + 1;
+                resr = i;
+            }
+        }
+        if (resl > n) resl -= n;
+        if (resr > n) resr -= n;
+        printf("%d %d %d\n", res, resl, resr);
+    }
+    return 0;
+}\end{lstlisting}
 \clearpage\section{Others}
 \subsection{mint类}
 \begin{lstlisting}
@@ -7398,5 +7691,19 @@ ll dig(ll n, ll k) {
     return res;
 }
 \end{lstlisting}
+\subsection{每个点左右两边最长不重子序列}
+\begin{lstlisting}
+int r = 1;
+for (int i = 1; i <= n; ++i) {
+    while (r <= n && !vis[a[r]]) vis[a[r++]] = 1;
+    vis[a[i]] = 0;
+    R[i] = r - 1;
+}
+int l = n;
+for (int i = n; i >= 1; --i) {
+    while (l >= 1 && !vis[a[l]]) vis[a[l--]] = 1;
+    vis[a[i]] = 0;
+    L[i] = l + 1;
+}\end{lstlisting}
 
 \end{document}
