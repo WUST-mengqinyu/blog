@@ -37,7 +37,14 @@ struct Fenwick_Tree {
 inline void range_add(int xa, int ya, int xb, int yb) { add(xa, ya, 1), add(xa, yb + 1, -1), add(xb + 1, ya, -1), add(xb + 1, yb + 1, 1); }
 inline ll range_ask(int xa, int ya, int xb, int yb){ return ask(xb, yb) - ask(xb, ya - 1) - ask(xa - 1, yb) + ask(xa - 1, ya - 1); }
 inline void build() {
+    // 预处理出每个点的单点值
 	for (int i = 1; i < n + 5; ++i) {
+        for (int j = 1; j < m + 5; ++j) {
+            st[i][j] += st[i - 1][j] + st[i][j - 1] - st[i - 1][j - 1];
+        }
+    }
+    // 再求一次处理出每个点的前缀和
+    for (int i = 1; i < n + 5; ++i) {
         for (int j = 1; j < m + 5; ++j) {
             if (st[i][j] > 1) st[i][j] = 1;
             st[i][j] += st[i - 1][j] + st[i][j - 1] - st[i - 1][j - 1];
