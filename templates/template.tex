@@ -1,4 +1,3 @@
-
 \documentclass[twoside]{article}
 \usepackage[colorlinks,linkcolor=black]{hyperref}
 \usepackage{xeCJK}
@@ -7,21 +6,23 @@
 \usepackage{listings,xcolor}
 \usepackage{geometry}
 \usepackage{fontspec}
+\setsansfont{Monaco}
+\setmonofont[Mapping={}]{Monaco}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \lstset{
-    language    = c++,
-    breaklines  = true,
-    captionpos  = b,
-    tabsize     = 4,
-    numbers     = left,
-    columns     = fullflexible,
-    keepspaces  = true,
-    commentstyle = \color[RGB]{0,128,0},
-    keywordstyle = \color[RGB]{0,0,255},
-    basicstyle   = \small\ttfamily,
-    rulesepcolor = \color{red!20!green!20!blue!20},
-    showstringspaces = false,
+	language    = c++,
+	breaklines  = true,
+	captionpos  = b,
+	tabsize     = 4,
+	numbers     = left,
+	columns     = fullflexible,
+	keepspaces  = true,
+	commentstyle = \color[RGB]{0,128,0},
+	keywordstyle = \color[RGB]{0,0,255},
+	basicstyle   = \small\ttfamily,
+	rulesepcolor = \color{red!20!green!20!blue!20},
+	showstringspaces = false,
 }
 \title{模板之用了就秃}
 \author{So Like Coding? You Baldy}
@@ -150,7 +151,10 @@ a,b = map(int, input().split())
 
 a = []
 for i in input().split():
-    a.append(int(i))\end{lstlisting}
+    a.append(int(i))
+
+
+f.write('{0} {1}\n'.format(1, 2))\end{lstlisting}
 \subsubsection{SpecialInput}
 \begin{lstlisting}
 // 代替gets
@@ -266,6 +270,21 @@ with open("test/data.in", "w") as f:
 // 9 ./duipai.sh
 
 \end{lstlisting}
+\subsubsection{vim}
+\begin{lstlisting}
+syntax on
+set nu
+set tabstop=4
+set shiftwidth=4
+set background=dark
+
+map <C-A> ggVG"+y
+map <F5> :call Run()<CR>
+func! Run()
+	exec "w"
+	exec "!g++ -Wall % -o %<"
+	exec "!./%<"
+endfunc\end{lstlisting}
 \clearpage\section{Math}
 \subsection{素数}
 \subsubsection{Eratosthenes筛法}
@@ -3879,6 +3898,53 @@ int solve()
 		else que.push(man);
 	}
 }\end{lstlisting}
+\subsubsection{一般图最大团}
+\begin{lstlisting}
+#define u64 unsigned long long
+#define i64 long long
+
+const u64 BITCOUNT = sizeof(u64) * 8;
+
+u64 count_trailing_zeroes(u64 a) {
+    if (a == 0ull)
+        return BITCOUNT;
+    return __builtin_ctzll(a);
+}
+u64 disable_bit(u64 a, u64 bit) { return a & (~(1ull << bit)); }
+u64 popcount(u64 a) { return __builtin_popcountll(a); }
+
+map<u64, u64> max_clique_cache;
+
+u64 max_clique(u64 mask, vector<u64> const &graph_matrix) { // 最大独立集传补图即可
+    if (max_clique_cache.find(mask) != max_clique_cache.end())
+        return max_clique_cache[mask];
+    u64 a = count_trailing_zeroes(mask);
+    if (a == BITCOUNT)
+        return 0;
+    u64 res1 = max_clique(disable_bit(mask, a), graph_matrix);
+    u64 res2 = max_clique(mask & disable_bit(graph_matrix[a], a), graph_matrix) | (1ull << a);
+    u64 res = popcount(res1) > popcount(res2) ? res1 : res2;
+    max_clique_cache[mask] = res;
+    return res;
+}
+
+int main() {
+    vector<u64> M;
+    int n;
+    while (scanf("%d", &n) != EOF) {
+        if (n == 0) break;
+        M.clear();
+        M.resize(n);
+        max_clique_cache.clear();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int x; scanf("%d", &x);
+                if (x == 1) M[i] |= 1ll << j;
+            }
+        }
+        printf("%d\n", popcount(max_clique((1ll << n) - 1, M)));
+    }
+}\end{lstlisting}
 \clearpage\section{DataStructrue}
 \subsection{SegmentTreeDS}
 \subsubsection{SegmentTree}
@@ -5135,6 +5201,8 @@ struct node {
 }p[maxn * 40];
 
 void update(int l, int r, int pre, int &now, int pos) {
+    //if (now == pre) p[now=++cnt]=p[pre];
+    //p[now].val ++;
     now = ++cnt;
     p[now] = p[pre];
     p[now].val++;
@@ -5145,6 +5213,15 @@ void update(int l, int r, int pre, int &now, int pos) {
     if (pos <= mid) update(l, mid, p[pre].l, p[now].l, pos);
     else update(mid + 1, r, p[pre].r, p[now].r, pos);
 }
+
+/*
+void build(int pre, int &now, int pos) {
+    now = pre;
+    for (auto i : a[pos]) {
+        update(1, n, pre, now, i);
+    }
+}
+*/
 
 int query(int l, int r, int x, int y, int k) {
     if (l == r) return b[l - 1];
@@ -5599,7 +5676,14 @@ struct Fenwick_Tree {
 inline void range_add(int xa, int ya, int xb, int yb) { add(xa, ya, 1), add(xa, yb + 1, -1), add(xb + 1, ya, -1), add(xb + 1, yb + 1, 1); }
 inline ll range_ask(int xa, int ya, int xb, int yb){ return ask(xb, yb) - ask(xb, ya - 1) - ask(xa - 1, yb) + ask(xa - 1, ya - 1); }
 inline void build() {
+    // 预处理出每个点的单点值
 	for (int i = 1; i < n + 5; ++i) {
+        for (int j = 1; j < m + 5; ++j) {
+            st[i][j] += st[i - 1][j] + st[i][j - 1] - st[i - 1][j - 1];
+        }
+    }
+    // 再求一次处理出每个点的前缀和
+    for (int i = 1; i < n + 5; ++i) {
         for (int j = 1; j < m + 5; ++j) {
             if (st[i][j] > 1) st[i][j] = 1;
             st[i][j] += st[i - 1][j] + st[i][j - 1] - st[i - 1][j - 1];
@@ -7705,5 +7789,71 @@ for (int i = n; i >= 1; --i) {
     vis[a[i]] = 0;
     L[i] = l + 1;
 }\end{lstlisting}
+\clearpage\section{Add}
+\subsection{一般图最大团}
+\begin{lstlisting}
+#define u64 unsigned long long
+#define i64 long long
+
+const u64 BITCOUNT = sizeof(u64) * 8;
+
+u64 count_trailing_zeroes(u64 a) {
+    if (a == 0ull)
+        return BITCOUNT;
+    return __builtin_ctzll(a);
+}
+u64 disable_bit(u64 a, u64 bit) { return a & (~(1ull << bit)); }
+u64 popcount(u64 a) { return __builtin_popcountll(a); }
+
+map<u64, u64> max_clique_cache;
+
+u64 max_clique(u64 mask, vector<u64> const &graph_matrix) { // 最大独立集传补图即可
+    if (max_clique_cache.find(mask) != max_clique_cache.end())
+        return max_clique_cache[mask];
+    u64 a = count_trailing_zeroes(mask);
+    if (a == BITCOUNT)
+        return 0;
+    u64 res1 = max_clique(disable_bit(mask, a), graph_matrix);
+    u64 res2 = max_clique(mask & disable_bit(graph_matrix[a], a), graph_matrix) | (1ull << a);
+    u64 res = popcount(res1) > popcount(res2) ? res1 : res2;
+    max_clique_cache[mask] = res;
+    return res;
+}
+
+int main() {
+    vector<u64> M;
+    int n;
+    while (scanf("%d", &n) != EOF) {
+        if (n == 0) break;
+        M.clear();
+        M.resize(n);
+        max_clique_cache.clear();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int x; scanf("%d", &x);
+                if (x == 1) M[i] |= 1ll << j;
+            }
+        }
+        printf("%d\n", popcount(max_clique((1ll << n) - 1, M)));
+    }
+}\end{lstlisting}
+\subsection{vim}
+\begin{lstlisting}
+syntax on
+set nu
+set tabstop=4
+set shiftwidth=4
+set background=dark
+
+map <C-A> ggVG"+y
+map <F5> :call Run()<CR>
+func! Run()
+	exec "w"
+	exec "!g++ -Wall % -o %<"
+	exec "!./%<"
+endfunc\end{lstlisting}
+\subsection{pythonoutput}
+\begin{lstlisting}
+f.write('{0} {1}\n'.format(1, 2))\end{lstlisting}
 
 \end{document}

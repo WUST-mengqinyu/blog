@@ -12,21 +12,23 @@ TexHead = r"""
 \usepackage{listings,xcolor}
 \usepackage{geometry}
 \usepackage{fontspec}
+\setsansfont{Monaco}
+\setmonofont[Mapping={}]{Monaco}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \lstset{
-    language    = c++,
-    breaklines  = true,
-    captionpos  = b,
-    tabsize     = 4,
-    numbers     = left,
-    columns     = fullflexible,
-    keepspaces  = true,
-    commentstyle = \color[RGB]{0,128,0},
-    keywordstyle = \color[RGB]{0,0,255},
-    basicstyle   = \small\ttfamily,
-    rulesepcolor = \color{red!20!green!20!blue!20},
-    showstringspaces = false,
+	language    = c++,
+	breaklines  = true,
+	captionpos  = b,
+	tabsize     = 4,
+	numbers     = left,
+	columns     = fullflexible,
+	keepspaces  = true,
+	commentstyle = \color[RGB]{0,128,0},
+	keywordstyle = \color[RGB]{0,0,255},
+	basicstyle   = \small\ttfamily,
+	rulesepcolor = \color{red!20!green!20!blue!20},
+	showstringspaces = false,
 }
 """
 

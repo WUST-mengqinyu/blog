@@ -14,9 +14,10 @@
 
 ## Daily Logs
 
-| Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
-| ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest](../Training Logs/2019训练赛/2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest) | 2019/10/8 | 6/12 | O | O | O | . | . | . | . | . | O | . | O | O |  |
+| Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |  N   |
+| ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| [2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest](../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest) | 2019/10/29 | 9/14 | O | O | O | . | O | O | . | O | . | O | . | O | . | O |
+| [2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest](../Training Logs/2019训练赛/2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest) | 2019/10/8 | 6/12 | O | O | O | . | . | . | . | . | O | . | O | O |  |  |
 
 ## Training Logs
 

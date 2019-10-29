@@ -9,6 +9,8 @@ struct node {
 }p[maxn * 40];
 
 void update(int l, int r, int pre, int &now, int pos) {
+    //if (now == pre) p[now=++cnt]=p[pre];
+    //p[now].val ++;
     now = ++cnt;
     p[now] = p[pre];
     p[now].val++;
@@ -19,6 +21,15 @@ void update(int l, int r, int pre, int &now, int pos) {
     if (pos <= mid) update(l, mid, p[pre].l, p[now].l, pos);
     else update(mid + 1, r, p[pre].r, p[now].r, pos);
 }
+
+/*
+void build(int pre, int &now, int pos) {
+    now = pre;
+    for (auto i : a[pos]) {
+        update(1, n, pre, now, i);
+    }
+}
+*/
 
 int query(int l, int r, int x, int y, int k) {
     if (l == r) return b[l - 1];
