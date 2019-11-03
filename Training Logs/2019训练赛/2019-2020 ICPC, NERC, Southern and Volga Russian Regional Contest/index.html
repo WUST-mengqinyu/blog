@@ -149,7 +149,7 @@
     <ul class="dropdown-menu">
             
 <li >
-    <a href="../../2019CCPC区域赛/2019CCPC秦皇岛赛区（重现赛）/">2019CCPC秦皇岛赛区（重现赛）</a>
+    <a href="../../2019CCPC区域赛/2019 China Collegiate Programming Contest Qinhuangdao Onsite/">2019 China Collegiate Programming Contest Qinhuangdao Onsite</a>
 </li>
     </ul>
   </li>
@@ -256,8 +256,15 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#tag">Tag</a></li>
-            <li><a href="#problem-b-the-feast-and-the-bus">Problem B. The Feast and the Bus</a></li>
-            <li><a href="#problem-c-trip-to-saint-petersburg">Problem C. Trip to Saint Petersburg</a></li>
+            <li><a href="#a-berstagram">A. Berstagram</a></li>
+            <li><a href="#b-the-feast-and-the-bus">B. The Feast and the Bus</a></li>
+            <li><a href="#c-trip-to-saint-petersburg">C. Trip to Saint Petersburg</a></li>
+            <li><a href="#e-the-coronation">E. The Coronation</a></li>
+            <li><a href="#f-data-center">F. Data Center</a></li>
+            <li><a href="#h-happy-birthday">H. Happy Birthday</a></li>
+            <li><a href="#j-the-parade">J. The Parade</a></li>
+            <li><a href="#l-divide-the-students">L. Divide The Students</a></li>
+            <li><a href="#n-wires">N. Wires</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -309,13 +316,42 @@
 <p><a href="https://codeforces.com/contest/1250">url</a></p>
 <h1 id="tag">Tag</h1>
 <p><code>a、模拟 b、贪心 c、线段树 e、2-sat f、暴力 h、思维 j、二分贪心 l、思维暴力 n、桥</code> </p>
-<h2 id="problem-b-the-feast-and-the-bus">Problem B. The Feast and the Bus</h2>
+<h2 id="a-berstagram">A. Berstagram</h2>
+<p>签到</p>
+<h2 id="b-the-feast-and-the-bus">B. The Feast and the Bus</h2>
 <p>题意：n个人，分k队，要构造一个车运送所有人，每趟车只能运送完整的一队人或者完整的两队人，求趟次×车的大小的最小值。n不超过5e5，k不超过8000。</p>
 <p>题解：</p>
 <p>遮住数据范围这题可以很多解法，k为8000所以考虑<code>O(k^2)</code>，枚举趟次x，可知x的范围为<code>[k/2, k]</code>，然后问题转化为：一个2×x的盒子，填入k个数使得列上和的最大值最小，贪心构造出解：第一列放最大值和最小值（k不足2×x时放入0），第二列次大次小……，可以证明只要任意调换顺序都会使最大值变大。即如果<code>x</code>与<code>y</code>在一列，<code>z</code>与<code>p</code>在一列，他们满足条件为<code>x&gt;=y &amp;&amp; z&gt;=p &amp;&amp; x&gt;=z &amp;&amp; p&gt;=y</code>，则<code>max(x+y, z+p)&lt;=max(x+p, z+y)</code>成立。</p>
-<h2 id="problem-c-trip-to-saint-petersburg">Problem C. Trip to Saint Petersburg</h2>
+<h2 id="c-trip-to-saint-petersburg">C. Trip to Saint Petersburg</h2>
 <p>题意：给一些区间以及区间的权值，求<code>L，R</code>使得完全包含于<code>L，R</code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
-<p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p></div>
+<p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p>
+<h2 id="e-the-coronation">E. The Coronation</h2>
+<p>给定$n$个长度为$m$的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
+<p>2-SAT问题。</p>
+<p>设串不翻转为0，翻转为1，则对于任意两个串都有如下四种情况：</p>
+<ol>
+<li>a,b和a,rev(b)相同位数均大于等于k，此时a,b相互之间没有限制；</li>
+<li>a,b相同之间位数大于等于k，a,rev(b)之间相同位数小于k，此时a,b必须相同，即XOR(a,b)=0;</li>
+<li>a,b相同之间位数小于等于k，a,rev(b)之间相同位数大于k，此时a,b必须相反，即XOR(a,b)=1;</li>
+<li>a,b和a,rev(b)相同位数均小于k，即无论怎么翻转都不能使a,b两者匹配；</li>
+</ol>
+<p>一旦出现4，整组情况一定是无解的。</p>
+<p>相当于原串所代表的点形成若干个联通块，每一个联通块中的元素颜色是相互联系的（即如果翻转一个，必须翻转该块中的所有元素）。</p>
+<p>建完图后对点<script type="math/tex">i</script>和点<script type="math/tex">i+n​</script>进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
+<h2 id="f-data-center">F. Data Center</h2>
+<p>签到</p>
+<h2 id="h-happy-birthday">H. Happy Birthday</h2>
+<p>给定0-9各个数字的个数，输出最小的不能组成的数字。</p>
+<p>答案是出现的最少次数的数字多1个，如果是0就在前面加1。</p>
+<h2 id="j-the-parade">J. The Parade</h2>
+<p>给定了一些身高不同的士兵，身高为i的士兵有c[i]个，要求构造一个k行的矩形，使每一行的人数相等，且该行的极差不超过1，问这个矩阵最大可以是多少。</p>
+<p>二分每行长度x，将前一类余下的人数pre与i相加，判断其是否大于x，如果是x则有贡献，将剩下的i排成长度为x的行，剩下的值更新pre.</p>
+<h2 id="l-divide-the-students">L. Divide The Students</h2>
+<p>有三类人a,b,c，a类与c类不能同组，将他们分成3组，使最大组数最小。</p>
+<p>将a，c中较大的值分成两份，每次拿b填充3类中的最小值即可。</p>
+<h2 id="n-wires">N. Wires</h2>
+<p>给若干个联通块，每次可以修改一条边的一端，问最少修改多少次能使联通块变为只有1个（没有任何边相连的点视为游离，不用与块连通）。</p>
+<p>如果有n个联通块显然至少修改n-1次，每次选择联通块中的非桥边与第一个联通块相连，如果都为桥边（一条链的情况），修改链首即可。注意重边。</p></div>
         </div>
 
         <footer class="col-md-12">

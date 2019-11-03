@@ -149,7 +149,7 @@
     <ul class="dropdown-menu">
             
 <li >
-    <a href="../../2019CCPC区域赛/2019CCPC秦皇岛赛区（重现赛）/">2019CCPC秦皇岛赛区（重现赛）</a>
+    <a href="../../2019CCPC区域赛/2019 China Collegiate Programming Contest Qinhuangdao Onsite/">2019 China Collegiate Programming Contest Qinhuangdao Onsite</a>
 </li>
     </ul>
   </li>
@@ -255,6 +255,14 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#a-copying-homework">A. Copying Homework</a></li>
+        <li class="main "><a href="#c-even-path">C. Even Path</a></li>
+        <li class="main "><a href="#e-songwriter">E. Songwriter</a></li>
+        <li class="main "><a href="#f-regular-forestation">F. Regular Forestation</a></li>
+        <li class="main "><a href="#g-performance-review">G. Performance Review</a></li>
+        <li class="main "><a href="#h-twin-buildings">H. Twin Buildings</a></li>
+        <li class="main "><a href="#k-addition-robot">K. Addition Robot</a></li>
+        <li class="main "><a href="#l-road-construction">L. Road Construction</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -281,7 +289,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Training Logs/2019训练赛/2019-2020 ICPC, Asia Jakarta Regional Contest">2019-2020 ICPC, Asia Jakarta Regional Contest</a></td>
+<td><a href="http://codeforces.com/contest/1252">2019-2020 ICPC, Asia Jakarta Regional Contest</a></td>
 <td>2019/10/31</td>
 <td>8/12</td>
 <td align="center">O</td>
@@ -298,7 +306,33 @@
 <td align="center">Ø</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2 id="a-copying-homework">A. Copying Homework</h2>
+<p>给一个长度为n的序列a，输出序列b使<script type="math/tex">\sum_{i=1}^n{|b_i-a_i|}≥n</script>。</p>
+<p>输出n-a[i]即可。</p>
+<h2 id="c-even-path">C. Even Path</h2>
+<p>给定一个网格，点(i,j)的值为R[i]+c[j]，判断是否存在从<script type="math/tex">(sx,sy)</script>走到<script type="math/tex">(tx,ty)</script>的全为奇数的路径。</p>
+<p>判断sx-tx，sy-ty的R,C值是否同时全为奇数或者全为偶数，前缀和搞一下就好。</p>
+<h2 id="e-songwriter">E. Songwriter</h2>
+<p>已知序列中的每个值和上一个值的关系（上升/下降/不变），上升/下降的范围为[1,k]，要求序列的所有值都在[l,r]区间内，构造字典序最小的合法序列，如果没有，输出-1。</p>
+<p>从倒推求出每个值的区间范围，如果最大值小于l或最小值大于r则无解，否则递推构造序列并使每个值尽可能小。</p>
+<h2 id="f-regular-forestation">F. Regular Forestation</h2>
+<h2 id="g-performance-review">G. Performance Review</h2>
+<p>给定一个序列，做m次修改，第i次修改将前k个小的替换为<code>a[k][0],a[k][1],a[k][k-1]</code>这些数字，问m次修改后初始的第1个人是否仍在序列中。</p>
+<p>q次询问，每次修改第i次修改的第j个值，将其修改为x，并回答询问。</p>
+<p>记录第1个人在第i次修改后的rank，显然对于q次修改最多只会改变一位，也就是使<code>(j,n)</code>这个区间的每一个值+1或-1，修改后判断(1,n)的rank是否都&gt;0即可。</p>
+<h2 id="h-twin-buildings">H. Twin Buildings</h2>
+<p>给定n块矩形，选择一块或两块，并在其中放入大小相同的两块矩形，问放入的矩形的面积最大可以是多少。</p>
+<p>可以选择在一块或两块矩形中放入，如果是一块就是矩形面积/2，如果是两块，首先使每个矩形的L大于W，按照W降序排序，记录L的前缀最大值preL，遍历，当前矩形的最大贡献即为<code>min(preL, a[i].L)*a[i].W</code>。</p>
+<h2 id="k-addition-robot">K. Addition Robot</h2>
+<p>给一段AB串，操作1为翻转，即把L,R区间内的A变B，B变A；操作2为查询，顺序遍历子串<code>S[l-r]</code>,传入A，B两个值，如果串的当前值为A，使A=A+B，否则使B=A+B，输出计算后的A，B。</p>
+<p>把运算处理成2x2的矩阵，用线段树维护处理操作。</p>
+<h2 id="l-road-construction">L. Road Construction</h2>
+<p>给定一棵基环树上的边，每一条边可以被指定类的工人维修，求能使树上点联通的维修方案。</p>
+<p>如果对于边和工人一一连边，边数可能达到$NK$，考虑简化边数。</p>
+<p>对于每组边对应的类型数$M_i$，有$\sum_{i=1}^n M_i&lt;=10000$，所以让树边与工人类型数连边，并对每种类型的工人计数，连向汇点即可。</p>
+<p>对于一棵基环树，要选$n-1$条边使其联通，假设其环上有k条边，必须选择“环上的k-1条边”和“环外的所有边”。dfs求出基环树上的环，存储“环外的边”为A集合，“环上的边”为B集合。</p>
+<p>首先对起点向A集合中的点连边，判断是否全部匹配；再对起点向B集合中的点连边，判断总的流量是否$&gt;=n-1$即可。</p></div>
         </div>
 
         <footer class="col-md-12">

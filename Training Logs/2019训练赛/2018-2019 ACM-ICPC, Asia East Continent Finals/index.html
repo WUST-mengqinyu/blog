@@ -149,7 +149,7 @@
     <ul class="dropdown-menu">
             
 <li >
-    <a href="../../2019CCPC区域赛/2019CCPC秦皇岛赛区（重现赛）/">2019CCPC秦皇岛赛区（重现赛）</a>
+    <a href="../../2019CCPC区域赛/2019 China Collegiate Programming Contest Qinhuangdao Onsite/">2019 China Collegiate Programming Contest Qinhuangdao Onsite</a>
 </li>
     </ul>
   </li>
@@ -255,6 +255,12 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#c-heretical-mobius">C. Heretical … Möbius</a></li>
+        <li class="main "><a href="#d-deja-vu-of-go-players">D. Deja vu of … Go Players</a></li>
+        <li class="main "><a href="#f-interstellar-fantasy">F. Interstellar … Fantasy</a></li>
+        <li class="main "><a href="#i-misunderstood-missing">I. Misunderstood … Missing</a></li>
+        <li class="main "><a href="#j-philosophical-balance">J. Philosophical … Balance</a></li>
+        <li class="main "><a href="#l-eventual-journey">L. Eventual … Journey</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -281,7 +287,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Training Logs/2019训练赛/2018-2019 ACM-ICPC, Asia East Continent Finals">2018-2019 ACM-ICPC, Asia East Continent Finals</a></td>
+<td><a href="http://codeforces.com/gym/102056">2018-2019 ACM-ICPC, Asia East Continent Finals</a></td>
 <td>2019/10/8</td>
 <td>6/12</td>
 <td align="center">.</td>
@@ -298,7 +304,36 @@
 <td align="center">O</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2 id="c-heretical-mobius">C. Heretical … Möbius</h2>
+<p>给出一个20×10的01串，为一段连续的Mobius函数的绝对值，求这段序列起始位置的最小值，无解输出-1.</p>
+<p>题解：</p>
+<h2 id="d-deja-vu-of-go-players">D. Deja vu of … Go Players</h2>
+<p>签到</p>
+<h2 id="f-interstellar-fantasy">F. Interstellar … Fantasy</h2>
+<h2 id="i-misunderstood-missing">I. Misunderstood … Missing</h2>
+<p>打怪兽，初始时有A的攻击力，每轮增长D，初始时为0，有n轮，每轮在三种操作选择一种：</p>
+<p>①发起攻击，产生A+a[i]的伤害</p>
+<p>②D=D+b[i]</p>
+<p>③永久增加攻击力A=A+c[i]</p>
+<p>求最大可能产生的总伤害。</p>
+<p>题解：倒着DP，统计i-n一共进行的攻击次数cnt以及之后所有攻击到当前点的距离之和sum；如果选择1，则多产生a[i]的伤害；如果选择2，每一次攻击j的伤害都会增加(j-i)·b[i]；如果选择3，每一次攻击的伤害增加c[i]。</p>
+<p>设置状态<code>dp[n][cnt][sum]</code>，有状态转移方程：</p>
+<ol>
+<li><code>dp[i][cnt][sum] = max(dp[i][cnt][sum], dp[i + 1][cnt - 1][sum - cnt + 1]+a[i])</code></li>
+<li><code>dp[i][cnt][sum] = max(dp[i][cnt][sum], dp[i + 1][cnt][sum - cnt] + b[i] * sum;</code></li>
+<li><code>dp[i][cnt][sum] = max(dp[i][cnt][sum], dp[i + 1][cnt][sum - cnt] + c[i] * cnt;</code></li>
+</ol>
+<p>即可求解。</p>
+<h2 id="j-philosophical-balance">J. Philosophical … Balance</h2>
+<p>给一个字符串，先手给串的每一个位置赋一个值<script type="math/tex">p_i</script>并保证<script type="math/tex">p_i \ge 0, \sum_{i=1}^n p_i = 1</script>，后手选择一个子串<script type="math/tex">j</script>。有式子<script type="math/tex">\sum_{k=1}^n p_k \mathrm{lcp}(s_k,s_j)</script>，先手想使其尽可能大，后手想使其尽可能小。先手要如何操作才能使这个值最大，求这个最大值。</p>
+<p>题解：将原串反向，建立后缀自动机。</p>
+<p>对于反串的后缀树，此时后手如果选择某个子树<script type="math/tex">u</script>中选择串<script type="math/tex">s_j</script>，在<script type="math/tex">p</script>固定的情况下要使lcp最小，显然最优解为选择子树的根。</p>
+<p>在后缀自动机的suffix link树中，如果当前state为np节点，则直接取当前节点的len作为答案。否则需要合并若干子树的答案，答案为一个纳什均衡的模型，即每个子节点的贡献相等。那么该点的贡献为<script type="math/tex">len[u]+x</script>，其中$len[u])一定会取到，<script type="math/tex">x</script>为纳什均衡下可以取到的最大值，推一下子树的<script type="math/tex">x</script>得到<script type="math/tex">x = \frac{1}{\sum \frac{1}{f_i}}</script>，那么在suffix link树上dfs即可求出答案。</p>
+<h2 id="l-eventual-journey">L. Eventual … Journey</h2>
+<p>有 n 个车站，相互之间有 m 条公共的双向铁路连通，车站分成 0,1 两种类别，任意两个 0 类车站之间都有一条私有的铁路相互连接，1 类车站也类似。</p>
+<p>现在，从每车站 i 出发，到车站 j 的最少走过的铁路数目为 D(u,v)，要求你对每个固定的车站 i，都输出到其他所有车站的 D(i,j) 之和。</p>
+<p>题解：分类讨论枚举状态即可。</p></div>
         </div>
 
         <footer class="col-md-12">
