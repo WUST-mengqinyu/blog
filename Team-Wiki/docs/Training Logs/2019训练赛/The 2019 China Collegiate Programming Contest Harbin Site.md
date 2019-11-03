@@ -1,0 +1,3 @@
+| Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |
+| ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| [The 2019 China Collegiate Programming Contest Harbin Site](../Training Logs/2019训练赛/The 2019 China Collegiate Programming Contest Harbin Site) | 2019/11/2 | 6/12   |  O   |  .   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  .   |

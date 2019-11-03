@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019训练赛/The 2018 ACM-ICPC Asia Beijing Regional Contest/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>2019 2020 ICPC, NERC, Southern and Volga Russian Regional Contest - Team Wiki</title>
+        <title>The 2018 ACM ICPC Asia Beijing Regional Contest - Team Wiki</title>
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -210,16 +210,16 @@
     <a href="../2019-2020 ICPC, Asia Jakarta Regional Contest/">2019 2020 ICPC, Asia Jakarta Regional Contest</a>
 </li>
             
-<li class="active">
-    <a href="./">2019 2020 ICPC, NERC, Southern and Volga Russian Regional Contest</a>
+<li >
+    <a href="../2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest/">2019 2020 ICPC, NERC, Southern and Volga Russian Regional Contest</a>
 </li>
             
 <li >
     <a href="../The 13th Chinese Northeast Collegiate Programming Contest/">The 13th Chinese Northeast Collegiate Programming Contest</a>
 </li>
             
-<li >
-    <a href="../The 2018 ACM-ICPC Asia Beijing Regional Contest/">The 2018 ACM ICPC Asia Beijing Regional Contest</a>
+<li class="active">
+    <a href="./">The 2018 ACM ICPC Asia Beijing Regional Contest</a>
 </li>
             
 <li >
@@ -238,12 +238,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../2019-2020 ICPC, Asia Jakarta Regional Contest/">
+                                <a rel="next" href="../The 13th Chinese Northeast Collegiate Programming Contest/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../The 13th Chinese Northeast Collegiate Programming Contest/">
+                                <a rel="prev" href="../The 2019 China Collegiate Programming Contest Harbin Site/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -255,9 +255,6 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#tag">Tag</a></li>
-            <li><a href="#problem-b-the-feast-and-the-bus">Problem B. The Feast and the Bus</a></li>
-            <li><a href="#problem-c-trip-to-saint-petersburg">Problem C. Trip to Saint Petersburg</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -278,44 +275,26 @@
 <th align="center">H</th>
 <th align="center">I</th>
 <th align="center">J</th>
-<th align="center">K</th>
-<th align="center">L</th>
-<th align="center">M</th>
-<th align="center">N</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest">2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest</a></td>
-<td>2019/10/29</td>
-<td>9/14</td>
+<td><a href="../Training Logs/2019训练赛/The 2018 ACM-ICPC Asia Beijing Regional Contest">The 2018 ACM-ICPC Asia Beijing Regional Contest</a></td>
+<td>2019/10/11</td>
+<td>4/12</td>
 <td align="center">O</td>
+<td align="center">.</td>
+<td align="center">.</td>
 <td align="center">O</td>
-<td align="center">O</td>
+<td align="center">.</td>
+<td align="center">.</td>
 <td align="center">.</td>
 <td align="center">O</td>
 <td align="center">O</td>
 <td align="center">.</td>
-<td align="center">O</td>
-<td align="center">.</td>
-<td align="center">O</td>
-<td align="center">.</td>
-<td align="center">O</td>
-<td align="center">.</td>
-<td align="center">O</td>
 </tr>
 </tbody>
-</table>
-<p><a href="https://codeforces.com/contest/1250">url</a></p>
-<h1 id="tag">Tag</h1>
-<p><code>a、模拟 b、贪心 c、线段树 e、2-sat f、暴力 h、思维 j、二分贪心 l、思维暴力 n、桥</code> </p>
-<h2 id="problem-b-the-feast-and-the-bus">Problem B. The Feast and the Bus</h2>
-<p>题意：n个人，分k队，要构造一个车运送所有人，每趟车只能运送完整的一队人或者完整的两队人，求趟次×车的大小的最小值。n不超过5e5，k不超过8000。</p>
-<p>题解：</p>
-<p>遮住数据范围这题可以很多解法，k为8000所以考虑<code>O(k^2)</code>，枚举趟次x，可知x的范围为<code>[k/2, k]</code>，然后问题转化为：一个2×x的盒子，填入k个数使得列上和的最大值最小，贪心构造出解：第一列放最大值和最小值（k不足2×x时放入0），第二列次大次小……，可以证明只要任意调换顺序都会使最大值变大。即如果<code>x</code>与<code>y</code>在一列，<code>z</code>与<code>p</code>在一列，他们满足条件为<code>x&gt;=y &amp;&amp; z&gt;=p &amp;&amp; x&gt;=z &amp;&amp; p&gt;=y</code>，则<code>max(x+y, z+p)&lt;=max(x+p, z+y)</code>成立。</p>
-<h2 id="problem-c-trip-to-saint-petersburg">Problem C. Trip to Saint Petersburg</h2>
-<p>题意：给一些区间以及区间的权值，求<code>L，R</code>使得完全包含于<code>L，R</code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
-<p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p></div>
+</table></div>
         </div>
 
         <footer class="col-md-12">
