@@ -1,7 +1,8 @@
 #!/bin/bash
-cd /home/badcw/PycharmProjects/Team-Wiki && git pull
+git pull
 cd Team-Wiki && mkdocs gh-deploy
-cd /home/badcw/PycharmProjects/Team-Wiki && git add *
+cd ..
+git add *
 timenow=$(date)
-cd /home/badcw/PycharmProjects/Team-Wiki && git commit -m "${timenow}"
-cd /home/badcw/PycharmProjects/Team-Wiki && git push
+git commit -m "${timenow}"
+git push
