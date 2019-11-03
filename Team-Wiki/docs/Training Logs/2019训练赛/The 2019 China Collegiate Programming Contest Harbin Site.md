@@ -1,3 +1,38 @@
 | Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |
 | ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [The 2019 China Collegiate Programming Contest Harbin Site](../Training Logs/2019训练赛/The 2019 China Collegiate Programming Contest Harbin Site) | 2019/11/2 | 6/12   |  O   |  .   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  .   |
+| [The 2019 China Collegiate Programming Contest Harbin Site](http://codeforces.com/gym/102394) | 2019/11/2 | 6/12   |  O   |  .   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  .   |
+
+##  A. Artful Paintings 
+
+给一列1-n的块染色，并给出一系列限制条件(l, r, k)， 第一类限制条件为l-r之间的染色数量不小于k，第二类为l-r之外的块染色数量不小于k，求最小的总染色数。
+
+令\(f_i\)表示前\(i\)位被染色的数量，假设总染色数为\(x\)考虑差分约束系统，有如下建图：
+
+- \(f_i-f_{i-1}≤1\)
+- \(f_{i-1}-f_i≤0\)
+- 对第一类限制，有\(f_{l-1}-f_r≤-k\)
+- 对第二类限制，有\(f_r-f_{l-1}≤x-k\)
+- \(f_n-f_0≤x\)
+- \(f_0-f_n≤-x\)
+
+二分x判定答案，当差分约束系统不存在负环且dis[n]=x时表示当前为一组合法解。
+
+## E. Exchanging Gifts 
+
+## F. Fixing Banners
+
+判断给出的6个单词能否各取一个字母，使其组成Harbin.
+
+枚举排列即可。
+
+##  I. Interesting Permutation 
+
+对于某个排列\(P\)，序列\(h_i\)表示排列P中第1-i个数的极差。现在给你序列h，求能组成h的排列个数。
+
+首先排除不合法的情况（\(h_0!=0, h_n!=n-2, h_i < i - 1, h_i＜h_{i-1}\) ），统计数列h变化了几次，记为x，答案的总值即乘上\(2^x\)；记一段连续的序列长度为len，开始的字符位置为y，那么这段连续序列对答案的贡献为\(A_{len}^{p[y] - y + 1}\)。对于每段连续区间求出这个值，相乘后再乘上\(2^x\)即为答案。
+
+## J. Justifying the Conjecture
+
+签到
+
+## H. Keeping Rabbits

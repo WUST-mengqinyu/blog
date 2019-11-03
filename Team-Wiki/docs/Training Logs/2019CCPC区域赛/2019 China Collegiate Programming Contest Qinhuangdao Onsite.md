@@ -1,6 +1,6 @@
 | Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |
 | ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [2019CCPC秦皇岛赛区（重现赛）](http://acm.hdu.edu.cn/contests/contest_show.php?cid=872) | 2019/9/28 | 7/12 | O | . | . | O | O | O | . | . | O | O | O | . |
+| [2019 China Collegiate Programming Contest Qinhuangdao Onsite](http://acm.hdu.edu.cn/contests/contest_show.php?cid=872) | 2019/9/28 | 7/12 | O | . | . | O | O | O | . | . | O | O | O | . |
 
 ## A、Angle Beats
 

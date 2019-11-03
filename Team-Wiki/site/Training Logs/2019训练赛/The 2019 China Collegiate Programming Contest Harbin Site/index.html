@@ -149,7 +149,7 @@
     <ul class="dropdown-menu">
             
 <li >
-    <a href="../../2019CCPC区域赛/2019CCPC秦皇岛赛区（重现赛）/">2019CCPC秦皇岛赛区（重现赛）</a>
+    <a href="../../2019CCPC区域赛/2019 China Collegiate Programming Contest Qinhuangdao Onsite/">2019 China Collegiate Programming Contest Qinhuangdao Onsite</a>
 </li>
     </ul>
   </li>
@@ -255,6 +255,12 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#a-artful-paintings">A. Artful Paintings</a></li>
+        <li class="main "><a href="#e-exchanging-gifts">E. Exchanging Gifts</a></li>
+        <li class="main "><a href="#f-fixing-banners">F. Fixing Banners</a></li>
+        <li class="main "><a href="#i-interesting-permutation">I. Interesting Permutation</a></li>
+        <li class="main "><a href="#j-justifying-the-conjecture">J. Justifying the Conjecture</a></li>
+        <li class="main "><a href="#h-keeping-rabbits">H. Keeping Rabbits</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -281,7 +287,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Training Logs/2019训练赛/The 2019 China Collegiate Programming Contest Harbin Site">The 2019 China Collegiate Programming Contest Harbin Site</a></td>
+<td><a href="http://codeforces.com/gym/102394">The 2019 China Collegiate Programming Contest Harbin Site</a></td>
 <td>2019/11/2</td>
 <td>6/12</td>
 <td align="center">O</td>
@@ -298,7 +304,39 @@
 <td align="center">.</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2 id="a-artful-paintings">A. Artful Paintings</h2>
+<p>给一列1-n的块染色，并给出一系列限制条件(l, r, k)， 第一类限制条件为l-r之间的染色数量不小于k，第二类为l-r之外的块染色数量不小于k，求最小的总染色数。</p>
+<p>令<script type="math/tex">f_i</script>表示前<script type="math/tex">i</script>位被染色的数量，假设总染色数为<script type="math/tex">x</script>考虑差分约束系统，有如下建图：</p>
+<ul>
+<li>
+<script type="math/tex">f_i-f_{i-1}≤1</script>
+</li>
+<li>
+<script type="math/tex">f_{i-1}-f_i≤0</script>
+</li>
+<li>对第一类限制，有<script type="math/tex">f_{l-1}-f_r≤-k</script>
+</li>
+<li>对第二类限制，有<script type="math/tex">f_r-f_{l-1}≤x-k</script>
+</li>
+<li>
+<script type="math/tex">f_n-f_0≤x</script>
+</li>
+<li>
+<script type="math/tex">f_0-f_n≤-x</script>
+</li>
+</ul>
+<p>二分x判定答案，当差分约束系统不存在负环且dis[n]=x时表示当前为一组合法解。</p>
+<h2 id="e-exchanging-gifts">E. Exchanging Gifts</h2>
+<h2 id="f-fixing-banners">F. Fixing Banners</h2>
+<p>判断给出的6个单词能否各取一个字母，使其组成Harbin.</p>
+<p>枚举排列即可。</p>
+<h2 id="i-interesting-permutation">I. Interesting Permutation</h2>
+<p>对于某个排列<script type="math/tex">P</script>，序列<script type="math/tex">h_i</script>表示排列P中第1-i个数的极差。现在给你序列h，求能组成h的排列个数。</p>
+<p>首先排除不合法的情况（<script type="math/tex">h_0!=0, h_n!=n-2, h_i < i - 1, h_i＜h_{i-1}</script> ），统计数列h变化了几次，记为x，答案的总值即乘上<script type="math/tex">2^x</script>；记一段连续的序列长度为len，开始的字符位置为y，那么这段连续序列对答案的贡献为<script type="math/tex">A_{len}^{p[y] - y + 1}</script>。对于每段连续区间求出这个值，相乘后再乘上<script type="math/tex">2^x</script>即为答案。</p>
+<h2 id="j-justifying-the-conjecture">J. Justifying the Conjecture</h2>
+<p>签到</p>
+<h2 id="h-keeping-rabbits">H. Keeping Rabbits</h2></div>
         </div>
 
         <footer class="col-md-12">

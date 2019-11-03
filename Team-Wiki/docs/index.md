@@ -11,12 +11,10 @@
 
 ## Onsite
 
-| Name                                          | Date       | Rank            | Solved | A    | B    | C    | D    | E    | F    | G    | H    | I    | J    | K    | L    | M    |
-| --------------------------------------------- | ---------- | --------------- | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 2019 ICPC Asia Nanjing Regional Contest | 2019/10/27 | Brozen(Rank:?)  | 4      |      |      |      |      |      |      |      |      |      |      |      |      |      |
-| 2019 CCPC,Xiamen Site                         | 2019/10/20 | Silver(Rank:48) | 5      |      |      |      |      |      |      |      |      |      |      |      |      |      |
-
-
+| Name                                    | Date       | Rank             | Solved | A    | B    | C    | D    | E    | F    | G    | H    | I    | J    | K    | L    | M    |
+| --------------------------------------- | ---------- | ---------------- | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 2019 ICPC Asia Nanjing Regional Contest | 2019/10/27 | Brozen(Rank:131) | 4      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 2019 CCPC,Xiamen Site                   | 2019/10/20 | Silver(Rank:48)  | 5      |      |      |      |      |      |      |      |      |      |      |      |      |      |
 
 ## Training Logs
 
@@ -28,7 +26,7 @@
 | [2018-2019 ACM-ICPC, Asia East Continent Finals](../Training Logs/2019训练赛/2018-2019 ACM-ICPC, Asia East Continent Finals) | 2019/10/12 | 6/12 | . | . | Ø | O | . | O | . | . | O | Ø | . | O |  |  |
 | [The 2018 ACM-ICPC Asia Beijing Regional Contest](../Training Logs/2019训练赛/The 2018 ACM-ICPC Asia Beijing Regional Contest) | 2019/10/11 | 4/12 | O | . | . | O | . | . | . | O | O | . |  |  |  |  |
 | [2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest](../Training Logs/2019训练赛/2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest) | 2019/10/8 | 6/12 | O | O | O | . | . | . | . | . | O | . | O | O |  |  |
-| [2019CCPC秦皇岛赛区（重现赛）](../Training Logs/2019CCPC区域赛/2019CCPC秦皇岛赛区（重现赛）) | 2019/9/28 | 7/12 | O | . | . | O | O | O | . | . | O | O | O | . |  |  |
+| [2019 China Collegiate Programming Contest Qinhuangdao Onsite](../Training Logs/2019CCPC区域赛/2019 China Collegiate Programming Contest Qinhuangdao Onsite) | 2019/9/28 | 7/12 | O | . | . | O | O | O | . | . | O | O | O | . |  |  |
 | [The 13th Chinese Northeast Collegiate Programming Contest](../Training Logs/2019训练赛/The 13th Chinese Northeast Collegiate Programming Contest) | 2019/9/25 | 7/10 | . | O | O | . | O | Ø | O | O | . | O |  |  |  |  |
 | [The Preliminary Contest for ICPC Asia Shanghai 2019](../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shanghai 2019) | 2019/9/15 | 7/12 | . | O | . | O | Ø | Ø | Ø | . | . | O | . | O |  |  |
 | [The Preliminary Contest for ICPC Asia Shenyang 2019](../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shenyang 2019) | 2019/9/14 | 6/11   |  .   |  Ø   |  O   |  O   |  .   |  O   |  .   |  O   |  .   |  .   |  O   |    |    |    |
