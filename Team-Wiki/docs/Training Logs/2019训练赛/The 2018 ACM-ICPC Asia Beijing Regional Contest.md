@@ -1,12 +1,19 @@
 | Name                                                         | Date       | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |
 | ------------------------------------------------------------ | ---------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [The 2018 ACM-ICPC Asia Beijing Regional Contest](https://vjudge.net/contest/333849) | 2019/10/11 | 4/12   |  O   |  .   |  .   |  O   |  .   |  .   |  .   |  O   |  O   |  .   |
+| [The 2018 ACM-ICPC Asia Beijing Regional Contest](https://vjudge.net/contest/333849) | 2019/10/11 | 5/12   |  O   |  Ø   |  .   |  O   |  .   |  .   |  .   |  O   |  O   |  .   |
 
 
 ## A. Jin Yong’s Wukong Ranking List
 
 有向图判环，20个点
 
+## B. Heshen's Account Book
+
+按题意模拟，数据水
+
+给若干行字符，包含数字字母和空格换行
+
+求所有连续的非空串中，以数字开头数字结尾，开头非0的串，剔除字母。还要统计每行这样的串的个数，单个换行不影响串的连续性。但是换行前的一个字符不能为字母，后一个也不能。
 
 ## D. Frog and Portal
 
