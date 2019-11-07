@@ -265,6 +265,7 @@
         <li class="main "><a href="#i-interesting-permutation">I. Interesting Permutation</a></li>
         <li class="main "><a href="#j-justifying-the-conjecture">J. Justifying the Conjecture</a></li>
         <li class="main "><a href="#h-keeping-rabbits">H. Keeping Rabbits</a></li>
+        <li class="main "><a href="#l-lru-algorithm">L. LRU Algorithm</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -293,7 +294,7 @@
 <tr>
 <td><a href="http://codeforces.com/gym/102394">The 2019 China Collegiate Programming Contest Harbin Site</a></td>
 <td>2019/11/2</td>
-<td>6/12</td>
+<td>7/12</td>
 <td align="center">O</td>
 <td align="center">.</td>
 <td align="center">.</td>
@@ -305,7 +306,7 @@
 <td align="center">O</td>
 <td align="center">O</td>
 <td align="center">O</td>
-<td align="center">.</td>
+<td align="center">Ø</td>
 </tr>
 </tbody>
 </table>
@@ -340,7 +341,10 @@
 <p>首先排除不合法的情况（<script type="math/tex">h_0!=0, h_n!=n-2, h_i < i - 1, h_i＜h_{i-1}</script> ），统计数列h变化了几次，记为x，答案的总值即乘上<script type="math/tex">2^x</script>；记一段连续的序列长度为len，开始的字符位置为y，那么这段连续序列对答案的贡献为<script type="math/tex">A_{len}^{p[y] - y + 1}</script>。对于每段连续区间求出这个值，相乘后再乘上<script type="math/tex">2^x</script>即为答案。</p>
 <h2 id="j-justifying-the-conjecture">J. Justifying the Conjecture</h2>
 <p>签到</p>
-<h2 id="h-keeping-rabbits">H. Keeping Rabbits</h2></div>
+<h2 id="h-keeping-rabbits">H. Keeping Rabbits</h2>
+<h2 id="l-lru-algorithm">L. LRU Algorithm</h2>
+<p>题意：给定一个LRU访问序列。每次询问一个寄存器大小和一段查询序列，询问给定的LRU访问序列在这个大小的寄存器中操作过程中是否会出现这一查询序列。</p>
+<p>将所有查询序列插入字典树，模拟LRU访问操作，每次操作后在字典树上查询并标记经过的所有节点，输出答案时只要查询某个查询序列的尾部节点是否被标记即可（处理一下后缀均为0的查询）。</p></div>
         </div>
 
         <footer class="col-md-12">
