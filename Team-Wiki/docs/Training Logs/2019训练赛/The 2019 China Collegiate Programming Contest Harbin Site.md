@@ -1,6 +1,6 @@
 | Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |
 | ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [The 2019 China Collegiate Programming Contest Harbin Site](http://codeforces.com/gym/102394) | 2019/11/2 | 6/12   |  O   |  .   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  .   |
+| [The 2019 China Collegiate Programming Contest Harbin Site](http://codeforces.com/gym/102394) | 2019/11/2 | 7/12   |  O   |  .   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  Ø   |
 
 ##  A. Artful Paintings 
 
@@ -36,3 +36,10 @@
 签到
 
 ## H. Keeping Rabbits
+
+## L. LRU Algorithm
+
+题意：给定一个LRU访问序列。每次询问一个寄存器大小和一段查询序列，询问给定的LRU访问序列在这个大小的寄存器中操作过程中是否会出现这一查询序列。
+
+将所有查询序列插入字典树，模拟LRU访问操作，每次操作后在字典树上查询并标记经过的所有节点，输出答案时只要查询某个查询序列的尾部节点是否被标记即可（处理一下后缀均为0的查询）。
+
