@@ -38,7 +38,7 @@ Matrix mul(Matrix a, Matrix b)
     return res;
 }
 
-Matrix pow(ll n)
+Matrix Pow(ll n)
 {
     init();
     //for(int i = 0; i < cur; i++) res.a[i][i] = 1;
