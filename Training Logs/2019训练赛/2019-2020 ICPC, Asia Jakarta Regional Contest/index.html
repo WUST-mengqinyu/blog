@@ -266,6 +266,7 @@
         <li class="main "><a href="#f-regular-forestation">F. Regular Forestation</a></li>
         <li class="main "><a href="#g-performance-review">G. Performance Review</a></li>
         <li class="main "><a href="#h-twin-buildings">H. Twin Buildings</a></li>
+        <li class="main "><a href="#j-tiling-terrace">J. Tiling Terrace</a></li>
         <li class="main "><a href="#k-addition-robot">K. Addition Robot</a></li>
         <li class="main "><a href="#l-road-construction">L. Road Construction</a></li>
     </ul>
@@ -296,7 +297,7 @@
 <tr>
 <td><a href="http://codeforces.com/contest/1252">2019-2020 ICPC, Asia Jakarta Regional Contest</a></td>
 <td>2019/10/31</td>
-<td>8/12</td>
+<td>9/12</td>
 <td align="center">O</td>
 <td align="center">.</td>
 <td align="center">O</td>
@@ -306,7 +307,7 @@
 <td align="center">O</td>
 <td align="center">O</td>
 <td align="center">.</td>
-<td align="center">.</td>
+<td align="center">Ø</td>
 <td align="center">O</td>
 <td align="center">Ø</td>
 </tr>
@@ -336,6 +337,13 @@
 <h2 id="h-twin-buildings">H. Twin Buildings</h2>
 <p>给定n块矩形，选择一块或两块，并在其中放入大小相同的两块矩形，问放入的矩形的面积最大可以是多少。</p>
 <p>可以选择在一块或两块矩形中放入，如果是一块就是矩形面积/2，如果是两块，首先使每个矩形的L大于W，按照W降序排序，记录L的前缀最大值preL，遍历，当前矩形的最大贡献即为<code>min(preL, a[i].L)*a[i].W</code>。</p>
+<h2 id="j-tiling-terrace">J. Tiling Terrace</h2>
+<p>给一个01串，给三种子串分别有abc权值（0\00\010），要求把原串分割成多个这三种串，其中a串最多只能有k个，求最大权值和，保证1的个数不超过50</p>
+<p>显然dp一下，用<code>dp[i][j]</code>表示前<code>i</code>位，有<code>j</code>个c串，最多的b串个数。</p>
+<p>那么显然可以通过枚举c串个数进行枚举答案。</p>
+<p>设n1为取的a串，n2为取的b串，n3为取的c串个数</p>
+<p>那么由于枚举的是c串个数，n2的最大值，n1的个数可以计算出来。</p>
+<p>然后考虑将n2替换成n1的情况即可。</p>
 <h2 id="k-addition-robot">K. Addition Robot</h2>
 <p>给一段AB串，操作1为翻转，即把L,R区间内的A变B，B变A；操作2为查询，顺序遍历子串<code>S[l-r]</code>,传入A，B两个值，如果串的当前值为A，使A=A+B，否则使B=A+B，输出计算后的A，B。</p>
 <p>把运算处理成2x2的矩阵，用线段树维护处理操作。</p>
