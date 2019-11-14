@@ -46,7 +46,7 @@ void init(int n) {
 
 
 inline ll Euler(ll x) {
-    if (x <= maxn) return phi[x];
+    if (x < maxn) return phi[x];
     return 0;
 }
 

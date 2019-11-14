@@ -319,14 +319,11 @@
 <h2 id="c-even-path">C. Even Path</h2>
 <p>给定一个网格，点(i,j)的值为R[i]+c[j]，判断是否存在从<script type="math/tex">(sx,sy)</script>走到<script type="math/tex">(tx,ty)</script>的全为奇数的路径。</p>
 <p>判断sx-tx，sy-ty的R,C值是否同时全为奇数或者全为偶数，前缀和搞一下就好。</p>
-<<<<<<< HEAD
 <h2 id="d-find-string-in-a-grid">D. Find String in a Grid</h2>
 <p>给定一个字符矩阵，每次查询一个串，问在矩阵中选任意一个点作为起点，首先向右走再向下走，能找到多少个查询串。</p>
 <p>题解：将每个查询串切成两部分，前半部分与行匹配，后半部分与列匹配，字符矩阵中如果有某个点同时作为匹配的行结尾和列开头，则计算一次贡献。</p>
 <p>将行串H和列串V分别建立一个SA，可以得到SA中的一个区间(l,r)满足<code>lcp(x,y)&gt;=len(x)</code>，在建串的时候把查询串也加入SA的串以确定位置，行串需要反向（因为查询的是公共后缀），二分找出行和列的区间(h_l,h_r),(v_l,v_r)，如果有字符矩阵上的点在SA中的位置(pos_h,pos_v)满足<script type="math/tex">h_l≤pos_h≤h_r</script>且<script type="math/tex">v_l≤pos_v≤v_r</script>，则计算一次它对查询串的贡献。</p>
 <p>考虑二维数点，求出每个查询串每个点的行列区间，求块内的点数和即可。</p>
-=======
->>>>>>> 636ee13f654d2c003475129944f0b4cfe85286ad
 <h2 id="e-songwriter">E. Songwriter</h2>
 <p>已知序列中的每个值和上一个值的关系（上升/下降/不变），上升/下降的范围为[1,k]，要求序列的所有值都在[l,r]区间内，构造字典序最小的合法序列，如果没有，输出-1。</p>
 <p>从倒推求出每个值的区间范围，如果最大值小于l或最小值大于r则无解，否则递推构造序列并使每个值尽可能小。</p>
