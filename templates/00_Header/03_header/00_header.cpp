@@ -5,7 +5,15 @@
 
 #include <bits/stdc++.h>
 #define ll long long
+#define x first
+#define y second
+#define sz size()
+#define all(x) x.begin(), x.end()
 using namespace std;
+
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef vector<long long> vl;
 
 template <class T>
 inline bool scan(T &ret){
@@ -22,6 +30,7 @@ inline bool scan(T &ret){
 
 const ll mod = 1e9+7;
 const int maxn = $MAXN$;
+const int inf = 0x3f3f3f3f;
 
 ll qp(ll x, ll n) {
     ll res = 1; x %= mod;
