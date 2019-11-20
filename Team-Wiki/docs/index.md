@@ -30,6 +30,7 @@
 | [The 13th Chinese Northeast Collegiate Programming Contest](../Training Logs/2019训练赛/The 13th Chinese Northeast Collegiate Programming Contest) | 2019/9/25 | 7/10 | . | O | O | . | O | Ø | O | O | . | O |  |  |  |  |
 | [The Preliminary Contest for ICPC Asia Shanghai 2019](../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shanghai 2019) | 2019/9/15 | 7/12 | . | O | . | O | Ø | Ø | Ø | . | . | O | . | O |  |  |
 | [The Preliminary Contest for ICPC Asia Shenyang 2019](../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shenyang 2019) | 2019/9/14 | 6/11   |  .   |  Ø   |  O   |  O   |  .   |  O   |  .   |  O   |  .   |  .   |  O   |    |    |    |
+| [2019牛客暑期多校训练营（第七场）](../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第七场）) | 2019/8/8 | 9/11 | O | O | O | O | Ø | Ø | . | Ø | Ø | O | . | | | |
 | [2019牛客暑期多校训练营（第四场）](../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第四场）) | 2019/7/27 | 7/11   |  O   |  Ø   |  O   |  O   |  .   |  .   |  .   |  .   |  Ø   |  O   |  O   |      |      |      |
 | [2019 Multi-University Training Contest 3](../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 3) | 2019/7/29 | 5/11   |  .   |  Ø   |  .   |  Ø   |  .   |  O   |  O   |  .   |  Ø   |  .   |  .   |      |      |      |
 | [2019牛客暑期多校训练营（第三场）](../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第三场）) | 2019/7/25 | 6/10   |  .   |  O   |  .   |  Ø   |  .   |  Ø   |  Ø   |  O   |  .   |  Ø   |      |      |      |      |
