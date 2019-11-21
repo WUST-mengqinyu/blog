@@ -20,6 +20,7 @@
 
 | Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |   N  |
 | ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | ---- |
+| [2018 ACM 国际大学生程序设计竞赛上海大都会赛](../2019训练赛/2018 ACM 国际大学生程序设计竞赛上海大都会赛) | 2019/11/20 | 6/12 | O | O | . | O | . | O | . | . | . | O | O | . |  |  |
 | [The 2019 China Collegiate Programming Contest Harbin Site](../Training Logs/2019训练赛/The 2019 China Collegiate Programming Contest Harbin Site) | 2019/11/2 | 7/12 | O | . | . | . | O | O | . | . | O | O | O | Ø |  |  |
 | [2019-2020 ICPC, Asia Jakarta Regional Contest](../Training Logs/2019训练赛/2019-2020 ICPC, Asia Jakarta Regional Contest) | 2019/10/31 | 9/12 | O | . | O | Ø | O | Ø | O | O | . | . | O | Ø |  |  |
 | [2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest](../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest) | 2019/10/28 | 9/14 | O | O | O | . | O | O | . | O | . | O | . | O | . | O |
