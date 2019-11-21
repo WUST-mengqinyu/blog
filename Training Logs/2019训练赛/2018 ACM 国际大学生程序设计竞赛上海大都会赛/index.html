@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019训练赛/The 2019 China Collegiate Programming Contest Harbin Site/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019训练赛/2018 ACM 国际大学生程序设计竞赛上海大都会赛/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>The 2019 China Collegiate Programming Contest Harbin Site - Team Wiki</title>
+        <title>2018 ACM 国际大学生程序设计竞赛上海大都会赛 - Team Wiki</title>
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -210,8 +210,8 @@
     <a href="../2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest/">2017 2018 ACM ICPC, NEERC, Northern Subregional Contest</a>
 </li>
             
-<li >
-    <a href="../2018 ACM 国际大学生程序设计竞赛上海大都会赛/">2018 ACM 国际大学生程序设计竞赛上海大都会赛</a>
+<li class="active">
+    <a href="./">2018 ACM 国际大学生程序设计竞赛上海大都会赛</a>
 </li>
             
 <li >
@@ -234,8 +234,8 @@
     <a href="../The 2018 ACM-ICPC Asia Beijing Regional Contest/">The 2018 ACM ICPC Asia Beijing Regional Contest</a>
 </li>
             
-<li class="active">
-    <a href="./">The 2019 China Collegiate Programming Contest Harbin Site</a>
+<li >
+    <a href="../The 2019 China Collegiate Programming Contest Harbin Site/">The 2019 China Collegiate Programming Contest Harbin Site</a>
 </li>
     </ul>
   </li>
@@ -250,12 +250,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../The 2018 ACM-ICPC Asia Beijing Regional Contest/">
+                                <a rel="next" href="../2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li class="disabled">
-                                <a rel="prev" >
+                            <li >
+                                <a rel="prev" href="../2018-2019 ACM-ICPC, Asia East Continent Finals/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -267,13 +267,13 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#a-artful-paintings">A. Artful Paintings</a></li>
-        <li class="main "><a href="#e-exchanging-gifts">E. Exchanging Gifts</a></li>
-        <li class="main "><a href="#f-fixing-banners">F. Fixing Banners</a></li>
-        <li class="main "><a href="#i-interesting-permutation">I. Interesting Permutation</a></li>
-        <li class="main "><a href="#j-justifying-the-conjecture">J. Justifying the Conjecture</a></li>
-        <li class="main "><a href="#h-keeping-rabbits">H. Keeping Rabbits</a></li>
-        <li class="main "><a href="#l-lru-algorithm">L. LRU Algorithm</a></li>
+        <li class="main active"><a href="#tag">tag</a></li>
+        <li class="main "><a href="#a-fruit-ninja">A. Fruit Ninja</a></li>
+        <li class="main "><a href="#b-perfect-numbers">B.  Perfect Numbers</a></li>
+        <li class="main "><a href="#d-thinking-bear-magic">D. Thinking-Bear magic</a></li>
+        <li class="main "><a href="#f-color-it">F. Color it</a></li>
+        <li class="main "><a href="#j-beautiful-numbers">J. Beautiful Numbers</a></li>
+        <li class="main "><a href="#k-matrix-multiplication">K.  Matrix Multiplication</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -295,64 +295,64 @@
 <th align="center">I</th>
 <th align="center">J</th>
 <th align="center">K</th>
-<th align="center">L</th>
+<th>L</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="http://codeforces.com/gym/102394">The 2019 China Collegiate Programming Contest Harbin Site</a></td>
-<td>2019/11/2</td>
-<td>7/12</td>
+<td><a href="https://ac.nowcoder.com/acm/contest/163">2018 ACM 国际大学生程序设计竞赛上海大都会赛</a></td>
+<td>2019/11/20</td>
+<td>6/12</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">.</td>
+<td align="center">O</td>
+<td align="center">.</td>
 <td align="center">O</td>
 <td align="center">.</td>
 <td align="center">.</td>
 <td align="center">.</td>
 <td align="center">O</td>
 <td align="center">O</td>
-<td align="center">.</td>
-<td align="center">.</td>
-<td align="center">O</td>
-<td align="center">O</td>
-<td align="center">O</td>
-<td align="center">Ø</td>
+<td>.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="a-artful-paintings">A. Artful Paintings</h2>
-<p>给一列1-n的块染色，并给出一系列限制条件(l, r, k)， 第一类限制条件为l-r之间的染色数量不小于k，第二类为l-r之外的块染色数量不小于k，求最小的总染色数。</p>
-<p>令<script type="math/tex">f_i</script>表示前<script type="math/tex">i</script>位被染色的数量，假设总染色数为<script type="math/tex">x</script>考虑差分约束系统，有如下建图：</p>
-<ul>
-<li>
-<script type="math/tex">f_i-f_{i-1}≤1</script>
-</li>
-<li>
-<script type="math/tex">f_{i-1}-f_i≤0</script>
-</li>
-<li>对第一类限制，有<script type="math/tex">f_{l-1}-f_r≤-k</script>
-</li>
-<li>对第二类限制，有<script type="math/tex">f_r-f_{l-1}≤x-k</script>
-</li>
-<li>
-<script type="math/tex">f_n-f_0≤x</script>
-</li>
-<li>
-<script type="math/tex">f_0-f_n≤-x</script>
-</li>
-</ul>
-<p>二分x判定答案，当差分约束系统不存在负环且dis[n]=x时表示当前为一组合法解。</p>
-<h2 id="e-exchanging-gifts">E. Exchanging Gifts</h2>
-<h2 id="f-fixing-banners">F. Fixing Banners</h2>
-<p>判断给出的6个单词能否各取一个字母，使其组成Harbin.</p>
-<p>枚举排列即可。</p>
-<h2 id="i-interesting-permutation">I. Interesting Permutation</h2>
-<p>对于某个排列<script type="math/tex">P</script>，序列<script type="math/tex">h_i</script>表示排列P中第1-i个数的极差。现在给你序列h，求能组成h的排列个数。</p>
-<p>首先排除不合法的情况（<script type="math/tex">h_0!=0, h_n!=n-2, h_i < i - 1, h_i＜h_{i-1}</script> ），统计数列h变化了几次，记为x，答案的总值即乘上<script type="math/tex">2^x</script>；记一段连续的序列长度为len，开始的字符位置为y，那么这段连续序列对答案的贡献为<script type="math/tex">A_{len}^{p[y] - y + 1}</script>。对于每段连续区间求出这个值，相乘后再乘上<script type="math/tex">2^x</script>即为答案。</p>
-<h2 id="j-justifying-the-conjecture">J. Justifying the Conjecture</h2>
-<p>签到</p>
-<h2 id="h-keeping-rabbits">H. Keeping Rabbits</h2>
-<h2 id="l-lru-algorithm">L. LRU Algorithm</h2>
-<p>题意：给定一个LRU访问序列。每次询问一个寄存器大小和一段查询序列，询问给定的LRU访问序列在这个大小的寄存器中操作过程中是否会出现这一查询序列。</p>
-<p>将所有查询序列插入字典树，模拟LRU访问操作，每次操作后在字典树上查询并标记经过的所有节点，输出答案时只要查询某个查询序列的尾部节点是否被标记即可（处理一下后缀均为0的查询）。</p></div>
+<h2 id="tag">tag</h2>
+<p><code>A.几何、随机  B.暴力 C.三维几何 D.几何、暴力  E.回文串、hash F.差分数组、暴力 G.几何 H.线段树 I.费用流 J.数位dp  K.矩阵乘法、暴力 L.卷积</code></p>
+<h2 id="a-fruit-ninja">A. <a href="https://ac.nowcoder.com/acm/contest/163/A">Fruit Ninja</a></h2>
+<p>给1e4个点，求在一条直线上的点最多多少个</p>
+<p>意会一下概率问题，假如答案为x，那么就有x/n的概率取到那个答案上。当答案较小时，解法较多，答案较大时，取点到答案直线的概率较大。所以随机取点并<code>O(n)</code>check答案即可。</p>
+<h2 id="b-perfect-numbers">B. <a href="https://ac.nowcoder.com/acm/contest/163/B"> Perfect Numbers</a></h2>
+<p>略</p>
+<h2 id="d-thinking-bear-magic">D. <a href="https://ac.nowcoder.com/acm/contest/163/D">Thinking-Bear magic</a></h2>
+<p>给正多边形，输入边长a和边数l。操作为：把所有边的中点取出来依次连接形成新的正n边形，求多少次操作后多边形面积不超过l。</p>
+<p>正多边形面积可以用圆周角求出
+<script type="math/tex; mode=display">
+\frac{n*a^2}{4 * tan(pi / n)}
+</script>
+每次缩小相当于形状不变缩小a，所以算出a的比例即可，根据多边形内角和可以很轻易的写出来
+<script type="math/tex; mode=display">
+a' = a * sin^2(\frac{(n-2)*pi}{2 * n})
+</script>
+然后由于答案不会很大直接for就可以算出结果</p>
+<h2 id="f-color-it">F. <a href="https://ac.nowcoder.com/acm/contest/163/F">Color it</a></h2>
+<p>给定n×m的整点方格图，Q次操作，每次将一个圆内的整点涂黑，求最后白色点的个数。
+<script type="math/tex; mode=display">
+1 \le n, m \le 2*10^4, 1 \le q \le 200
+</script>
+显然暴力两种方式：枚举每个点是否在某个q中，或者枚举所有q中的点都是<code>O(nmq)</code>的复杂度</p>
+<p>考虑一维暴力，另一维用差分数组优化即可<code>O(nq)</code></p>
+<h2 id="j-beautiful-numbers">J. <a href="https://ac.nowcoder.com/acm/contest/163/J">Beautiful Numbers</a></h2>
+<p>求<code>1～n</code>中的美丽数的个数，当一个数可以整除它的数位和即是美丽数。</p>
+<p>显然数位dp，考虑到模数并不确定，实际上可以枚举所有数位和（<code>1e12</code>以内只有<code>1~9*12</code>这些数位和可能出现）。然后就是数位dp解<code>1～n</code>中有多少模x为0且数位和为x的数的个数即可。</p>
+<p>由于模数不同，普通的使用数位dp并且每次清空复杂度过大，由于本题数据不那么大可以考虑多存一维不清空，即：
+<script type="math/tex; mode=display">
+dp[i][j][k][t] 表示模数、和都为i时，j位数，剩余k的和，当前余数的答案
+</script>
+</p>
+<h2 id="k-matrix-multiplication">K. <a href="https://ac.nowcoder.com/acm/contest/163/K"> Matrix Multiplication</a></h2>
+<p>略</p></div>
         </div>
 
         <footer class="col-md-12">
