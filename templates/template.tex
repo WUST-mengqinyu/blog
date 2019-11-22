@@ -1,3 +1,4 @@
+
 \documentclass[twoside]{article}
 \usepackage[colorlinks,linkcolor=black]{hyperref}
 \usepackage{xeCJK}
@@ -6,23 +7,21 @@
 \usepackage{listings,xcolor}
 \usepackage{geometry}
 \usepackage{fontspec}
-\setsansfont{Monaco}
-\setmonofont[Mapping={}]{Monaco}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \lstset{
-	language    = c++,
-	breaklines  = true,
-	captionpos  = b,
-	tabsize     = 4,
-	numbers     = left,
-	columns     = fullflexible,
-	keepspaces  = true,
-	commentstyle = \color[RGB]{0,128,0},
-	keywordstyle = \color[RGB]{0,0,255},
-	basicstyle   = \small\ttfamily,
-	rulesepcolor = \color{red!20!green!20!blue!20},
-	showstringspaces = false,
+    language    = c++,
+    breaklines  = true,
+    captionpos  = b,
+    tabsize     = 4,
+    numbers     = left,
+    columns     = fullflexible,
+    keepspaces  = true,
+    commentstyle = \color[RGB]{0,128,0},
+    keywordstyle = \color[RGB]{0,0,255},
+    basicstyle   = \small\ttfamily,
+    rulesepcolor = \color{red!20!green!20!blue!20},
+    showstringspaces = false,
 }
 \title{模板之用了就秃}
 \author{So Like Coding? You Baldy}
@@ -167,6 +166,25 @@ void out2(int x, int flag = 1) {
     }
     out2(x >> 1, 0);
     putchar('0' + x % 2);
+}
+
+void print(ll x, ll y, int need) { // need 表示小数位数
+    int a[need];
+    printf("%lld.", x / y);
+    ll t = x % y;
+    for (int i = 0; i < need; i++) {
+        t *= 10;
+        a[i] = t / y;
+        t = t % y;
+    }
+    if (t * 10 / y >= 5)a[need - 1]++;
+    int i = need - 1;
+    while (a[i] == 10) {
+        a[i] = 0;
+        a[--i]++;
+    }
+    for (int i = 0; i < need; i++) putchar(a[i]);
+    putchar('\n');
 }\end{lstlisting}
 \subsection{header}
 \begin{lstlisting}
@@ -177,7 +195,15 @@ void out2(int x, int flag = 1) {
 
 #include <bits/stdc++.h>
 #define ll long long
+#define x first
+#define y second
+#define sz size()
+#define all(x) x.begin(), x.end()
 using namespace std;
+
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef vector<long long> vl;
 
 template <class T>
 inline bool scan(T &ret){
@@ -194,6 +220,7 @@ inline bool scan(T &ret){
 
 const ll mod = 1e9+7;
 const int maxn = $MAXN$;
+const int inf = 0x3f3f3f3f;
 
 ll qp(ll x, ll n) {
     ll res = 1; x %= mod;
@@ -1913,7 +1940,7 @@ void init(int n) {
 
 
 inline ll Euler(ll x) {
-    if (x <= maxn) return phi[x];
+    if (x < maxn) return phi[x];
     return 0;
 }
 
@@ -3606,6 +3633,73 @@ int stoer(int v) {
     }
     return mincut;
 }\end{lstlisting}
+\subsubsection{ZKW费用流}
+\begin{lstlisting}
+struct MCMF
+{
+    int last[maxn], dis[maxn], cnt, ans;
+    int s, t;
+    bool vis[maxn];
+    struct edge { int from, to, cap, w, op, nex; } e[500000 + 10];
+ 
+    void init(int S, int T)
+    {
+        s = S, t = T;
+        cnt = 0, ans = 0;
+        memset(vis, 0, sizeof vis);
+        memset(dis, 0, sizeof dis);
+        memset(last, 0, sizeof last);
+    }
+ 
+    void add(int u, int v, int cap, int cost)
+    {
+        e[++ cnt] = { u, v, cap, cost, cnt + 1, last[u] };
+        last[u] = cnt;
+        e[++ cnt] = { v, u, 0, -cost, cnt - 1, last[v] };
+        last[v] = cnt;
+    }
+ 
+    int dfs(int x, int maxf)
+    {
+        if(x == t || maxf == 0) return maxf;
+        int ret = 0;
+        vis[x] = 1;
+        for(int i = last[x]; i; i = e[i].nex)
+            if(e[i].cap && dis[e[i].to] + e[i].w == dis[x] && !vis[e[i].to])
+            {
+                int f = dfs(e[i].to, min(e[i].cap, maxf - ret));
+                ans += f * e[i].w;
+                e[i].cap -= f;
+                e[e[i].op].cap += f;
+                ret += f;
+                if(ret == maxf) break;
+            }
+        return ret;
+    }
+ 
+    bool change()
+    {
+        int mn = inf;
+        for(int i = 0; i <= t; i ++)
+            if(vis[i])
+                for(int j = last[i]; j; j = e[j].nex)
+                    if(!vis[e[j].to] && e[j].cap) mn = min(mn, -dis[i] + e[j].w + dis[e[j].to]);
+        if(mn == inf) return false;
+        for(int i = 0; i <= t; i ++) if(vis[i]) dis[i] += mn;
+        return true;
+    }
+ 
+    void zkw()
+    {
+        do
+        {
+            for(int i = 0; i <= t; i ++) vis[i] = 0;
+            while(dfs(s, inf)) for(int i = 0; i <= t; i ++) vis[i] = 0;
+        }
+        while(change());
+    }
+}ans;
+\end{lstlisting}
 \subsection{Others}
 \subsubsection{拓扑排序}
 \begin{lstlisting}
@@ -6986,7 +7080,7 @@ Matrix mul(Matrix a, Matrix b)
     return res;
 }
 
-Matrix pow(ll n)
+Matrix Pow(ll n)
 {
     init();
     //for(int i = 0; i < cur; i++) res.a[i][i] = 1;
@@ -7732,6 +7826,9 @@ inline char get_char() {
 \begin{lstlisting}
 // n个区间，挪到使得某个点被所有区间覆盖需要的最少步数时，选择的点是所有区间端点的中位数（mid~mid+1答案都是一样的）
 
+// 2 * n 的格子填数，使得列上的最大和最小的填充方法：最大配最小，次大配次小，以此类推
+
+// n个数，重排后使得相同位置上数不同的最大值为：如果max<=(sum - max)则为sum，如果max>(sum-max)则为2*(sum-max)
 
 // 不重叠区间贪心
 pair<int, int> a[maxn];
@@ -7855,5 +7952,122 @@ endfunc\end{lstlisting}
 \subsection{pythonoutput}
 \begin{lstlisting}
 f.write('{0} {1}\n'.format(1, 2))\end{lstlisting}
+\subsection{km}
+\begin{lstlisting}
+int n;
+int cost[maxn][maxn];
+int lx[maxn], ly[maxn], match[maxn], slack[maxn];
+int Prev[maxn];
+bool vy[maxn];
+const int INF = 0X3f3f3f3f;
+
+void augment(int root) {
+    fill(vy + 1, vy + n + 1, false);
+    fill(slack + 1, slack + n + 1, INF);
+    int py;
+    match[py = 0] = root;
+    do {
+        vy[py] = true;
+        int x = match[py], yy;
+        int delta = INF;
+        for (int y = 1; y <= n; y++) {
+            if (!vy[y]) {
+                if (lx[x] + ly[y] - cost[x][y] < slack[y])
+                    slack[y] = lx[x] + ly[y] - cost[x][y], Prev[y] = py;
+                if (slack[y] < delta) delta = slack[y], yy = y;
+            }
+        }
+        for (int y = 0; y <= n; y++) {
+            if (vy[y])
+                lx[match[y]] -= delta, ly[y] += delta;
+            else
+                slack[y] -= delta;
+        }
+        py = yy;
+    } while (match[py] != -1);
+    do {
+        int pre = Prev[py];
+        match[py] = match[pre], py = pre;
+    } while (py);
+}
+
+int KM() {
+    for (int i = 1; i <= n; i++) {
+        lx[i] = ly[i] = 0;
+        match[i] = -1;
+        for (int j = 1; j <= n; j++) lx[i] = max(lx[i], cost[i][j]);
+    }
+    int answer = 0;
+    for (int root = 1; root <= n; root++) augment(root);
+    for (int i = 1; i <= n; i++) answer += lx[i], answer += ly[i];
+    return answer;
+}\end{lstlisting}
+\subsection{ZKW费用流}
+\begin{lstlisting}
+struct MCMF
+{
+    int last[maxn], dis[maxn], cnt, ans;
+    int s, t;
+    bool vis[maxn];
+    struct edge { int from, to, cap, w, op, nex; } e[500000 + 10];
+ 
+    void init(int S, int T)
+    {
+        s = S, t = T;
+        cnt = 0, ans = 0;
+        memset(vis, 0, sizeof vis);
+        memset(dis, 0, sizeof dis);
+        memset(last, 0, sizeof last);
+    }
+ 
+    void add(int u, int v, int cap, int cost)
+    {
+        e[++ cnt] = { u, v, cap, cost, cnt + 1, last[u] };
+        last[u] = cnt;
+        e[++ cnt] = { v, u, 0, -cost, cnt - 1, last[v] };
+        last[v] = cnt;
+    }
+ 
+    int dfs(int x, int maxf)
+    {
+        if(x == t || maxf == 0) return maxf;
+        int ret = 0;
+        vis[x] = 1;
+        for(int i = last[x]; i; i = e[i].nex)
+            if(e[i].cap && dis[e[i].to] + e[i].w == dis[x] && !vis[e[i].to])
+            {
+                int f = dfs(e[i].to, min(e[i].cap, maxf - ret));
+                ans += f * e[i].w;
+                e[i].cap -= f;
+                e[e[i].op].cap += f;
+                ret += f;
+                if(ret == maxf) break;
+            }
+        return ret;
+    }
+ 
+    bool change()
+    {
+        int mn = inf;
+        for(int i = 0; i <= t; i ++)
+            if(vis[i])
+                for(int j = last[i]; j; j = e[j].nex)
+                    if(!vis[e[j].to] && e[j].cap) mn = min(mn, -dis[i] + e[j].w + dis[e[j].to]);
+        if(mn == inf) return false;
+        for(int i = 0; i <= t; i ++) if(vis[i]) dis[i] += mn;
+        return true;
+    }
+ 
+    void zkw()
+    {
+        do
+        {
+            for(int i = 0; i <= t; i ++) vis[i] = 0;
+            while(dfs(s, inf)) for(int i = 0; i <= t; i ++) vis[i] = 0;
+        }
+        while(change());
+    }
+}ans;
+\end{lstlisting}
 
 \end{document}
