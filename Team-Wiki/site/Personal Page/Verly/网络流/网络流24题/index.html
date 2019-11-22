@@ -1383,12 +1383,17 @@ int main()
 </code></pre>
 
 <h2 id="10">10.餐巾计划问题</h2>
-<p>拆点建图，$A_i$表示当天可以提供的餐巾数，$B_i$表示当天获得的餐巾数。</p>
-<p>$S$向$A_i$连边，流量为当天所需的总数x，费用为0，表示当天最多可以提供x个餐巾。</p>
-<p>$B_i$向$T$连边，流量为当天所需的总数x，费用为0，表示当天最少需要获得x个餐巾。</p>
-<p>$S$向$B_i$连边，流量为INF，费用为$P$，表示在当天购买新餐巾的花费。</p>
-<p>$A_i$向$B_{i+M}$连边，流量为INF，费用为$F$，表示在第i天经过M天的快洗可以获得餐巾。</p>
-<p>$A_i$向$B_{i+N}$连边，流量为INF，费用为$S$，表示在第i天经过N天的慢洗可以获得餐巾。</p>
+<p>拆点建图，<script type="math/tex">A_i</script>表示当天可以提供的餐巾数，<script type="math/tex">B_i</script>表示当天获得的餐巾数。</p>
+<p>
+<script type="math/tex">S</script>向<script type="math/tex">A_i</script>连边，流量为当天所需的总数x，费用为0，表示当天最多可以提供x个餐巾。</p>
+<p>
+<script type="math/tex">B_i</script>向<script type="math/tex">T</script>连边，流量为当天所需的总数x，费用为0，表示当天最少需要获得x个餐巾。</p>
+<p>
+<script type="math/tex">S</script>向<script type="math/tex">B_i</script>连边，流量为INF，费用为<script type="math/tex">P</script>，表示在当天购买新餐巾的花费。</p>
+<p>
+<script type="math/tex">A_i</script>向<script type="math/tex">B_{i+M}</script>连边，流量为INF，费用为<script type="math/tex">F</script>，表示在第i天经过M天的快洗可以获得餐巾。</p>
+<p>
+<script type="math/tex">A_i</script>向<script type="math/tex">B_{i+N}</script>连边，流量为INF，费用为<script type="math/tex">S</script>，表示在第i天经过N天的慢洗可以获得餐巾。</p>
 <p>跑费用流即可。</p>
 <pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
@@ -2429,7 +2434,7 @@ int main()
 </code></pre>
 
 <h2 id="19">19.负载平衡问题</h2>
-<p>拆点跑费用流，$S$向$A_i$连边，流量为当前点原来的大小，费用为0；$A_i$向$B_i$连边，费用为0，向$B_{i-1}$和$B_{i+1}$连边，费用为1，容量为INF;$B_i$向$T$连边，流量为目标值大小，费用为0.</p>
+<p>拆点跑费用流，<script type="math/tex">S</script>向<script type="math/tex">A_i</script>连边，流量为当前点原来的大小，费用为0；<script type="math/tex">A_i</script>向<script type="math/tex">B_i</script>连边，费用为0，向<script type="math/tex">B_{i-1}</script>和<script type="math/tex">B_{i+1}</script>连边，费用为1，容量为INF;<script type="math/tex">B_i</script>向<script type="math/tex">T</script>连边，流量为目标值大小，费用为0.</p>
 <pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
@@ -2667,7 +2672,7 @@ int main()
 </code></pre>
 
 <h2 id="21k">21.最长k可重区间集问题</h2>
-<p>拆点建图，超级源点$S$向$S1$连边，流量为$k$，费用为0，表示最多取$k$个开头的区间；$S1$向$A_i$连边，流量为1，费用为0；$A_i$向$B_i$连边，费用为该区间权值，表示取这个区间；$B_i$向所有在其右侧且与它不相交的$A_i$连边，流量为1，费用为0；$B_i$向$T$连边，流量为1，费用为0，跑$S$到$T$的费用流。</p>
+<p>拆点建图，超级源点<script type="math/tex">S</script>向<script type="math/tex">S1</script>连边，流量为<script type="math/tex">k</script>，费用为0，表示最多取<script type="math/tex">k</script>个开头的区间；<script type="math/tex">S1</script>向<script type="math/tex">A_i</script>连边，流量为1，费用为0；<script type="math/tex">A_i</script>向<script type="math/tex">B_i</script>连边，费用为该区间权值，表示取这个区间；<script type="math/tex">B_i</script>向所有在其右侧且与它不相交的<script type="math/tex">A_i</script>连边，流量为1，费用为0；<script type="math/tex">B_i</script>向<script type="math/tex">T</script>连边，流量为1，费用为0，跑<script type="math/tex">S</script>到<script type="math/tex">T</script>的费用流。</p>
 <pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
@@ -3159,6 +3164,7 @@ int main()
 
         <footer class="col-md-12">
             <hr>
+                <p>Copyright &copy;  <a href="https://wiki.verly-badcw.top" target="_blank">wiki.verly-badcw.top</a></p>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>

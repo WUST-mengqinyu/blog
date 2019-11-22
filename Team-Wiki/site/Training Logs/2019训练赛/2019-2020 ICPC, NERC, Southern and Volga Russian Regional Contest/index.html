@@ -338,7 +338,7 @@
 <p>题意：给一些区间以及区间的权值，求<code>L，R</code>使得完全包含于<code>L，R</code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
 <p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p>
 <h2 id="e-the-coronation">E. The Coronation</h2>
-<p>给定$n$个长度为$m$的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
+<p>给定<script type="math/tex">n</script>个长度为<script type="math/tex">m</script>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
 <p>2-SAT问题。</p>
 <p>设串不翻转为0，翻转为1，则对于任意两个串都有如下四种情况：</p>
 <ol>
@@ -368,6 +368,7 @@
 
         <footer class="col-md-12">
             <hr>
+                <p>Copyright &copy;  <a href="https://wiki.verly-badcw.top" target="_blank">wiki.verly-badcw.top</a></p>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>

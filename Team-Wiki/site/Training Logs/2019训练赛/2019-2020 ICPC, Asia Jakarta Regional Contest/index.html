@@ -357,14 +357,15 @@
 <p>把运算处理成2x2的矩阵，用线段树维护处理操作。</p>
 <h2 id="l-road-construction">L. Road Construction</h2>
 <p>给定一棵基环树上的边，每一条边可以被指定类的工人维修，求能使树上点联通的维修方案。</p>
-<p>如果对于边和工人一一连边，边数可能达到$NK$，考虑简化边数。</p>
-<p>对于每组边对应的类型数$M_i$，有$\sum_{i=1}^n M_i&lt;=10000$，所以让树边与工人类型数连边，并对每种类型的工人计数，连向汇点即可。</p>
-<p>对于一棵基环树，要选$n-1$条边使其联通，假设其环上有k条边，必须选择“环上的k-1条边”和“环外的所有边”。dfs求出基环树上的环，存储“环外的边”为A集合，“环上的边”为B集合。</p>
-<p>首先对起点向A集合中的点连边，判断是否全部匹配；再对起点向B集合中的点连边，判断总的流量是否$&gt;=n-1$即可。</p></div>
+<p>如果对于边和工人一一连边，边数可能达到<script type="math/tex">NK</script>，考虑简化边数。</p>
+<p>对于每组边对应的类型数<script type="math/tex">M_i</script>，有<script type="math/tex">\sum_{i=1}^n M_i<=10000</script>，所以让树边与工人类型数连边，并对每种类型的工人计数，连向汇点即可。</p>
+<p>对于一棵基环树，要选<script type="math/tex">n-1</script>条边使其联通，假设其环上有k条边，必须选择“环上的k-1条边”和“环外的所有边”。dfs求出基环树上的环，存储“环外的边”为A集合，“环上的边”为B集合。</p>
+<p>首先对起点向A集合中的点连边，判断是否全部匹配；再对起点向B集合中的点连边，判断总的流量是否<script type="math/tex">>=n-1</script>即可。</p></div>
         </div>
 
         <footer class="col-md-12">
             <hr>
+                <p>Copyright &copy;  <a href="https://wiki.verly-badcw.top" target="_blank">wiki.verly-badcw.top</a></p>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>

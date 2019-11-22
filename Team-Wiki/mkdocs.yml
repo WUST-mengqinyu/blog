@@ -13,7 +13,7 @@ markdown_extensions:
     - toc
     - fenced_code
     - smarty
-    - mdx_math
+    - mdx_math:
         enable_dollar_delimiter: True
     - footnotes
 
