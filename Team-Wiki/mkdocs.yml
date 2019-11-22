@@ -8,4 +8,13 @@ extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 markdown_extensions:
+    - extra
+    - tables
+    - toc
+    - fenced_code
+    - smarty
     - mdx_math
+        enable_dollar_delimiter: True
+    - footnotes
+
+copyright: Copyright &copy;  <a href="https://wiki.verly-badcw.top" target="_blank">wiki.verly-badcw.top</a>
