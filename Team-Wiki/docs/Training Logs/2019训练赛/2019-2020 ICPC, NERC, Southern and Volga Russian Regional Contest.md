@@ -1,8 +1,6 @@
 | Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |  N   |
 | ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest](../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest) | 2019/10/29 | 9/14 | O | O | O | . | O | O | . | O | . | O | . | O | . | O |
-
-[url](https://codeforces.com/contest/1250)
+| [2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest](https://codeforces.com/contest/1250) | 2019/10/29 | 9/14 | O | O | O | . | O | O | . | O | . | O | . | O | . | O |
 
 # Tag
 
