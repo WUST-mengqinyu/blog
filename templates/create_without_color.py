@@ -13,6 +13,7 @@ TexHead = r"""
 \usepackage{fancyhdr}
 \usepackage{amsmath, amsthm}
 \usepackage{listings,xcolor}
+\usepackage{graphics}
 \usepackage{geometry}
 \usepackage{fontspec}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
