@@ -1,496 +1,1549 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
         <link rel="canonical" href="https://wiki.verly-badcw.top/Personal Page/badcw/字符串/回文树/">
-        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../..">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+    
+    
+      
         <title>回文树 - Team Wiki</title>
-        <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-139418303-1', 'wiki.verly-badcw.top');
-            ga('send', 'pageview');
-        </script> 
-    </head>
-
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../../../..">Team Wiki</a>
-                </div>
-
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../../../..">Team Wiki</a>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personal Page <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Verly</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../Verly/">Index</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">网络流</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../Verly/网络流/cf网络流版切/">Cf网络流版切</a>
-</li>
-            
-<li >
-    <a href="../../../Verly/网络流/网络流24题/">网络流24题</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Badcw</a>
-    <ul class="dropdown-menu">
-            
-  <li class="dropdown-submenu">
-    <a href="#">Codeforces</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../Codeforces/Codeforces Round 586 (Div. 1 + Div. 2)/">Codeforces Round 586 (Div. 1 + Div. 2)</a>
-</li>
-            
-<li >
-    <a href="../../Codeforces/Codeforces Round 588 (Div. 2)/">Codeforces Round 588 (Div. 2)</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">动态规划</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../动态规划/状态压缩dp的相关问题/">状态压缩dp的相关问题</a>
-</li>
-            
-<li >
-    <a href="../../动态规划/矩阵快速幂dp/">矩阵快速幂</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">字符串</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../kmp/">Kmp</a>
-</li>
-            
-<li class="active">
-    <a href="./">回文树</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Training Logs <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">2019 Multi University Training Contest</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 1/">2019 Multi University Training Contest 1</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 2/">2019 Multi-University Training Contest 2</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 3/">2019 Multi University Training Contest 3</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">2019CCPC分站赛</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../../Training Logs/2019CCPC分站赛/2019 China Collegiate Programming Contest Qinhuangdao Onsite/">2019 China Collegiate Programming Contest Qinhuangdao Onsite</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">2019ICPC区域赛</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../../Training Logs/2019ICPC区域赛/2019 ICPC Asia Nanjing Regional Contest/">2019 ICPC Asia Nanjing Regional Contest</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">2019牛客暑期多校训练营</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第一场）/">2019牛客暑期多校训练营（第一场）</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第七场）/">2019牛客暑期多校训练营（第七场）</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第三场）/">2019牛客暑期多校训练营（第三场）</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第二场）/">2019牛客暑期多校训练营（第二场）</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第五场）/">2019牛客暑期多校训练营（第五场）</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第四场）/">2019牛客暑期多校训练营（第四场）</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">2019网络预选赛</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shanghai 2019/">The Preliminary Contest for ICPC Asia Shanghai 2019</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shenyang 2019/">The Preliminary Contest for ICPC Asia Shenyang 2019</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">2019训练赛</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest/">2017 2018 ACM ICPC, NEERC, Northern Subregional Contest</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/2018 ACM 国际大学生程序设计竞赛上海大都会赛/">2018 ACM 国际大学生程序设计竞赛上海大都会赛</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/2018 China Collegiate Programming Contest Final (CCPC-Final 2018)/">2018 China Collegiate Programming Contest Final (CCPC Final 2018)</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/2018-2019 ACM-ICPC, Asia East Continent Finals/">2018 2019 ACM ICPC, Asia East Continent Finals</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/2019-2020 ICPC, Asia Jakarta Regional Contest/">2019 2020 ICPC, Asia Jakarta Regional Contest</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Northern Eurasia Finals/">2019 2020 ICPC, NERC, Northern Eurasia Finals</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest/">2019 2020 ICPC, NERC, Southern and Volga Russian Regional Contest</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/The 13th Chinese Northeast Collegiate Programming Contest/">The 13th Chinese Northeast Collegiate Programming Contest</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/The 2018 ACM-ICPC Asia Beijing Regional Contest/">The 2018 ACM ICPC Asia Beijing Regional Contest</a>
-</li>
-            
-<li >
-    <a href="../../../../Training Logs/2019训练赛/The 2019 China Collegiate Programming Contest Harbin Site/">The 2019 China Collegiate Programming Contest Harbin Site</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../kmp/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 1/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.82a18eb7.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-139418303-1", "wiki.verly-badcw.top")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">cloud</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Team Wiki
+            </span>
+            <span class="md-header-nav__topic">
+              
+                回文树
+              
+            </span>
+          
         </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#_1">回文树</a></li>
-            <li><a href="#_2">算法简述</a></li>
-            <li><a href="#_3">算法实现</a></li>
-            <li><a href="#_4">复杂度证明</a></li>
-            <li><a href="#_5">例题</a></li>
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link">
+        Team Wiki
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Verly/" class="md-tabs__link">
+          Personal Page
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 1/" class="md-tabs__link">
+          Training Logs
+        </a>
+      
+    </li>
+  
+
+  
+
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-nav__button md-logo">
+      
+        <i class="md-icon">cloud</i>
+      
+    </a>
+    Team Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
 
-<h2 id="_1">回文树</h2>
-<h3 id="_2">算法简述</h3>
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Team Wiki" class="md-nav__link">
+      Team Wiki
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Personal Page
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Personal Page
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Verly
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Verly
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Verly/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2">
+    
+    <label class="md-nav__link" for="nav-2-1-2">
+      网络流
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-2">
+        网络流
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Verly/网络流/cf网络流版切/" title="Cf网络流版切" class="md-nav__link">
+      Cf网络流版切
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Verly/网络流/网络流24题/" title="网络流24题" class="md-nav__link">
+      网络流24题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Badcw
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Badcw
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-1" type="checkbox" id="nav-2-2-1">
+    
+    <label class="md-nav__link" for="nav-2-2-1">
+      Codeforces
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-2-1">
+        Codeforces
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Codeforces/Codeforces Round 586 (Div. 1 + Div. 2)/" title="Codeforces Round 586 (Div. 1 + Div. 2)" class="md-nav__link">
+      Codeforces Round 586 (Div. 1 + Div. 2)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Codeforces/Codeforces Round 588 (Div. 2)/" title="Codeforces Round 588 (Div. 2)" class="md-nav__link">
+      Codeforces Round 588 (Div. 2)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-2" type="checkbox" id="nav-2-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2-2">
+      动态规划
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-2-2">
+        动态规划
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../动态规划/状态压缩dp的相关问题/" title="状态压缩dp的相关问题" class="md-nav__link">
+      状态压缩dp的相关问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../动态规划/矩阵快速幂dp/" title="矩阵快速幂" class="md-nav__link">
+      矩阵快速幂
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-3" type="checkbox" id="nav-2-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-2-3">
+      字符串
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-2-3">
+        字符串
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kmp/" title="Kmp" class="md-nav__link">
+      Kmp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        回文树
+      </label>
+    
+    <a href="./" title="回文树" class="md-nav__link md-nav__link--active">
+      回文树
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    回文树
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    算法简述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复杂度证明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    例题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-palisection" class="md-nav__link">
+    A - Palisection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-palindromes-and-super-abilities" class="md-nav__link">
+    B - Palindromes and Super Abilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-ca-loves-palindromic" class="md-nav__link">
+    C - CA Loves Palindromic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-" class="md-nav__link">
+    D - 回文串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-trie-in-tina-town" class="md-nav__link">
+    E - Trie in Tina Town
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-" class="md-nav__link">
+    F - 最长双回文串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-" class="md-nav__link">
+    G - 拉拉队排练
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-harry-and-magic-string" class="md-nav__link">
+    H - Harry and magic string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-victor-and-string" class="md-nav__link">
+    I - Victor and String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-the-problem-to-slow-down-you" class="md-nav__link">
+    J - The Problem to Slow Down You
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-virus-synthesis" class="md-nav__link">
+    K - Virus synthesis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-palindromic-substring" class="md-nav__link">
+    L - Palindromic Substring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m-contest-page" class="md-nav__link">
+    M - Contest Page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n-palindromes-and-super-abilities-2" class="md-nav__link">
+    N - Palindromes and Super Abilities 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Training Logs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Training Logs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      2019 Multi University Training Contest
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        2019 Multi University Training Contest
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 1/" title="2019 Multi University Training Contest 1" class="md-nav__link">
+      2019 Multi University Training Contest 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 2/" title="2019 Multi-University Training Contest 2" class="md-nav__link">
+      2019 Multi-University Training Contest 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 3/" title="2019 Multi University Training Contest 3" class="md-nav__link">
+      2019 Multi University Training Contest 3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      2019CCPC分站赛
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        2019CCPC分站赛
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019CCPC分站赛/2019 China Collegiate Programming Contest Qinhuangdao Onsite/" title="2019 China Collegiate Programming Contest Qinhuangdao Onsite" class="md-nav__link">
+      2019 China Collegiate Programming Contest Qinhuangdao Onsite
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      2019ICPC区域赛
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        2019ICPC区域赛
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019ICPC区域赛/2019 ICPC Asia Nanjing Regional Contest/" title="2019 ICPC Asia Nanjing Regional Contest" class="md-nav__link">
+      2019 ICPC Asia Nanjing Regional Contest
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      2019牛客暑期多校训练营
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        2019牛客暑期多校训练营
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第一场）/" title="2019牛客暑期多校训练营（第一场）" class="md-nav__link">
+      2019牛客暑期多校训练营（第一场）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第七场）/" title="2019牛客暑期多校训练营（第七场）" class="md-nav__link">
+      2019牛客暑期多校训练营（第七场）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第三场）/" title="2019牛客暑期多校训练营（第三场）" class="md-nav__link">
+      2019牛客暑期多校训练营（第三场）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第二场）/" title="2019牛客暑期多校训练营（第二场）" class="md-nav__link">
+      2019牛客暑期多校训练营（第二场）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第五场）/" title="2019牛客暑期多校训练营（第五场）" class="md-nav__link">
+      2019牛客暑期多校训练营（第五场）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第四场）/" title="2019牛客暑期多校训练营（第四场）" class="md-nav__link">
+      2019牛客暑期多校训练营（第四场）
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      2019网络预选赛
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        2019网络预选赛
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shanghai 2019/" title="The Preliminary Contest for ICPC Asia Shanghai 2019" class="md-nav__link">
+      The Preliminary Contest for ICPC Asia Shanghai 2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shenyang 2019/" title="The Preliminary Contest for ICPC Asia Shenyang 2019" class="md-nav__link">
+      The Preliminary Contest for ICPC Asia Shenyang 2019
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      2019训练赛
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        2019训练赛
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest/" title="2017 2018 ACM ICPC, NEERC, Northern Subregional Contest" class="md-nav__link">
+      2017 2018 ACM ICPC, NEERC, Northern Subregional Contest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/2018 ACM 国际大学生程序设计竞赛上海大都会赛/" title="2018 ACM 国际大学生程序设计竞赛上海大都会赛" class="md-nav__link">
+      2018 ACM 国际大学生程序设计竞赛上海大都会赛
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/2018 China Collegiate Programming Contest Final (CCPC-Final 2018)/" title="2018 China Collegiate Programming Contest Final (CCPC Final 2018)" class="md-nav__link">
+      2018 China Collegiate Programming Contest Final (CCPC Final 2018)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/2018-2019 ACM-ICPC, Asia East Continent Finals/" title="2018 2019 ACM ICPC, Asia East Continent Finals" class="md-nav__link">
+      2018 2019 ACM ICPC, Asia East Continent Finals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/2019-2020 ICPC, Asia Jakarta Regional Contest/" title="2019 2020 ICPC, Asia Jakarta Regional Contest" class="md-nav__link">
+      2019 2020 ICPC, Asia Jakarta Regional Contest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Northern Eurasia Finals/" title="2019 2020 ICPC, NERC, Northern Eurasia Finals" class="md-nav__link">
+      2019 2020 ICPC, NERC, Northern Eurasia Finals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest/" title="2019 2020 ICPC, NERC, Southern and Volga Russian Regional Contest" class="md-nav__link">
+      2019 2020 ICPC, NERC, Southern and Volga Russian Regional Contest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/The 13th Chinese Northeast Collegiate Programming Contest/" title="The 13th Chinese Northeast Collegiate Programming Contest" class="md-nav__link">
+      The 13th Chinese Northeast Collegiate Programming Contest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/The 2018 ACM-ICPC Asia Beijing Regional Contest/" title="The 2018 ACM ICPC Asia Beijing Regional Contest" class="md-nav__link">
+      The 2018 ACM ICPC Asia Beijing Regional Contest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Training Logs/2019训练赛/The 2019 China Collegiate Programming Contest Harbin Site/" title="The 2019 China Collegiate Programming Contest Harbin Site" class="md-nav__link">
+      The 2019 China Collegiate Programming Contest Harbin Site
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    回文树
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    算法简述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复杂度证明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    例题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-palisection" class="md-nav__link">
+    A - Palisection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-palindromes-and-super-abilities" class="md-nav__link">
+    B - Palindromes and Super Abilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-ca-loves-palindromic" class="md-nav__link">
+    C - CA Loves Palindromic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-" class="md-nav__link">
+    D - 回文串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-trie-in-tina-town" class="md-nav__link">
+    E - Trie in Tina Town
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-" class="md-nav__link">
+    F - 最长双回文串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-" class="md-nav__link">
+    G - 拉拉队排练
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-harry-and-magic-string" class="md-nav__link">
+    H - Harry and magic string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-victor-and-string" class="md-nav__link">
+    I - Victor and String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-the-problem-to-slow-down-you" class="md-nav__link">
+    J - The Problem to Slow Down You
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-virus-synthesis" class="md-nav__link">
+    K - Virus synthesis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-palindromic-substring" class="md-nav__link">
+    L - Palindromic Substring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m-contest-page" class="md-nav__link">
+    M - Contest Page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n-palindromes-and-super-abilities-2" class="md-nav__link">
+    N - Palindromes and Super Abilities 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>回文树</h1>
+                
+                <h2 id="_1">回文树<a class="headerlink" href="#_1" title="Permanent link">Link</a></h2>
+<h3 id="_2">算法简述<a class="headerlink" href="#_2" title="Permanent link">Link</a></h3>
 <p>利用fail指针线性地解决一切回文串计数问题。</p>
 <p>别称：回文自动机、PAM</p>
 <p>是可以完全替代Maracher算法的上位算法，除了空间复杂度均优于Maracher算法。</p>
-<h3 id="_3">算法实现</h3>
+<h3 id="_3">算法实现<a class="headerlink" href="#_3" title="Permanent link">Link</a></h3>
 <p>基础需要的数组如下</p>
-<pre><code class="cpp">int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符成，N为字符集大小
-int fail[maxn]{};//fail指针，失配后跳转到fail指针指向的节点
-int num[maxn]{}; //表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数
-int len[maxn]{};//len[i]表示节点i表示的回文串的长度（一个节点表示一个回文串）
-int S[maxn]{};//存放添加的字符
-int last{};//指向新添加一个字母后所形成的最长回文串表示的节点。
-int n{};//表示添加的字符个数。
-int p{};//表示添加的节点个数。
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">next</span><span class="p">[</span><span class="n">maxn</span><span class="p">][</span><span class="n">N</span><span class="p">];</span><span class="c1">//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符成，N为字符集大小</span>
+<span class="kt">int</span> <span class="n">fail</span><span class="p">[</span><span class="n">maxn</span><span class="p">]{};</span><span class="c1">//fail指针，失配后跳转到fail指针指向的节点</span>
+<span class="kt">int</span> <span class="n">num</span><span class="p">[</span><span class="n">maxn</span><span class="p">]{};</span> <span class="c1">//表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数</span>
+<span class="kt">int</span> <span class="n">len</span><span class="p">[</span><span class="n">maxn</span><span class="p">]{};</span><span class="c1">//len[i]表示节点i表示的回文串的长度（一个节点表示一个回文串）</span>
+<span class="kt">int</span> <span class="n">S</span><span class="p">[</span><span class="n">maxn</span><span class="p">]{};</span><span class="c1">//存放添加的字符</span>
+<span class="kt">int</span> <span class="n">last</span><span class="p">{};</span><span class="c1">//指向新添加一个字母后所形成的最长回文串表示的节点。</span>
+<span class="kt">int</span> <span class="n">n</span><span class="p">{};</span><span class="c1">//表示添加的字符个数。</span>
+<span class="kt">int</span> <span class="n">p</span><span class="p">{};</span><span class="c1">//表示添加的节点个数。</span>
+</pre></div>
 
 <p>回文树每个节点都代表一个本质不同回文串，其中0节点表示空长回文串，1表示奇数空长回文串没有实际意义。</p>
 <p>在回文树中增加新节点</p>
-<pre><code class="cpp">int newnode(int l) {//新建节点
-    for (int i = 0; i &lt; N; ++i) next[p][i] = 0;
-    cnt[p] = 0;
-    num[p] = 0;
-    len[p] = l;
-    return p++;
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">newnode</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">)</span> <span class="p">{</span><span class="c1">//新建节点</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">next</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">num</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">len</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>初始化回文树</p>
-<pre><code class="cpp">void init() {//初始化
-    p = 0;
-    newnode(0); // 偶数空串
-    newnode(-1); // 奇数空串
-    last = 0;
-    n = 0;
-    S[n] = -1;//开头放一个字符集中没有的字符，减少特判
-    fail[0] = 1; // 偶数空串的fail指针指向奇数空串
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span><span class="c1">//初始化</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">newnode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// 偶数空串</span>
+    <span class="n">newnode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 奇数空串</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">S</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="c1">//开头放一个字符集中没有的字符，减少特判</span>
+    <span class="n">fail</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 偶数空串的fail指针指向奇数空串</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>获取失配fail指针</p>
-<pre><code class="cpp">int get_fail(int x) {//和KMP一样，失配后找一个尽量最长的
-    while (S[n - len[x] - 1] != S[n]) x = fail[x];
-    return x;
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">get_fail</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="c1">//和KMP一样，失配后找一个尽量最长的</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">len</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">S</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="n">x</span> <span class="o">=</span> <span class="n">fail</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>往回文串中添加一个字符</p>
-<pre><code class="cpp">void add(int c) {
-    S[++n] = c;
-    int cur = get_fail(last);//通过上一个回文串找这个回文串的匹配位置
-    if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
-        int now = newnode(len[cur] + 2);//新建节点
-        fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以失配后跳转
-        next[cur][c] = now;
-        num[now] = num[fail[now]] + 1;
-    }
-    last = next[cur][c]; // last指针表示当前新增回文串的位置
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="p">[</span><span class="o">++</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">get_fail</span><span class="p">(</span><span class="n">last</span><span class="p">);</span><span class="c1">//通过上一个回文串找这个回文串的匹配位置</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">next</span><span class="p">[</span><span class="n">cur</span><span class="p">][</span><span class="n">c</span><span class="p">])</span> <span class="p">{</span><span class="c1">//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串</span>
+        <span class="kt">int</span> <span class="n">now</span> <span class="o">=</span> <span class="n">newnode</span><span class="p">(</span><span class="n">len</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span><span class="c1">//新建节点</span>
+        <span class="n">fail</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">get_fail</span><span class="p">(</span><span class="n">fail</span><span class="p">[</span><span class="n">cur</span><span class="p">])][</span><span class="n">c</span><span class="p">];</span><span class="c1">//和AC自动机一样建立fail指针，以失配后跳转</span>
+        <span class="n">next</span><span class="p">[</span><span class="n">cur</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span><span class="p">;</span>
+        <span class="n">num</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">fail</span><span class="p">[</span><span class="n">now</span><span class="p">]]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">cur</span><span class="p">][</span><span class="n">c</span><span class="p">];</span> <span class="c1">// last指针表示当前新增回文串的位置</span>
+<span class="p">}</span>
+</pre></div>
 
-<h3 id="_4">复杂度证明</h3>
-<p>对于一个长度为n的串，最长回文串长度不超过n，最多本质不同回文串个数不超过n，相同回文串个数不超过n，整个算法类似kmp匹配的失配运算，时间复杂度<code>O(n)</code>，空间复杂度<code>O(n*字符集大小)</code></p>
-<h3 id="_5">例题</h3>
+<h3 id="_4">复杂度证明<a class="headerlink" href="#_4" title="Permanent link">Link</a></h3>
+<p>对于一个长度为n的串，最长回文串长度不超过n，最多本质不同回文串个数不超过n，相同回文串个数不超过n，整个算法类似kmp匹配的失配运算，时间复杂度<code class="codehilite"><span class="err">O(n)</span></code>，空间复杂度<code class="codehilite"><span class="err">O(n*字符集大小)</span></code></p>
+<h3 id="_5">例题<a class="headerlink" href="#_5" title="Permanent link">Link</a></h3>
 <p><a href="https://vjudge.net/contest/292544">https://vjudge.net/contest/292544</a></p>
-<h4 id="a-palisection">A - Palisection</h4>
+<h4 id="a-palisection">A - Palisection<a class="headerlink" href="#a-palisection" title="Permanent link">Link</a></h4>
 <p>题意：求一个串所有回文子串两两相交的对数</p>
-<p>题解：正向建立回文树，保存以每个点为结尾的回文串个数<code>a</code>，再反向建立回文树保存后缀回文串个数<code>b</code>，则总数为<script type="math/tex">sum*(sum-1)/2 - \sum {a_i * b_{i+1}} </script>，注意此题卡了回文树内存，需要一些奇技淫巧用时间换取空间。</p>
+<p>题解：正向建立回文树，保存以每个点为结尾的回文串个数<code class="codehilite"><span class="err">a</span></code>，再反向建立回文树保存后缀回文串个数<code class="codehilite"><span class="err">b</span></code>，则总数为<span><span class="MathJax_Preview">sum*(sum-1)/2 - \sum {a_i * b_{i+1}} </span><script type="math/tex">sum*(sum-1)/2 - \sum {a_i * b_{i+1}} </script></span>，注意此题卡了回文树内存，需要一些奇技淫巧用时间换取空间。</p>
 <p>使用vector保存next数组以简化空间，first是字符，second是值即可。</p>
-<pre><code class="cpp">vector&lt;pair&lt;int, int&gt; &gt; next[maxn];
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">next</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+</pre></div>
 
 <p>各种操作都会变得复杂一些但是总体时间复杂度算满也就是多了个字符集的常数。</p>
-<h4 id="b-palindromes-and-super-abilities">B - Palindromes and Super Abilities</h4>
+<h4 id="b-palindromes-and-super-abilities">B - Palindromes and Super Abilities<a class="headerlink" href="#b-palindromes-and-super-abilities" title="Permanent link">Link</a></h4>
 <p>题意：求前缀不同回文子串个数</p>
 <p>题解：直接建立回文树的过程中输出p-2即可</p>
-<h4 id="c-ca-loves-palindromic">C - CA Loves Palindromic</h4>
+<h4 id="c-ca-loves-palindromic">C - CA Loves Palindromic<a class="headerlink" href="#c-ca-loves-palindromic" title="Permanent link">Link</a></h4>
 <p>题意：求区间本质不同回文子串个数</p>
 <p>题解：串长1000，对所有的子串建立回文树保存p-2，对询问直接输出答案。</p>
-<h4 id="d-">D - 回文串</h4>
+<h4 id="d-">D - 回文串<a class="headerlink" href="#d-" title="Permanent link">Link</a></h4>
 <p>题意：求某种回文子串长度×出现次数的最大值。</p>
 <p>题解：建立回文树后对p-2个节点计算len×cnt的最大值。</p>
-<h4 id="e-trie-in-tina-town">E - Trie in Tina Town</h4>
+<h4 id="e-trie-in-tina-town">E - Trie in Tina Town<a class="headerlink" href="#e-trie-in-tina-town" title="Permanent link">Link</a></h4>
 <p>题意：给一棵trie，求从某个点到它某个子节点为回文串的长度和。</p>
 <p>题解：dfs时带回退的建立回文树，问题转换为带修（popback和pushback）的求一个串的回文串长度×出现次数的和。这个问题只需要把last改为数组，对每个长度建立不同的last，然后动态的统计所有len的和即可。</p>
-<h4 id="f-">F - 最长双回文串</h4>
-<p>题意：给串s，求x，y都为回文串且x+y为s的子串中<code>len(x+y)</code>的最大值</p>
+<h4 id="f-">F - 最长双回文串<a class="headerlink" href="#f-" title="Permanent link">Link</a></h4>
+<p>题意：给串s，求x，y都为回文串且x+y为s的子串中<code class="codehilite"><span class="err">len(x+y)</span></code>的最大值</p>
 <p>题解：正反建立回文树求和</p>
-<h4 id="g-">G - 拉拉队排练</h4>
+<h4 id="g-">G - 拉拉队排练<a class="headerlink" href="#g-" title="Permanent link">Link</a></h4>
 <p>题意：求前m长的回文子串的长度积。</p>
 <p>题解：求出所有非重回文子串及数量、长度。保存到数组最多只有最长回文子串的长度n项。</p>
-<h4 id="h-harry-and-magic-string">H - Harry and magic string</h4>
+<h4 id="h-harry-and-magic-string">H - Harry and magic string<a class="headerlink" href="#h-harry-and-magic-string" title="Permanent link">Link</a></h4>
 <p>题意：给串s，求两个不相交子回文串的对数。</p>
 <p>题解：正反建立回文树求前后缀，积和即可。</p>
-<h4 id="i-victor-and-string">I - Victor and String</h4>
+<h4 id="i-victor-and-string">I - Victor and String<a class="headerlink" href="#i-victor-and-string" title="Permanent link">Link</a></h4>
 <p>题意：首先是一个空串s，m次操作，操作有以下四种
     - 1、pushback
     - 2、pushfront
     - 3、求本质不同回文子串个数
     - 4、求回文子串个数</p>
 <p>题解：写一个支持前后插的回文树就可以了，具体方法类似树上回文树那题，建立两个last，分别表示前缀链和后缀链，让插入操作都变成一般的add，需要注意的是当当前整个串为回文串时会导致两个last翻转，需要把某一个调回原点。</p>
-<h4 id="j-the-problem-to-slow-down-you">J - The Problem to Slow Down You</h4>
+<h4 id="j-the-problem-to-slow-down-you">J - The Problem to Slow Down You<a class="headerlink" href="#j-the-problem-to-slow-down-you" title="Permanent link">Link</a></h4>
 <p>题意：给两个串，求其中相同回文子串的长度和。</p>
 <p>题解：首先回文树本质仍然是自动机，所以满足trie树的性质，对于两个串来说他们的相同回文子串必然是同构的部分trie树。所以直接dfs遍历trie树将相同节点的cnt积和即可。</p>
-<h4 id="k-virus-synthesis">K - Virus synthesis</h4>
+<h4 id="k-virus-synthesis">K - Virus synthesis<a class="headerlink" href="#k-virus-synthesis" title="Permanent link">Link</a></h4>
 <p>题意：给一个串s，求从空串开始，可以pushback或pushfront一个字符或者将当前串左复制翻转或右复制翻转，得到当前串至少需要多少步。</p>
 <p>题解：不会写</p>
-<h4 id="l-palindromic-substring">L - Palindromic Substring</h4>
-<h4 id="m-contest-page">M - Contest Page</h4>
-<h4 id="n-palindromes-and-super-abilities-2">N - Palindromes and Super Abilities 2</h4></div>
-        </div>
+<h4 id="l-palindromic-substring">L - Palindromic Substring<a class="headerlink" href="#l-palindromic-substring" title="Permanent link">Link</a></h4>
+<h4 id="m-contest-page">M - Contest Page<a class="headerlink" href="#m-contest-page" title="Permanent link">Link</a></h4>
+<h4 id="n-palindromes-and-super-abilities-2">N - Palindromes and Super Abilities 2<a class="headerlink" href="#n-palindromes-and-super-abilities-2" title="Permanent link">Link</a></h4>
+                
+                  
+                
+              
+              
+                
 
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy;  <a href="https://wiki.verly-badcw.top" target="_blank">wiki.verly-badcw.top</a></p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../../../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../../../js/base.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-        <script src="../../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+              
+            </article>
+          </div>
         </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../kmp/" title="Kmp" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Kmp
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../../Training Logs/2019 Multi-University Training Contest/2019 Multi-University Training Contest 1/" title="2019 Multi University Training Contest 1" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                2019 Multi University Training Contest 1
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy;  <a href="https://wiki.verly-badcw.top" target="_blank">wiki.verly-badcw.top</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
     </div>
-</div>
-
-    </body>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.d151b584.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../../search/main.js"></script>
+      
+    
+  </body>
 </html>
