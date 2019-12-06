@@ -22,6 +22,7 @@
 | Name                                                         | Date       | Rank             | Solved | A    | B    | C    | D    | E    | F    | G    | H    | I    | J    | K    | L    | M    |
 | ------------------------------------------------------------ | ---------- | ---------------- | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | The 2019 ICPC Asia Shanghai Regional Contest                 | 2019/11/24 | Silver(Rank:41)  | 5      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| [第五届中国大学生程序设计竞赛总决赛](../Training Logs/2019CCPC分站赛/第五届中国大学生程序设计竞赛总决赛) | 2019/11/17 | Iron(Rank:76)    | 3/12   | O    | .    | .    | .    | .    | .    | .    | .    | .    | .    | O    | O    |      |
 | [2019 ICPC Asia Nanjing Regional Contest](../Training Logs/2019ICPC区域赛/2019 ICPC Asia Nanjing Regional Contest) | 2019/10/27 | Brozen(Rank:131) | 4      | O    | .    | O    | .    | .    | O    | .    | Ø    | .    | Ø    | O    |      |      |
 | 2019 CCPC,Xiamen Site                                        | 2019/10/20 | Silver(Rank:48)  | 5      |      |      |      |      |      |      |      |      |      |      |      |      |      |
 
