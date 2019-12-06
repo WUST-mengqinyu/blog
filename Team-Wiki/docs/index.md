@@ -13,9 +13,9 @@
 
 ## TODO List
 
-- [ ] CCPC Final 2018 GIKL
-
-
+- [ ] [ 2019 ICPC Asia Xuzhou Regional](https://www.jisuanke.com/contest/5529) 2019/12/7
+- [ ] [ 2019 ICPC Asia Nanchang Regional](https://www.jisuanke.com/contest/5530) 2019/12/8
+- [x] ~~CCPC Final 2018 GIKL~~
 
 ## Onsite
 
@@ -33,6 +33,7 @@
 | ------------------------------------------------------------ | --------- | ------ |
 | [2019-2020 ICPC, NERC, Northern Eurasia Finals ](../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Northern Eurasia Finals) | 2019/12/1 | 7/12 |
 | [2018 ACM 国际大学生程序设计竞赛上海大都会赛](../Training Logs/2019训练赛/2018 ACM 国际大学生程序设计竞赛上海大都会赛) | 2019/11/20 | 6/12 |
+| [2018 China Collegiate Programming Contest Final (CCPC-Final 2018)](../Training Logs/2019训练赛/2018 China Collegiate Programming Contest Final (CCPC-Final 2018)) | 2019/11/11 | 6/12 |
 | [The 2019 China Collegiate Programming Contest Harbin Site](../Training Logs/2019训练赛/The 2019 China Collegiate Programming Contest Harbin Site) | 2019/11/2 | 7/12 |
 | [2019-2020 ICPC, Asia Jakarta Regional Contest](../Training Logs/2019训练赛/2019-2020 ICPC, Asia Jakarta Regional Contest) | 2019/10/31 | 9/12 |
 | [2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest](../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest) | 2019/10/28 | 9/14 |
