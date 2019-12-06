@@ -20,11 +20,12 @@
 ## Onsite
 
 | Name                                                         | Date       | Rank             | Solved |
-| ------------------------------------------------------------ | ---------- | ---------------- |
+| ------------------------------------------------------------ | ---------- | ---------------- | ------ |
 | The 2019 ICPC Asia Shanghai Regional Contest                 | 2019/11/24 | Silver(Rank:41)  | 5      |
 | [第五届中国大学生程序设计竞赛总决赛](../Training Logs/2019CCPC分站赛/第五届中国大学生程序设计竞赛总决赛) | 2019/11/17 | Iron(Rank:76)    | 3/12   |
 | [2019 ICPC Asia Nanjing Regional Contest](../Training Logs/2019ICPC区域赛/2019 ICPC Asia Nanjing Regional Contest) | 2019/10/27 | Brozen(Rank:131) | 4      |
 | 2019 CCPC,Xiamen Site                                        | 2019/10/20 | Silver(Rank:48)  | 5      |
+
 
 ## Training Logs
 
@@ -36,7 +37,7 @@
 | [2019-2020 ICPC, Asia Jakarta Regional Contest](../Training Logs/2019训练赛/2019-2020 ICPC, Asia Jakarta Regional Contest) | 2019/10/31 | 9/12 |
 | [2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest](../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest) | 2019/10/28 | 9/14 |
 | [2018-2019 ACM-ICPC, Asia East Continent Finals](../Training Logs/2019训练赛/2018-2019 ACM-ICPC, Asia East Continent Finals) | 2019/10/12 | 6/12 |
-| [The 2018 ACM-ICPC Asia Beijing Regional Contest](../Training Logs/2019训练赛/The 2018 ACM-ICPC Asia Beijing Regional Contest) | 2019/10/11 |
+| [The 2018 ACM-ICPC Asia Beijing Regional Contest](../Training Logs/2019训练赛/The 2018 ACM-ICPC Asia Beijing Regional Contest) | 2019/10/11 |5/12|
 | [2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest](../Training Logs/2019训练赛/2017-2018 ACM-ICPC, NEERC, Northern Subregional Contest) | 2019/10/8 | 10/12 |
 | [2019 China Collegiate Programming Contest Qinhuangdao Onsite](../Training Logs/2019CCPC区域赛/2019 China Collegiate Programming Contest Qinhuangdao Onsite) | 2019/9/28 | 7/12 |
 | [The 13th Chinese Northeast Collegiate Programming Contest](../Training Logs/2019训练赛/The 13th Chinese Northeast Collegiate Programming Contest) | 2019/9/25 | 7/10 |
