@@ -56,5 +56,6 @@ markdown_extensions:
     - pymdownx.tasklist:
         custom_checkbox: true
     - pymdownx.tilde
+    - pymdownx.progressbar
 
 copyright: Copyright &copy;  <a href="https://wiki.verly-badcw.top" target="_blank">wiki.verly-badcw.top</a>
