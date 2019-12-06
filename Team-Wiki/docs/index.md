@@ -13,7 +13,7 @@
 
 ## TODO List
 
-- [x] 
+- [.] CCPC Final 2018 GIKL
 
 
 
