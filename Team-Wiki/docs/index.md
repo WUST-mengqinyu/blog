@@ -9,6 +9,14 @@
 
 **DashBoard**: [Team DashBoard](http://www.weaselcrow.com/pro/cf/team/?h=badcw;Verly)
 
+
+
+## TODO List
+
+- [x] 
+
+
+
 ## Onsite
 
 | Name                                                         | Date       | Rank             | Solved | A    | B    | C    | D    | E    | F    | G    | H    | I    | J    | K    | L    | M    |
