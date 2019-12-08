@@ -945,6 +945,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#g-pastoral-life-in-stardew-valley" class="md-nav__link">
+    G. Pastoral Life in Stardew Valley
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-cockroaches" class="md-nav__link">
+    I. Cockroaches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-mr-panda-and-kakin" class="md-nav__link">
+    K. Mr. Panda and Kakin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l-ultra-weak-goldbachs-conjecture" class="md-nav__link">
+    L. Ultra Weak Goldbach's Conjecture
+  </a>
+  
+</li>
+      
       
       
       
@@ -1082,6 +1110,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#g-pastoral-life-in-stardew-valley" class="md-nav__link">
+    G. Pastoral Life in Stardew Valley
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-cockroaches" class="md-nav__link">
+    I. Cockroaches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-mr-panda-and-kakin" class="md-nav__link">
+    K. Mr. Panda and Kakin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l-ultra-weak-goldbachs-conjecture" class="md-nav__link">
+    L. Ultra Weak Goldbach's Conjecture
+  </a>
+  
+</li>
+      
       
       
       
@@ -1119,8 +1175,6 @@
 <th align="center">J</th>
 <th align="center">K</th>
 <th align="center">L</th>
-<th align="center">M</th>
-<th>N</th>
 </tr>
 </thead>
 <tbody>
@@ -1140,8 +1194,6 @@
 <td align="center">.</td>
 <td align="center">O</td>
 <td align="center">O</td>
-<td align="center"></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1150,7 +1202,23 @@
 <h2 id="b-balance-of-the-force">B. Balance of the Force<a class="headerlink" href="#b-balance-of-the-force" title="Permanent link">Link</a></h2>
 <p>给一系列点黑白染色，染成黑色/白色可以使这个点得到相应的权值，对其中的一些点连边，连边的两个点颜色不能相同，要使染色后所有点权值的极差最小，求这个极差。</p>
 <p>2-SAT判断是否存在解，其中每一个联通块的染色方案是确定的（求出一个染色方案后只能不变或全部翻转）。问题转化为有k个点，每个点需要在(min1,max1)/(min2,max2)中选择一种，如何选择使极差最小。</p>
-<p>令min1&lt;min2，考虑将每个点对min的较小值放入set A，在set B中放入k个min(max1,max2)，当经过某个点时计算与B中最大值的差，更新答案。如果当前扫到的点是min1，在setA中删除min1,插入min2，如果max1&lt;max2，在setB中删除max1,插入max2。如果当前A集合首部是min2，说明再向右无法取满k个点</p>
+<p>令min1&lt;min2，考虑将每个点对min的较小值放入set A，在set B中放入k个min(max1,max2)，当经过某个点时计算与B中最大值的差，更新答案。如果当前扫到的点是min1，在setA中删除min1,插入min2，如果max1&lt;max2，在setB中删除max1,插入max2。如果当前A集合首部是min2，说明再向右无法取满k个点，处理即可得到最大值</p>
+<h2 id="g-pastoral-life-in-stardew-valley">G. Pastoral Life in Stardew Valley<a class="headerlink" href="#g-pastoral-life-in-stardew-valley" title="Permanent link">Link</a></h2>
+<p>给一个<span><span class="MathJax_Preview">n×m</span><script type="math/tex">n×m</script></span>的矩阵，选取一个子矩阵，在子矩阵中放一个稻草人，使稻草人能被放在子矩阵中的作物包围，求方案数。</p>
+<p>推反正也不会推……打表找规律了。</p>
+<h2 id="i-cockroaches">I. Cockroaches<a class="headerlink" href="#i-cockroaches" title="Permanent link">Link</a></h2>
+<p>给m个二维点。选择一个坐标点，在其同行/同列上的所有点都会被删除。问一次最多能删除多少个点，及删除最多个点的方案数（删除的点编号全部相同视作同一种方案）。</p>
+<p>有两种特殊情况：1.全在同一行/同一列只有一种；2.所有的行、列全不相同，有n×(n-1)/2种方案。剩下的情况则取点数最多、次多的行和列，枚举答案即可。</p>
+<h2 id="k-mr-panda-and-kakin">K. Mr. Panda and Kakin<a class="headerlink" href="#k-mr-panda-and-kakin" title="Permanent link">Link</a></h2>
+<p>已知<span><span class="MathJax_Preview">c,p</span><script type="math/tex">c,p</script></span>，求<span><span class="MathJax_Preview">X^{2^{30}+3}≡c\ mod\ p</span><script type="math/tex">X^{2^{30}+3}≡c\ mod\ p</script></span></p>
+<p>有<span><span class="MathJax_Preview">x^y≡z\ mod \ p</span><script type="math/tex">x^y≡z\ mod \ p</script></span>，取对数有<span><span class="MathJax_Preview">y·lg(x)≡lg(z) \ mod \ p</span><script type="math/tex">y·lg(x)≡lg(z) \ mod \ p</script></span></p>
+<p>两边同乘inv(y)有<span><span class="MathJax_Preview">lg(x)≡inv(y)·lg(z) \ mod \ p</span><script type="math/tex">lg(x)≡inv(y)·lg(z) \ mod \ p</script></span></p>
+<p>推出<span><span class="MathJax_Preview">x≡z^{inv(y)}\ mod\ p</span><script type="math/tex">x≡z^{inv(y)}\ mod\ p</script></span></p>
+<p>即<span><span class="MathJax_Preview">X=c^{inv({2^{30}+3})} \ mod \ p</span><script type="math/tex">X=c^{inv({2^{30}+3})} \ mod \ p</script></span></p>
+<p>所以快速幂搞一下就行</p>
+<h2 id="l-ultra-weak-goldbachs-conjecture">L. Ultra Weak Goldbach&rsquo;s Conjecture<a class="headerlink" href="#l-ultra-weak-goldbachs-conjecture" title="Permanent link">Link</a></h2>
+<p>给你一个数，把它拆成6个素数。</p>
+<p>n≤11无解，否则n是奇数则把它拆成2+2+2+3+偶数，n是偶数则把它拆成2+2+2+2+偶数，暴力分解偶数为两个素数即可。</p>
                 
                   
                 

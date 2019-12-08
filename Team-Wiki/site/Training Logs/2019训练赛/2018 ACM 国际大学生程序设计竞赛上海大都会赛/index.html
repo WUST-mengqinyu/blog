@@ -955,6 +955,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#i-matrix-game" class="md-nav__link">
+    I. Matrix Game
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#j-beautiful-numbers" class="md-nav__link">
     J. Beautiful Numbers
   </a>
@@ -1139,6 +1146,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#i-matrix-game" class="md-nav__link">
+    I. Matrix Game
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#j-beautiful-numbers" class="md-nav__link">
     J. Beautiful Numbers
   </a>
@@ -1236,6 +1250,11 @@ a' = a * sin^2(\frac{(n-2)*pi}{2 * n})
 </script>
 显然暴力两种方式：枚举每个点是否在某个q中，或者枚举所有q中的点都是<code class="codehilite"><span class="err">O(nmq)</span></code>的复杂度</p>
 <p>考虑一维暴力，另一维用差分数组优化即可<code class="codehilite"><span class="err">O(nq)</span></code></p>
+<h2 id="i-matrix-game">I. <a href="https://ac.nowcoder.com/acm/contest/163/I">Matrix Game</a><a class="headerlink" href="#i-matrix-game" title="Permanent link">Link</a></h2>
+<p>给定一个<span><span class="MathJax_Preview">n×m</span><script type="math/tex">n×m</script></span>矩阵上的数，每次可以将矩阵上的某个数+1或-1，问最少操作多少次，能使每行上的个数相等，且每列上的个数相等。</p>
+<p>费用流。行列模型建图，原有的点行列连边，流量为<code class="codehilite"><span class="n">mp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"></span></code>，费用为-1(强制先取)，再对该行该列连流量为inf的边，费用为1。令原有的点总和为sum，当前的花费即为sum+mcmf。</p>
+<p>枚举流量，每次增加<code class="codehilite"><span class="err">n*m/__gcd(n,m)</span></code>，从源点向行分成n份，列向汇点分成m份，求出最大值。</p>
+<p>注意这里是**有负圈**的费用流。并且在跑的时候有些玄学的常数优化……？</p>
 <h2 id="j-beautiful-numbers">J. <a href="https://ac.nowcoder.com/acm/contest/163/J">Beautiful Numbers</a><a class="headerlink" href="#j-beautiful-numbers" title="Permanent link">Link</a></h2>
 <p>求<code class="codehilite"><span class="err">1～n</span></code>中的美丽数的个数，当一个数可以整除它的数位和即是美丽数。</p>
 <p>显然数位dp，考虑到模数并不确定，实际上可以枚举所有数位和（<code class="codehilite"><span class="err">1e12</span></code>以内只有<code class="codehilite"><span class="err">1~9*12</span></code>这些数位和可能出现）。然后就是数位dp解<code class="codehilite"><span class="err">1～n</span></code>中有多少模x为0且数位和为x的数的个数即可。</p>
