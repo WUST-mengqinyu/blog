@@ -6,11 +6,8 @@
 
 $$
 pre[i] - pre[j] > k * (i - j + 1) \\
-
 (a[i] - k) + (a[i + 1] - k) + \dots + (a[j] - k) > 0 \\
-
-i > j \and newpre[i] > newpre[j] \\
-
+i > j \&\& newpre[i] > newpre[j] \\
 $$
 
 即求正序对个数
