@@ -1061,6 +1061,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../2019 ICPC Asia Xuzhou Regional/" title="2019 ICPC Asia Xuzhou Regional" class="md-nav__link">
+      2019 ICPC Asia Xuzhou Regional
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../2019-2020 ICPC, Asia Jakarta Regional Contest/" title="2019 2020 ICPC, Asia Jakarta Regional Contest" class="md-nav__link">
       2019 2020 ICPC, Asia Jakarta Regional Contest
     </a>
@@ -1318,9 +1330,9 @@
 <p>首先考虑方案数的记录：</p>
 <ul>
 <li>对传送点右到左建边</li>
-<li><code class="codehilite"><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"></span></code> 表示 i 位置的方案个数</li>
-<li>如果 i 的入度为1（最多为1），则<code class="codehilite"><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span></code>，否则<code class="codehilite"><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">i - 1</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dp</span><span class="o">[</span><span class="n">i - 2</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="ow">all</span><span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">edge[i</span><span class="o">]</span><span class="err">]</span><span class="p">)</span><span class="w"></span></code></li>
-<li><code class="codehilite"><span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="w"></span></code> 即为总方案数</li>
+<li><code class="codehilite">dp[i]</code> 表示 i 位置的方案个数</li>
+<li>如果 i 的入度为1（最多为1），则<code class="codehilite">dp[i] = 0</code>，否则<code class="codehilite">dp[i] = dp[i - 1] + dp[i - 2] + all(dp[edge[i]])</code></li>
+<li><code class="codehilite">dp[n]</code> 即为总方案数</li>
 </ul>
 <p>然后考虑如何构造方案</p>
 <p>由于m的范围为
@@ -1330,12 +1342,12 @@
 考虑二进制枚举</p>
 <p>由于这个dp看着就像倍增的复杂度，然后就可以随便写了</p>
 <p>比如：</p>
-<p><code class="codehilite"><span class="err">1 1 2</span></code>如果不跳的话会产生一个<code class="codehilite"><span class="err">3</span></code>，对二进制的枚举不利，所以独立出299自动成环，然后将3号点跳到299就可以对答案不产生贡献。</p>
-<p><code class="codehilite"><span class="err">1 1 2 0 2 2 4 0 4 4 0 ...</span></code></p>
+<p><code class="codehilite">1 1 2</code>如果不跳的话会产生一个<code class="codehilite">3</code>，对二进制的枚举不利，所以独立出299自动成环，然后将3号点跳到299就可以对答案不产生贡献。</p>
+<p><code class="codehilite">1 1 2 0 2 2 4 0 4 4 0 ...</code></p>
 <p>这样一来就可以枚举出所有的二进制位</p>
 <p>但是问题是要跳到最后一位，所以继续构造</p>
-<p><code class="codehilite"><span class="err">1 1 2 0 2 2 x 2 2 4 0 4 4 x 4 4</span></code></p>
-<p><code class="codehilite"><span class="err">x</span></code>表示当前为0，即如果当前数是M需要的则直接跳到200，否则跳到199自环。</p>
+<p><code class="codehilite">1 1 2 0 2 2 x 2 2 4 0 4 4 x 4 4</code></p>
+<p><code class="codehilite">x</code>表示当前为0，即如果当前数是M需要的则直接跳到200，否则跳到199自环。</p>
 <p>注意198也要自环否则会对200产生影响。</p>
 <h2 id="h-approximate-matching">Ｈ.  Approximate Matching<a class="headerlink" href="#h-approximate-matching" title="Permanent link">Link</a></h2>
 <p>题意：给定一个模式串，如果一个串的任意一个与模式串长度相同子串与该模式串只有&lt;=1位不同，则这个串与给的模式串近似匹配。求长度为n，且与该模式串近似匹配的字符串个数。</p>
