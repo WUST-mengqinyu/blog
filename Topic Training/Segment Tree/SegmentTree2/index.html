@@ -1295,11 +1295,18 @@
                 <p><a href="https://vjudge.net/contest/314268">url</a></p>
 <h2 id="f-counter-strike">F - Counter Strike<a class="headerlink" href="#f-counter-strike" title="Permanent link">Link</a></h2>
 <p>题意：给n个带权物品求取法方案数，需要保证取的物品平均权值大于k且取的物品是连续的</p>
-<p>$$
-pre[i] - pre[j] &gt; k * (i - j + 1) \</p>
-<p>(a[i] - k) + (a[i + 1] - k) + \dots + (a[j] - k) &gt; 0 \</p>
-<p>i &gt; j \and newpre[i] &gt; newpre[j] \</p>
-<p>$$</p>
+<div>
+<div class="MathJax_Preview">
+pre[i] - pre[j] &gt; k * (i - j + 1) \\
+(a[i] - k) + (a[i + 1] - k) + \dots + (a[j] - k) &gt; 0 \\
+i &gt; j \&amp;\&amp; newpre[i] &gt; newpre[j] \\
+</div>
+<script type="math/tex; mode=display">
+pre[i] - pre[j] > k * (i - j + 1) \\
+(a[i] - k) + (a[i + 1] - k) + \dots + (a[j] - k) > 0 \\
+i > j \&\& newpre[i] > newpre[j] \\
+</script>
+</div>
 <p>即求正序对个数</p>
 <h2 id="g-rectangles">G - Rectangles<a class="headerlink" href="#g-rectangles" title="Permanent link">Link</a></h2>
 <p>题意：给n个二维区间，m次询问面积并</p>
