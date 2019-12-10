@@ -1,6 +1,6 @@
 | Name                                                         | Date      | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   | L    | M    |
 | ------------------------------------------------------------ | --------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | ---- | ---- |
-| [2019 ICPC Asia Xuzhou Regional](https://www.jisuanke.com/contest/5529?view=challenges) | 2019/12/7 | 4/12   |  O   |  .   |  O   |  .   |  .   |  O   |  .   |  .   |  .   |  .   |  .   | O    | .    |
+| [2019 ICPC Asia Xuzhou Regional](https://www.jisuanke.com/contest/5529?view=challenges) | 2019/12/7 | 6/12   |  O   |  .   |  O   |  .   |  Ø   |  O   |  .   |  .   |  .   |  .   |  .   | O    | Ø    |
 
 有一说一，完全是在瞎打（
 
@@ -28,7 +28,7 @@ $$ \frac{x} {R-L+1}< \frac{1}{3}$$
 
 现在给出$X,Y$,令$b_i=Z×X^i$，要求找到最大的$i$，使$b_i|Y!$
 
-
+题解：Pollard_Rho分解出X的每个质因数及其个数，计算其在$\frac{Y!} {Z} $中的出现次数，取所有出现的最小值即可。其中n!的因子个数为$\frac{n}{p}+\frac{n}{p^2}+...+\frac{n}{p^k}$.
 
 ## F. The Answer to the Ultimate Question of Life, The Universe, and Everything.
 
@@ -46,3 +46,8 @@ $$ \frac{x} {R-L+1}< \frac{1}{3}$$
 
 ## M. Kill the tree
 
+给定一棵以1为根节点的有根树，求每棵子树的重心。如果有多个重心，则从小到大输出。
+
+题解：以一个已知所有子树重心的点为根，它的重心必在其重儿子到根节点的路径上。从重儿子上跳到当前的root，如果最大子树的点数≤子树总节点数/2，则该节点为该子树重心。对于以所有点为根的子树枚举路径上跳，可以保证每个点最多经过一次。
+
+因为树的重心是相邻的，如果有多个重心，只要check当前重心的父节点是否也是重心即可。
