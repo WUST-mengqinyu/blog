@@ -1322,12 +1322,12 @@
 <tr>
 <td><a href="https://www.jisuanke.com/contest/5529?view=challenges">2019 ICPC Asia Xuzhou Regional</a></td>
 <td>2019/12/7</td>
-<td>4/12</td>
+<td>6/12</td>
 <td align="center">O</td>
 <td align="center">.</td>
 <td align="center">O</td>
 <td align="center">.</td>
-<td align="center">.</td>
+<td align="center">Ø</td>
 <td align="center">O</td>
 <td align="center">.</td>
 <td align="center">.</td>
@@ -1335,7 +1335,7 @@
 <td align="center">.</td>
 <td align="center">.</td>
 <td>O</td>
-<td>.</td>
+<td>Ø</td>
 </tr>
 </tbody>
 </table>
@@ -1355,6 +1355,7 @@
 <h2 id="e-multiply">E. Multiply<a class="headerlink" href="#e-multiply" title="Permanent link">Link</a></h2>
 <p>给出<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个数<span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span>，令<span><span class="MathJax_Preview">Z=a_1!×a_2!×..×a_n!</span><script type="math/tex">Z=a_1!×a_2!×..×a_n!</script></span></p>
 <p>现在给出<span><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>,令<span><span class="MathJax_Preview">b_i=Z×X^i</span><script type="math/tex">b_i=Z×X^i</script></span>，要求找到最大的<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>，使<span><span class="MathJax_Preview">b_i|Y!</span><script type="math/tex">b_i|Y!</script></span></p>
+<p>题解：Pollard_Rho分解出X的每个质因数及其个数，计算其在<span><span class="MathJax_Preview">\frac{Y!} {Z} <span><span class="MathJax_Preview">中的出现次数，取所有出现的最小值即可。其中n!的因子个数为</span><script type="math/tex">中的出现次数，取所有出现的最小值即可。其中n!的因子个数为</script></span>\frac{n}{p}+\frac{n}{p</span><script type="math/tex">\frac{Y!} {Z} <span><span class="MathJax_Preview">中的出现次数，取所有出现的最小值即可。其中n!的因子个数为</span><script type="math/tex">中的出现次数，取所有出现的最小值即可。其中n!的因子个数为</script></span>\frac{n}{p}+\frac{n}{p<sup>2}+&hellip;+\frac{n}{p</sup>k}\frac{n}{p}+\frac{n}{p<sup>2}+&hellip;+\frac{n}{p</sup>k}</script></span>.</p>
 <h2 id="f-the-answer-to-the-ultimate-question-of-life-the-universe-and-everything">F. The Answer to the Ultimate Question of Life, The Universe, and Everything.<a class="headerlink" href="#f-the-answer-to-the-ultimate-question-of-life-the-universe-and-everything" title="Permanent link">Link</a></h2>
 <p><del>是42！</del></p>
 <p>每次询问给出<span><span class="MathJax_Preview">x(x≤200)</span><script type="math/tex">x(x≤200)</script></span>，输出<span><span class="MathJax_Preview">a,b,c(-5000≤a,b,c≤5000)</span><script type="math/tex">a,b,c(-5000≤a,b,c≤5000)</script></span>，使<span><span class="MathJax_Preview">a^3+b^3+c^3=x</span><script type="math/tex">a^3+b^3+c^3=x</script></span>，如果不存在，输出<code class="codehilite">impossible</code>.</p>
@@ -1363,6 +1364,9 @@
 <p>给出一个Trie，每次询问给出<span><span class="MathJax_Preview">x_i,L_i</span><script type="math/tex">x_i,L_i</script></span>，问从Trie上第<span><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span>个节点开始，向父节点上跳<span><span class="MathJax_Preview">L_i-1</span><script type="math/tex">L_i-1</script></span>次的点为起点，<span><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span>为终点的字符串在Trie上共出现多少次。</p>
 <p>题解：对原Trie dfs建广义后缀自动机，倍增向上跳寻找最大的合法祖先，它的size即为答案。</p>
 <h2 id="m-kill-the-tree">M. Kill the tree<a class="headerlink" href="#m-kill-the-tree" title="Permanent link">Link</a></h2>
+<p>给定一棵以1为根节点的有根树，求每棵子树的重心。如果有多个重心，则从小到大输出。</p>
+<p>题解：以一个已知所有子树重心的点为根，它的重心必在其重儿子到根节点的路径上。从重儿子上跳到当前的root，如果最大子树的点数≤子树总节点数/2，则该节点为该子树重心。对于以所有点为根的子树枚举路径上跳，可以保证每个点最多经过一次。</p>
+<p>因为树的重心是相邻的，如果有多个重心，只要check当前重心的父节点是否也是重心即可。</p>
                 
                   
                 
