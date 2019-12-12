@@ -31,7 +31,7 @@
 
 | Name                                                         | Date      | Solved |
 | ------------------------------------------------------------ | --------- | ------ |
-| [2019 ICPC Asia Nanchang Regional](../Training Logs/2019训练赛/2019 ICPC Asia Nanchang Regional) | 2019/12/11 |  |
+| [2019 ICPC Asia Nanchang Regional](../Training Logs/2019训练赛/2019 ICPC Asia Nanchang Regional) | 2019/12/11 | 5/13 |
 | [2019 ICPC Asia Xuzhou Regional](../Training Logs/2019训练赛/2019 ICPC Asia Xuzhou Regional) | 2019/12/7 | 6/12 |
 | [2019-2020 ICPC, NERC, Northern Eurasia Finals ](../Training Logs/2019训练赛/2019-2020 ICPC, NERC, Northern Eurasia Finals) | 2019/12/1 | 7/12 |
 | [2018 ACM 国际大学生程序设计竞赛上海大都会赛](../Training Logs/2019训练赛/2018 ACM 国际大学生程序设计竞赛上海大都会赛) | 2019/11/20 | 6/12 |
