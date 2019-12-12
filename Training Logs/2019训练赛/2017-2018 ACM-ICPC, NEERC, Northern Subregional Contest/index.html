@@ -1422,19 +1422,19 @@
 </tbody>
 </table>
 <h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link">Link</a></h2>
-<p><code class="codehilite"><span class="err"># A 思维 # B 思维 # C 状态枚举 #E 思维 # F 拓扑序/状压dp # G dfs树 # H 贪心  # I 思维 # K 思维 # L 数学思维</span></code></p>
+<p><code class="codehilite"># A 思维 # B 思维 # C 状态枚举 #E 思维 # F 拓扑序/状压dp # G dfs树 # H 贪心  # I 思维 # K 思维 # L 数学思维</code></p>
 <h2 id="a-auxiliary-project">A. Auxiliary Project<a class="headerlink" href="#a-auxiliary-project" title="Permanent link">Link</a></h2>
 <p>题意：给x根火柴棒，拼出10种数字的和最大值。</p>
 <p>题解：3根即可拼出7，所以优先取这个，对3取模分类即可。</p>
-<p><code class="codehilite"><span class="err">== 0</span></code> 全部拼7</p>
-<p><code class="codehilite"><span class="err">== 1</span></code> 大部分拼7，剩4个拼4</p>
-<p><code class="codehilite"><span class="err">== 2</span></code> 大部分拼7，剩两个拼1</p>
+<p><code class="codehilite">== 0</code> 全部拼7</p>
+<p><code class="codehilite">== 1</code> 大部分拼7，剩4个拼4</p>
+<p><code class="codehilite">== 2</code> 大部分拼7，剩两个拼1</p>
 <h2 id="b-boolean-satisfiability">B. Boolean Satisfiability<a class="headerlink" href="#b-boolean-satisfiability" title="Permanent link">Link</a></h2>
-<p>题意：给只有<code class="codehilite"><span class="err">或</span></code>和<code class="codehilite"><span class="err">非</span></code>的表达式，求其为真的方案数。</p>
-<p>题解：显然如果出现了<code class="codehilite"><span class="err">x|~x</span></code>这样的表达式，则所有变量任意取都是对的，所以为<code class="codehilite"><span class="err">2^n</span></code>，如果没有出现则是<code class="codehilite"><span class="err">2^n-1</span></code>即可。</p>
+<p>题意：给只有<code class="codehilite">或</code>和<code class="codehilite">非</code>的表达式，求其为真的方案数。</p>
+<p>题解：显然如果出现了<code class="codehilite">x|~x</code>这样的表达式，则所有变量任意取都是对的，所以为<code class="codehilite">2^n</code>，如果没有出现则是<code class="codehilite">2^n-1</code>即可。</p>
 <h2 id="c-consonant-fencity">C. Consonant Fencity<a class="headerlink" href="#c-consonant-fencity" title="Permanent link">Link</a></h2>
 <p>题意：给一个串，有7种元音字母，其他的字母如果相邻且一个为大写一个为小写则计算一次，可以进行改写，将某一类小写改成大写，求改写后最大的方案。</p>
-<p>题解：直接20种字符枚举出所有状态即可，其中<code class="codehilite"><span class="n">mp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"></span></code>记录每种对出现的次数，使他最大即可。</p>
+<p>题解：直接20种字符枚举出所有状态即可，其中<code class="codehilite">mp[i][j]</code>记录每种对出现的次数，使他最大即可。</p>
 <h2 id="e-equal-numbers">E. Equal Numbers<a class="headerlink" href="#e-equal-numbers" title="Permanent link">Link</a></h2>
 <p>题意：有n个数，每次操作选择1个数，使其变为原来的正整数倍；问操作1-n次后序列中最少有多少个不同的数。每个询问是独立的。</p>
 <p>两种操作，一种使一个数成为另一个已经存在的倍数，另一种直接变为<span><span class="MathJax_Preview">goal=lcm(a_1,a_2, ...,a_n)</span><script type="math/tex">goal=lcm(a_1,a_2, ...,a_n)</script></span>，更新每个点可能获得的最小值即可。</p>
@@ -1455,8 +1455,8 @@
 <p>题意：初始n×m的矩阵图，把某些行某些列添加分隔符求分割成x个区间的方案。</p>
 <p>题解：n，m不是很大直接枚举可能的a×b=x即可。</p>
 <h2 id="l-little-difference">L. Little Difference<a class="headerlink" href="#l-little-difference" title="Permanent link">Link</a></h2>
-<p>题意：给n，求所有方案使得<code class="codehilite"><span class="err">n=x^p1*(x+1)^p2</span></code>成立</p>
-<p>题解：首先2的次方有无穷种方案，因为1可以随便乘，然后对于一个数n，在<code class="codehilite"><span class="err">[1，n**(1/3)]</span></code>内可以枚举所有解，在<code class="codehilite"><span class="err">[n**(1/3),n]</span></code>内如果有解只有两种情况<code class="codehilite"><span class="err">x*x=n</span></code>或者<code class="codehilite"><span class="err">x*(x+1)=n</span></code>，求平方根即可。</p>
+<p>题意：给n，求所有方案使得<code class="codehilite">n=x^p1*(x+1)^p2</code>成立</p>
+<p>题解：首先2的次方有无穷种方案，因为1可以随便乘，然后对于一个数n，在<code class="codehilite">[1，n**(1/3)]</code>内可以枚举所有解，在<code class="codehilite">[n**(1/3),n]</code>内如果有解只有两种情况<code class="codehilite">x*x=n</code>或者<code class="codehilite">x*(x+1)=n</code>，求平方根即可。</p>
                 
                   
                 
