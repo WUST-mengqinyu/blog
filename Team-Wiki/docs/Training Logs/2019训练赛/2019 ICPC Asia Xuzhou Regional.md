@@ -28,7 +28,7 @@ $$\frac{x}{R-L+1}< \frac{1}{3}$$
 
 现在给出$X,Y$,令$b_i=Z×X^i$，要求找到最大的$i$，使$b_i|Y!$
 
-题解：Pollard_Rho分解出X的每个质因数及其个数，计算其在$\frac{Y!} {Z} $中的出现次数，取所有出现的最小值即可。其中n!的因子个数为$\frac{n}{p}+\frac{n}{p^2}+……+\frac{n}{p^k}$.
+题解：Pollard_Rho分解出X的每个质因数及其个数，计算其在$\frac{Y!}{Z}$中的出现次数，取所有出现的最小值即可。其中n!的因子个数为$\frac{n}{p}+\frac{n}{p^2}+……+\frac{n}{p^k}$.
 
 
 ## F. The Answer to the Ultimate Question of Life, The Universe, and Everything.

@@ -1402,7 +1402,7 @@
 <h2 id="d-find-string-in-a-grid">D. Find String in a Grid<a class="headerlink" href="#d-find-string-in-a-grid" title="Permanent link">Link</a></h2>
 <p>给定一个字符矩阵，每次查询一个串，问在矩阵中选任意一个点作为起点，首先向右走再向下走，能找到多少个查询串。</p>
 <p>题解：将每个查询串切成两部分，前半部分与行匹配，后半部分与列匹配，字符矩阵中如果有某个点同时作为匹配的行结尾和列开头，则计算一次贡献。</p>
-<p>将行串H和列串V分别建立一个SA，可以得到SA中的一个区间(l,r)满足<code class="codehilite">lcp(x,y)&gt;=len(x)</code>，在建串的时候把查询串也加入SA的串以确定位置，行串需要反向（因为查询的是公共后缀），二分找出行和列的区间(h_l,h_r),(v_l,v_r)，如果有字符矩阵上的点在SA中的位置(pos_h,pos_v)满足<span><span class="MathJax_Preview">h_l≤pos_h≤h_r</span><script type="math/tex">h_l≤pos_h≤h_r</script></span>且<span><span class="MathJax_Preview">v_l≤pos_v≤v_r</span><script type="math/tex">v_l≤pos_v≤v_r</script></span>，则计算一次它对查询串的贡献。</p>
+<p>将行串H和列串V分别建立一个SA，可以得到SA中的一个区间(l,r)满足<code class="codehilite"><span class="err">lcp(x,y)&gt;=len(x)</span></code>，在建串的时候把查询串也加入SA的串以确定位置，行串需要反向（因为查询的是公共后缀），二分找出行和列的区间(h_l,h_r),(v_l,v_r)，如果有字符矩阵上的点在SA中的位置(pos_h,pos_v)满足<span><span class="MathJax_Preview">h_l≤pos_h≤h_r</span><script type="math/tex">h_l≤pos_h≤h_r</script></span>且<span><span class="MathJax_Preview">v_l≤pos_v≤v_r</span><script type="math/tex">v_l≤pos_v≤v_r</script></span>，则计算一次它对查询串的贡献。</p>
 <p>考虑二维数点，求出每个查询串每个点的行列区间，求块内的点数和即可。</p>
 <h2 id="e-songwriter">E. Songwriter<a class="headerlink" href="#e-songwriter" title="Permanent link">Link</a></h2>
 <p>已知序列中的每个值和上一个值的关系（上升/下降/不变），上升/下降的范围为[1,k]，要求序列的所有值都在[l,r]区间内，构造字典序最小的合法序列，如果没有，输出-1。</p>
@@ -1411,21 +1411,21 @@
 <p>给一棵树，求去掉一个点是的剩余的森林中的无根树全部同构，最大的同构个数。</p>
 <p>显然，只有当这棵树仅有一个重心且它的子树大小都相等时才可能有解，然后判无根树同构后直接输出重心的度数即可。</p>
 <h2 id="g-performance-review">G. Performance Review<a class="headerlink" href="#g-performance-review" title="Permanent link">Link</a></h2>
-<p>给定一个序列，做m次修改，第i次修改给出一个序列<code class="codehilite">a</code>将前k个小的替换为<code class="codehilite">a[i][0],a[i][1],a[i][k-1]</code>这些数字，问m次修改后初始的第1个人是否仍在序列中。</p>
+<p>给定一个序列，做m次修改，第i次修改给出一个序列<code class="codehilite"><span class="err">a</span></code>将前k个小的替换为<code class="codehilite"><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">0</span><span class="o">]</span><span class="p">,</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">1</span><span class="o">]</span><span class="p">,</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">k-1</span><span class="o">]</span><span class="w"></span></code>这些数字，问m次修改后初始的第1个人是否仍在序列中。</p>
 <p>q次询问，每次修改第i次修改的第j个值，将其修改为x，并回答询问。</p>
-<p>记录第1个人在第i次修改后的rank，显然对于q次修改最多只会改变一位，也就是使<code class="codehilite">(j,n)</code>这个区间的每一个值+1或-1，修改后判断(1,n)的rank是否都&gt;0即可。</p>
+<p>记录第1个人在第i次修改后的rank，显然对于q次修改最多只会改变一位，也就是使<code class="codehilite"><span class="err">(j,n)</span></code>这个区间的每一个值+1或-1，修改后判断(1,n)的rank是否都&gt;0即可。</p>
 <h2 id="h-twin-buildings">H. Twin Buildings<a class="headerlink" href="#h-twin-buildings" title="Permanent link">Link</a></h2>
 <p>给定n块矩形，选择一块或两块，并在其中放入大小相同的两块矩形，问放入的矩形的面积最大可以是多少。</p>
-<p>可以选择在一块或两块矩形中放入，如果是一块就是矩形面积/2，如果是两块，首先使每个矩形的L大于W，按照W降序排序，记录L的前缀最大值preL，遍历，当前矩形的最大贡献即为<code class="codehilite">min(preL, a[i].L)*a[i].W</code>。</p>
+<p>可以选择在一块或两块矩形中放入，如果是一块就是矩形面积/2，如果是两块，首先使每个矩形的L大于W，按照W降序排序，记录L的前缀最大值preL，遍历，当前矩形的最大贡献即为<code class="codehilite"><span class="nf">min</span><span class="p">(</span><span class="n">preL</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">W</span><span class="w"></span></code>。</p>
 <h2 id="j-tiling-terrace">J. Tiling Terrace<a class="headerlink" href="#j-tiling-terrace" title="Permanent link">Link</a></h2>
 <p>给一个01串，给三种子串分别有abc权值（0\00\010），要求把原串分割成多个这三种串，其中a串最多只能有k个，求最大权值和，保证1的个数不超过50</p>
-<p>显然dp一下，用<code class="codehilite">dp[i][j]</code>表示前<code class="codehilite">i</code>位，有<code class="codehilite">j</code>个c串，最多的b串个数。</p>
+<p>显然dp一下，用<code class="codehilite"><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"></span></code>表示前<code class="codehilite"><span class="err">i</span></code>位，有<code class="codehilite"><span class="err">j</span></code>个c串，最多的b串个数。</p>
 <p>那么显然可以通过枚举c串个数进行枚举答案。</p>
 <p>设n1为取的a串，n2为取的b串，n3为取的c串个数</p>
 <p>那么由于枚举的是c串个数，n2的最大值，n1的个数可以计算出来。</p>
 <p>然后考虑将n2替换成n1的情况即可。</p>
 <h2 id="k-addition-robot">K. Addition Robot<a class="headerlink" href="#k-addition-robot" title="Permanent link">Link</a></h2>
-<p>给一段AB串，操作1为翻转，即把L,R区间内的A变B，B变A；操作2为查询，顺序遍历子串<code class="codehilite">S[l-r]</code>,传入A，B两个值，如果串的当前值为A，使A=A+B，否则使B=A+B，输出计算后的A，B。</p>
+<p>给一段AB串，操作1为翻转，即把L,R区间内的A变B，B变A；操作2为查询，顺序遍历子串<code class="codehilite"><span class="err">S[l-r]</span></code>,传入A，B两个值，如果串的当前值为A，使A=A+B，否则使B=A+B，输出计算后的A，B。</p>
 <p>把运算处理成2x2的矩阵，用线段树维护处理操作。</p>
 <h2 id="l-road-construction">L. Road Construction<a class="headerlink" href="#l-road-construction" title="Permanent link">Link</a></h2>
 <p>给定一棵基环树上的边，每一条边可以被指定类的工人维修，求能使树上点联通的维修方案。</p>
