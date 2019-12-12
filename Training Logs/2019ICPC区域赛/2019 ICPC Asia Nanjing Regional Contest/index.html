@@ -1340,7 +1340,7 @@
 <p>最大的两两不互为因子的情况是取大于等于<span><span class="MathJax_Preview">\lceil {n \over 2}\rceil</span><script type="math/tex">\lceil {n \over 2}\rceil</script></span>的所有数，这种情况下再取一个数，一定是某原集合中某一个数的&frac12;，答案是<span><span class="MathJax_Preview">\lceil {n \over 2}\rceil + 1</span><script type="math/tex">\lceil {n \over 2}\rceil + 1</script></span></p>
 <h2 id="c-digital-path">C. Digital Path<a class="headerlink" href="#c-digital-path" title="Permanent link">Link</a></h2>
 <p>给一个n×m的矩阵，矩阵内值的大小为[-10<sup>7,10</sup>7]。其中一条合法的路径需要满足以下要求：相邻两步的格子之间有边相邻，且当前格子数值为上一步+1，并且不能继续扩展。问该矩阵中有多少条合法路径。</p>
-<p><code class="codehilite">dp[i][j][k]</code>表示i行j列的点有多少条以它结束的路径，k表示路径的长度为2,3, &gt;=4的路径种类，每次向四周更新扩展，如果都不能扩展表示路径以它为结尾，记录答案。</p>
+<p><code class="codehilite"><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">][</span><span class="n">k</span><span class="o">]</span><span class="w"></span></code>表示i行j列的点有多少条以它结束的路径，k表示路径的长度为2,3, &gt;=4的路径种类，每次向四周更新扩展，如果都不能扩展表示路径以它为结尾，记录答案。</p>
 <h2 id="f-paper-grading">F. Paper Grading<a class="headerlink" href="#f-paper-grading" title="Permanent link">Link</a></h2>
 <p>对序列和交换操作分块，当操作达到块大小时rebuild即可，序列的块内使用字典树维护即可。操作不到块大小时单独计算swap后的增量和减量的贡献即可。复杂度<span><span class="MathJax_Preview">O(nsqrt(n))</span><script type="math/tex">O(nsqrt(n))</script></span></p>
 <p>正解好像是hash+二维数点，复杂度<span><span class="MathJax_Preview">O(nlog^2(n))</span><script type="math/tex">O(nlog^2(n))</script></span></p>

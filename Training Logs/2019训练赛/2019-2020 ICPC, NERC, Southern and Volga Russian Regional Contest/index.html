@@ -1388,15 +1388,15 @@
 </tbody>
 </table>
 <h1 id="tag">Tag<a class="headerlink" href="#tag" title="Permanent link">Link</a></h1>
-<p><code class="codehilite">a、模拟 b、贪心 c、线段树 e、2-sat f、暴力 h、思维 j、二分贪心 l、思维暴力 n、桥</code> </p>
+<p><code class="codehilite"><span class="err">a、模拟 b、贪心 c、线段树 e、2-sat f、暴力 h、思维 j、二分贪心 l、思维暴力 n、桥</span></code> </p>
 <h2 id="a-berstagram">A. Berstagram<a class="headerlink" href="#a-berstagram" title="Permanent link">Link</a></h2>
 <p>签到</p>
 <h2 id="b-the-feast-and-the-bus">B. The Feast and the Bus<a class="headerlink" href="#b-the-feast-and-the-bus" title="Permanent link">Link</a></h2>
 <p>题意：n个人，分k队，要构造一个车运送所有人，每趟车只能运送完整的一队人或者完整的两队人，求趟次×车的大小的最小值。n不超过5e5，k不超过8000。</p>
 <p>题解：</p>
-<p>遮住数据范围这题可以很多解法，k为8000所以考虑<code class="codehilite">O(k^2)</code>，枚举趟次x，可知x的范围为<code class="codehilite">[k/2, k]</code>，然后问题转化为：一个2×x的盒子，填入k个数使得列上和的最大值最小，贪心构造出解：第一列放最大值和最小值（k不足2×x时放入0），第二列次大次小……，可以证明只要任意调换顺序都会使最大值变大。即如果<code class="codehilite">x</code>与<code class="codehilite">y</code>在一列，<code class="codehilite">z</code>与<code class="codehilite">p</code>在一列，他们满足条件为<code class="codehilite">x&gt;=y &amp;&amp; z&gt;=p &amp;&amp; x&gt;=z &amp;&amp; p&gt;=y</code>，则<code class="codehilite">max(x+y, z+p)&lt;=max(x+p, z+y)</code>成立。</p>
+<p>遮住数据范围这题可以很多解法，k为8000所以考虑<code class="codehilite"><span class="err">O(k^2)</span></code>，枚举趟次x，可知x的范围为<code class="codehilite"><span class="err">[k/2, k]</span></code>，然后问题转化为：一个2×x的盒子，填入k个数使得列上和的最大值最小，贪心构造出解：第一列放最大值和最小值（k不足2×x时放入0），第二列次大次小……，可以证明只要任意调换顺序都会使最大值变大。即如果<code class="codehilite"><span class="err">x</span></code>与<code class="codehilite"><span class="err">y</span></code>在一列，<code class="codehilite"><span class="err">z</span></code>与<code class="codehilite"><span class="err">p</span></code>在一列，他们满足条件为<code class="codehilite"><span class="err">x&gt;=y &amp;&amp; z&gt;=p &amp;&amp; x&gt;=z &amp;&amp; p&gt;=y</span></code>，则<code class="codehilite"><span class="err">max(x+y, z+p)&lt;=max(x+p, z+y)</span></code>成立。</p>
 <h2 id="c-trip-to-saint-petersburg">C. Trip to Saint Petersburg<a class="headerlink" href="#c-trip-to-saint-petersburg" title="Permanent link">Link</a></h2>
-<p>题意：给一些区间以及区间的权值，求<code class="codehilite">L，R</code>使得完全包含于<code class="codehilite">L，R</code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
+<p>题意：给一些区间以及区间的权值，求<code class="codehilite"><span class="err">L，R</span></code>使得完全包含于<code class="codehilite"><span class="err">L，R</span></code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
 <p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p>
 <h2 id="e-the-coronation">E. The Coronation<a class="headerlink" href="#e-the-coronation" title="Permanent link">Link</a></h2>
 <p>给定<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个长度为<span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>

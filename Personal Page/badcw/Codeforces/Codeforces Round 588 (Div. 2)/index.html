@@ -1300,7 +1300,7 @@
                   <h1>Codeforces Round 588 (Div. 2)</h1>
                 
                 <p><a href="https://codeforces.com/contest/1230">https://codeforces.com/contest/1230</a></p>
-<p>赛中<code class="codehilite">A,B,C,D</code>，赛后<code class="codehilite">E，F</code></p>
+<p>赛中<code class="codehilite"><span class="err">A,B,C,D</span></code>，赛后<code class="codehilite"><span class="err">E，F</span></code></p>
 <h2 id="a-dawid-and-bags-of-candies">A. Dawid and Bags of Candies<a class="headerlink" href="#a-dawid-and-bags-of-candies" title="Permanent link">Link</a></h2>
 <p>题意：给4个数，求能不能分成两个集合使两个集合内的数和相等</p>
 <p>题解：只有4个数随便写都对，我写了状态压缩枚举子集。</p>
@@ -1315,10 +1315,10 @@
 <p>题解：易得多个人a相等时才能满足题意，然后满足题意的集合是可以合并的，所以求出所有满足题意的集合并合并，然后求出他们满足题意的a值的子集和即是答案。</p>
 <h2 id="e-kamil-and-making-a-stream">E. Kamil and Making a Stream<a class="headerlink" href="#e-kamil-and-making-a-stream" title="Permanent link">Link</a></h2>
 <p>题意：求一棵树上gcd(link(u, v))的和，u是v的祖先。</p>
-<p>题解：从上往下递归，每个数的因子数是LOG级别所以建立一个vector或者map存下来算就可以了，复杂度<code class="codehilite">O(nlogn)</code>或<code class="codehilite">O(nlognlogn)</code>。</p>
+<p>题解：从上往下递归，每个数的因子数是LOG级别所以建立一个vector或者map存下来算就可以了，复杂度<code class="codehilite"><span class="err">O(nlogn)</span></code>或<code class="codehilite"><span class="err">O(nlognlogn)</span></code>。</p>
 <h2 id="f-konrad-and-company-evaluation">F. Konrad and Company Evaluation<a class="headerlink" href="#f-konrad-and-company-evaluation" title="Permanent link">Link</a></h2>
 <p>题意：给一张有向图，每次操作将一个点相连的边都朝外连（改变方向），每次求<span><span class="MathJax_Preview">\sum in[i] * out[i]</span><script type="math/tex">\sum in[i] * out[i]</script></span></p>
-<p>题解：暴力维护每个点的入边，每次操作一个点将其入边清空并反向连接即可。复杂度可过，具体算不清，题解说是<code class="codehilite">O(q*sqrt(m))</code>。</p>
+<p>题解：暴力维护每个点的入边，每次操作一个点将其入边清空并反向连接即可。复杂度可过，具体算不清，题解说是<code class="codehilite"><span class="err">O(q*sqrt(m))</span></code>。</p>
                 
                   
                 
