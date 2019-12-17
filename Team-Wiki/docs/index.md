@@ -11,12 +11,6 @@
 
 
 
-## TODO List
-
-- [x] ~~[ 2019 ICPC Asia Xuzhou Regional](https://www.jisuanke.com/contest/5529) 2019/12/7~~
-- [x] ~~[ 2019 ICPC Asia Nanchang Regional](https://www.jisuanke.com/contest/5530) 2019/12/8~~
-- [x] ~~CCPC Final 2018 GIKL~~
-
 ## Onsite
 
 | Name                                                         | Date       | Rank             | Solved |
