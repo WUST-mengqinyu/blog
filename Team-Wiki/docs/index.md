@@ -19,6 +19,7 @@
 
 | Name                                                         | Date       | Rank             | Solved |
 | ------------------------------------------------------------ | ---------- | ---------------- | ------ |
+| [2019 ICPC EC-Final](../Training Logs/2019 ICPC Regional/2019 ICPC EC-Final) | 2019/12/15 | Brozen(Rank:148) | 3      |
 | 2019 ICPC Asia Shanghai Regional Contest                     | 2019/11/24 | Silver(Rank:41)  | 5      |
 | [第五届中国大学生程序设计竞赛总决赛](../Training Logs/2019CCPC分站赛/第五届中国大学生程序设计竞赛总决赛) | 2019/11/17 | Iron(Rank:76)    | 3      |
 | [2019 ICPC Asia Nanjing Regional Contest](../Training Logs/2019 ICPC Regional/2019 ICPC Asia Nanjing Regional Contest) | 2019/10/27 | Brozen(Rank:131) | 4      |
