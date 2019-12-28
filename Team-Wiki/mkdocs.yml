@@ -36,10 +36,11 @@ markdown_extensions:
     - smarty
     - mdx_math:
         enable_dollar_delimiter: True
-        linenums: true
     - footnotes
     - admonition
-    - codehilite
+    - codehilite:
+        guess_lang: false
+        linenums: true
     - footnotes
     - pymdownx.arithmatex
     - pymdownx.betterem:

@@ -1373,10 +1373,10 @@
 <h3 id="fib">求大fib数<a class="headerlink" href="#fib" title="Permanent link">Link</a></h3>
 <ul>
 <li>
-<p>众所周知<code class="codehilite"><span class="n">fib</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">fib</span><span class="o">[</span><span class="n">i-1</span><span class="o">]+</span><span class="n">fib</span><span class="o">[</span><span class="n">i-2</span><span class="o">]</span><span class="w"></span></code>，所以直接构造上一个二维的矩阵，像这种简单的加减递推的话维数就可以等于递推式中的项数</p>
+<p>众所周知<code>fib[i]=fib[i-1]+fib[i-2]</code>，所以直接构造上一个二维的矩阵，像这种简单的加减递推的话维数就可以等于递推式中的项数</p>
 </li>
 <li>
-<p>初始矩阵<code class="codehilite"><span class="err">fib[0] = 1, fib[1] = 1</span></code>，递推矩阵
+<p>初始矩阵<code>fib[0] = 1, fib[1] = 1</code>，递推矩阵
 <script type="math/tex; mode=display">
 \begin{bmatrix}
 0&1\\ 
@@ -1385,7 +1385,7 @@
 </script>
 </p>
 </li>
-<li>都知道左行乘右列，所以右边的第一列和左边的第一行就构成了下一个递推的数，从<code class="codehilite"><span class="err">fib[0] fib[1]</span></code>变成<code class="codehilite"><span class="err">fib[1] fib[2]</span></code>，这样以来就可以写出递推矩阵了。</li>
+<li>都知道左行乘右列，所以右边的第一列和左边的第一行就构成了下一个递推的数，从<code>fib[0] fib[1]</code>变成<code>fib[1] fib[2]</code>，这样以来就可以写出递推矩阵了。</li>
 </ul>
 <h3 id="fn-fn-1-n3fn-fn-1-n3">求<span><span class="MathJax_Preview">f[n] = f[n-1] + n^3</span><script type="math/tex">f[n] = f[n-1] + n^3</script></span><a class="headerlink" href="#fn-fn-1-n3fn-fn-1-n3" title="Permanent link">Link</a></h3>
 <ul>
@@ -1417,7 +1417,57 @@
 <ul>
 <li>一套自用的模板，不算简便但是毕竟亲手写的很熟悉。</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="mf">1e9</span><span class="o">+</span><span class="mi">7</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="n">sz</span><span class="p">;</span>
@@ -1469,6 +1519,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 

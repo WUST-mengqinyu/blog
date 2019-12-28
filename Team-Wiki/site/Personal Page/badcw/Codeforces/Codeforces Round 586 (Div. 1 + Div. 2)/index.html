@@ -1310,12 +1310,12 @@
                   <h1>Codeforces Round 586 (Div. 1 + Div. 2)</h1>
                 
                 <p><a href="https://codeforces.com/contest/1220">https://codeforces.com/contest/1220</a></p>
-<p>赛中<code class="codehilite"><span class="err">A,B,C</span></code>，赛后<code class="codehilite"><span class="err">D,E</span></code></p>
+<p>赛中<code>A,B,C</code>，赛后<code>D,E</code></p>
 <h2 id="a-cards">A. Cards<a class="headerlink" href="#a-cards" title="Permanent link">Link</a></h2>
-<p>题意：给打乱后的只包含<code class="codehilite"><span class="err">zero</span></code>和<code class="codehilite"><span class="err">one</span></code>的串，求可能的最大字典序01串</p>
-<p>题解：记录<code class="codehilite"><span class="err">n</span></code>的个数为1的个数，<code class="codehilite"><span class="err">z</span></code>为0的个数或者0的个数为<code class="codehilite"><span class="err">(n-num(1)*3)/4</span></code></p>
+<p>题意：给打乱后的只包含<code>zero</code>和<code>one</code>的串，求可能的最大字典序01串</p>
+<p>题解：记录<code>n</code>的个数为1的个数，<code>z</code>为0的个数或者0的个数为<code>(n-num(1)*3)/4</code></p>
 <h2 id="b-multiplication-table">B. Multiplication Table<a class="headerlink" href="#b-multiplication-table" title="Permanent link">Link</a></h2>
-<p>题意：一个未知序列a，给出一个矩阵每个数表示<code class="codehilite"><span class="err">a_i * a_j</span></code>，主对角线上没有数字，求序列</p>
+<p>题意：一个未知序列a，给出一个矩阵每个数表示<code>a_i * a_j</code>，主对角线上没有数字，求序列</p>
 <p>题解：</p>
 <div>
 <div class="MathJax_Preview"> a_i = sqrt((a_i * a_j) * (a_i * a_k) / (a_j * a_k)) </div>
@@ -1325,8 +1325,8 @@
 <p>题意：给一个串，求初始每个点为某位置时能博弈拓展串比当前串字典序小的。</p>
 <p>题解：显然先手如果能动就取最小的串即可获胜。</p>
 <h2 id="d-alex-and-julian">D. Alex and Julian<a class="headerlink" href="#d-alex-and-julian" title="Permanent link">Link</a></h2>
-<p>题意：给定一个B集合，对于全体整数集合建图，如果B集合中存在<code class="codehilite"><span class="err">|i-j|</span></code>，则<code class="codehilite"><span class="err">i，j</span></code>之间有边。求至少从B中删掉多少（且要任意方案）个数可以使得建图为二分图。</p>
-<p>题解：二分图当且仅当图中没有奇环。考虑B中两个数x，y，令z=gcd(x,y)，x’ = x/z， y‘ = y/z。则必定存在环长度为<code class="codehilite"><span class="err">x&#39;+y&#39;</span></code>，由gcd定义可知<code class="codehilite"><span class="err">x‘</span></code>与<code class="codehilite"><span class="err">y’</span></code>互质，而<code class="codehilite"><span class="err">x&#39;+y&#39;</span></code>又为偶数，所以<code class="codehilite"><span class="err">x’</span></code>，<code class="codehilite"><span class="err">y‘</span></code>都为奇数，如果x与y中2的因子个数不同<code class="codehilite"><span class="err">x’</span></code>与<code class="codehilite"><span class="err">y‘</span></code>中必然有一个为偶数不满足题意，所以B中两两之间2的因子数相同，即B中所有元素2的因子数相同，取出任意最大的含相同数量2因子的集合即可。</p>
+<p>题意：给定一个B集合，对于全体整数集合建图，如果B集合中存在<code>|i-j|</code>，则<code>i，j</code>之间有边。求至少从B中删掉多少（且要任意方案）个数可以使得建图为二分图。</p>
+<p>题解：二分图当且仅当图中没有奇环。考虑B中两个数x，y，令z=gcd(x,y)，x’ = x/z， y‘ = y/z。则必定存在环长度为<code>x'+y'</code>，由gcd定义可知<code>x‘</code>与<code>y’</code>互质，而<code>x'+y'</code>又为偶数，所以<code>x’</code>，<code>y‘</code>都为奇数，如果x与y中2的因子个数不同<code>x’</code>与<code>y‘</code>中必然有一个为偶数不满足题意，所以B中两两之间2的因子数相同，即B中所有元素2的因子数相同，取出任意最大的含相同数量2因子的集合即可。</p>
 <h2 id="e-tourism">E. Tourism<a class="headerlink" href="#e-tourism" title="Permanent link">Link</a></h2>
 <p>题意：给一张含点权无重边无自环的无向图，求不连续重复经过同一条边的情况下从s出发能经过最大的点权和。</p>
 <p>题解：首先考虑叶子，显然到达叶子时会直接终止，显然在一个环上从任意点进入环可以从任意点出环，然后对于多个联通的环显然可以取到所有点（从任意点出发到一个环然后回到该点再取另外的环）。唯一需要考虑的是叶子节点，对于孤立连向叶子节点的链，显然只有一条可以被选中，所以取其中最长（指权值和最大）的一条即可。注意如果起点在这样的链上那么起点这条链是必取的所以起点当做单个点的环看待即可。做一个类top序取出最大链然后加上所有环即是答案。</p>
