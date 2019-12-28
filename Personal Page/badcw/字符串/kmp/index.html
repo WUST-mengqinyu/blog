@@ -1477,14 +1477,23 @@
 <p>觉得自己字符串太菜了跟着算导重学一遍</p>
 <h3 id="_1">算法简述<a class="headerlink" href="#_1" title="Permanent link">Link</a></h3>
 <p>利用next数组线性的解决字符串匹配问题</p>
-<p>定义原串<code class="codehilite"><span class="err">T[1...n]</span></code>，模式串<code class="codehilite"><span class="err">P（pattern）[1...m]</span></code>，若出现<code class="codehilite"><span class="err">T[s+1...s+m] = P[1...m]</span></code>则称此为一次成功的匹配，s称作有效偏移。</p>
-<p>暴力复杂度是<code class="codehilite"><span class="err">O（n×m）</span></code>即对于原串的每个子串做一次循环的匹配。</p>
+<p>定义原串<code>T[1...n]</code>，模式串<code>P（pattern）[1...m]</code>，若出现<code>T[s+1...s+m] = P[1...m]</code>则称此为一次成功的匹配，s称作有效偏移。</p>
+<p>暴力复杂度是<code>O（n×m）</code>即对于原串的每个子串做一次循环的匹配。</p>
 <h3 id="_2">算法实现<a class="headerlink" href="#_2" title="Permanent link">Link</a></h3>
-<p>next数组：对于一个模式串<code class="codehilite"><span class="err">P</span></code>，它的前<code class="codehilite"><span class="err">i</span></code>项称作<code class="codehilite"><span class="err">P_i</span></code>，<code class="codehilite"><span class="k">next</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"></span></code>就表示最大的<code class="codehilite"><span class="k">next</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"></span></code>使得<code class="codehilite"><span class="n">P_</span><span class="err">{</span><span class="k">next</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="err">}</span><span class="w"></span></code>是<code class="codehilite"><span class="err">P_i</span></code>的后缀，定义<code class="codehilite"><span class="err">next[0]</span></code>为-1</p>
-<p>例如串<code class="codehilite"><span class="err">ababaca</span></code>的next数组1到7项为：<code class="codehilite"><span class="err">0012301</span></code></p>
-<p>已知<code class="codehilite"><span class="err">P[1...q]</span></code>与<code class="codehilite"><span class="err">T[s+1...s+q]</span></code>匹配，而<code class="codehilite"><span class="err">P[q+1] != T[s+q+1]</span></code>，则将<code class="codehilite"><span class="err">T</span></code>后移一位的同时将<code class="codehilite"><span class="err">q</span></code>变为<code class="codehilite"><span class="k">next</span><span class="o">[</span><span class="n">q</span><span class="o">]</span><span class="w"></span></code>即可发现<code class="codehilite"><span class="n">P</span><span class="o">[</span><span class="n">1...next[q</span><span class="o">]</span><span class="err">]</span><span class="w"></span></code>与<code class="codehilite"><span class="err">T[s&#39;+1, s&#39;+k]</span></code>匹配（其中<code class="codehilite"><span class="err">s&#39;+k = s+q</span></code>）。这样一来就可以<code class="codehilite"><span class="err">O(m)</span></code>预处理<code class="codehilite"><span class="err">O(n)</span></code>计算结果了。</p>
+<p>next数组：对于一个模式串<code>P</code>，它的前<code>i</code>项称作<code>P_i</code>，<code>next[i]</code>就表示最大的<code>next[i]</code>使得<code>P_{next[i]}</code>是<code>P_i</code>的后缀，定义<code>next[0]</code>为-1</p>
+<p>例如串<code>ababaca</code>的next数组1到7项为：<code>0012301</code></p>
+<p>已知<code>P[1...q]</code>与<code>T[s+1...s+q]</code>匹配，而<code>P[q+1] != T[s+q+1]</code>，则将<code>T</code>后移一位的同时将<code>q</code>变为<code>next[q]</code>即可发现<code>P[1...next[q]]</code>与<code>T[s'+1, s'+k]</code>匹配（其中<code>s'+k = s+q</code>）。这样一来就可以<code>O(m)</code>预处理<code>O(n)</code>计算结果了。</p>
 <p>getNext代码：</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">nex</span><span class="p">[</span><span class="n">maxm</span><span class="p">];</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">nex</span><span class="p">[</span><span class="n">maxm</span><span class="p">];</span>
 
 <span class="kt">void</span> <span class="nf">getNext</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
@@ -1495,9 +1504,19 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <p>匹配代码：</p>
-<div class="codehilite"><pre><span></span><span class="c1">// a为原串，b为模式串，下标从0开始，找第一个出现模式串的位置，找不到返回-1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// a为原串，b为模式串，下标从0开始，找第一个出现模式串的位置，找不到返回-1</span>
 <span class="kt">int</span> <span class="nf">KMP</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">getNext</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -1508,6 +1527,7 @@
     <span class="k">return</span> <span class="n">j</span> <span class="o">==</span> <span class="n">m</span> <span class="o">?</span> <span class="n">i</span> <span class="o">-</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h3 id="_3">例题<a class="headerlink" href="#_3" title="Permanent link">Link</a></h3>
 <p>（由于本文撰写时vjudge挂了，没有在vj上挂题）</p>
@@ -1515,7 +1535,87 @@
 <h4 id="luogup3375"><a href="https://www.luogu.org/problem/P3375">luoguP3375</a><a class="headerlink" href="#luogup3375" title="Permanent link">Link</a></h4>
 <p>题意：求出所有模式串的起始位置并输出next数组</p>
 <p>代码：</p>
-<div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：test.cpp</span>
@@ -1597,16 +1697,17 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h4 id="a-oulipo">A - Oulipo<a class="headerlink" href="#a-oulipo" title="Permanent link">Link</a></h4>
 <p>题意：求p在s中出现的次数</p>
-<p>题解：kmp扫扫扫<code class="codehilite"><span class="err">O(n)</span></code></p>
+<p>题解：kmp扫扫扫<code>O(n)</code></p>
 <h4 id="b-number-sequence">B - Number Sequence<a class="headerlink" href="#b-number-sequence" title="Permanent link">Link</a></h4>
 <p>题意：求p在s中第一次出现的下标</p>
 <p>题解：kmp扫到第一次j=m停</p>
 <h4 id="c-period">C - Period<a class="headerlink" href="#c-period" title="Permanent link">Link</a></h4>
 <p>题意：给定s，求s的每个前缀的最小循环节使得任意个这样的循环节并行拼成这个前缀，其中前缀本身不算。</p>
-<p>题解：kmp求最小循环节，<code class="codehilite"><span class="nf">len</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nxt</span><span class="o">[</span><span class="n">len</span><span class="o">]</span><span class="w"></span></code>就是该串的最小循环节大小。判一下能整除即是解。</p>
+<p>题解：kmp求最小循环节，<code>len - nxt[len]</code>就是该串的最小循环节大小。判一下能整除即是解。</p>
 <h4 id="d-power-strings">D - Power Strings<a class="headerlink" href="#d-power-strings" title="Permanent link">Link</a></h4>
 <p>题意：给定s求最大循环次数</p>
 <p>题解：kmp求最小循环节</p>
@@ -1627,7 +1728,7 @@
 <p>题解：首先对s和p都翻转，求s的每个前缀对p的前缀的最大匹配度，保存在后缀数组中，对后缀数组倒着往前线性扫一次就可以得出答案，因为后缀的i如果有匹配必能匹配到nxt[i]，所以加过去就可以了。此处后缀数组只是取它字面意思。</p>
 <h4 id="k-bazinga">K - Bazinga<a class="headerlink" href="#k-bazinga" title="Permanent link">Link</a></h4>
 <p>题意：给n个串，求最大下标满足前面的串有不是它的子串。</p>
-<p>题解：由于如果s_i是s_{i+1}的子串，对s_{i+1}及以后的串都与s_i无关，所以做一个剪枝即可，最坏情况也只有<code class="codehilite"><span class="err">O(n*len)</span></code></p>
+<p>题解：由于如果s_i是s_{i+1}的子串，对s_{i+1}及以后的串都与s_i无关，所以做一个剪枝即可，最坏情况也只有<code>O(n*len)</code></p>
                 
                   
                 

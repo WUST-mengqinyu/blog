@@ -1318,7 +1318,153 @@
 <h2 id="d-distribution-of-books"><a href="https://cn.vjudge.net/problem/HDU-6606">D - Distribution of books</a><a class="headerlink" href="#d-distribution-of-books" title="Permanent link">Link</a></h2>
 <p>给一个序列，要求从前往后连续选m块，每块至少一个数，使得选取块的和最大值最小。</p>
 <p>首先肯定是考虑二分的，直接二分答案就是能否选到m个不大于当前值的块即可。然后考虑怎么check，一个显然的<span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>的check是<span><span class="MathJax_Preview">dp[i] = max(dp[j]) + 1 (\sum_{k=j}^i a[k] &lt;= mid)</span><script type="math/tex">dp[i] = max(dp[j]) + 1 (\sum_{k=j}^i a[k] <= mid)</script></span>，其实就已经很显然了，对每个dp值维护一个前缀dp权值线段树即可。</p>
-<div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：1004.cpp</span>
@@ -1466,12 +1612,87 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="f-fansblog"><a href="https://cn.vjudge.net/problem/HDU-6608">F - Fansblog</a><a class="headerlink" href="#f-fansblog" title="Permanent link">Link</a></h2>
 <p>求<span><span class="MathJax_Preview">q! % p</span><script type="math/tex">q! % p</script></span>，其中pq都是素数且q是p的前一个素数，给p求值。</p>
-<p>那么一个显然的结论<span><span class="MathJax_Preview">(q-1)!%q=1</span><script type="math/tex">(q-1)!%q=1</script></span>，然后就是相当于把<code class="codehilite"><span class="err">p+1~q-1</span></code>这段逆元乘回去即可，出于某种神奇的性质，<code class="codehilite"><span class="err">1e14</span></code>范围内素数之间距离没那么大，然后就可以<code class="codehilite"><span class="err">sqrt(n)</span></code>的处理每个数是不是素数直到枚举到前一个素数即可。还需要快速乘防止爆longlong有点恶心人。</p>
+<p>那么一个显然的结论<span><span class="MathJax_Preview">(q-1)!%q=1</span><script type="math/tex">(q-1)!%q=1</script></span>，然后就是相当于把<code>p+1~q-1</code>这段逆元乘回去即可，出于某种神奇的性质，<code>1e14</code>范围内素数之间距离没那么大，然后就可以<code>sqrt(n)</code>的处理每个数是不是素数直到枚举到前一个素数即可。还需要快速乘防止爆longlong有点恶心人。</p>
 <p>代码：</p>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="cp">#define ll long long</span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -1547,12 +1768,141 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
 <h2 id="g-find-the-answer"><a href="https://cn.vjudge.net/problem/HDU-6609">G - Find the answer</a><a class="headerlink" href="#g-find-the-answer" title="Permanent link">Link</a></h2>
 <p>给一个序列和一个m值，求每个点必取的情况下，前面至少需要删掉多少个点才能让前缀和不超过m。</p>
 <p>直接cf原题，数字的范围调大了点，我直接上了权值线段树维护前缀，然后树上二分，实际复杂度仍然是普通查找，求出权值线段树右方需要减掉多少个点能让前缀和变到m以内即可。</p>
 <p>代码：</p>
-<div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：1007.cpp</span>
@@ -1682,6 +2032,7 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table>
                 
                   
                 
