@@ -1,8 +1,6 @@
 
 # Team Wiki
 
-[wannafly](../Wannafly Winter Camp 2020)
-
 ## General
 
 **Name**：就这么喜欢写代码吗？你这个小秃头(2019)

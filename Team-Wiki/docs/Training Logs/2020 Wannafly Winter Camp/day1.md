@@ -10,11 +10,10 @@
 
 | Name                                                         |   Date    | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |
 | ------------------------------------------------------------ | :-------: | :----: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [2020 CCPC Wannafly Winter Camp Day1 (Div.1&2)](https://pintia.cn/problem-sets/1216205439967371264) | 2020/1/12 |  7/10  |  O   |  O   |  O   |  .   |  .   |  O   |  .   |  O   |  .   |  .   |
+| [2020 CCPC Wannafly Winter Camp Day1 (Div.1&2)](https://codeforces.com/group/6QKpZkKhsL/contest/265753) | 2020/1/12 |  7/10  |  O   |  O   |  O   |  .   |  .   |  O   |  .   |  O   |  .   |  .   |
 
 
-
-### A. 期望逆序对
+## A. 期望逆序对
 
 求一个排列，排序一个区间对使得期望逆序对最少求期望。即对于 $[l_i,r_i]$ 中的任何一个整数 $j$，$x_i=j$的概率都是 $(r_i-l_i+1)^{-1}$
 
