@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019 ICPC Regional/2019 ICPC Asia Nanjing Regional Contest/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2020 Wannafly Winter Camp/day2/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>2019 ICPC Asia Nanjing Regional Contest - Team Wiki</title>
+        <title>Day2 - Team Wiki</title>
       
     
     
@@ -112,7 +112,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#a-a-hard-problem" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -138,7 +138,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                2019 ICPC Asia Nanjing Regional Contest
+                Day2
               
             </span>
           
@@ -401,43 +401,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-a-hard-problem" class="md-nav__link">
-    A. A Hard Problem
+  <a href="#_1" class="md-nav__link">
+    早上讲课
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-digital-path" class="md-nav__link">
-    C. Digital Path
+  <a href="#_2" class="md-nav__link">
+    下午比赛
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#f-paper-grading" class="md-nav__link">
-    F. Paper Grading
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#h-prince-and-princess" class="md-nav__link">
-    H. Prince and Princess
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#j-spy" class="md-nav__link">
-    J. Spy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#k-triangle" class="md-nav__link">
-    K. Triangle
+  <a href="#a" class="md-nav__link">
+    A. 托米的字符串
   </a>
   
 </li>
@@ -459,71 +438,14 @@
               
                 
                 
-                  <h1>2019 ICPC Asia Nanjing Regional Contest</h1>
+                  <h1>Day2</h1>
                 
-                <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Date</th>
-<th>solved</th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>E</th>
-<th>F</th>
-<th>G</th>
-<th>H</th>
-<th>I</th>
-<th>J</th>
-<th>K</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.jisuanke.com/contest/5528?view=challenges">2019 ICPC Asia Nanjing Regional Contest</a></td>
-<td>2019/10/27</td>
-<td>6</td>
-<td>O</td>
-<td>.</td>
-<td>O</td>
-<td>.</td>
-<td>.</td>
-<td>O</td>
-<td>.</td>
-<td>Ø</td>
-<td>.</td>
-<td>Ø</td>
-<td>O</td>
-</tr>
-</tbody>
-</table>
-<h2 id="a-a-hard-problem">A. A Hard Problem<a class="headerlink" href="#a-a-hard-problem" title="Permanent link">Link</a></h2>
-<p>给定一个正整数n，找到一个正整数k, 使对于{1, 2, 3, &hellip;, n} 的所有大小为k的子集中都至少存在一组数(u,v)，使u能被v整除。</p>
-<p>最大的两两不互为因子的情况是取大于等于<span><span class="MathJax_Preview">\lceil {n \over 2}\rceil</span><script type="math/tex">\lceil {n \over 2}\rceil</script></span>的所有数，这种情况下再取一个数，一定是某原集合中某一个数的&frac12;，答案是<span><span class="MathJax_Preview">\lceil {n \over 2}\rceil + 1</span><script type="math/tex">\lceil {n \over 2}\rceil + 1</script></span></p>
-<h2 id="c-digital-path">C. Digital Path<a class="headerlink" href="#c-digital-path" title="Permanent link">Link</a></h2>
-<p>给一个n×m的矩阵，矩阵内值的大小为[-10<sup>7,10</sup>7]。其中一条合法的路径需要满足以下要求：相邻两步的格子之间有边相邻，且当前格子数值为上一步+1，并且不能继续扩展。问该矩阵中有多少条合法路径。</p>
-<p><code>dp[i][j][k]</code>表示i行j列的点有多少条以它结束的路径，k表示路径的长度为2,3, &gt;=4的路径种类，每次向四周更新扩展，如果都不能扩展表示路径以它为结尾，记录答案。</p>
-<h2 id="f-paper-grading">F. Paper Grading<a class="headerlink" href="#f-paper-grading" title="Permanent link">Link</a></h2>
-<p>对序列和交换操作分块，当操作达到块大小时rebuild即可，序列的块内使用字典树维护即可。操作不到块大小时单独计算swap后的增量和减量的贡献即可。复杂度<span><span class="MathJax_Preview">O(nsqrt(n))</span><script type="math/tex">O(nsqrt(n))</script></span></p>
-<p>正解好像是hash+二维数点，复杂度<span><span class="MathJax_Preview">O(nlog^2(n))</span><script type="math/tex">O(nlog^2(n))</script></span></p>
-<h2 id="h-prince-and-princess">H. Prince and Princess<a class="headerlink" href="#h-prince-and-princess" title="Permanent link">Link</a></h2>
-<p>王子想向公主求婚。宫中有三类人，以公主为首赞成婚礼的人，反对婚礼的人，不关心的人，他们的人数为a，b，c(a&gt;0, b,c≥0)。王子知道三类人的数量，这些人分别呆在各自的房间，王子可以向房间内的人提以下三类问题：</p>
-<ol>
-<li>你是谁</li>
-<li>在X房间内的人是谁</li>
-<li>公主在哪个房间</li>
-</ol>
-<p>所有人都会回答问题，但赞成婚礼的人会告诉他正确的答案，反对婚礼的人会告诉他错误的答案，不关心的人会随机给出回答。王子要至少问几个问题，才能找到公主所在的房间。如果找不到，输出-1.</p>
-<p>最坏情况下把c看做b，如果b+c&gt;a，那么王子没有办法找到公主。否则问2*(b+c)+1个人“公主在哪个房间”就能找到公主。</p>
-<p>特判1,0,0为0，因为只有一个房间，这个房间里面一定是公主。</p>
-<h2 id="j-spy">J. Spy<a class="headerlink" href="#j-spy" title="Permanent link">Link</a></h2>
-<p>A,B各有n支队，其中A的队伍能力值已经确定。B有两类人，要把一类人和另一类人搭配，能力值为两者的能力值之和。搭配完后将A,B的队伍随机排列对战，如果A的第i个队伍能力值小于B和它对战的队伍，则B可以获得分数val[i]。输出组队后B的最大得分的期望×n。</p>
-<p>对期望式子化简之后就是裸的二分图最大权匹配，B的a[i]和b[j]连边的边权为<span><span class="MathJax_Preview">\sum_{k=1}^n{a[i]+b[j]&gt;c[k]?val[k]:0}</span><script type="math/tex">\sum_{k=1}^n{a[i]+b[j]>c[k]?val[k]:0}</script></span>。这题卡了KMdfs板子。</p>
-<h2 id="k-triangle">K. Triangle<a class="headerlink" href="#k-triangle" title="Permanent link">Link</a></h2>
-<p>给了三角形三个点的坐标和点P，要求找一个点Q，使线段PQ平分三角形的面积，P,Q都在三角形边上。</p>
-<p>二分100次可过，直接算的话用sin会卡精度，式子里面sin可以化简掉，推出来的答案值也是可以过的。</p>
+                <h2 id="_1">早上讲课<a class="headerlink" href="#_1" title="Permanent link">Link</a></h2>
+<p>Div2 数据结构，属实没有什么盐分，从栈到线段树</p>
+<p>最大收货是明确了 Segment Beats 的复杂度是 O(nlogn)，可以放心的使用线段树进行区间推平操作</p>
+<h2 id="_2">下午比赛<a class="headerlink" href="#_2" title="Permanent link">Link</a></h2>
+<p>仍然在前 20 名，很多串和图题，还是有点难顶</p>
+<h2 id="a">A. 托米的字符串<a class="headerlink" href="#a" title="Permanent link">Link</a></h2>
                 
                   
                 
