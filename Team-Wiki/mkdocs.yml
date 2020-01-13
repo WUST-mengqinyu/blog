@@ -1,6 +1,15 @@
 site_name: Team Wiki
 repo_name: https://github.com/WUST-mengqinyu/Team-Wiki
 site_url: https://wiki.verly-badcw.top
+nav:
+  - 主页:
+    - 2019赛季: index.md
+    - Wannafly Winter Camp: Wannafly Winter Camp 2020.md
+  - 个人页面:
+    - Verly: Personal Page/Verly/index.md
+    - badcw: Personal Page/badcw/index.md
+  - 专题:
+    - SegmentTree2: Topic Training/SegmentTree2.md
 
 theme: # yeti
     name: null

@@ -1,0 +1,1 @@
+[day1](../Training Logs/2020 Wannafly Winter Camp/day1)
