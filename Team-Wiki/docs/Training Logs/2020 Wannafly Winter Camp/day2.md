@@ -26,118 +26,119 @@ Div2 数据结构，属实没有什么盐分，从栈到线段树
 
 如果 $x > y$ 可以考虑交换，因为它们有对称性
 
-```cpp
-/*================================================================
-*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
-*
-*   创 建 者： badcw
-*   创建日期： 2020/1/13
-*
-================================================================*/
-#include <bits/stdc++.h>
+??? note "Code"
+    ```cpp
+    /*================================================================
+    *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+    *
+    *   创 建 者： badcw
+    *   创建日期： 2020/1/13
+    *
+    ================================================================*/
+    #include <bits/stdc++.h>
 
-#define ll long long
-using namespace std;
+    #define ll long long
+    using namespace std;
 
-const int maxn = 1e6+50;
-const int mod = 1e9+7;
-ll qp(ll a, ll n) {
-    ll res = 1;
-    while (n > 0) {
-        if (n & 1) res = res * a % mod;
-        a = a * a % mod;
-        n >>= 1;
-    }
-    return res;
-}
-
-template <class T>
-inline bool scan(T& ret) {
-    char c;
-    int sgn;
-    if (c = getchar(), c == EOF) return 0; // EOF
-    while (c != '-' && (c < '0' || c > '9')) c = getchar();
-    sgn = (c == '-') ? -1 : 1;
-    ret = (c == '-') ? 0 : (c - '0');
-    while (c = getchar(), c >= '0' && c <= '9') ret = ret * 10 + (c - '0');
-    ret *= sgn;
-    return 1;
-}
-
-//template <class T>
-//inline void out(T x) {
-//    if (x > 9) out(x / 10);
-//    putchar(x % 10 + '0');
-//}
-
-
-struct Frac {
-    ll a, b;
-    void getJian() {
-        ll gcd = abs(__gcd(a, b));
-        a /= gcd;
-        b /= gcd;
-        if (b < 0) {
-            a = -a;
-            b = -b;
+    const int maxn = 1e6+50;
+    const int mod = 1e9+7;
+    ll qp(ll a, ll n) {
+        ll res = 1;
+        while (n > 0) {
+            if (n & 1) res = res * a % mod;
+            a = a * a % mod;
+            n >>= 1;
         }
+        return res;
     }
-    Frac(ll a_ = 1, ll b_ = 1) {
-        a = a_;
-        b = b_;
-        getJian();
-    }
-    Frac add(const Frac& oth) {
-        ll bt = b * oth.b;
-        ll at = a * oth.b + oth.a * b;
-        return Frac(at, bt);
-    }
-    Frac multi(const Frac& oth) {
-        a *= oth.a;
-        b *= oth.b;
-        getJian();
-        return *this;
-    }
-    bool operator < (const Frac& oth) const {
-        return a * oth.b < b * oth.a;
-    }
-    bool operator == (const Frac& oth) const {
-        return a * oth.b == b * oth.a;
-    }
-    bool operator <= (const Frac& oth) const {
-        return a * oth.b <= b * oth.a;
-    }
-};
 
-char s[maxn];
-double pre[maxn];
-//double pre2[maxn];
-
-int main(int argc, char* argv[]) {
-    scanf("%s", s + 1);
-    int len = strlen(s + 1);
-    for (int i = 1; i <= len; ++i) {
-        pre[i] = pre[i - 1] + 1.0 / i;
-//        pre2[i] = pre2[i - 1] + pre[i];
+    template <class T>
+    inline bool scan(T& ret) {
+        char c;
+        int sgn;
+        if (c = getchar(), c == EOF) return 0; // EOF
+        while (c != '-' && (c < '0' || c > '9')) c = getchar();
+        sgn = (c == '-') ? -1 : 1;
+        ret = (c == '-') ? 0 : (c - '0');
+        while (c = getchar(), c >= '0' && c <= '9') ret = ret * 10 + (c - '0');
+        ret *= sgn;
+        return 1;
     }
-    double res = 0;
-    for (int i = 1; i <= len; ++i) {
-        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' || s[i] == 'y') {
-            int x = i;
-            int y = len - i + 1;
-//            res += x * pre[y] - pre2[x - 1];
-            if (x > y) swap(x, y);
-            res ++;
-            res += x * (pre[y] - pre[x]);
-            res += (x + y) * (pre[x + y - 1] - pre[y]);
-//            res += (y - x) - x * (pre[y] - pre[x]);
+
+    //template <class T>
+    //inline void out(T x) {
+    //    if (x > 9) out(x / 10);
+    //    putchar(x % 10 + '0');
+    //}
+
+
+    struct Frac {
+        ll a, b;
+        void getJian() {
+            ll gcd = abs(__gcd(a, b));
+            a /= gcd;
+            b /= gcd;
+            if (b < 0) {
+                a = -a;
+                b = -b;
+            }
         }
+        Frac(ll a_ = 1, ll b_ = 1) {
+            a = a_;
+            b = b_;
+            getJian();
+        }
+        Frac add(const Frac& oth) {
+            ll bt = b * oth.b;
+            ll at = a * oth.b + oth.a * b;
+            return Frac(at, bt);
+        }
+        Frac multi(const Frac& oth) {
+            a *= oth.a;
+            b *= oth.b;
+            getJian();
+            return *this;
+        }
+        bool operator < (const Frac& oth) const {
+            return a * oth.b < b * oth.a;
+        }
+        bool operator == (const Frac& oth) const {
+            return a * oth.b == b * oth.a;
+        }
+        bool operator <= (const Frac& oth) const {
+            return a * oth.b <= b * oth.a;
+        }
+    };
+
+    char s[maxn];
+    double pre[maxn];
+    //double pre2[maxn];
+
+    int main(int argc, char* argv[]) {
+        scanf("%s", s + 1);
+        int len = strlen(s + 1);
+        for (int i = 1; i <= len; ++i) {
+            pre[i] = pre[i - 1] + 1.0 / i;
+    //        pre2[i] = pre2[i - 1] + pre[i];
+        }
+        double res = 0;
+        for (int i = 1; i <= len; ++i) {
+            if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' || s[i] == 'y') {
+                int x = i;
+                int y = len - i + 1;
+    //            res += x * pre[y] - pre2[x - 1];
+                if (x > y) swap(x, y);
+                res ++;
+                res += x * (pre[y] - pre[x]);
+                res += (x + y) * (pre[x + y - 1] - pre[y]);
+    //            res += (y - x) - x * (pre[y] - pre[x]);
+            }
+        }
+        res /= len + (double)len * (len - 1) / 2;
+        printf("%.10f\n", res);
+        return 0;
     }
-    res /= len + (double)len * (len - 1) / 2;
-    printf("%.10f\n", res);
-    return 0;
-}
-```
+    ```
 
 ## E. 阔力梯的树
 
@@ -149,125 +150,126 @@ int main(int argc, char* argv[]) {
 
 直接考虑动态开点权值线段树合并即可
 
-```cpp
-/*================================================================
-*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
-*
-*   创 建 者： badcw
-*   创建日期： 2020/1/13
-*
-================================================================*/
-#include <bits/stdc++.h>
+??? note "Code"
+    ```cpp
+    /*================================================================
+    *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+    *
+    *   创 建 者： badcw
+    *   创建日期： 2020/1/13
+    *
+    ================================================================*/
+    #include <bits/stdc++.h>
 
-#define ll long long
-using namespace std;
+    #define ll long long
+    using namespace std;
 
-const int maxn = 1e5+50;
-const int mod = 1e9+7;
-ll qp(ll a, ll n) {
-    ll res = 1;
-    while (n > 0) {
-        if (n & 1) res = res * a % mod;
-        a = a * a % mod;
-        n >>= 1;
+    const int maxn = 1e5+50;
+    const int mod = 1e9+7;
+    ll qp(ll a, ll n) {
+        ll res = 1;
+        while (n > 0) {
+            if (n & 1) res = res * a % mod;
+            a = a * a % mod;
+            n >>= 1;
+        }
+        return res;
     }
-    return res;
-}
 
-template <class T>
-inline bool scan(T& ret) {
-    char c;
-    int sgn;
-    if (c = getchar(), c == EOF) return 0; // EOF
-    while (c != '-' && (c < '0' || c > '9')) c = getchar();
-    sgn = (c == '-') ? -1 : 1;
-    ret = (c == '-') ? 0 : (c - '0');
-    while (c = getchar(), c >= '0' && c <= '9') ret = ret * 10 + (c - '0');
-    ret *= sgn;
-    return 1;
-}
-
-//template <class T>
-//inline void out(T x) {
-//    if (x > 9) out(x / 10);
-//    putchar(x % 10 + '0');
-//}
-
-int root[maxn];
-int ls[1800000], rs[1800000];
-ll res[maxn];
-int sz = 0;
-
-struct node {
-    int lnum, rnum;
-    ll ans;
-}p[1800000];
-
-void pushup(int rt) {
-    p[rt].ans = p[ls[rt]].ans + p[rs[rt]].ans;
-    if (p[ls[rt]].lnum) p[rt].lnum = p[ls[rt]].lnum;
-    else p[rt].lnum = p[rs[rt]].lnum;
-    if (p[rs[rt]].rnum) p[rt].rnum = p[rs[rt]].rnum;
-    else p[rt].rnum = p[ls[rt]].rnum;
-    if (p[rs[rt]].lnum == 0 || p[ls[rt]].rnum == 0) return;
-    p[rt].ans += (ll)(p[rs[rt]].lnum - p[ls[rt]].rnum) * (p[rs[rt]].lnum - p[ls[rt]].rnum);
-}
-
-void insert(int &k, int l, int r, int val){
-    if (!k) k = ++sz;
-    if (l == r) {
-        p[k].lnum = p[k].rnum = val;
-        p[k].ans = 0;
-//        sum[k] = 1;
-        return;
+    template <class T>
+    inline bool scan(T& ret) {
+        char c;
+        int sgn;
+        if (c = getchar(), c == EOF) return 0; // EOF
+        while (c != '-' && (c < '0' || c > '9')) c = getchar();
+        sgn = (c == '-') ? -1 : 1;
+        ret = (c == '-') ? 0 : (c - '0');
+        while (c = getchar(), c >= '0' && c <= '9') ret = ret * 10 + (c - '0');
+        ret *= sgn;
+        return 1;
     }
-    int mid = (l + r) >> 1;
-    if (val <= mid) insert(ls[k], l, mid, val);
-    else insert(rs[k], mid + 1, r, val);
-    pushup(k);
-//    sum[k] = sum[ls[k]] + sum[rs[k]];
-}
 
-//int query(int k, int l, int r, int rank) {
-//    if (l == r) return l;
-//    int mid = (l + r) >> 1;
-//    if (sum[ls[k]] >= rank) return query(ls[k], l, mid, rank);
-//    else return query(rs[k], mid + 1, r, rank - sum[ls[k]]);
-//}
+    //template <class T>
+    //inline void out(T x) {
+    //    if (x > 9) out(x / 10);
+    //    putchar(x % 10 + '0');
+    //}
 
-int merge(int x, int y) {
-    if (!x) return y;
-    if (!y) return x;
-    ls[x] = merge(ls[x], ls[y]);
-    rs[x] = merge(rs[x], rs[y]);
-    pushup(x);
-//    sum[x] = sum[ls[x]] + sum[rs[x]];
-    return x;
-}
+    int root[maxn];
+    int ls[1800000], rs[1800000];
+    ll res[maxn];
+    int sz = 0;
 
-int n;
-vector<int> edge[maxn];
+    struct node {
+        int lnum, rnum;
+        ll ans;
+    }p[1800000];
 
-void dfs(int u) {
-    insert(root[u], 1, n, u);
-    for (auto v : edge[u]) {
-        dfs(v);
-        merge(root[u], root[v]);
+    void pushup(int rt) {
+        p[rt].ans = p[ls[rt]].ans + p[rs[rt]].ans;
+        if (p[ls[rt]].lnum) p[rt].lnum = p[ls[rt]].lnum;
+        else p[rt].lnum = p[rs[rt]].lnum;
+        if (p[rs[rt]].rnum) p[rt].rnum = p[rs[rt]].rnum;
+        else p[rt].rnum = p[ls[rt]].rnum;
+        if (p[rs[rt]].lnum == 0 || p[ls[rt]].rnum == 0) return;
+        p[rt].ans += (ll)(p[rs[rt]].lnum - p[ls[rt]].rnum) * (p[rs[rt]].lnum - p[ls[rt]].rnum);
     }
-    res[u] = p[root[u]].ans;
-}
 
-int main(int argc, char* argv[]) {
-    scanf("%d", &n);
-    for (int i = 2; i <= n; ++i) {
-        int rt;
-        scanf("%d", &rt);
-        edge[rt].push_back(i);
+    void insert(int &k, int l, int r, int val){
+        if (!k) k = ++sz;
+        if (l == r) {
+            p[k].lnum = p[k].rnum = val;
+            p[k].ans = 0;
+    //        sum[k] = 1;
+            return;
+        }
+        int mid = (l + r) >> 1;
+        if (val <= mid) insert(ls[k], l, mid, val);
+        else insert(rs[k], mid + 1, r, val);
+        pushup(k);
+    //    sum[k] = sum[ls[k]] + sum[rs[k]];
     }
-    dfs(1);
-    for (int i = 1; i <= n; ++i) {
-        printf("%lld\n", res[i]);
+
+    //int query(int k, int l, int r, int rank) {
+    //    if (l == r) return l;
+    //    int mid = (l + r) >> 1;
+    //    if (sum[ls[k]] >= rank) return query(ls[k], l, mid, rank);
+    //    else return query(rs[k], mid + 1, r, rank - sum[ls[k]]);
+    //}
+
+    int merge(int x, int y) {
+        if (!x) return y;
+        if (!y) return x;
+        ls[x] = merge(ls[x], ls[y]);
+        rs[x] = merge(rs[x], rs[y]);
+        pushup(x);
+    //    sum[x] = sum[ls[x]] + sum[rs[x]];
+        return x;
     }
-    return 0;
-}
-```
+
+    int n;
+    vector<int> edge[maxn];
+
+    void dfs(int u) {
+        insert(root[u], 1, n, u);
+        for (auto v : edge[u]) {
+            dfs(v);
+            merge(root[u], root[v]);
+        }
+        res[u] = p[root[u]].ans;
+    }
+
+    int main(int argc, char* argv[]) {
+        scanf("%d", &n);
+        for (int i = 2; i <= n; ++i) {
+            int rt;
+            scanf("%d", &rt);
+            edge[rt].push_back(i);
+        }
+        dfs(1);
+        for (int i = 1; i <= n; ++i) {
+            printf("%lld\n", res[i]);
+        }
+        return 0;
+    }
+    ```

@@ -497,7 +497,7 @@
 <p><code>(1------i----n)</code></p>
 <p>其中 <code>[1,i]</code> 长度为 <code>x</code>， <code>[i,n]</code> 长度为 <code>y</code>，设 <span><span class="MathJax_Preview">x \le y</span><script type="math/tex">x \le y</script></span> 显然对于 <code>[1,x]</code> 长度的串每个都有期望 1，然后对于 <code>[x+1,y]</code> 的串期望个数为 <code>x</code>。计算式为：<span><span class="MathJax_Preview">\sum_{i=x+1}^{y}\frac{x}{i}</span><script type="math/tex">\sum_{i=x+1}^{y}\frac{x}{i}</script></span>，对于 <code>[y+1,x+y-1]</code> 的串期望为 <code>[x-1,1]</code> 计算式为：<span><span class="MathJax_Preview">\sum_{i=y+1}^{x+y-1}\frac{x+y-i}{i}</span><script type="math/tex">\sum_{i=y+1}^{x+y-1}\frac{x+y-i}{i}</script></span> 化简为 <span><span class="MathJax_Preview">{x+y}\cdot\sum_{i=y+1}^{x+y-1}\frac{1}{i}-\sum_{i=y+1}^{x+y-1}1</span><script type="math/tex">{x+y}\cdot\sum_{i=y+1}^{x+y-1}\frac{1}{i}-\sum_{i=y+1}^{x+y-1}1</script></span> 对于 <span><span class="MathJax_Preview">\frac{1}{i}</span><script type="math/tex">\frac{1}{i}</script></span> 求前缀和即可</p>
 <p>如果 <span><span class="MathJax_Preview">x &gt; y</span><script type="math/tex">x > y</script></span> 可以考虑交换，因为它们有对称性</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
   2
   3
   4
@@ -719,12 +719,13 @@
 </pre></div>
 </td></tr></table>
 
+</details>
 <h2 id="e">E. 阔力梯的树<a class="headerlink" href="#e" title="Permanent link">Link</a></h2>
 <p>给一颗带点权有根树</p>
 <p>对于任意一颗子树定义它的结实程度为对它子树内所有节点的编号排序后获得数组 a, <span><span class="MathJax_Preview">\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2</span><script type="math/tex">\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2</script></span></p>
 <p>显然考虑两个区间怎么合并，首先两个不交叉区间的元素不会互相影响权值，所以直接合并答案再加上边界的答案即可</p>
 <p>直接考虑动态开点权值线段树合并即可</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
   2
   3
   4
@@ -965,6 +966,8 @@
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
+
+</details>
                 
                   
                 
