@@ -491,7 +491,7 @@
                 
                 <h2 id="_1">早上讲课<a class="headerlink" href="#_1" title="Permanent link">Link</a></h2>
 <p>Div2 数据结构，属实没有什么盐分，从栈到线段树</p>
-<p>最大收货是明确了 Segment Beats 的复杂度是 O(nlogn)，可以放心的使用线段树进行区间推平操作</p>
+<p>最大收获是明确了 Segment Beats 的复杂度是 O(nlogn)，可以放心的使用线段树进行区间推平操作</p>
 <h2 id="_2">下午比赛<a class="headerlink" href="#_2" title="Permanent link">Link</a></h2>
 <table>
 <thead>
@@ -765,7 +765,7 @@
 
 </details>
 <h2 id="c">C. 纳新一百的石子游戏<a class="headerlink" href="#c" title="Permanent link">Link</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -800,51 +800,46 @@
 33
 34
 35
-36
-37
-38
-39</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>??? note &quot;Code&quot;
-```cpp
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int N=500010;
-typedef long long LL;
-int n,m;
-int cnt[100];
-LL nowx;
+36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">N</span><span class="o">=</span><span class="mi">500010</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">LL</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">cnt</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="n">LL</span> <span class="n">nowx</span><span class="p">;</span>
 
-int main(){
-#ifdef WK
-    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
-#endif
-    scanf(&quot;%d&quot;,&amp;n);
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+<span class="cp">#ifdef WK</span>
+    <span class="n">freopen</span><span class="p">(</span><span class="s">&quot;in.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="n">stdin</span><span class="p">);</span>
+<span class="cp">#endif</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
 
-    for(int i=1;i&lt;=n;i++){
-        LL aa;scanf(&quot;%lld&quot;,&amp;aa);
-        LL ans=0;
-        if(aa&gt;nowx)ans++;
-        LL t=nowx^aa;int flag=-1;
-        for(int i=62;i&gt;=0;i--){
-            if(t&amp;(1ll&lt;&lt;i)){
-                flag=i;break;
-            }
-        }
-        if(flag!=-1){
-            ans+=cnt[flag];
-        }
-        for(int i=0;aa;i++){
-            if(aa&amp;1)cnt[i]++;
-            aa&gt;&gt;=1;
-        }
-        nowx=t;
-        printf(&quot;%lld\n&quot;,ans);
-    }
-    return 0;
-} 
-```
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">LL</span> <span class="n">aa</span><span class="p">;</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">aa</span><span class="p">);</span>
+        <span class="n">LL</span> <span class="n">ans</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">aa</span><span class="o">&gt;</span><span class="n">nowx</span><span class="p">)</span><span class="n">ans</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">LL</span> <span class="n">t</span><span class="o">=</span><span class="n">nowx</span><span class="o">^</span><span class="n">aa</span><span class="p">;</span><span class="kt">int</span> <span class="n">flag</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">62</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1ll</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">)){</span>
+                <span class="n">flag</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">flag</span><span class="o">!=-</span><span class="mi">1</span><span class="p">){</span>
+            <span class="n">ans</span><span class="o">+=</span><span class="n">cnt</span><span class="p">[</span><span class="n">flag</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">aa</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">aa</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">)</span><span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">aa</span><span class="o">&gt;&gt;=</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">nowx</span><span class="o">=</span><span class="n">t</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">ans</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
 </pre></div>
 </td></tr></table>
 
+</details>
 <h2 id="e">E. 阔力梯的树<a class="headerlink" href="#e" title="Permanent link">Link</a></h2>
 <p>给一颗带点权有根树</p>
 <p>对于任意一颗子树定义它的结实程度为对它子树内所有节点的编号排序后获得数组 a, <span><span class="MathJax_Preview">\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2</span><script type="math/tex">\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2</script></span></p>
