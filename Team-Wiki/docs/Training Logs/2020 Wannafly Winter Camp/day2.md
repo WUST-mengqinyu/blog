@@ -2,7 +2,7 @@
 
 Div2 数据结构，属实没有什么盐分，从栈到线段树
 
-最大收货是明确了 Segment Beats 的复杂度是 O(nlogn)，可以放心的使用线段树进行区间推平操作
+最大收获是明确了 Segment Beats 的复杂度是 O(nlogn)，可以放心的使用线段树进行区间推平操作
 
 ## 下午比赛
 
@@ -146,7 +146,7 @@ Div2 数据结构，属实没有什么盐分，从栈到线段树
 
 ## C. 纳新一百的石子游戏
 
-    ??? note "Code"
+??? note "Code"
     ```cpp
     #include <bits/stdc++.h>
     using namespace std;
