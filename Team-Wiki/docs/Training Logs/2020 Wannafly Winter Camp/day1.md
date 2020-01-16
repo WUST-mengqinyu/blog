@@ -1,4 +1,4 @@
-## 开营仪式
+
 
 总之没有什么盐分，强调安全问题
 
@@ -14,7 +14,7 @@
 
 ## To-do list
 
-`C\E`
+`E`
 
 
 ## A. 期望逆序对
@@ -40,7 +40,7 @@
 
     #define ll long long
     using namespace std;
-
+    
     const int maxn = 5e3+50;
     const int mod = 998244353;
     ll qp(ll a, ll n) {
@@ -52,7 +52,7 @@
         }
         return res;
     }
-
+    
     template <class T>
     inline bool scan(T& ret) {
         char c;
@@ -65,18 +65,18 @@
         ret *= sgn;
         return 1;
     }
-
+    
     //template <class T>
     //inline void out(T x) {
     //    if (x > 9) out(x / 10);
     //    putchar(x % 10 + '0');
     //}
-
+    
     int n;
     int l[maxn], r[maxn];
     int idx[maxn];
     ll inv[maxn];
-
+    
     ll cal(int i, int j) {
         i = idx[i], j = idx[j];
         ll a = l[i], b = r[i], c = l[j], d = r[j];
@@ -91,7 +91,7 @@
         }
         return res % mod * inv[i] % mod * inv[j] % mod;
     }
-
+    
     int main(int argc, char* argv[]) {
     //    freopen("data.in", "r", stdin);
     //    freopen("data.out", "w", stdout);
@@ -125,29 +125,30 @@
 ??? note "Code"
     ```cpp
     #include <bits/stdc++.h>
+    ```
 
-    using namespace std;
+    开营仪式using namespace std;
     typedef long long ll;
-
+    
     const int maxn = 1000 + 10;
     char s[maxn][110];
-
+    
     int x[maxn], y[maxn];
-
+    
     int getid(char c)
     {
         if(c >= 'a' && c <= 'z') return c - 'a';
         if(c >= 'A' && c <= 'z') return c - 'A' + 26;
     }
-
+    
     int getch(int c)
     {
         if(c >= 0 && c <= 25) return c + 'a';
         return c - 26 + 'A';
     }
-
+    
     int len[maxn];
-
+    
     int main()
     {
         int n, m;
@@ -172,7 +173,7 @@
         for(int i = 1; i <= n; i ++) printf("%s\n", s[i]);
         return 0;
     }
-
+    
     ```
 
 
@@ -180,20 +181,23 @@
 
 令 $g(n,k)$ 为 $n$ 个点的无向图对点染成 $k$ 种颜色最多的边数，求 $\sum_{i=l}^{r} g(n,i)$
 $$
-ans = 
+ans=n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}^2\cdot(i-n\%i)
 $$
+
+对该式分块，当$i\le\sqrt{n}$时对每个点单点求值，当$i\ge\sqrt{n}$时对$\lfloor\frac{n}{i}\rfloor$分块求和，其中$\sum_{i=l}^ri$和$n\%i$均为等差数列，而$\lfloor\frac{n}{i}\rfloor$在单个块内相等，每次求$l-1,r$的前缀和差分即可。
 
 ??? note "Code"
     ```cpp
     #include <bits/stdc++.h>
+    ```
 
     using namespace std;
     typedef long long ll;
-
+    
     #define int ll
-
+    
     const int mod = 998244353;
-
+    
     ll qp(ll a, ll n = mod - 2)
     {
         ll ans = 1, base = a;
@@ -205,7 +209,7 @@ $$
         }
         return ans;
     }
-
+    
     signed main()
     {
         int t;
@@ -291,14 +295,14 @@ $$
         } 
         return fa[x][0];
     }
-
+    
     int findf(int x,int d){
         for(int i=0;(1<<i)<=d;i++)if(d&(1<<i))x=fa[x][i];
         return x;
     }
-
+    
     LL ans[N];
-
+    
     void dfs1(int x){
         for(int i=p[x];i;i=e[i].nt){
             int t=e[i].b;
@@ -309,7 +313,7 @@ $$
         }
         g[x]+=h[x];
     }
-
+    
     void dfs2(int x){
         for(int i=p[x];i;i=e[i].nt){
             int t=e[i].b;
@@ -319,7 +323,7 @@ $$
         }
         f[x]+=g[x];
     }
-
+    
     void getAns(int x,LL now){
         ans[x]=now;
         for(int i=p[x];i;i=e[i].nt){
@@ -328,7 +332,7 @@ $$
             getAns(t,now-g[t]);
         }
     }
-
+    
     int main(){
     #ifdef WK
         freopen("in.txt","r",stdin);
@@ -366,7 +370,7 @@ $$
             
             asum += 1ll*(deep[aa]-deep[cc])*(deep[bb]-deep[cc]);
         }
-
+    
         dfs1(1);
         dfs2(1);
         getAns(1,asum);
@@ -416,7 +420,7 @@ $$
             return m-rtn+1;
         }
     }
-
+    
     int check(LL x){
         LL cnt = 0;
         
@@ -429,13 +433,14 @@ $$
                 
                 cnt+=findf(f,x,A[i]);
             }
-            
-            
-        }
-        
+
+
+​            
+​        }
+​        
         return cnt>=k;
     }
-
+    
     LL solve(){
         LL l=-MAXN,r=MAXN,rtn=MAXN*10;
         while(l<=r){
@@ -446,7 +451,7 @@ $$
         }
         return rtn;
     }
-
+    
     int main(){
     #ifdef WK
         freopen("in.txt","r",stdin);
@@ -514,7 +519,7 @@ $$
 
     #define ll long long
     using namespace std;
-
+    
     const int maxn = 8e4+50;
     const int mod = 1e9+7;
     ll qp(ll a, ll n) {
@@ -526,7 +531,7 @@ $$
         }
         return res;
     }
-
+    
     template <class T>
     inline bool scan(T& ret) {
         char c;
@@ -539,20 +544,20 @@ $$
         ret *= sgn;
         return 1;
     }
-
+    
     //template <class T>
     //inline void out(T x) {
     //    if (x > 9) out(x / 10);
     //    putchar(x % 10 + '0');
     //}
-
+    
     const int maxb = 1005;
     const int inf = 8e4+50;
     int n, m;
     int belong[maxn], lpos[maxb], rpos[maxb];
     int val[maxn], lazy[maxn], op[maxb];
     int block;
-
+    
     void rebuild(int idx) {
         for (int i = lpos[idx]; i <= rpos[idx]; ++i) {
             if (val[i] > op[idx]) val[i] = op[idx];
@@ -561,7 +566,7 @@ $$
         sort(lazy + lpos[idx], lazy + rpos[idx] + 1);
     //    op[idx] = inf;
     }
-
+    
     void update(int l, int r, int w) {
         if (belong[l] == belong[r]) {
             for (int i = l; i <= r; ++i) {
@@ -581,9 +586,9 @@ $$
         }
         rebuild(belong[l]), rebuild(belong[r]);
     }
-
+    
     int sz;
-
+    
     void rebuild() {
         for (int i = 1; i <= sz; ++i) {
             op[i] = 0;
@@ -600,7 +605,7 @@ $$
         }
     //    printf("\n");
     }
-
+    
     bool check(int x, int l, int r, int w) {
         int res = 0;
         if (op[belong[l]] < x) {
@@ -625,7 +630,7 @@ $$
         }
         return res < w;
     }
-
+    
     int query(int l, int r, int w) {
         if (belong[l] == belong[r]) {
             vector<int> tmp;
@@ -649,7 +654,7 @@ $$
         }
         return res;
     }
-
+    
     int main(int argc, char* argv[]) {
         scanf("%d%d", &n, &m);
     //    block = n;
