@@ -10,9 +10,15 @@
 | ------------------------------------------------------------ | :-------: | :----: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | [2020 CCPC Wannafly Winter Camp Day5 (Div.1&2)](https://pintia.cn/problem-sets/1217641604302602240) | 2020/1/16 |  3/10  |  O   |  .   |  .   |  .   |  O   |  .   |  O  |  .   |  .  |  .  |
 
+## To-do list
+
+`G\J\I`
+
 ## A. Alternative Accounts
 
 有至多三场比赛，n 个账号，一个人可能有多个账号，但是一个人在一场比赛中最多使用一个账号，求最少的人数
+
+首先有 8 种账号，按照三场比赛来进行二进制压位，那么对于任意按位与为 0 的账号都可能属于同一个人，另外可以分析出如果 x 个账号属于同一个人，那么总量将减少 x - 1，所以对任意账号其实只要找出可行对能让它减少，本身并不带权，也就是说不存在优先性问题。所以考虑贪心的减掉所有的边即可。顺序先是减去内部三元环，再减去一对二的边，最后减去内部边即可完全减掉。
 
 ??? note "Code"
     ```cpp
@@ -303,4 +309,92 @@
         }
         return 0;
     } 
+    ```
+
+## J. Xor on Figures
+
+??? note "Code"
+    ```cpp
+    #include <bits/stdc++.h>
+
+    using namespace std;
+    typedef long long ll;
+
+    const int mod = 1e9 + 7;
+
+    struct Base
+    {
+    #define TYPE bitset<1024>
+        static const int len = 1024;
+        bool rel; int sz;
+        TYPE a[len];
+
+        TYPE &operator[](int x) {
+            return a[x];
+        }
+
+        TYPE operator[](int x) const {
+            return a[x];
+        }
+
+        void insert(bitset<1024> t)
+        {
+            for(int i = len - 1; i >= 0; i --) 
+            {
+                if(!(t[i] == 1)) continue;
+                if(a[i].count()) t ^= a[i];
+                else 
+                {
+                    for(int j = 0; j < i; j ++) if(t[j]) t ^= a[j];
+                    for(int j = i + 1; j < len; j ++) if(a[j][i] == 1) a[j] ^= t;
+                    a[i] = t;
+                    ++ sz;
+                    return;
+                }
+            }
+            rel = true;
+        }
+    }solve;
+
+    ll qp(ll a, ll n)
+    {
+        ll ans = 1, base = a;
+        while(n)
+        {
+            if(n & 1) (ans *= base) %= mod;
+            (base *= base) %= mod;
+            n >>= 1;
+        }
+        return ans;
+    }
+
+    char s[50][50];
+
+    int main()
+    {
+        int k;
+        scanf("%d", &k);
+        int n = 1 << k;
+        for(int i = 0; i < n; i ++)
+            scanf("%s", s[i]);
+        for(int x = 0; x < n; x ++)
+        {
+            for(int y = 0; y < n; y ++)
+            {
+                bitset<1024> tmp;
+                for(int i = 0; i < n; i ++)
+                {
+                    for(int j = 0; j < n; j ++)
+                    {
+                        int dx = (i + x) % n, dy = (j + y) % n;
+                        int id = dx * n + dy;
+                        if(s[i][j] == '1') tmp[id] = 1;
+                    }
+                }
+                solve.insert(tmp);
+            }
+        }
+        printf("%lld\n", qp(2, solve.sz));
+        return 0;
+    }
     ```
