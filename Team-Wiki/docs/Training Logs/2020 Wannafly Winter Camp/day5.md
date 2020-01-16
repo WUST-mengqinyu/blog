@@ -8,7 +8,7 @@
 
 | Name                                                         |   Date    | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |
 | ------------------------------------------------------------ | :-------: | :----: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [2020 CCPC Wannafly Winter Camp Day5 (Div.1&2)](https://pintia.cn/problem-sets/1217641604302602240) | 2020/1/16 |  3/10  |  O   |  .   |  .   |  .   |  O   |  .   |  O  |  .   |  .  |  .  |
+| [2020 CCPC Wannafly Winter Camp Day5 (Div.1&2)](https://pintia.cn/problem-sets/1217641604302602240) | 2020/1/16 |  4/10  |  O   |  .   |  .   |  .   |  O   |  .   |  O  |  .   |  .  |  O  |
 
 ## To-do list
 
