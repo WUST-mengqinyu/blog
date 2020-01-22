@@ -395,7 +395,6 @@ $$
     LL MAXN = 1000000000000000ll;
     LL A[N],B[N];
     int L,R;
-
     int findf(int f,LL x,LL y){
         //yz=x;
         if(!f){
@@ -418,27 +417,19 @@ $$
             return m-rtn+1;
         }
     }
-    
     int check(LL x){
         LL cnt = 0;
-        
         for(int i=1;i<=n;i++){
-            
             if(A[i]==0){
                 if(x<0)cnt+=m; 
-            }else{
+            } else{
                 int f = (A[i]>0);  
                 
                 cnt+=findf(f,x,A[i]);
             }
-
-
-​            
 ​        }
-​        
         return cnt>=k;
     }
-    
     LL solve(){
         LL l=-MAXN,r=MAXN,rtn=MAXN*10;
         while(l<=r){
@@ -449,7 +440,6 @@ $$
         }
         return rtn;
     }
-    
     int main(){
     #ifdef WK
         freopen("in.txt","r",stdin);

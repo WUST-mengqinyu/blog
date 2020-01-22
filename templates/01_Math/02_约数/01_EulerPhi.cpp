@@ -27,7 +27,7 @@ void prim(){
             p[k++]=i;
         for(int j=0; j<k&&i*p[j]<50000; j++)
         {
-            boo[i*p[j]=1;
+            boo[i*p[j]]=1;
             if(!(i%p[j]))
                 break;
         }
