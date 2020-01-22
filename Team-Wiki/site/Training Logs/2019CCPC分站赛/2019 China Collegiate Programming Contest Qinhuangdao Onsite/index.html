@@ -529,8 +529,9 @@
 <p>题解：思考博弈了很久发现的一个结论是：如果是多条链组成的树（即只有根节点有出度大于1）时，只有
     - 1、有且仅有一条链为奇数长度
     - 2、大于1条链且所有链为奇数长度</p>
-<pre class="codehilite"><code class="linenums">是后手必胜，因为可以发现其他情况先手可以将状态转移为全奇数的情况，然后后手就没了，因为最后只剩一个（长度为0偶数）的时候是先手赢。</code></pre>
-
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>是后手必胜，因为可以发现其他情况先手可以将状态转移为全奇数的情况，然后后手就没了，因为最后只剩一个（长度为0偶数）的时候是先手赢。
+</pre></div>
+</td></tr></table>
 
 <p>然后考虑一下如果存在一个叶子节点的父节点有多余1个子节点，则先手必胜。</p>
 <p>证明如下：计满足先手必胜的叶子节点为x，其他所有叶子节点集合为S
