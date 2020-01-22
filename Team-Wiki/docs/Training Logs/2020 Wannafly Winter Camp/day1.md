@@ -181,7 +181,7 @@
 
 令 $g(n,k)$ 为 $n$ 个点的无向图对点染成 $k$ 种颜色最多的边数，求 $\sum_{i=l}^{r} g(n,i)$
 $$
-ans=n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}^2\cdot(i-n\%i)
+g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}^2\cdot(i-n\%i)}{2}
 $$
 
 对该式分块，当$i\le\sqrt{n}$时对每个点单点求值，当$i\ge\sqrt{n}$时对$\lfloor\frac{n}{i}\rfloor$分块求和，其中$\sum_{i=l}^ri$和$n\%i$均为等差数列，而$\lfloor\frac{n}{i}\rfloor$在单个块内相等，每次求$l-1,r$的前缀和差分即可。
@@ -427,8 +427,13 @@ $$
                 
                 cnt+=findf(f,x,A[i]);
             }
+<<<<<<< HEAD
 ​        }
         return cnt>=k;
+=======
+    	}
+    	return cnt>=k;
+>>>>>>> 59261fc9a756f4602d4ebc87759c545126b6ee87
     }
     LL solve(){
         LL l=-MAXN,r=MAXN,rtn=MAXN*10;
