@@ -681,7 +681,7 @@ char s[maxn][110];</p>
 <h2 id="c">C. 染色图<a class="headerlink" href="#c" title="Permanent link">Link</a></h2>
 <p>令 <span><span class="MathJax_Preview">g(n,k)</span><script type="math/tex">g(n,k)</script></span> 为 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个点的无向图对点染成 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 种颜色最多的边数，求 <span><span class="MathJax_Preview">\sum_{i=l}^{r} g(n,i)</span><script type="math/tex">\sum_{i=l}^{r} g(n,i)</script></span>
 <script type="math/tex; mode=display">
-ans=n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}^2\cdot(i-n\%i)
+g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}^2\cdot(i-n\%i)}{2}
 </script>
 </p>
 <p>对该式分块，当<span><span class="MathJax_Preview">i\le\sqrt{n}</span><script type="math/tex">i\le\sqrt{n}</script></span>时对每个点单点求值，当<span><span class="MathJax_Preview">i\ge\sqrt{n}</span><script type="math/tex">i\ge\sqrt{n}</script></span>时对<span><span class="MathJax_Preview">\lfloor\frac{n}{i}\rfloor</span><script type="math/tex">\lfloor\frac{n}{i}\rfloor</script></span>分块求和，其中<span><span class="MathJax_Preview">\sum_{i=l}^ri</span><script type="math/tex">\sum_{i=l}^ri</script></span>和<span><span class="MathJax_Preview">n\%i</span><script type="math/tex">n\%i</script></span>均为等差数列，而<span><span class="MathJax_Preview">\lfloor\frac{n}{i}\rfloor</span><script type="math/tex">\lfloor\frac{n}{i}\rfloor</script></span>在单个块内相等，每次求<span><span class="MathJax_Preview">l-1,r</span><script type="math/tex">l-1,r</script></span>的前缀和差分即可。</p>
@@ -1104,8 +1104,20 @@ int check(LL x){
 </td></tr></table>
 
 </details>
-<p>​        }
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+​        }
         return cnt&gt;=k;
+=======
+        }
+        return cnt&gt;=k;</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>59261fc9a756f4602d4ebc87759c545126b6ee87
     }
     LL solve(){
         LL l=-MAXN,r=MAXN,rtn=MAXN*10;
@@ -1130,6 +1142,13 @@ int check(LL x){
         return 0;
     } 
     ```</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h2 id="h">H. 最大公约数<a class="headerlink" href="#h" title="Permanent link">Link</a></h2>
 <p>求 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 使得在 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 中不存在 <span><span class="MathJax_Preview">gcd(i,k)=gcd(y,k)</span><script type="math/tex">gcd(i,k)=gcd(y,k)</script></span></p>
 <p>队友一看是个大数，因为如果 <span><span class="MathJax_Preview">n=500, k=1</span><script type="math/tex">n=500, k=1</script></span> 显然是 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 中所有的素数积</p>
