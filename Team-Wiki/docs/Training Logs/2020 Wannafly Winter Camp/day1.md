@@ -256,6 +256,133 @@ $$
     struct edge{
         int b,nt;
     }e[N*2];
+    int p[N],nn;
+    int fa[N][32];
+    LL f[N],g[N],h[N];
+    void anode(int x,int y){
+        nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;
+        swap(x,y);
+        nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;
+    }
+    int deep[N];
+    void dfsLCA(int x,int ff=-1,int dd=0){
+        for(int i=1;(1<<i)<=dd;i++){
+            fa[x][i]=fa[ fa[x][i-1] ][i-1];
+        }
+        deep[x]=dd;
+        for(int i=p[x];i;i=e[i].nt){
+            int t=e[i].b;
+            if(t==ff)continue;
+            fa[t][0]=x;
+            dfsLCA(t,x,dd+1);
+        }
+    }
+    int LCA(int x,int y){
+        if(deep[x]<deep[y])swap(x,y);
+        int t=deep[x]-deep[y];
+        for(int i=0;(1<<i)<=t;i++)if(t&(1<<i))x=fa[x][i];
+        if(x==y)return y;
+        for(int i=30;i>=0;i--){
+            if(fa[x][i]!=fa[y][i]){
+                x=fa[x][i];
+                y=fa[y][i];
+            }
+        } 
+        return fa[x][0];
+    }
+    int findf(int x,int d){
+        for(int i=0;(1<<i)<=d;i++)if(d&(1<<i))x=fa[x][i];
+        return x;
+    }
+    LL ans[N];
+    void dfs1(int x){
+        for(int i=p[x];i;i=e[i].nt){
+            int t=e[i].b;
+            if(t==fa[x][0])continue;
+            dfs1(t);
+            g[x]+=g[t];
+            h[x]+=h[t];
+        }
+        g[x]+=h[x];
+    }
+    void dfs2(int x){
+        for(int i=p[x];i;i=e[i].nt){
+            int t=e[i].b;
+            if(t==fa[x][0])continue;
+            dfs2(t);
+            f[x]+=f[t];
+        }
+        f[x]+=g[x];
+    }
+    void getAns(int x,LL now){
+        ans[x]=now;
+        for(int i=p[x];i;i=e[i].nt){
+            int t=e[i].b;
+            if(t==fa[x][0])continue;
+            getAns(t,now-g[t]);
+        }
+    }
+    int main(){
+    #ifdef WK
+        freopen("in.txt","r",stdin);
+    #endif
+        scanf("%d%d",&n,&m);
+        for(int i=1;i<n;i++){
+            int aa,bb;
+            scanf("%d%d",&aa,&bb);
+            anode(aa,bb);
+        }
+        dfsLCA(1);
+        LL asum=0;
+        for(int i=1;i<=m;i++){
+            int aa,bb;
+            scanf("%d%d",&aa,&bb);
+            if(aa==bb)continue;
+            if(fa[aa][0]==bb||fa[bb][0]==aa)continue;
+            int cc=LCA(aa,bb);
+            int dis=2*deep[cc]-deep[aa]-deep[bb];dis=-dis;
+            if(deep[aa]<deep[bb])swap(aa,bb);
+            f[aa]+=dis-1;f[bb]+=dis-1;
+            if(bb==cc){
+                g[aa]+=dis-1;
+                g[cc]+=dis-1;
+                h[fa[aa][0]]-=2;
+                h[cc]+=2;
+            }else
+            {
+                g[aa]+=dis-1;
+                h[fa[aa][0]]-=2;h[cc]-=2ll*(deep[aa]-deep[cc]-1)+1-dis;
+                g[bb]+=dis-1;
+                h[fa[bb][0]]-=2;h[cc]-=2ll*(deep[bb]-deep[cc]-1)+1-dis;
+                h[cc]+=2;g[cc]-=2;
+            }
+            asum += 1ll*(deep[aa]-deep[cc])*(deep[bb]-deep[cc]);
+        }
+        dfs1(1);
+        dfs2(1);
+        getAns(1,asum);
+        for(int i=1;i<=n;i++)printf("%lld\n",ans[i]);
+        return 0;
+    } 
+    ```
+
+
+## F. 乘法
+
+给出两个序列，求全积中第 $k$ 大的数
+
+二分答案，然后对答案进行 check，每次求比当前二分的答案小的数的个数，可以考虑将 $B$ 序列排序，枚举所有 $A$ 套一层二分求出小于它的数的个数即可
+
+??? note "Code"
+    ```cpp
+    #include <bits/stdc++.h>
+    using namespace std;
+    const int N=500010;
+    typedef long long LL;
+    int n,m;
+    struct edge{
+        int b,nt;
+    }e[N*2];
 
     int p[N],nn;
     int fa[N][32];
@@ -293,14 +420,14 @@ $$
         } 
         return fa[x][0];
     }
-    
+
     int findf(int x,int d){
         for(int i=0;(1<<i)<=d;i++)if(d&(1<<i))x=fa[x][i];
         return x;
     }
-    
+
     LL ans[N];
-    
+
     void dfs1(int x){
         for(int i=p[x];i;i=e[i].nt){
             int t=e[i].b;
@@ -311,7 +438,7 @@ $$
         }
         g[x]+=h[x];
     }
-    
+
     void dfs2(int x){
         for(int i=p[x];i;i=e[i].nt){
             int t=e[i].b;
@@ -321,7 +448,7 @@ $$
         }
         f[x]+=g[x];
     }
-    
+
     void getAns(int x,LL now){
         ans[x]=now;
         for(int i=p[x];i;i=e[i].nt){
@@ -330,7 +457,7 @@ $$
             getAns(t,now-g[t]);
         }
     }
-    
+
     int main(){
     #ifdef WK
         freopen("in.txt","r",stdin);
@@ -368,93 +495,12 @@ $$
             
             asum += 1ll*(deep[aa]-deep[cc])*(deep[bb]-deep[cc]);
         }
-    
+
         dfs1(1);
         dfs2(1);
         getAns(1,asum);
         
         for(int i=1;i<=n;i++)printf("%lld\n",ans[i]);
-        return 0;
-    } 
-    ```
-
-
-## F. 乘法
-
-给出两个序列，求全积中第 $k$ 大的数
-
-二分答案，然后对答案进行 check，每次求比当前二分的答案小的数的个数，可以考虑将 $B$ 序列排序，枚举所有 $A$ 套一层二分求出小于它的数的个数即可
-
-??? note "Code"
-    ``` cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    const int N=100010;
-    typedef long long LL;
-    int n,m;LL k;
-    LL MAXN = 1000000000000000ll;
-    LL A[N],B[N];
-    int L,R;
-    int findf(int f,LL x,LL y){
-        //yz=x;
-        if(!f){
-            LL l=1,r=m,rtn=0;
-            while(l<=r){
-                LL mid=l+r>>1;
-                if(B[mid]*y>=x){
-                    rtn=mid;l=mid+1;
-                }else r=mid-1;
-            }
-            return rtn;
-        }else{
-            LL l=1,r=m,rtn=m+1;
-            while(l<=r){
-                LL mid=l+r>>1;
-                if(B[mid]*y>=x){
-                    rtn=mid;r=mid-1;
-                }else l=mid+1;
-            }
-            return m-rtn+1;
-        }
-    }
-    int check(LL x){
-        LL cnt = 0;
-        for(int i=1;i<=n;i++){
-            if(A[i]==0){
-                if(x<0)cnt+=m; 
-            } else{
-                int f = (A[i]>0);  
-                
-                cnt+=findf(f,x,A[i]);
-            }
-<<<<<<< HEAD
-​        }
-        return cnt>=k;
-=======
-    	}
-    	return cnt>=k;
->>>>>>> 59261fc9a756f4602d4ebc87759c545126b6ee87
-    }
-    LL solve(){
-        LL l=-MAXN,r=MAXN,rtn=MAXN*10;
-        while(l<=r){
-            LL mid=l+r>>1;
-            if(check(mid)){
-                rtn=mid;l=mid+1;
-            }else r=mid-1;
-        }
-        return rtn;
-    }
-    int main(){
-    #ifdef WK
-        freopen("in.txt","r",stdin);
-    #endif
-        scanf("%d%d%lld",&n,&m,&k);
-        for(int i=1;i<=n;i++)scanf("%lld",&A[i]);
-        for(int i=1;i<=m;i++)scanf("%lld",&B[i]);
-        sort(B+1,B+1+m);
-        LL ans=solve();
-        printf("%lld",ans);
         return 0;
     } 
     ```
