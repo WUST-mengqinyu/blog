@@ -630,7 +630,7 @@
 116
 117
 118
-119</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+119</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：B.cpp</span>
@@ -749,7 +749,7 @@
 <span class="c1">//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>赛中判该点是不是1的联通点写了个蠢<code>F(v) != 1</code>，实际上并查集也没有特殊处理过。。。名额没了。</p>
@@ -833,7 +833,7 @@
 74
 75
 76
-77</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+77</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：C.cpp</span>
@@ -910,7 +910,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="dfish-eating-fruit">D、Fish eating fruit<a class="headerlink" href="#dfish-eating-fruit" title="Permanent link">Link</a></h2>
@@ -1079,7 +1079,7 @@
 160
 161
 162
-163</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+163</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：D.cpp</span>
@@ -1242,7 +1242,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>题解2：树形dp换根求解。显然对某个点的答案可以<code>O(n)</code>求解，换根时同样记录子树中0,1,2的路径个数和总和即可。复杂度比点分治低，为<code>O(n)</code>。</p>
@@ -1370,7 +1370,7 @@
 122
 123
 124
-125</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+125</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：D.cpp</span>
@@ -1495,7 +1495,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="fhonks-pool">Ｆ、Honk&rsquo;s pool<a class="headerlink" href="#fhonks-pool" title="Permanent link">Link</a></h2>
@@ -1895,7 +1895,7 @@
 391
 392
 393
-394</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+394</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span><span class="o">=</span><span class="mf">1e5</span><span class="o">+</span><span class="mi">10</span><span class="p">;</span>
 <span class="k">struct</span> <span class="n">player</span>
@@ -2289,7 +2289,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="kguanguans-happy-water">K、Guanguan&rsquo;s Happy water<a class="headerlink" href="#kguanguans-happy-water" title="Permanent link">Link</a></h2>
@@ -2453,7 +2453,7 @@ f_i = \sum_{j=1}^{k} a_j * f_{i-j}
 147
 148
 149
-150</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+150</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="cp">#define ll long long</span>
@@ -2603,7 +2603,7 @@ f_i = \sum_{j=1}^{k} a_j * f_{i-j}
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>bm不知道为什么板子过不了样例就没写</p>
