@@ -63,4 +63,4 @@ int lcp(int x, int y)
     x = rk[x], y = rk[y];
     if(x > y) swap(x, y);
     return query(x + 1, y);
-}
+}                                                                  

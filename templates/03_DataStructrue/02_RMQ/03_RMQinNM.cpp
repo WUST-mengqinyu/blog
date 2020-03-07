@@ -45,6 +45,6 @@ int query(int x1,int y1,int x2,int y2)
 	while((1<<(k2+1))<=y2-y1+1) k2++;
 	x2=x2-(1<<k1)+1;
 	y2=y2-(1<<k2)+1;
-	return max(max(maxx[x1][y1][k1][k2],maxx[x1][y2][k1][k2]),max(maxx[x2][y1][k1][k2],maxx[x2][y2][k1][k2]))
+	return max(max(maxx[x1][y1][k1][k2],maxx[x1][y2][k1][k2]),max(maxx[x2][y1][k1][k2],maxx[x2][y2][k1][k2]));
 //	return min(min(minn[x1][y1][k1][k2],minn[x1][y2][k1][k2]),min(minn[x2][y1][k1][k2],minn[x2][y2][k1][k2]));
 }

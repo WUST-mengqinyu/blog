@@ -556,7 +556,7 @@
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">nex</span><span class="p">[</span><span class="n">maxm</span><span class="p">];</span>
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">nex</span><span class="p">[</span><span class="n">maxm</span><span class="p">];</span>
 
 <span class="kt">void</span> <span class="nf">getNext</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
@@ -566,7 +566,7 @@
         <span class="k">else</span> <span class="n">j</span> <span class="o">=</span> <span class="n">nex</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>匹配代码：</p>
@@ -579,7 +579,7 @@
  7
  8
  9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// a为原串，b为模式串，下标从0开始，找第一个出现模式串的位置，找不到返回-1</span>
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// a为原串，b为模式串，下标从0开始，找第一个出现模式串的位置，找不到返回-1</span>
 <span class="kt">int</span> <span class="nf">KMP</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">getNext</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -589,7 +589,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">j</span> <span class="o">==</span> <span class="n">m</span> <span class="o">?</span> <span class="n">i</span> <span class="o">-</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h3 id="_3">例题<a class="headerlink" href="#_3" title="Permanent link">Link</a></h3>
@@ -678,7 +678,7 @@
 78
 79
 80
-81</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+81</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：test.cpp</span>
@@ -759,7 +759,7 @@
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">lenp</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%c&quot;</span><span class="p">,</span> <span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span> <span class="o">==</span> <span class="n">lenp</span> <span class="o">?</span> <span class="sc">&#39;\n&#39;</span> <span class="o">:</span> <span class="sc">&#39; &#39;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h4 id="a-oulipo">A - Oulipo<a class="headerlink" href="#a-oulipo" title="Permanent link">Link</a></h4>
