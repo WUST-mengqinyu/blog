@@ -1,0 +1,5 @@
+docs/* text eol=lf
+mkdocs.yml text eol=lf
+REAMDE.md text eol=lf
+update.sh text eol=lf
+requirements.txt text eol=lf
