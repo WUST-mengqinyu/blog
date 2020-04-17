@@ -498,7 +498,7 @@
 30
 31
 32
-33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">//for(int i = 0; i != s; i = (i-s)&amp;s)</span>
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//for(int i = 0; i != s; i = (i-s)&amp;s)</span>
 <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
     <span class="k">else</span> <span class="p">{</span>
@@ -531,7 +531,7 @@
 <span class="cm">1101</span>
 <span class="cm">1110</span>
 <span class="cm">*/</span>
-</code></pre></div>
+</pre></div>
 </td></tr></table>
 
 <p>很方便而且是升序</p>
@@ -552,7 +552,7 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// 所有位为1</span>
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// 所有位为1</span>
 <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="c1">//注意位运算比一次运算优先级低所以要加括号</span>
 <span class="c1">// 判断第i位</span>
 <span class="n">stat</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">)</span>
@@ -569,7 +569,7 @@
         <span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
 </td></tr></table>
 
 <h2 id="3dp">3、轮廓线dp入门<a class="headerlink" href="#3dp" title="Permanent link">Link</a></h2>
@@ -590,8 +590,8 @@
 </ul>
 <p>xxxx000</p>
 <p>这样一张图，表示枚举到了第2行第4列，那么它所需要的状态为标x的位置是否填充，往下递推将第2行第5列填充一个竖着的方格的话就是：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="mi">1</span>
-</code></pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="mi">1</span>
+</pre></div>
 </td></tr></table>
 
 <p>其中 stat&gt;&gt;1 就是把状态变成了</p>
@@ -605,31 +605,31 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">((</span><span class="n">stat</span> <span class="o">&amp;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="n">stat</span> <span class="o">&amp;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="mi">1</span><span class="p">;</span>
     <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">newstat</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">stat</span><span class="p">];</span><span class="c1">//i,j-1看情况改动，是它上一个状态的位置</span>
     <span class="k">continue</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
 </td></tr></table>
 
 <p>注意此时要不是第一行，根据你从1还是0开始记录行数可能有负下标的风险所以判断一下i是否大于开始行下标</p>
 <p>3、如果不是以上情况就可以不填</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">newstat</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">stat</span><span class="p">];</span>
-</code></pre></div>
+</pre></div>
 </td></tr></table>
 
 <p>4、如果左边为空可以填</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">((</span><span class="n">stat</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="n">stat</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">3</span><span class="p">;</span>
     <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">newstat</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">stat</span><span class="p">];</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
 </td></tr></table>
 
 <p>当然以上只是解释性的写法，真要做题的话显然可以加个滚动数组，它每个点都只与上一个状态相关，而且写起来反而更简单。</p>
@@ -638,8 +638,8 @@
 <p>xxxx000</p>
 <p>简单来讲比如这个枚举到了第2行第4列</p>
 <p>那么它状态就要去表示标“x”的位置，如果把它正上方（也就是1，5）那个点看做是状态的最后一位也就是0位，在往下递推的过程中就能够</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">newstat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
 </td></tr></table>
 
 <p>直接得出下一组状态，不需要考虑溢出位</p>
@@ -706,7 +706,7 @@
 55
 56
 57
-58</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// https://codeforces.com/contest/903/submission/33174261</span>
+58</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// https://codeforces.com/contest/903/submission/33174261</span>
 <span class="kt">int</span> <span class="n">A</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
 <span class="kt">int</span> <span class="n">val</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
 <span class="kt">char</span> <span class="n">in</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1050</span><span class="p">];</span>
@@ -764,7 +764,7 @@
  
     <span class="k">return</span> <span class="o">!</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
 </td></tr></table>
 
 <p>首先<span><span class="MathJax_Preview"> val[1～4] </span><script type="math/tex"> val[1～4] </script></span>表示了1×1到4×4的方格填充的轮廓线形状</p>
