@@ -1,7 +1,6 @@
 #!/bin/bash
 git pull
-cd Team-Wiki && mkdocs gh-deploy
-cd ..
+mkdocs gh-deploy
 git add *
 timenow=$(date)
 git commit -m "${timenow}"
