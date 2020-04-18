@@ -17,6 +17,7 @@ theme: # yeti
         primary: white
 
     language: 'en'
+    favicon: 'favicon.ico'
     font:
         text: 'Ubuntu'
         code: 'Ubuntu Mono'
