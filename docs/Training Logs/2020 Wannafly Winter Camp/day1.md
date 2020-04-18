@@ -125,9 +125,7 @@
 ??? note "Code"
     ```cpp
     #include <bits/stdc++.h>
-    ```
-
-    开营仪式using namespace std;
+    using namespace std;
     typedef long long ll;
     
     const int maxn = 1000 + 10;
