@@ -12,7 +12,7 @@
 
 - [day3](../../Training Logs/2020 Wannafly Winter Camp/day3)
 
-- ~~[day4]~~
+- ~~day4~~
 
 - [day5](../../Training Logs/2020 Wannafly Winter Camp/day5)
 
