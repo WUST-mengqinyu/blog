@@ -1,2 +1,2 @@
-- [2019 邀请赛+暑假+正赛](./Index/2019)
+- [2019 团队日常赛](./Index/2019)
 - [2020 年初Wannafly Camp](./Index/Wannafly Winter Camp 2020)
