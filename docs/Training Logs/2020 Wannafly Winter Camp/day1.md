@@ -122,7 +122,7 @@
 
 签到题，减模倒推即可
 
-??? note "Code"
+??? note "Code by Verly"
     ```cpp
     #include <bits/stdc++.h>
     using namespace std;
@@ -174,6 +174,53 @@
     
     ```
 
+??? note "Code by badcw"
+    ```cpp
+    /*================================================================
+    *
+    *   创 建 者： badcw
+    *   创建日期： 2020/4/18
+    *
+    ================================================================*/
+    #include <bits/stdc++.h>
+    #define ll long long
+    using namespace std;
+    const int maxn = 1e3+50;
+    const int mod = 1e9+7;
+    int n, m;
+    char s[maxn][105];
+    int len[maxn];
+    int chartoint(char x) {
+        if (isupper(x)) return x - 'A' + 26;
+        return x - 'a';
+    }
+    char inttochar(int x) {
+        if (x < 26) return x + 'a';
+        return x + 'A' - 26;
+    }
+    void back(char &x, char y) {
+        int xx = chartoint(x);
+        int yy = chartoint(y);
+        xx = (xx - yy + 52) % 52;
+        x = inttochar(xx);
+    }
+    void roll_back(int x, int y) {
+        for (int i = 0; i < len[x]; ++i) {
+            back(s[x][i], s[y][i % len[y]]);
+        }
+    }
+    int main(int argc, char* argv[]) {
+        scanf("%d%d", &n, &m);
+        vector<pair<int, int> > a(m);
+        for (int i = 0; i < m; ++i) scanf("%d%d", &a[i].first, &a[i].second);
+        for (int i = 1; i <= n; ++i) scanf("%s", s[i]), len[i] = strlen(s[i]);
+        for (int i = m - 1; i >= 0; --i) roll_back(a[i].second, a[i].first);
+        for (int i = 1; i <= n; ++i) {
+            printf("%s\n", s[i]);
+        }
+        return 0;
+    }
+    ```
 
 ## C. 染色图
 
