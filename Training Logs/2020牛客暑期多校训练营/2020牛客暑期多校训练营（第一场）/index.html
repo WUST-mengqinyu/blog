@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019CCPC分站赛/The 2019 China Collegiate Programming Contest Harbin Site/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第一场）/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>The 2019 China Collegiate Programming Contest Harbin Site - Team Wiki</title>
+        <title>2020牛客暑期多校训练营（第一场） - Team Wiki</title>
       
     
     
@@ -112,7 +112,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#a-artful-paintings" tabindex="1" class="md-skip">
+      <a href="#a" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -138,7 +138,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                The 2019 China Collegiate Programming Contest Harbin Site
+                2020牛客暑期多校训练营（第一场）
               
             </span>
           
@@ -384,64 +384,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-artful-paintings" class="md-nav__link">
-    A. Artful Paintings
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#e-exchanging-gifts" class="md-nav__link">
-    E. Exchanging Gifts
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#f-fixing-banners" class="md-nav__link">
-    F. Fixing Banners
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i-interesting-permutation" class="md-nav__link">
-    I. Interesting Permutation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#j-justifying-the-conjecture" class="md-nav__link">
-    J. Justifying the Conjecture
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#h-keeping-rabbits" class="md-nav__link">
-    H. Keeping Rabbits
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#l-lru-algorithm" class="md-nav__link">
-    L. LRU Algorithm
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
   
 </nav>
                   </div>
@@ -453,8 +397,6 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                  <h1>The 2019 China Collegiate Programming Contest Harbin Site</h1>
                 
                 <table>
 <thead>
@@ -472,55 +414,117 @@
 <th align="center">H</th>
 <th align="center">I</th>
 <th align="center">J</th>
-<th align="center">K</th>
-<th align="center">L</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="http://codeforces.com/gym/102394">The 2019 China Collegiate Programming Contest Harbin Site</a></td>
-<td>2019/11/2</td>
-<td>7/12</td>
+<td><a href="https://link">Contest Name</a></td>
+<td>9999/1/1</td>
+<td>0/0</td>
+<td align="center">O</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
 <td align="center">O</td>
 <td align="center">.</td>
 <td align="center">.</td>
 <td align="center">.</td>
 <td align="center">O</td>
-<td align="center">O</td>
-<td align="center">.</td>
-<td align="center">.</td>
-<td align="center">O</td>
-<td align="center">O</td>
-<td align="center">O</td>
-<td align="center">Ø</td>
 </tr>
 </tbody>
 </table>
-<h2 id="a-artful-paintings">A. Artful Paintings<a class="headerlink" href="#a-artful-paintings" title="Permanent link">Link</a></h2>
-<p>给一列1-n的块染色，并给出一系列限制条件(l, r, k)， 第一类限制条件为l-r之间的染色数量不小于k，第二类为l-r之外的块染色数量不小于k，求最小的总染色数。</p>
-<p>令<span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span>表示前<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>位被染色的数量，假设总染色数为<span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>考虑差分约束系统，有如下建图：</p>
-<ul>
-<li><span><span class="MathJax_Preview">f_i-f_{i-1}≤1</span><script type="math/tex">f_i-f_{i-1}≤1</script></span></li>
-<li><span><span class="MathJax_Preview">f_{i-1}-f_i≤0</span><script type="math/tex">f_{i-1}-f_i≤0</script></span></li>
-<li>对第一类限制，有<span><span class="MathJax_Preview">f_{l-1}-f_r≤-k</span><script type="math/tex">f_{l-1}-f_r≤-k</script></span></li>
-<li>对第二类限制，有<span><span class="MathJax_Preview">f_r-f_{l-1}≤x-k</span><script type="math/tex">f_r-f_{l-1}≤x-k</script></span></li>
-<li><span><span class="MathJax_Preview">f_n-f_0≤x</span><script type="math/tex">f_n-f_0≤x</script></span></li>
-<li><span><span class="MathJax_Preview">f_0-f_n≤-x</span><script type="math/tex">f_0-f_n≤-x</script></span></li>
-</ul>
-<p>二分x判定答案，当差分约束系统不存在负环且dis[n]=x时表示当前为一组合法解。</p>
-<h2 id="e-exchanging-gifts">E. Exchanging Gifts<a class="headerlink" href="#e-exchanging-gifts" title="Permanent link">Link</a></h2>
-<h2 id="f-fixing-banners">F. Fixing Banners<a class="headerlink" href="#f-fixing-banners" title="Permanent link">Link</a></h2>
-<p>判断给出的6个单词能否各取一个字母，使其组成Harbin.</p>
-<p>枚举排列即可。</p>
-<h2 id="i-interesting-permutation">I. Interesting Permutation<a class="headerlink" href="#i-interesting-permutation" title="Permanent link">Link</a></h2>
-<p>对于某个排列<span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>，序列<span><span class="MathJax_Preview">h_i</span><script type="math/tex">h_i</script></span>表示排列P中第1-i个数的极差。现在给你序列h，求能组成h的排列个数。</p>
-<p>首先排除不合法的情况（<span><span class="MathJax_Preview">h_0!=0, h_n!=n-2, h_i &lt; i - 1, h_i＜h_{i-1}</span><script type="math/tex">h_0!=0, h_n!=n-2, h_i < i - 1, h_i＜h_{i-1}</script></span> ），统计数列h变化了几次，记为x，答案的总值即乘上<span><span class="MathJax_Preview">2^x</span><script type="math/tex">2^x</script></span>；记一段连续的序列长度为len，开始的字符位置为y，那么这段连续序列对答案的贡献为<span><span class="MathJax_Preview">A_{len}^{p[y] - y + 1}</span><script type="math/tex">A_{len}^{p[y] - y + 1}</script></span>。对于每段连续区间求出这个值，相乘后再乘上<span><span class="MathJax_Preview">2^x</span><script type="math/tex">2^x</script></span>即为答案。</p>
-<h2 id="j-justifying-the-conjecture">J. Justifying the Conjecture<a class="headerlink" href="#j-justifying-the-conjecture" title="Permanent link">Link</a></h2>
-<p>签到</p>
-<h2 id="h-keeping-rabbits">H. Keeping Rabbits<a class="headerlink" href="#h-keeping-rabbits" title="Permanent link">Link</a></h2>
-<h2 id="l-lru-algorithm">L. LRU Algorithm<a class="headerlink" href="#l-lru-algorithm" title="Permanent link">Link</a></h2>
-<p>题意：给定一个LRU访问序列。每次询问一个寄存器大小和一段查询序列，询问给定的LRU访问序列在这个大小的寄存器中操作过程中是否会出现这一查询序列。</p>
-<p>将所有查询序列插入字典树，模拟LRU访问操作，每次操作后在字典树上查询并标记经过的所有节点，输出答案时只要查询某个查询序列的尾部节点是否被标记即可（处理一下后缀均为0的查询）。</p>
+<h2 id="a">A.<a class="headerlink" href="#a" title="Permanent link">Link</a></h2>
+<p><em>solved by: Verly 03:25:17(-8)  upsolved by:</em></p>
+<p>题意：给一个全为ab的字符串，对于其中任一后缀，第i位的值为i到前一个相同字符的距离（如果s[i]第一次出现，值为0），对后缀赋的值排序。</p>
+<p>对于某一个后缀串s‘，</p>
+<details class="note"><summary>Code</summary><p>```cpp</p>
+<h1 id="include">include <bits/stdc++.h><a class="headerlink" href="#include" title="Permanent link">Link</a></h1>
+<p>using namespace std;
+typedef long long ll;</p>
+<p>const int maxn = 3e5 + 10;
+int s[maxn];
+char b[maxn];
+int sa[maxn], t[maxn], t2[maxn], c[maxn], n;</p>
+<p>//build_sa(n + 1, 130), sa, height下标从1开始,rk下标从0开始
+void build_sa(int n, int m) {
+int *x = t, *y = t2;
+for (int i = 0; i &lt; m; i++) c[i] = 0;
+for (int i = 0; i &lt; n; i++) c[x[i] = s[i]]++;
+for (int i = 1; i &lt; m; i++) c[i] += c[i - 1];
+for (int i = n - 1; i &gt;= 0; i&ndash;) sa[&ndash;c[x[i]]] = i;
+for (int k = 1; k &lt;= n; k &lt;&lt;= 1) {
+    int p = 0;
+    for (int i = n - k; i &lt; n; i++) y[p++] = i;
+    for (int i = 0; i &lt; n; i++) if (sa[i] &gt;= k) y[p++] = sa[i] - k;
+    for (int i = 0; i &lt; m; i++) c[i] = 0;
+    for (int i = 0; i &lt; n; i++) c[x[y[i]]]++;
+    for (int i = 0; i &lt; m; i++) c[i] += c[i - 1];
+    for (int i = n - 1; i &gt;= 0; i&ndash;) sa[&ndash;c[x[y[i]]]] = y[i];
+    swap(x, y);
+    p = 1;
+    x[sa[0]] = 0;
+    for (int i = 1; i &lt; n; i++)
+        x[sa[i]] = y[sa[i - 1]] == y[sa[i]] &amp;&amp; y[sa[i - 1] + k] == y[sa[i] + k] ? p - 1 : p++;
+    if (p &gt;= n) break;
+    m = p;
+}
+}</p>
+<p>int rk[maxn];</p>
+<p>void getHeight() {
+for(int i = 1; i &lt;= n; i++) rk[sa[i]] = i;
+}</p>
+<p>int nex[maxn];
+vector<pair<int, int>&gt; resp[maxn];
+int resq[maxn];</p>
+<p>int main() {
+    while (scanf(&ldquo;%d&rdquo;, &amp;n) != EOF) {
+        scanf(&ldquo;%s&rdquo;, b);
+        for (int i = 0; i &lt;= n; i++) resp[i].clear(), resq[i] = -1, nex[i] = 0;
+        s[n] = s[n + 1] = 0;
+        int lasa = -1, lasb = -1;
+        for (int i = 0; i &lt; n; i++) {
+            if (b[i] == &lsquo;a&rsquo;) {
+                if (lasa == -1) s[i] = 50;
+                else s[i] = i - lasa + 50;
+                lasa = i;
+            } else if (b[i] == &lsquo;b&rsquo;) {
+                if (lasb == -1) s[i] = 50;
+                else s[i] = i - lasb + 50;
+                lasb = i;
+            }
+        }
+        lasa = -1, lasb = -1;
+        for (int i = n - 1; i &gt;= 0; i&ndash;) {
+            if (b[i] == &lsquo;a&rsquo;) {
+                nex[i] = lasb;
+                lasa = i;
+            } else if (b[i] == &lsquo;b&rsquo;) {
+                nex[i] = lasa;
+                lasb = i;
+            }
+        }
+        build_sa(n + 1, n + 55);
+        for (int i = 0; i &lt;= n + 1; ++i) rk[i] = 0;
+        getHeight();
+        for (int i = 0; i &lt; n - 1; i++) {
+            if (nex[i] == -1) resq[n - i] = i;
+            else {
+                int len = nex[i] - i + 1;
+                resp[len].push_back({rk[nex[i] + 1], i});
+            }
+        }
+        for (int i = 0; i &lt;= n; i++) sort(resp[i].begin(), resp[i].end());
+        printf(&ldquo;%d&rdquo;, n);
+        for (int i = 0; i &lt;= n; i++) {
+            for (auto x : resp[i]) printf(&rdquo; %d&rdquo;, x.second + 1);
+            if (resq[i] != -1) printf(&rdquo; %d&rdquo;, resq[i] + 1);
+        }
+        puts(&ldquo;&rdquo;);
+    }
+    return 0;
+}</p>
+</details>
                 
                   
                 

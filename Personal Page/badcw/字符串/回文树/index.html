@@ -559,98 +559,54 @@
 <p>是可以完全替代Maracher算法的上位算法，除了空间复杂度均优于Maracher算法。</p>
 <h3 id="_3">算法实现<a class="headerlink" href="#_3" title="Permanent link">Link</a></h3>
 <p>基础需要的数组如下</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">next</span><span class="p">[</span><span class="n">maxn</span><span class="p">][</span><span class="n">N</span><span class="p">];</span><span class="c1">//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符成，N为字符集大小</span>
-<span class="kt">int</span> <span class="n">fail</span><span class="p">[</span><span class="n">maxn</span><span class="p">]{};</span><span class="c1">//fail指针，失配后跳转到fail指针指向的节点</span>
-<span class="kt">int</span> <span class="n">num</span><span class="p">[</span><span class="n">maxn</span><span class="p">]{};</span> <span class="c1">//表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数</span>
-<span class="kt">int</span> <span class="n">len</span><span class="p">[</span><span class="n">maxn</span><span class="p">]{};</span><span class="c1">//len[i]表示节点i表示的回文串的长度（一个节点表示一个回文串）</span>
-<span class="kt">int</span> <span class="n">S</span><span class="p">[</span><span class="n">maxn</span><span class="p">]{};</span><span class="c1">//存放添加的字符</span>
-<span class="kt">int</span> <span class="n">last</span><span class="p">{};</span><span class="c1">//指向新添加一个字母后所形成的最长回文串表示的节点。</span>
-<span class="kt">int</span> <span class="n">n</span><span class="p">{};</span><span class="c1">//表示添加的字符个数。</span>
-<span class="kt">int</span> <span class="n">p</span><span class="p">{};</span><span class="c1">//表示添加的节点个数。</span>
-</pre></div>
-</td></tr></table>
+<pre class="codehilite"><code class="language-cpp linenums">int next[maxn][N];//next指针，next指针和字典树类似，指向的串为当前串两端加上同一个字符成，N为字符集大小
+int fail[maxn]{};//fail指针，失配后跳转到fail指针指向的节点
+int num[maxn]{}; //表示以节点i表示的最长回文串的最右端点为回文串结尾的回文串个数
+int len[maxn]{};//len[i]表示节点i表示的回文串的长度（一个节点表示一个回文串）
+int S[maxn]{};//存放添加的字符
+int last{};//指向新添加一个字母后所形成的最长回文串表示的节点。
+int n{};//表示添加的字符个数。
+int p{};//表示添加的节点个数。</code></pre>
 
 <p>回文树每个节点都代表一个本质不同回文串，其中0节点表示空长回文串，1表示奇数空长回文串没有实际意义。</p>
 <p>在回文树中增加新节点</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">newnode</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">)</span> <span class="p">{</span><span class="c1">//新建节点</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">next</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">num</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">len</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">p</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
+<pre class="codehilite"><code class="language-cpp linenums">int newnode(int l) {//新建节点
+    for (int i = 0; i &lt; N; ++i) next[p][i] = 0;
+    cnt[p] = 0;
+    num[p] = 0;
+    len[p] = l;
+    return p++;
+}</code></pre>
 
 <p>初始化回文树</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span><span class="c1">//初始化</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">newnode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// 偶数空串</span>
-    <span class="n">newnode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 奇数空串</span>
-    <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">S</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="c1">//开头放一个字符集中没有的字符，减少特判</span>
-    <span class="n">fail</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 偶数空串的fail指针指向奇数空串</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
+<pre class="codehilite"><code class="language-cpp linenums">void init() {//初始化
+    p = 0;
+    newnode(0); // 偶数空串
+    newnode(-1); // 奇数空串
+    last = 0;
+    n = 0;
+    S[n] = -1;//开头放一个字符集中没有的字符，减少特判
+    fail[0] = 1; // 偶数空串的fail指针指向奇数空串
+}</code></pre>
 
 <p>获取失配fail指针</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">get_fail</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="c1">//和KMP一样，失配后找一个尽量最长的</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">len</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">S</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="n">x</span> <span class="o">=</span> <span class="n">fail</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
+<pre class="codehilite"><code class="language-cpp linenums">int get_fail(int x) {//和KMP一样，失配后找一个尽量最长的
+    while (S[n - len[x] - 1] != S[n]) x = fail[x];
+    return x;
+}</code></pre>
 
 <p>往回文串中添加一个字符</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">S</span><span class="p">[</span><span class="o">++</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">get_fail</span><span class="p">(</span><span class="n">last</span><span class="p">);</span><span class="c1">//通过上一个回文串找这个回文串的匹配位置</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">next</span><span class="p">[</span><span class="n">cur</span><span class="p">][</span><span class="n">c</span><span class="p">])</span> <span class="p">{</span><span class="c1">//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串</span>
-        <span class="kt">int</span> <span class="n">now</span> <span class="o">=</span> <span class="n">newnode</span><span class="p">(</span><span class="n">len</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span><span class="c1">//新建节点</span>
-        <span class="n">fail</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">get_fail</span><span class="p">(</span><span class="n">fail</span><span class="p">[</span><span class="n">cur</span><span class="p">])][</span><span class="n">c</span><span class="p">];</span><span class="c1">//和AC自动机一样建立fail指针，以失配后跳转</span>
-        <span class="n">next</span><span class="p">[</span><span class="n">cur</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span><span class="p">;</span>
-        <span class="n">num</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">fail</span><span class="p">[</span><span class="n">now</span><span class="p">]]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">last</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">cur</span><span class="p">][</span><span class="n">c</span><span class="p">];</span> <span class="c1">// last指针表示当前新增回文串的位置</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
+<pre class="codehilite"><code class="language-cpp linenums">void add(int c) {
+    S[++n] = c;
+    int cur = get_fail(last);//通过上一个回文串找这个回文串的匹配位置
+    if (!next[cur][c]) {//如果这个回文串没有出现过，说明出现了一个新的本质不同的回文串
+        int now = newnode(len[cur] + 2);//新建节点
+        fail[now] = next[get_fail(fail[cur])][c];//和AC自动机一样建立fail指针，以失配后跳转
+        next[cur][c] = now;
+        num[now] = num[fail[now]] + 1;
+    }
+    last = next[cur][c]; // last指针表示当前新增回文串的位置
+}</code></pre>
 
 <h3 id="_4">复杂度证明<a class="headerlink" href="#_4" title="Permanent link">Link</a></h3>
 <p>对于一个长度为n的串，最长回文串长度不超过n，最多本质不同回文串个数不超过n，相同回文串个数不超过n，整个算法类似kmp匹配的失配运算，时间复杂度<code>O(n)</code>，空间复杂度<code>O(n*字符集大小)</code></p>
@@ -660,9 +616,7 @@
 <p>题意：求一个串所有回文子串两两相交的对数</p>
 <p>题解：正向建立回文树，保存以每个点为结尾的回文串个数<code>a</code>，再反向建立回文树保存后缀回文串个数<code>b</code>，则总数为<span><span class="MathJax_Preview">sum*(sum-1)/2 - \sum {a_i * b_{i+1}} </span><script type="math/tex">sum*(sum-1)/2 - \sum {a_i * b_{i+1}} </script></span>，注意此题卡了回文树内存，需要一些奇技淫巧用时间换取空间。</p>
 <p>使用vector保存next数组以简化空间，first是字符，second是值即可。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">next</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-</pre></div>
-</td></tr></table>
+<pre class="codehilite"><code class="language-cpp linenums">vector&lt;pair&lt;int, int&gt; &gt; next[maxn];</code></pre>
 
 <p>各种操作都会变得复杂一些但是总体时间复杂度算满也就是多了个字符集的常数。</p>
 <h4 id="b-palindromes-and-super-abilities">B - Palindromes and Super Abilities<a class="headerlink" href="#b-palindromes-and-super-abilities" title="Permanent link">Link</a></h4>
