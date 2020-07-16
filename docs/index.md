@@ -15,7 +15,26 @@ NULL
 
 | Name                                                         | Date      | Solved |
 | ------------------------------------------------------------ | --------- | ------ |
-| [2020牛客暑期多校训练营（第二场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第二场）) | 2020/7/13 | 7/10 |
-| [2020牛客暑期多校训练营（第一场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第一场）) | 2020/7/12 | 8/10 |
+| [2020牛客暑期多校训练营（第二场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第二场）) | 2020/7/13 | 4/10 |
+| [2020牛客暑期多校训练营（第一场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第一场）) | 2020/7/12 | 5/10 |
 
 `O 当场通过 Ø 赛后通过 · 尚未通过 `
+
+
+--- 
+
+# History
+
+## 2020 Wannafly Camp
+
+[2020 年初Wannafly Camp](./Index/Wannafly Winter Camp 2020)
+
+## 2019
+
+**Name**：[就这么喜欢写代码吗？你这个小秃头(2019)](./Index/2019)
+
+**Members**:
+
+![https://cfrating.ihcr.top/?user=badcw](https://cfrating.ihcr.top/?user=badcw)
+![https://cfrating.ihcr.top/?user=Verly](https://cfrating.ihcr.top/?user=Verly)
+![https://cfrating.ihcr.top/?user=MesutZ](https://cfrating.ihcr.top/?user=MesutZ)
