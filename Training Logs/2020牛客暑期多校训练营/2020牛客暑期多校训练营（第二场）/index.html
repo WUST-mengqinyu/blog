@@ -523,7 +523,220 @@
 </tbody>
 </table>
 <h2 id="a-all-with-pairs">A. All with Pairs<a class="headerlink" href="#a-all-with-pairs" title="Permanent link">Link</a></h2>
+<p><em>upsolved by: Verly</em></p>
+<p>题意：给n个串，<span><span class="MathJax_Preview">f(s, t)</span><script type="math/tex">f(s, t)</script></span>表示s的前缀与t的后缀最长匹配的长度，求<span><span class="MathJax_Preview">\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)</span><script type="math/tex">\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)</script></span></p>
+<p>hash预处理出所有后缀的出现次数，对每个串的前缀算出hash值，记录该长度的相同串出现次数。</p>
+<p>因为处理出来的后缀不一定最长，可能有<code>a,aba</code>被重复计算的情况，对<code>s[i]</code>求nex数组，从前往后扫一遍<code>cnt[nex[i]]-=cnt[i]</code>即可求出该串对应的每个串的最长后缀。</p>
+<details class="note"><summary>Code by: Verly</summary><pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int maxn = 1e6 + 10;
+const int key = 131;
+const int mod = 998244353;
+string s[maxn];
+int cnt[maxn], nex[maxn];
+map&lt;ll, int&gt; mp;
+
+void Hash(string s)
+{
+    ll cur = 0, p = 1;
+    for(int i = s.size() - 1; i &gt;= 0; i --)
+    {
+        cur = (s[i] - 'a' + 1) * p + cur;
+        p *= key;
+        mp[cur] ++;
+    }
+}
+
+void getNex(string s)
+{
+    int i = 0, j = -1;
+    nex[i] = j;
+    while(i &lt; s.size())
+    {
+        if(j == -1 || s[i] == s[j]) nex[++ i] = ++ j;  
+        else j = nex[j];
+    }
+}
+
+int main()
+{
+    int n;
+    scanf("%d", &amp;n);
+    for(int i = 1; i &lt;= n; i ++)
+    {
+        cin &gt;&gt; s[i];
+        Hash(s[i]);
+    }
+    ll res = 0;
+    for(int i = 1; i &lt;= n; i ++)
+    {
+        ll cur = 0;
+        for(int j = 0; j &lt; s[i].size(); j ++)
+        {
+            cur = cur * key + (s[i][j] - 'a' + 1);
+            cnt[j + 1] = mp[cur];
+
+        }
+        getNex(s[i]);
+        for(int j = 1; j &lt;= s[i].size(); j ++) cnt[nex[j]] -= cnt[j];
+        for(int j = 1; j &lt;= s[i].size(); j ++) (res += 1ll * cnt[j] * j * j % mod) %= mod;
+    }
+    printf("%lld\n", res);
+    return 0;
+}</code></pre>
+
+</details>
 <h2 id="b-boundary">B. Boundary<a class="headerlink" href="#b-boundary" title="Permanent link">Link</a></h2>
+<p><em>upsolved by: badcw</em></p>
+<p>题意：给n个点，求过原点的圆最多能有多少个点恰好在圆上。</p>
+<p>(O,A,B)三点定圆，选择A并枚举点B并算出圆心，对相同圆心计算个数取max。</p>
+<details class="note"><summary>Code by: badcw</summary><pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/13 21:13
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
+#define ll long long
+using namespace std;
+
+const int maxn = 2005;
+const int mod = 1e9+7;
+ll qp(ll a, ll n, ll mod = ::mod) {
+    ll res = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1) res = res * a % mod;
+        a = a * a % mod;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}
+
+template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
+void _R(char &amp;x) { x = getchar(); }
+void _R(char *x) { scanf("%s", x); }
+void R() {}
+template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
+template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
+void _W(const char &amp;x) { putchar(x); }
+void _W(const char *x) { printf("%s", x); }
+template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
+template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
+void W() {}
+template&lt;class T, class... U&gt; void W(const T &amp;head, const U &amp;... tail) { _W(head); putchar(sizeof...(tail) ? ' ' : '\n'); W(tail...); }
+
+typedef double db;
+const db eps=1e-6;
+const db pi=acos(-1);
+int sign(db k){
+    if (k&gt;eps) return 1; else if (k&lt;-eps) return -1; return 0;
+}
+int cmp(db k1,db k2){return sign(k1-k2);}
+int inmid(db k1,db k2,db k3){return sign(k1-k3)*sign(k2-k3)&lt;=0;}// k3 在 [k1,k2] 内
+struct point{
+    db x,y;
+    point operator + (const point &amp;k1) const{return (point){k1.x+x,k1.y+y};}
+    point operator - (const point &amp;k1) const{return (point){x-k1.x,y-k1.y};}
+    point operator * (db k1) const{return (point){x*k1,y*k1};}
+    point operator / (db k1) const{return (point){x/k1,y/k1};}
+    int operator == (const point &amp;k1) const{return cmp(x,k1.x)==0&amp;&amp;cmp(y,k1.y)==0;}
+    // 逆时针旋转
+    point turn(db k1){return (point){x*cos(k1)-y*sin(k1),x*sin(k1)+y*cos(k1)};}
+    point turn90(){return (point){-y,x};}
+    bool operator &lt; (const point k1) const{
+        int a=cmp(x,k1.x);
+        if (a==-1) return 1; else if (a==1) return 0; else return cmp(y,k1.y)==-1;
+    }
+    db abs(){return sqrt(x*x+y*y);}
+    db abs2(){return x*x+y*y;}
+    db dis(point k1){return ((*this)-k1).abs();}
+    point unit(){db w=abs(); return (point){x/w,y/w};}
+    void scan(){double k1,k2; scanf("%lf%lf",&amp;k1,&amp;k2); x=k1; y=k2;}
+    void print(){printf("%.11lf %.11lf\n",x,y);}
+    db getw(){return atan2(y,x);}
+    point getdel(){if (sign(x)==-1||(sign(x)==0&amp;&amp;sign(y)==-1)) return (*this)*(-1); else return (*this);}
+    int getP() const{return sign(y)==1||(sign(y)==0&amp;&amp;sign(x)==-1);}
+};
+
+int inmid(point k1,point k2,point k3){return inmid(k1.x,k2.x,k3.x)&amp;&amp;inmid(k1.y,k2.y,k3.y);}
+db cross(point k1,point k2){return k1.x*k2.y-k1.y*k2.x;}
+db dot(point k1,point k2){return k1.x*k2.x+k1.y*k2.y;}
+db rad(point k1,point k2){return atan2(cross(k1,k2),dot(k1,k2));}
+// -pi -&gt; pi
+int compareangle (point k1,point k2){
+    return k1.getP()&lt;k2.getP()||(k1.getP()==k2.getP()&amp;&amp;sign(cross(k1,k2))&gt;0);
+}
+struct circle{
+    point o; db r;
+    void scan(){o.scan(); scanf("%lf",&amp;r);}
+    int inside(point k){return cmp(r,o.dis(k));}
+};
+point getcircle(point k1,point k2,point k3){
+    db a1=k2.x-k1.x,b1=k2.y-k1.y,c1=(a1*a1+b1*b1)/2;
+    db a2=k3.x-k1.x,b2=k3.y-k1.y,c2=(a2*a2+b2*b2)/2;
+    db d=a1*b2-a2*b1;
+    if (d == 0) {
+        return {100000, 100000};
+    }
+    point o=(point){k1.x+(c1*b2-c2*b1)/d,k1.y+(a1*c2-a2*c1)/d};
+    return o;
+}
+
+int n;
+point p[maxn];
+
+int main(int argc, char* argv[]) {
+    R(n);
+    point zero = {0, 0};
+    point lim = {100000, 100000};
+    for (int i = 1; i &lt;= n; ++i) {
+        p[i].scan();
+    }
+    if (n == 1) {
+        W(1);
+        return 0;
+    }
+    int res = 0;
+    for (int i = 1; i &lt;= n; ++i) {
+        vector&lt;point&gt; mpx;
+        for (int j = 1; j &lt;= n; ++j) {
+            if (i == j) continue;
+            mpx.push_back(getcircle(zero, p[i], p[j]));
+        }
+        sort(mpx.begin(), mpx.end());
+        point pre = mpx[0];
+        if (mpx[0] == lim) {
+            continue;
+        }
+        int tmp = 1;
+        for (int j = 1; j &lt; mpx.size(); ++j) {
+            if (mpx[j] == lim) break;
+            if (pre == mpx[j]) {
+                tmp ++;
+            } else {
+                res = max(res, tmp);
+                tmp = 1;
+                pre = mpx[j];
+            }
+        }
+        res = max(res, tmp);
+    }
+    W(res + 1);
+    return 0;
+}</code></pre>
+
+</details>
 <h2 id="c-cover-the-tree">C. Cover the Tree<a class="headerlink" href="#c-cover-the-tree" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 02:22:47(-1)</em></p>
 <p>题意：给一棵树选择最少的链覆盖所有边，同一条边可以重复覆盖，输出方案。</p>
@@ -533,461 +746,235 @@
 <p>考虑对叶子节点配对，显然可以得到最少覆盖为 <span><span class="MathJax_Preview">(k+1)/2</span><script type="math/tex">(k+1)/2</script></span>，其中 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 表示叶子节点个数。</p>
 <p>考虑定根之后构造方案，对于一个节点，如果子树内有奇数个叶子往该节点连，取其中任一个往上连，其他两两相连（注意如果是一个子树过来两个的不能相连）即可，对于偶数个节点，取两个往上连。</p>
 <p>其实这种解法会写起来比较难受，标程写的按叶子 dfs 序， <span><span class="MathJax_Preview">i &lt;-&gt; k/2+i</span><script type="math/tex">i <-> k/2+i</script></span> 也很有道理。</p>
-<details class="note"><summary>Code by: badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
-<span class="cm">*</span>
-<span class="cm">*   创 建 者： badcw</span>
-<span class="cm">*   创建日期： 2020/7/13 13:48</span>
-<span class="cm">*</span>
-<span class="cm">================================================================*/</span>
-<span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by: badcw</summary><pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/13 13:48
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
 
-<span class="cp">#define VI vector&lt;int&gt;</span>
-<span class="cp">#define ll long long</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+#define VI vector&lt;int&gt;
+#define ll long long
+using namespace std;
 
-<span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mf">2e5</span><span class="o">+</span><span class="mi">50</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="mf">1e9</span><span class="o">+</span><span class="mi">7</span><span class="p">;</span>
-<span class="n">ll</span> <span class="nf">qp</span><span class="p">(</span><span class="n">ll</span> <span class="n">a</span><span class="p">,</span> <span class="n">ll</span> <span class="n">n</span><span class="p">,</span> <span class="n">ll</span> <span class="n">mod</span> <span class="o">=</span> <span class="o">::</span><span class="n">mod</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">ll</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">a</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
+const int maxn = 2e5+50;
+const int mod = 1e9+7;
+ll qp(ll a, ll n, ll mod = ::mod) {
+    ll res = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1) res = res * a % mod;
+        a = a * a % mod;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">int64_t</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">double</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lf&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">char</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="n">getchar</span><span class="p">();</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">R</span><span class="p">()</span> <span class="p">{}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">R</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">,</span> <span class="n">U</span> <span class="o">&amp;</span><span class="p">...</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span> <span class="n">_R</span><span class="p">(</span><span class="n">head</span><span class="p">);</span> <span class="n">R</span><span class="p">(</span><span class="n">tail</span><span class="p">...);</span> <span class="p">}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">int64_t</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.16f&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">putchar</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">U</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="n">_W</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">F</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span> <span class="n">_W</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">S</span><span class="p">);}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">_W</span><span class="p">(</span><span class="o">*</span><span class="n">i</span><span class="o">++</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">cbegin</span><span class="p">())</span> <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">W</span><span class="p">()</span> <span class="p">{}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">W</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">,</span> <span class="k">const</span> <span class="n">U</span> <span class="o">&amp;</span><span class="p">...</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span> <span class="n">_W</span><span class="p">(</span><span class="n">head</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">tail</span><span class="p">)</span> <span class="o">?</span> <span class="sc">&#39; &#39;</span> <span class="o">:</span> <span class="sc">&#39;\n&#39;</span><span class="p">);</span> <span class="n">W</span><span class="p">(</span><span class="n">tail</span><span class="p">...);</span> <span class="p">}</span>
+template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
+void _R(char &amp;x) { x = getchar(); }
+void _R(char *x) { scanf("%s", x); }
+void R() {}
+template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
+template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
+void _W(const char &amp;x) { putchar(x); }
+void _W(const char *x) { printf("%s", x); }
+template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
+template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
+void W() {}
+template&lt;class T, class... U&gt; void W(const T &amp;head, const U &amp;... tail) { _W(head); putchar(sizeof...(tail) ? ' ' : '\n'); W(tail...); }
 
-<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">edge</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-<span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">has</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">sz</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+int n;
+vector&lt;int&gt; edge[maxn];
+pair&lt;int, int&gt; has[maxn];
+int sz[maxn];
 
-<span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="k">operator</span> <span class="o">&lt;</span> <span class="p">(</span><span class="k">const</span> <span class="n">node</span><span class="o">&amp;</span> <span class="n">oth</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">sz</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">[</span><span class="n">oth</span><span class="p">.</span><span class="n">a</span><span class="p">];</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+struct node {
+    int a;
+    bool operator &lt; (const node&amp; oth) const {
+        return sz[a] &lt; sz[oth.a];
+    }
+};
 
-<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pre</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="n">has</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">};</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="n">pre</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
-        <span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
-        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">v</span><span class="p">});</span>
-        <span class="n">tot</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">v</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">tot</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">tot</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kt">int</span> <span class="n">aa</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">;</span>
-            <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-            <span class="kt">int</span> <span class="n">bb</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">;</span>
-            <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">aa</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">aa</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">sz</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span> <span class="o">--</span><span class="p">;</span>
-            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">bb</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">bb</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">y</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">bb</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">sz</span><span class="p">[</span><span class="n">bb</span><span class="p">]</span> <span class="o">--</span><span class="p">;</span>
-            <span class="n">W</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">aa</span><span class="p">])</span> <span class="p">{</span>
-                <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">aa</span><span class="p">});</span>
-            <span class="p">}</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">bb</span><span class="p">])</span> <span class="p">{</span>
-                <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">bb</span><span class="p">});</span>
-            <span class="p">}</span>
-            <span class="n">tot</span> <span class="o">-=</span> <span class="mi">2</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="n">has</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">has</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">].</span><span class="n">first</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">};</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">tot</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kt">int</span> <span class="n">aa</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">;</span>
-            <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-            <span class="kt">int</span> <span class="n">bb</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">;</span>
-            <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">aa</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">aa</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">sz</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span> <span class="o">--</span><span class="p">;</span>
-            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">bb</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">bb</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">y</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">bb</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">sz</span><span class="p">[</span><span class="n">bb</span><span class="p">]</span> <span class="o">--</span><span class="p">;</span>
-            <span class="n">W</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">aa</span><span class="p">])</span> <span class="p">{</span>
-                <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">aa</span><span class="p">});</span>
-            <span class="p">}</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">bb</span><span class="p">])</span> <span class="p">{</span>
-                <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">bb</span><span class="p">});</span>
-            <span class="p">}</span>
-            <span class="n">tot</span> <span class="o">-=</span> <span class="mi">2</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="n">aa</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="n">bb</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">bb</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
-            <span class="n">has</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">aa</span><span class="p">,</span> <span class="n">bb</span><span class="p">};</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-        <span class="n">bb</span> <span class="o">=</span> <span class="n">has</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">a</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
-        <span class="n">has</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">aa</span><span class="p">,</span> <span class="n">bb</span><span class="p">};</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+void dfs(int u, int pre) {
+    if (edge[u].size() == 1) {
+        sz[u] = 1;
+        has[u] = {u, -1};
+        return;
+    }
+    priority_queue&lt;node&gt; s;
+    int tot = 0;
+    for (auto v : edge[u]) {
+        if (v == pre) continue;
+        dfs(v, u);
+        s.push({v});
+        tot += sz[v];
+    }
+    if (tot % 2 == 1) {
+        while (tot &gt; 1) {
+            int aa = s.top().a;
+            s.pop();
+            int bb = s.top().a;
+            s.pop();
+            int x = has[aa].first;
+            if (sz[aa] == 2) {
+                x = has[aa].second;
+            }
+            sz[aa] --;
+            int y = has[bb].first;
+            if (sz[bb] == 2) {
+                y = has[bb].second;
+            }
+            sz[bb] --;
+            W(x, y);
+            if (sz[aa]) {
+                s.push({aa});
+            }
+            if (sz[bb]) {
+                s.push({bb});
+            }
+            tot -= 2;
+        }
+        sz[u] = 1;
+        has[u] = {has[s.top().a].first, -1};
+        return;
+    } else {
+        while (tot &gt; 2) {
+            int aa = s.top().a;
+            s.pop();
+            int bb = s.top().a;
+            s.pop();
+            int x = has[aa].first;
+            if (sz[aa] == 2) {
+                x = has[aa].second;
+            }
+            sz[aa] --;
+            int y = has[bb].first;
+            if (sz[bb] == 2) {
+                y = has[bb].second;
+            }
+            sz[bb] --;
+            W(x, y);
+            if (sz[aa]) {
+                s.push({aa});
+            }
+            if (sz[bb]) {
+                s.push({bb});
+            }
+            tot -= 2;
+        }
+        sz[u] = 2;
+        int aa = has[s.top().a].first;
+        int bb = 0;
+        if (sz[s.top().a] == 2) {
+            bb = has[s.top().a].second;
+            has[u] = {aa, bb};
+            return;
+        }
+        s.pop();
+        bb = has[s.top().a].first;
+        has[u] = {aa, bb};
+    }
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">R</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
-        <span class="n">R</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-        <span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
-        <span class="n">edge</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">W</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">flag</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">res</span> <span class="o">++</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">W</span><span class="p">((</span><span class="n">res</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-<span class="c1">//    cerr &lt;&lt; flag &lt;&lt; endl;</span>
-    <span class="n">dfs</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="c1">//    for (int i = 1; i &lt;= n; ++i) {</span>
-<span class="c1">//        cerr &lt;&lt; i &lt;&lt; &quot; **: &quot; &lt;&lt; has[i].first &lt;&lt; &quot; &quot; &lt;&lt; has[i].second &lt;&lt; endl;</span>
-<span class="c1">//    }</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">W</span><span class="p">(</span><span class="n">has</span><span class="p">[</span><span class="n">flag</span><span class="p">].</span><span class="n">first</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">W</span><span class="p">(</span><span class="n">has</span><span class="p">[</span><span class="n">flag</span><span class="p">].</span><span class="n">first</span><span class="p">,</span> <span class="n">has</span><span class="p">[</span><span class="n">flag</span><span class="p">].</span><span class="n">second</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
+int main(int argc, char* argv[]) {
+    R(n);
+    for (int i = 1; i &lt; n; ++i) {
+        int u, v;
+        R(u, v);
+        edge[u].push_back(v);
+        edge[v].push_back(u);
+    }
+    if (n == 1) {
+        W(0);
+        return 0;
+    }
+    int flag = -1;
+    int res = 0;
+    for (int i = 1; i &lt;= n; ++i) {
+        if (edge[i].size() &gt; 1) {
+            flag = i;
+        } else {
+            res ++;
+        }
+    }
+    W((res + 1) / 2);
+//    cerr &lt;&lt; flag &lt;&lt; endl;
+    dfs(flag, 0);
+//    for (int i = 1; i &lt;= n; ++i) {
+//        cerr &lt;&lt; i &lt;&lt; " **: " &lt;&lt; has[i].first &lt;&lt; " " &lt;&lt; has[i].second &lt;&lt; endl;
+//    }
+    if (sz[flag] == 1) {
+        W(has[flag].first, flag);
+    } else {
+        W(has[flag].first, has[flag].second);
+    }
+    return 0;
+}</code></pre>
 
 </details>
 <h2 id="d-duration">D. Duration<a class="headerlink" href="#d-duration" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:05:43</em></p>
 <p>签到，时间做差取绝对值即可</p>
-<details class="note"><summary>Code by: badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
-<span class="cm">*</span>
-<span class="cm">*   创 建 者： badcw</span>
-<span class="cm">*   创建日期： 2020/7/13 12:02</span>
-<span class="cm">*</span>
-<span class="cm">================================================================*/</span>
-<span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by: badcw</summary><pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/13 12:02
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
 
-<span class="cp">#define VI vector&lt;int&gt;</span>
-<span class="cp">#define ll long long</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+#define VI vector&lt;int&gt;
+#define ll long long
+using namespace std;
 
-<span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="mf">1e9</span><span class="o">+</span><span class="mi">7</span><span class="p">;</span>
-<span class="n">ll</span> <span class="nf">qp</span><span class="p">(</span><span class="n">ll</span> <span class="n">a</span><span class="p">,</span> <span class="n">ll</span> <span class="n">n</span><span class="p">,</span> <span class="n">ll</span> <span class="n">mod</span> <span class="o">=</span> <span class="o">::</span><span class="n">mod</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">ll</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">a</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
+const int maxn = 100;
+const int mod = 1e9+7;
+ll qp(ll a, ll n, ll mod = ::mod) {
+    ll res = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1) res = res * a % mod;
+        a = a * a % mod;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">int64_t</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">double</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lf&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">char</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="n">getchar</span><span class="p">();</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">R</span><span class="p">()</span> <span class="p">{}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">R</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">,</span> <span class="n">U</span> <span class="o">&amp;</span><span class="p">...</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span> <span class="n">_R</span><span class="p">(</span><span class="n">head</span><span class="p">);</span> <span class="n">R</span><span class="p">(</span><span class="n">tail</span><span class="p">...);</span> <span class="p">}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">int64_t</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.16f&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">putchar</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">U</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="n">_W</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">F</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span> <span class="n">_W</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">S</span><span class="p">);}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">_W</span><span class="p">(</span><span class="o">*</span><span class="n">i</span><span class="o">++</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">cbegin</span><span class="p">())</span> <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">W</span><span class="p">()</span> <span class="p">{}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">W</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">,</span> <span class="k">const</span> <span class="n">U</span> <span class="o">&amp;</span><span class="p">...</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span> <span class="n">_W</span><span class="p">(</span><span class="n">head</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">tail</span><span class="p">)</span> <span class="o">?</span> <span class="sc">&#39; &#39;</span> <span class="o">:</span> <span class="sc">&#39;\n&#39;</span><span class="p">);</span> <span class="n">W</span><span class="p">(</span><span class="n">tail</span><span class="p">...);</span> <span class="p">}</span>
+template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
+void _R(char &amp;x) { x = getchar(); }
+void _R(char *x) { scanf("%s", x); }
+void R() {}
+template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
+template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
+void _W(const char &amp;x) { putchar(x); }
+void _W(const char *x) { printf("%s", x); }
+template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
+template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
+void W() {}
+template&lt;class T, class... U&gt; void W(const T &amp;head, const U &amp;... tail) { _W(head); putchar(sizeof...(tail) ? ' ' : '\n'); W(tail...); }
 
-<span class="kt">int</span> <span class="n">h1</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="n">s1</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">h2</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="n">s2</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%2d:%2d:%2d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">h1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s1</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%2d:%2d:%2d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">h2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s2</span><span class="p">);</span>
-    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">h2</span> <span class="o">-</span> <span class="n">h1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="p">(</span><span class="n">m2</span> <span class="o">-</span> <span class="n">m1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">-</span> <span class="n">s1</span><span class="p">;</span>
-<span class="c1">//    int lim = 24 * 60 * 60;</span>
-<span class="c1">//    res = (res + lim) % lim;</span>
-    <span class="n">W</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">res</span><span class="p">));</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
+int h1, m1, s1;
+int h2, m2, s2;
+int main(int argc, char* argv[]) {
+    scanf("%2d:%2d:%2d", &amp;h1, &amp;m1, &amp;s1);
+    scanf("%2d:%2d:%2d", &amp;h2, &amp;m2, &amp;s2);
+    int res = (h2 - h1) * 60 * 60 + (m2 - m1) * 60 + s2 - s1;
+//    int lim = 24 * 60 * 60;
+//    res = (res + lim) % lim;
+    W(abs(res));
+    return 0;
+}</code></pre>
 
 </details>
 <h2 id="e-exclusive-or">E. Exclusive OR<a class="headerlink" href="#e-exclusive-or" title="Permanent link">Link</a></h2>
@@ -996,391 +983,377 @@
 <p>首先要做的是把每个点的值求出来，如果 <span><span class="MathJax_Preview">gcd(i,j)=1</span><script type="math/tex">gcd(i,j)=1</script></span> 那么 <span><span class="MathJax_Preview">gcd(i*x, j*x)=x</span><script type="math/tex">gcd(i*x, j*x)=x</script></span>，类似线筛 <span><span class="MathJax_Preview">O(n*m)</span><script type="math/tex">O(n*m)</script></span> 求出每个点的值。</p>
 <p>然后单调队列处理每列上第 <span><span class="MathJax_Preview">(i-k~i)</span><script type="math/tex">(i-k~i)</script></span> 点的最大值。</p>
 <p>然后单调队列处理行的最大值即可。</p>
-<details class="note"><summary>Code by badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
-<span class="cm">*</span>
-<span class="cm">*   创 建 者： badcw</span>
-<span class="cm">*   创建日期： 2020/7/17 15:25</span>
-<span class="cm">*</span>
-<span class="cm">================================================================*/</span>
-<span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by badcw</summary><pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/17 15:25
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
 
-<span class="cp">#define VI vector&lt;int&gt;</span>
-<span class="cp">#define ll long long</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+#define VI vector&lt;int&gt;
+#define ll long long
+using namespace std;
 
-<span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mi">5005</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="mf">1e9</span><span class="o">+</span><span class="mi">7</span><span class="p">;</span>
-<span class="n">ll</span> <span class="nf">qp</span><span class="p">(</span><span class="n">ll</span> <span class="n">a</span><span class="p">,</span> <span class="n">ll</span> <span class="n">n</span><span class="p">,</span> <span class="n">ll</span> <span class="n">mod</span> <span class="o">=</span> <span class="o">::</span><span class="n">mod</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">ll</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">a</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
+const int maxn = 5005;
+const int mod = 1e9+7;
+ll qp(ll a, ll n, ll mod = ::mod) {
+    ll res = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1) res = res * a % mod;
+        a = a * a % mod;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">int64_t</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">double</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lf&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">char</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="n">getchar</span><span class="p">();</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_R</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">R</span><span class="p">()</span> <span class="p">{}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">R</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">,</span> <span class="n">U</span> <span class="o">&amp;</span><span class="p">...</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span> <span class="n">_R</span><span class="p">(</span><span class="n">head</span><span class="p">);</span> <span class="n">R</span><span class="p">(</span><span class="n">tail</span><span class="p">...);</span> <span class="p">}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">int64_t</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.16f&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">putchar</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">U</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="n">_W</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">F</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span> <span class="n">_W</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">S</span><span class="p">);}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">_W</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">_W</span><span class="p">(</span><span class="o">*</span><span class="n">i</span><span class="o">++</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">cbegin</span><span class="p">())</span> <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">W</span><span class="p">()</span> <span class="p">{}</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">W</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">,</span> <span class="k">const</span> <span class="n">U</span> <span class="o">&amp;</span><span class="p">...</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span> <span class="n">_W</span><span class="p">(</span><span class="n">head</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">tail</span><span class="p">)</span> <span class="o">?</span> <span class="sc">&#39; &#39;</span> <span class="o">:</span> <span class="sc">&#39;\n&#39;</span><span class="p">);</span> <span class="n">W</span><span class="p">(</span><span class="n">tail</span><span class="p">...);</span> <span class="p">}</span>
+template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
+void _R(char &amp;x) { x = getchar(); }
+void _R(char *x) { scanf("%s", x); }
+void R() {}
+template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
+template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
+void _W(const char &amp;x) { putchar(x); }
+void _W(const char *x) { printf("%s", x); }
+template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
+template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
+void W() {}
+template&lt;class T, class... U&gt; void W(const T &amp;head, const U &amp;... tail) { _W(head); putchar(sizeof...(tail) ? ' ' : '\n'); W(tail...); }
 
-<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">mx</span><span class="p">[</span><span class="n">maxn</span><span class="p">][</span><span class="n">maxn</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">tmp</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">dq</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+int n, m, k;
+int mx[maxn][maxn];
+int tmp[maxn];
+int dq[maxn];
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">R</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">mx</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">k</span> <span class="o">*</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">mx</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">k</span><span class="p">][</span><span class="n">j</span> <span class="o">*</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span> <span class="o">*</span> <span class="n">k</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="c1">//    for (int i = 1; i &lt;= n; ++i) {</span>
-<span class="c1">//        for (int j = 1; j &lt;= m; ++j) {</span>
-<span class="c1">//            cerr &lt;&lt; mx[i][j] &lt;&lt; &quot; &quot;;</span>
-<span class="c1">//        }</span>
-<span class="c1">//        cerr &lt;&lt; endl;</span>
-<span class="c1">//    }</span>
-<span class="c1">//    cerr &lt;&lt; &quot;*&quot; &lt;&lt; endl;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">pre</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lst</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&lt;=</span> <span class="n">lst</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">-</span> <span class="n">dq</span><span class="p">[</span><span class="n">pre</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">)</span> <span class="n">pre</span> <span class="o">++</span><span class="p">;</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&lt;=</span> <span class="n">lst</span> <span class="o">&amp;&amp;</span> <span class="n">mx</span><span class="p">[</span><span class="n">dq</span><span class="p">[</span><span class="n">lst</span><span class="p">]][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">mx</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="n">lst</span> <span class="o">--</span><span class="p">;</span>
-            <span class="n">dq</span><span class="p">[</span><span class="o">++</span> <span class="n">lst</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-            <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mx</span><span class="p">[</span><span class="n">dq</span><span class="p">[</span><span class="n">pre</span><span class="p">]][</span><span class="n">j</span><span class="p">];</span>
-        <span class="p">}</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">mx</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="p">}</span>
-<span class="c1">//    for (int i = 1; i &lt;= n; ++i) {</span>
-<span class="c1">//        for (int j = 1; j &lt;= m; ++j) {</span>
-<span class="c1">//            cerr &lt;&lt; mx[i][j] &lt;&lt; &quot; &quot;;</span>
-<span class="c1">//        }</span>
-<span class="c1">//        cerr &lt;&lt; endl;</span>
-<span class="c1">//    }</span>
-    <span class="n">ll</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">pre</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lst</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&lt;=</span> <span class="n">lst</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">-</span> <span class="n">dq</span><span class="p">[</span><span class="n">pre</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">)</span> <span class="n">pre</span> <span class="o">++</span><span class="p">;</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">pre</span> <span class="o">&lt;=</span> <span class="n">lst</span> <span class="o">&amp;&amp;</span> <span class="n">mx</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">dq</span><span class="p">[</span><span class="n">lst</span><span class="p">]]</span> <span class="o">&lt;=</span> <span class="n">mx</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="n">lst</span> <span class="o">--</span><span class="p">;</span>
-            <span class="n">dq</span><span class="p">[</span><span class="o">++</span> <span class="n">lst</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
-            <span class="n">tmp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mx</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">dq</span><span class="p">[</span><span class="n">pre</span><span class="p">]];</span>
-        <span class="p">}</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="n">res</span> <span class="o">+=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="n">W</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
+int main(int argc, char* argv[]) {
+    R(n, m, k);
+    for (int i = 1; i &lt;= n; ++i) {
+        for (int j = 1; j &lt;= m; ++j) {
+            if (mx[i][j] == 0) {
+                for (int k = 1; k * i &lt;= n &amp;&amp; k * j &lt;= m; ++k) {
+                    mx[i * k][j * k] = i * j * k;
+                }
+            }
+        }
+    }
+//    for (int i = 1; i &lt;= n; ++i) {
+//        for (int j = 1; j &lt;= m; ++j) {
+//            cerr &lt;&lt; mx[i][j] &lt;&lt; " ";
+//        }
+//        cerr &lt;&lt; endl;
+//    }
+//    cerr &lt;&lt; "*" &lt;&lt; endl;
+    for (int j = 1; j &lt;= m; ++j) {
+        int pre = 1, lst = 0;
+        for (int i = 1; i &lt;= n; ++i) {
+            while (pre &lt;= lst &amp;&amp; i - dq[pre] &gt;= k) pre ++;
+            while (pre &lt;= lst &amp;&amp; mx[dq[lst]][j] &lt;= mx[i][j]) lst --;
+            dq[++ lst] = i;
+            tmp[i] = mx[dq[pre]][j];
+        }
+        for (int i = 1; i &lt;= n; ++i) mx[i][j] = tmp[i];
+    }
+//    for (int i = 1; i &lt;= n; ++i) {
+//        for (int j = 1; j &lt;= m; ++j) {
+//            cerr &lt;&lt; mx[i][j] &lt;&lt; " ";
+//        }
+//        cerr &lt;&lt; endl;
+//    }
+    ll res = 0;
+    for (int i = k; i &lt;= n; ++i) {
+        int pre = 1, lst = 0;
+        for (int j = 1; j &lt;= m; ++j) {
+            while (pre &lt;= lst &amp;&amp; j - dq[pre] &gt;= k) pre ++;
+            while (pre &lt;= lst &amp;&amp; mx[i][dq[lst]] &lt;= mx[i][j]) lst --;
+            dq[++ lst] = j;
+            tmp[j] = mx[i][dq[pre]];
+        }
+        for (int j = k; j &lt;= m; ++j) res += tmp[j];
+    }
+    W(res);
+    return 0;
+}</code></pre>
 
 </details>
 <h2 id="g-greater-and-greater">G. Greater and Greater<a class="headerlink" href="#g-greater-and-greater" title="Permanent link">Link</a></h2>
+<p><em>upsolved by: badcw, Verly</em></p>
+<p>题意：给两个长度为n和m的序列<span><span class="MathJax_Preview">A,B(m≤n)</span><script type="math/tex">A,B(m≤n)</script></span>,问A有多少长度为<span><span class="MathJax_Preview">len(B)</span><script type="math/tex">len(B)</script></span>的子串S，满足<span><span class="MathJax_Preview">∀_i∈{1,2,⋯,m},S_i&gt;B_i</span><script type="math/tex">∀_i∈{1,2,⋯,m},S_i>B_i</script></span></p>
+<p>设<code>bitset&lt;maxm&gt; res</code>表示以i开头长度为m的子串是否满足条件，维护一个初始全1的bitset，对A,B数组中的元素排序并遍历，当遍历到A中的第i个数时把<code>bitset[i]</code>置0，当遍历到B中的第i个数时，bitset中为0的数表示该位不能作为m的第i位，将其右移i位到对应串的开头即可更新对应的子串。</p>
+<details class="note"><summary>Code by badcw</summary><pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int maxn = 2e5 + 10;
+int a[maxn], b[maxn];
+bitset&lt;maxn&gt; tmp, res;
+
+struct node 
+{
+    int val, pos, tp;
+    bool operator &lt; (const node x) const {
+        if(val != x.val) return val &lt; x.val;
+        return tp &lt; x.tp;
+    }
+};
+
+int main()
+{
+    int n, m;
+    scanf("%d%d", &amp;n, &amp;m);
+    vector&lt;node&gt; ve;
+    for(int i = 0; i &lt; n; i ++) 
+    {
+        scanf("%d", &amp;a[i]);
+        tmp[i] = res[i] = 1;
+        ve.push_back({a[i], i, 1});
+    }
+    for(int i = 0; i &lt; m; i ++) 
+    {
+        scanf("%d", &amp;b[i]);
+        ve.push_back({b[i], i, 0});
+    }
+    sort(ve.begin(), ve.end());
+    for(auto x : ve) 
+    {
+        if(x.tp) tmp[x.pos] = 0;
+        else res &amp;= tmp &gt;&gt; x.pos;
+    }
+    printf("%d\n", (int)res.count());
+    return 0;
+}</code></pre>
+
+</details>
 <h2 id="h-happy-triangle">H. Happy Triangle<a class="headerlink" href="#h-happy-triangle" title="Permanent link">Link</a></h2>
 <h2 id="i-interval">I. Interval<a class="headerlink" href="#i-interval" title="Permanent link">Link</a></h2>
+<p><em>upsolved by: Verly</em></p>
+<p>给一个<span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span>的初始区间，在满足修改后<span><span class="MathJax_Preview">1≤l&lt;r≤n</span><script type="math/tex">1≤l<r≤n</script></span>的情况下，对区间<span><span class="MathJax_Preview">[l,r](l&lt;r)</span><script type="math/tex">[l,r](l<r)</script></span>每次可使l,r加1或-1。</p>
+<p>给定若干个限制条件(l, r, &lsquo;L&rsquo;, c)或(l, r, &lsquo;R&rsquo;, c)，表示花费c来禁止l&lt;-&gt;l+1或r&lt;-&gt;r-1，问最少花费多少，才能使区间<span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span>无法被修改为<span><span class="MathJax_Preview">l=r</span><script type="math/tex">l=r</script></span>的情况。</p>
+<p>把区间视为网格上的点建网络流模型， 对于每个限制条件连<code>(pt(l,r),pt(l', r'),c)</code>的双向边，起点为<code>(1, n)</code>, 并对<code>(i,i)</code>向T连流量为inf的边。最小割即为所求解。</p>
+<p>网格图最小割可以转化为对偶图最短路求解，对原图中的ST连一条流量为inf的边把网格外的空间分为两部分，将原图中的格视为点，边权为原图中边的流量大小，跑最短路即可。</p>
+<details class="note"><summary>Code by: Verly</summary><pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+#define int ll
+
+const int maxn = 600 * 600 + 10;
+const int inf = 0x3f3f3f3f3f3f3f3f;
+
+int head[maxn], dis[maxn], cnt;
+struct Edge { int nex, to, w; } edge[20 * maxn];
+
+void addEdge(int u, int v, int w)
+{
+    edge[++cnt] = { head[u], v, w };
+    head[u] = cnt;
+}
+
+inline void add(int u, int v, int w) 
+{
+    addEdge(u, v, w);
+    addEdge(v, u, w);
+}
+
+void dij(int s)
+{
+    priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt; &gt;, greater&lt;pair&lt;int, int&gt; &gt; &gt; que;
+    memset(dis, 0x3f, sizeof dis);
+    que.push({0, s}); dis[s] = 0;
+    while(!que.empty())
+    {
+        auto f = que.top(); que.pop();
+        int u = f.second, d = f.first;
+        if(d != dis[u]) continue;
+        for(int i = head[u]; ~i; i = edge[i].nex)
+        {
+            int v = edge[i].to, w = edge[i].w;
+            if(dis[u] + w &lt; dis[v])
+            {
+                dis[v] = dis[u] + w;
+                que.push({dis[v], v});
+            }
+        }
+    }
+}
+int id[510][510];
+
+signed main()
+{
+    int n, m, tot = 0;
+    memset(head, 0xff, sizeof head);
+    scanf("%lld%lld", &amp;n, &amp;m);
+    for(int i = 0; i &lt;= n + 1; i ++)
+        for(int j = 0; j &lt;= n + 1; j ++) id[i][j] = tot ++;
+    for(int i = 1; i &lt;= m; i ++)
+    {
+        int l, r, c;
+        char s[5];
+        scanf("%lld%lld%s%lld", &amp;l, &amp;r, s, &amp;c);
+        if(s[0] == 'L') add(id[l][r], id[l][r + 1], c);
+        else add(id[l - 1][r], id[l][r], c);
+    }
+    int s = id[0][1], t = id[n + 1][n + 1];
+    for(int i = 1; i &lt;= n; i ++) add(s, id[0][i], 0), add(id[i][n + 1], t, 0); 
+    dij(s);
+    printf("%lld\n", dis[t] == inf ? -1 : dis[t]);
+    return 0;
+}</code></pre>
+
+</details>
 <h2 id="j-just-shuffle">J. Just Shuffle<a class="headerlink" href="#j-just-shuffle" title="Permanent link">Link</a></h2>
 <p><em>solved by: Verly 04:32:38(-2)</em></p>
 <p>给一个 1~n 的排列求 P，把 1~n 原序运行 k 次 P 排列可以变成该排列，k 为大素数。</p>
 <p>原题相当于一个每行每列只有 1 个 1 的方阵 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>，求 <span><span class="MathJax_Preview">S^{-k}</span><script type="math/tex">S^{-k}</script></span>。</p>
 <p>实际上对 i 和 <span><span class="MathJax_Preview">S_i</span><script type="math/tex">S_i</script></span> 连单向边，最后会得到若干个环，由于 k 是素数，它对环都存在一个偏移量，在每个环上按偏移量走即可得到原序列。</p>
-<details class="note"><summary>Code by: Verly</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by: Verly</summary><pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+using namespace std;
+typedef long long ll;
 
-<span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mf">1e5</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-<span class="kt">bool</span> <span class="n">vis</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">res</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span> <span class="n">tmp</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+const int maxn = 1e5 + 10;
+int a[maxn];
+bool vis[maxn];
+int res[maxn], tmp[maxn];
 
-<span class="kt">int</span> <span class="nf">getPos</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">x</span> <span class="o">--</span><span class="p">;</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="n">k</span><span class="p">;</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="n">len</span><span class="p">;</span>
-    <span class="n">x</span> <span class="o">%=</span> <span class="n">len</span><span class="p">;</span>
-    <span class="n">x</span> <span class="o">++</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
+int getPos(int x, int len, int k)
+{
+    x --;
+    x += k;
+    x += len;
+    x %= len;
+    x ++;
+    return x;
+}
 
-<span class="kt">int</span> <span class="n">tt</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">mp</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+int tt[maxn];
+int b[maxn];
+int mp[maxn];
 
-<span class="kt">int</span> <span class="nf">getNex</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">tt</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
-    <span class="kt">int</span> <span class="n">nex</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
-    <span class="k">return</span> <span class="n">mp</span><span class="p">[</span><span class="n">nex</span><span class="p">];</span>
-<span class="p">}</span>
+int getNex(int x)
+{
+    x = tt[x];
+    int nex = b[x];
+    return mp[nex];
+}
 
-<span class="kt">bool</span> <span class="nf">GetC</span><span class="p">(</span><span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">pos</span> <span class="o">=</span> <span class="n">getPos</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">getNex</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">tmp</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="n">tmp</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span>
+bool GetC(int len, int k)
+{
+    tmp[1] = 1;
+    int x = 1, pos = 1;
+    for(int i = 2; i &lt;= len; i ++)
+    {
+        pos = getPos(pos, len, k);
+        x = getNex(x);
+        if(tmp[pos] != 0 &amp;&amp; tmp[pos] != x) return false;
+        tmp[pos] = x;
+    }
+    return true;
+}
 
-<span class="kt">void</span> <span class="nf">Place</span><span class="p">(</span><span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">tmp</span><span class="p">[</span><span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">tt</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
-        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
-        <span class="kt">int</span> <span class="n">nexval</span> <span class="o">=</span> <span class="n">tt</span><span class="p">[</span><span class="n">y</span><span class="p">];</span>
-        <span class="n">res</span><span class="p">[</span><span class="n">nexval</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+void Place(int len)
+{
+    tmp[len + 1] = 1;
+    for(int i = 1; i &lt;= len; i ++)
+    {
+        int x = tmp[i];
+        int val = tt[x];
+        int y = tmp[i + 1];
+        int nexval = tt[y];
+        res[nexval] = val;
+    }
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">);</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">b</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">vis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
-        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ve</span><span class="p">;</span>
-        <span class="n">vis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="n">ve</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="n">j</span><span class="p">];</span> <span class="n">j</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-        <span class="p">{</span>
-            <span class="n">ve</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
-            <span class="n">vis</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">ve</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-            <span class="k">continue</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">k</span> <span class="o">%</span> <span class="n">ve</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-        <span class="n">sort</span><span class="p">(</span><span class="n">ve</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">ve</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ve</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">mp</span><span class="p">[</span><span class="n">ve</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tt</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">ve</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">ve</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">GetC</span><span class="p">(</span><span class="n">ve</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">len</span><span class="p">)</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;-1&quot;</span><span class="p">);</span>
-        <span class="n">Place</span><span class="p">(</span><span class="n">ve</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
-    <span class="p">}</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%c&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot; </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">[</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">]);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
+int main()
+{
+    int n, k;
+    scanf("%d%d", &amp;n, &amp;k);
+    for(int i = 1; i &lt;= n; i ++) scanf("%d", &amp;a[i]);
+    for(int i = 1; i &lt;= n; i ++) b[a[i]] = i;
+    for(int i = 1; i &lt;= n; i ++)
+    {
+        if(vis[i]) continue;
+        vector&lt;int&gt; ve;
+        vis[i] = true;
+        ve.push_back(i);
+        for(int j = a[i]; !vis[j]; j = a[j])
+        {
+            ve.push_back(j);
+            vis[j] = true;
+        }
+        if(ve.size() == 1) {
+            res[i] = i;
+            continue;
+        }
+        int len = k % ve.size();
+        sort(ve.begin(), ve.end());
+        for(int i = 0; i &lt; ve.size(); i ++) mp[ve[i]] = i + 1, tt[i + 1] = ve[i];
+        for(int i = 0; i &lt;= ve.size(); i ++) tmp[i] = 0;
+        if(GetC(ve.size(), len) == false) return 0 * puts("-1");
+        Place(ve.size());
+    }
+    for(int i = 1; i &lt;= n; i ++) printf("%d%c", res[i], " \n"[i == n]);
+    return 0;
+}</code></pre>
 
 </details>
 <h2 id="k-keyboard-free">K. Keyboard Free<a class="headerlink" href="#k-keyboard-free" title="Permanent link">Link</a></h2>
+<p><em>upsolved by: Verly</em></p>
+<p>题意：给三个半径为<code>r1,r2,r3</code>的同心圆，求圆上三点组成的三角形面积期望。</p>
+<p>确定点A(r1,0)枚举BC，预处理完暴力搞一下过了……</p>
+<details class="note"><summary>Code by: Verly</summary><pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int maxn = 500 + 10;
+const double PI = acos(-1);
+
+typedef double db;
+struct point{
+    db x,y;
+    point operator + (const point &amp;k1) const{return (point){k1.x+x,k1.y+y};}
+    point operator - (const point &amp;k1) const{return (point){x-k1.x,y-k1.y};}
+    point operator * (db k1) const{return (point){x*k1,y*k1};}
+    point operator / (db k1) const{return (point){x/k1,y/k1};}
+}p[3];
+db cross(point k1,point k2){return k1.x*k2.y-k1.y*k2.x;}
+
+double Sin[maxn], Cos[maxn];
+
+int main()
+{
+    int t;
+    scanf("%d", &amp;t);
+    for(int i = 0; i &lt; 500; i ++) Sin[i] = sin(2 * PI * i / 500), Cos[i] = cos(2 * PI * i / 500);
+    while(t --)
+    {
+        double r1, r2, r3, res = 0;
+        scanf("%lf%lf%lf", &amp;r1, &amp;r2, &amp;r3);
+        p[0] = {r1, 0};
+        for(int i = 0; i &lt; 500; i ++)
+        {
+            p[1] = {r2 * Sin[i], r2 * Cos[i]};
+            for(int j = 0; j &lt; 500; j ++)
+            {
+                p[2] = {r3 * Sin[j], r3 * Cos[j]};
+                res += abs(cross(p[1] - p[0], p[2] - p[0])); 
+            }
+        }
+        printf("%.1f\n", res / 2 / 500 / 500);
+
+    }
+
+    return 0;
+}</code></pre>
+
+</details>
                 
                   
                 
