@@ -863,7 +863,7 @@
 <p>如果ab不互质，<code>gcd(a,b)+a, b, gcd(a, b), b</code>即为答案</p>
 <p>对于互质的情况，如果b的不同质因数个数只有1个，即<span><span class="MathJax_Preview">b=p^k</span><script type="math/tex">b=p^k</script></span>，由于<code>a,b</code>互质,<span><span class="MathJax_Preview">\frac c d - \frac e f</span><script type="math/tex">\frac c d - \frac e f</script></span>化简后必须是<span><span class="MathJax_Preview">\frac a b</span><script type="math/tex">\frac a b</script></span>,但<code>d,f&lt;b</code>,df的质因数分解质因数指数都小于k,得到矛盾,所以无解</p>
 <p>如果b的不同质因数个数大于1,找到df满足<span><span class="MathJax_Preview">d*f=b</span><script type="math/tex">d*f=b</script></span>且<span><span class="MathJax_Preview">__gcd(d,f)=1</span><script type="math/tex">__gcd(d,f)=1</script></span>,有<span><span class="MathJax_Preview">\frac {c*f-e*d} {d*f}=\frac a b</span><script type="math/tex">\frac {c*f-e*d} {d*f}=\frac a b</script></span>,用exgcd求<span><span class="MathJax_Preview">c*f-e*d=a</span><script type="math/tex">c*f-e*d=a</script></span></p>
-<details class="note"><summary>Code by: xx</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
@@ -933,7 +933,7 @@
 <p><em>upsolved by: Verly</em></p>
 <p>题意:给一张n个点m条边的图,初始时点i的颜色为i，进行q次操作，每次将颜色为i的点周围的点染成i，求q次操作后n个点的颜色。</p>
 <p>考虑每个点所连出的边最多只会被访问一次，所以只要维护某个颜色当前还没有给相邻点染色的点，用链表维护边集，用并查集维护点的颜色，每次染色时合并链表即可，复杂度<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
-<details class="note"><summary>Code by: xx</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -1075,7 +1075,7 @@
 </details>
 <h2 id="l-problem-l-is-the-only-lovely-problem">L. Problem L is the Only Lovely Problem<a class="headerlink" href="#l-problem-l-is-the-only-lovely-problem" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:03:25</em></p>
-<details class="note"><summary>Code by: xx</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/18 12:01</span>
