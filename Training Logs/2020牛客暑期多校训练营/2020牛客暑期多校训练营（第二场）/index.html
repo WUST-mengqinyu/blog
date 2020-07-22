@@ -1090,7 +1090,7 @@
 <p><em>upsolved by: badcw, Verly</em></p>
 <p>题意：给两个长度为n和m的序列<span><span class="MathJax_Preview">A,B(m≤n)</span><script type="math/tex">A,B(m≤n)</script></span>,问A有多少长度为<span><span class="MathJax_Preview">len(B)</span><script type="math/tex">len(B)</script></span>的子串S，满足<span><span class="MathJax_Preview">∀_i∈{1,2,⋯,m},S_i&gt;B_i</span><script type="math/tex">∀_i∈{1,2,⋯,m},S_i>B_i</script></span></p>
 <p>设<code>bitset&lt;maxm&gt; res</code>表示以i开头长度为m的子串是否满足条件，维护一个初始全1的bitset，对A,B数组中的元素排序并遍历，当遍历到A中的第i个数时把<code>bitset[i]</code>置0，当遍历到B中的第i个数时，bitset中为0的数表示该位不能作为m的第i位，将其右移i位到对应串的开头即可更新对应的子串。</p>
-<details class="note"><summary>Code by badcw</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by Verly</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
