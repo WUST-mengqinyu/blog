@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Personal Page/badcw/主席树/主席树入门/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Personal%20Page/badcw/%E4%B8%BB%E5%B8%AD%E6%A0%91/%E4%B8%BB%E5%B8%AD%E6%A0%91%E5%85%A5%E9%97%A8/">
       
       
       
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
     
     
       
@@ -476,55 +476,7 @@
 <p><img alt="image" src="images/Snipaste_2020-04-23_02-15-13.png" /></p>
 <p>大大减少了数据冗余，每次修改最多增加 <span><span class="MathJax_Preview">log</span><script type="math/tex">log</script></span> 级别的节点，所以一半来说也需要动态开点线段树来做，一个长度为 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的修改总初始化节点数量级为 <span><span class="MathJax_Preview">O(nlog(n)*4)</span><script type="math/tex">O(nlog(n)*4)</script></span>，每次查询点的数量级由前缀和思想进行差分，复杂度与普通线段树相同，为 <span><span class="MathJax_Preview">O(log(n))</span><script type="math/tex">O(log(n))</script></span>，所以主席树其实和线段树有相同的复杂度，但是空间上需要多一个 <span><span class="MathJax_Preview">log</span><script type="math/tex">log</script></span></p>
 <h3 id="_4">模板代码<a class="headerlink" href="#_4" title="Permanent link">Link</a></h3>
-<details class="note"><summary>Luogu P3834</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
+<details class="note"><summary>Luogu P3834</summary><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">val</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">lnode</span><span class="p">,</span> <span class="n">rnode</span><span class="p">;</span>
 <span class="p">}</span><span class="n">p</span><span class="p">[</span><span class="n">maxn</span> <span class="o">*</span> <span class="mi">20</span><span class="p">];</span>
@@ -573,8 +525,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h3 id="_5">例题<a class="headerlink" href="#_5" title="Permanent link">Link</a></h3>
@@ -583,87 +534,7 @@
 <h4 id="luogu-p3567">Luogu P3567<a class="headerlink" href="#luogu-p3567" title="Permanent link">Link</a></h4>
 <p>静态区间多于一半的数</p>
 <p>由于一个区间的左右两个区间最多有一个满足题意的区间，所以直接暴力找下去复杂度和普通线段树仍然一致</p>
-<details class="note"><summary>Note</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Note</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/4/23</span>
@@ -744,8 +615,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
                 
@@ -788,7 +658,7 @@
     
       <script src="../../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
