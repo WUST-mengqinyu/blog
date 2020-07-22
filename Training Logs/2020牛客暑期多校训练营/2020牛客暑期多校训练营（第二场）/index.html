@@ -1411,7 +1411,7 @@
 <p>给 n 个数字，现在 ans[k] 表示挑选任意 k 个数字（可重复挑选一个数）异或起来的最大值，求 ans[1]~ans[n]，值域 <span><span class="MathJax_Preview">2^{18}</span><script type="math/tex">2^{18}</script></span>。</p>
 <p>由线性基原理可以知道最多 19 个数字就可以获得这 n 个数字的最大值。为什么不是18，因为存在0。</p>
 <p>那么显然后面取任意两个相等的数字，答案显然就是 <span><span class="MathJax_Preview">ans[k-2]</span><script type="math/tex">ans[k-2]</script></span></p>
-<p>那么我们知道第一次 <span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span> 表示存不存在 i 这个数字，那么 <span><span class="MathJax_Preview">g_i=\sum_{j\xor k=i}f_i*f_j</span><script type="math/tex">g_i=\sum_{j\xor k=i}f_i*f_j</script></span> 则表示能不能取两个数表示 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>。然后整个具有传递性，只用做 19 次 fwt 就能获得答案。</p>
+<p>那么我们知道第一次 <span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span> 表示存不存在 i 这个数字，那么 <span><span class="MathJax_Preview">g_i=\sum_{j\bigotimes k=i}f_i*f_j</span><script type="math/tex">g_i=\sum_{j\bigotimes k=i}f_i*f_j</script></span> 则表示能不能取两个数表示 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>。然后整个具有传递性，只用做 19 次 fwt 就能获得答案。</p>
 <details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
