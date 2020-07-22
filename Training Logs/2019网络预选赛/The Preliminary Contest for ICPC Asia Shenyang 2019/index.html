@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training%20Logs/2019%E7%BD%91%E7%BB%9C%E9%A2%84%E9%80%89%E8%B5%9B/The%20Preliminary%20Contest%20for%20ICPC%20Asia%20Shenyang%202019/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019网络预选赛/The Preliminary Contest for ICPC Asia Shenyang 2019/">
       
       
       
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../Personal%20Page/Verly/" class="md-tabs__link">
+        <a href="../../../Personal Page/Verly/" class="md-tabs__link">
           个人页面
         </a>
       
@@ -311,7 +311,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal%20Page/Verly/" title="Verly" class="md-nav__link">
+    <a href="../../../Personal Page/Verly/" title="Verly" class="md-nav__link">
       Verly
     </a>
   </li>
@@ -323,7 +323,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal%20Page/badcw/" title="badcw" class="md-nav__link">
+    <a href="../../../Personal Page/badcw/" title="badcw" class="md-nav__link">
       badcw
     </a>
   </li>
@@ -500,7 +500,125 @@
 <p>题意：给一张图，有一些关键点，在关键点外可以随意走动（起点为1且不是关键点），第一次到达关键点会随机向相邻点走动，第二次到达关键点就停止，求最多能到的非关键点的期望值（就是说会以最优的方式走动）。</p>
 <p>题解：1的联通块都可以走完，与1这个块相连的关键点中取期望最大的就可以了。</p>
 <p>代码：</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：B.cpp</span>
@@ -619,14 +737,91 @@
 <span class="c1">//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 <p>赛中判该点是不是1的联通点写了个蠢<code>F(v) != 1</code>，实际上并查集也没有特殊处理过。。。名额没了。</p>
 <h2 id="c-dawn-ks-water">C. Dawn-K&rsquo;s water<a class="headerlink" href="#c-dawn-ks-water" title="Permanent link">Link</a></h2>
 <p>题意：n种物品，每种物品有价值p和重量c，询问求最少要多少钱可以买至少m重量的物品。求出真正买的重量和花费。</p>
 <p>题解：显然完全背包问题，由于最终价值不大于1e4，直接完全背包求到2e4肯定有解。</p>
 <p>代码：</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：C.cpp</span>
@@ -703,13 +898,176 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 <h2 id="dfish-eating-fruit">D、Fish eating fruit<a class="headerlink" href="#dfish-eating-fruit" title="Permanent link">Link</a></h2>
 <p>题意：求一棵树上边权模3分别为0，1，2的边权和是多少</p>
 <p>题解：数据范围较小爆上一个点分治即可，每次统计出过rt模3的边分别为0,1,2的边个数和总和，组合一下就能求出解。</p>
 <p>代码：</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：D.cpp</span>
@@ -872,10 +1230,135 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 <p>题解2：树形dp换根求解。显然对某个点的答案可以<code>O(n)</code>求解，换根时同样记录子树中0,1,2的路径个数和总和即可。复杂度比点分治低，为<code>O(n)</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：D.cpp</span>
@@ -1000,13 +1483,407 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 <h2 id="fhonks-pool">Ｆ、Honk&rsquo;s pool<a class="headerlink" href="#fhonks-pool" title="Permanent link">Link</a></h2>
 <h2 id="htexas-holdem-poker">Ｈ、Texas hold&rsquo;em Poker<a class="headerlink" href="#htexas-holdem-poker" title="Permanent link">Link</a></h2>
 <p>题意：德州扑克比大小</p>
 <p>题解：按题意模拟</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span><span class="o">=</span><span class="mf">1e5</span><span class="o">+</span><span class="mi">10</span><span class="p">;</span>
 <span class="k">struct</span> <span class="n">player</span>
@@ -1400,7 +2277,8 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 <h2 id="kguanguans-happy-water">K、Guanguan&rsquo;s Happy water<a class="headerlink" href="#kguanguans-happy-water" title="Permanent link">Link</a></h2>
 <p>题意：已知前2×k项，已知每一项只与前k项有关且是固定系数且保证结果为整数，即
@@ -1414,7 +2292,156 @@ f_i = \sum_{j=1}^{k} a_j * f_{i-j}
 </script>
 给快速幂加一维答案就可以了</p>
 <p>代码：</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="cp">#define ll long long</span>
@@ -1564,7 +2591,8 @@ f_i = \sum_{j=1}^{k} a_j * f_{i-j}
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 <p>bm不知道为什么板子过不了样例就没写</p>
 <p>看别人题解写的不知道啥玩意？？题解写了分块矩阵去求和比我复杂度还大个8倍不太行。</p>
@@ -1608,7 +2636,7 @@ f_i = \sum_{j=1}^{k} a_j * f_{i-j}
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
