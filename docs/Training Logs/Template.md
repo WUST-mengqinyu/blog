@@ -7,7 +7,7 @@
 
 *solved by: xx 00:00(-x) upsolved by:*
 
-??? note "Code by: xx"
+??? note "Code"
     ```cpp
     #include <bits/stdc++.h>
     using namespace std;
