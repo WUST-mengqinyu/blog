@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training%20Logs/2020%20Wannafly%20Winter%20Camp/day1/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2020 Wannafly Winter Camp/day1/">
       
       
       
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../Personal%20Page/Verly/" class="md-tabs__link">
+        <a href="../../../Personal Page/Verly/" class="md-tabs__link">
           个人页面
         </a>
       
@@ -311,7 +311,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal%20Page/Verly/" title="Verly" class="md-nav__link">
+    <a href="../../../Personal Page/Verly/" title="Verly" class="md-nav__link">
       Verly
     </a>
   </li>
@@ -323,7 +323,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal%20Page/badcw/" title="badcw" class="md-nav__link">
+    <a href="../../../Personal Page/badcw/" title="badcw" class="md-nav__link">
       badcw
     </a>
   </li>
@@ -516,7 +516,91 @@
 <p>显然，对于两个区间 <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> 和 <span><span class="MathJax_Preview">[c,d]</span><script type="math/tex">[c,d]</script></span>。若 <span><span class="MathJax_Preview">a + b &lt; c + d</span><script type="math/tex">a + b < c + d</script></span>，显然  <span><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> 应该在 <span><span class="MathJax_Preview">[c,d]</span><script type="math/tex">[c,d]</script></span> 前面然后由于这个东西是单向有可传递性的所以直接对区间按权排序，然后计算期望即可</p>
 <p>由于 <span><span class="MathJax_Preview">n\le 5\cdot 10^3</span><script type="math/tex">n\le 5\cdot 10^3</script></span> 计算期望的方法是对于每个点对求它可能是逆序对的期望然后求和即可</p>
 <p>所以本题考虑清楚每个点对的期望即可</p>
-<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
@@ -601,13 +685,60 @@
 <span class="c1">//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 </details>
 <h2 id="b">B. 密码学<a class="headerlink" href="#b" title="Permanent link">Link</a></h2>
 <p>有个加模的加密方法，输入加密 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次后每个串的形式，求原串</p>
 <p>签到题，减模倒推即可</p>
-<details class="note"><summary>Code by Verly</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by Verly</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
 
@@ -654,10 +785,54 @@
     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 </details>
-<details class="note"><summary>Code by badcw</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code by badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/4/18</span>
@@ -701,7 +876,8 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 </details>
 <h2 id="c">C. 染色图<a class="headerlink" href="#c" title="Permanent link">Link</a></h2>
@@ -711,7 +887,60 @@ g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\f
 </script>
 </p>
 <p>对该式分块，当<span><span class="MathJax_Preview">i\le\sqrt{n}</span><script type="math/tex">i\le\sqrt{n}</script></span>时对每个点单点求值，当<span><span class="MathJax_Preview">i\ge\sqrt{n}</span><script type="math/tex">i\ge\sqrt{n}</script></span>时对<span><span class="MathJax_Preview">\lfloor\frac{n}{i}\rfloor</span><script type="math/tex">\lfloor\frac{n}{i}\rfloor</script></span>分块求和，其中<span><span class="MathJax_Preview">\sum_{i=l}^ri</span><script type="math/tex">\sum_{i=l}^ri</script></span>和<span><span class="MathJax_Preview">n\%i</span><script type="math/tex">n\%i</script></span>均为等差数列，而<span><span class="MathJax_Preview">\lfloor\frac{n}{i}\rfloor</span><script type="math/tex">\lfloor\frac{n}{i}\rfloor</script></span>在单个块内相等，每次求<span><span class="MathJax_Preview">l-1,r</span><script type="math/tex">l-1,r</script></span>的前缀和差分即可。</p>
-<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
 
@@ -765,11 +994,127 @@ g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\f
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 </details>
 <h2 id="e">E. 树与路径<a class="headerlink" href="#e" title="Permanent link">Link</a></h2>
-<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">N</span><span class="o">=</span><span class="mi">500010</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">LL</span><span class="p">;</span>
@@ -885,13 +1230,87 @@ g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\f
     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span> 
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 </details>
 <h2 id="f">F. 乘法<a class="headerlink" href="#f" title="Permanent link">Link</a></h2>
 <p>给出两个序列，求全积中第 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 大的数</p>
 <p>二分答案，然后对答案进行 check，每次求比当前二分的答案小的数的个数，可以考虑将 <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 序列排序，枚举所有 <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 套一层二分求出小于它的数的个数即可</p>
-<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">N</span><span class="o">=</span><span class="mi">100010</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">LL</span><span class="p">;</span>
@@ -965,14 +1384,31 @@ g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\f
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="n">ans</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span> 
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 </details>
 <h2 id="h">H. 最大公约数<a class="headerlink" href="#h" title="Permanent link">Link</a></h2>
 <p>求 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 使得在 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 中不存在 <span><span class="MathJax_Preview">gcd(i,k)=gcd(y,k)</span><script type="math/tex">gcd(i,k)=gcd(y,k)</script></span></p>
 <p>队友一看是个大数，因为如果 <span><span class="MathJax_Preview">n=500, k=1</span><script type="math/tex">n=500, k=1</script></span> 显然是 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 中所有的素数积</p>
 <p>然后随便推一推设 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 是 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 中所有的素数集合，答案就是 <span><span class="MathJax_Preview">k \cdot \prod p</span><script type="math/tex">k \cdot \prod p</script></span></p>
-<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 
 
 <span class="k">def</span> <span class="nf">prim</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -989,7 +1425,8 @@ g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\f
         <span class="k">if</span> <span class="n">prim</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
             <span class="n">ans</span> <span class="o">*=</span> <span class="n">i</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 </details>
 <h2 id="i-k">I. K小数查询<a class="headerlink" href="#i-k" title="Permanent link">Link</a></h2>
@@ -997,7 +1434,180 @@ g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\f
 <p>分块 + 二分答案复杂度可过</p>
 <p>正解树套树不会写</p>
 <p>另外区间推平最大值是 segment beats</p>
-<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
@@ -1171,7 +1781,8 @@ g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\f
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</pre></div>
+</td></tr></table>
 
 </details>
                 
@@ -1214,7 +1825,7 @@ g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\f
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
