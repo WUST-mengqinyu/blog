@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2019牛客暑期多校训练营/2019牛客暑期多校训练营（第四场）/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training%20Logs/2019%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A5/2019%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A5%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%9C%BA%EF%BC%89/">
       
       
       
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
     
     
       
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../Personal Page/Verly/" class="md-tabs__link">
+        <a href="../../../Personal%20Page/Verly/" class="md-tabs__link">
           个人页面
         </a>
       
@@ -311,7 +311,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal Page/Verly/" title="Verly" class="md-nav__link">
+    <a href="../../../Personal%20Page/Verly/" title="Verly" class="md-nav__link">
       Verly
     </a>
   </li>
@@ -323,7 +323,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal Page/badcw/" title="badcw" class="md-nav__link">
+    <a href="../../../Personal%20Page/badcw/" title="badcw" class="md-nav__link">
       badcw
     </a>
   </li>
@@ -468,160 +468,7 @@
 <h2 id="ameeting">A、<a href="https://ac.nowcoder.com/acm/contest/884/A">meeting</a><a class="headerlink" href="#ameeting" title="Permanent link">Link</a></h2>
 <p>求一棵树上到所有关键点距离最大值最小的点距离。</p>
 <p>我的做法直接上dfs序线段树维护每个子树的距离最值，每次dfs时总把子树外的关键点距离+1，子树内-1，枚举出最小值即可。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：A.cpp</span>
@@ -775,144 +622,13 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 <h2 id="istring">I、<a href="https://ac.nowcoder.com/acm/contest/884/I">string</a><a class="headerlink" href="#istring" title="Permanent link">Link</a></h2>
 <p>给一个串求倒序不同子串的最大集合大小。指集合内没有另一个串与现在这个串倒序相同。</p>
 <p>首先回文串是倒序与本身相同但是是符合题意的串，然后考虑所有子串，直接构造一个<code>s#s'</code>的串，<code>s'</code>表示<code>s</code>的倒序串，那么这个串的本质不同子串个数就是<code>s</code>中的倒序不同串×2+<code>s</code>中的倒序相同串对数×2+回文串，然后要求的是<code>s</code>中的倒序不同串+<code>s</code>中的倒序相同串对数+回文串。所以再跑个回文串数量相加除二即可。</p>
 <p>代码：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
@@ -1043,96 +759,12 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">ans</span> <span class="o">+</span> <span class="n">res</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 <h2 id="knumber">K、<a href="https://ac.nowcoder.com/acm/contest/884/K">number</a><a class="headerlink" href="#knumber" title="Permanent link">Link</a></h2>
 <p>给一个数字串求能被300整除的数字子串数量（可含前导零，可含相同串）</p>
 <p>众所周知能被3整除的数数位和为3的倍数，所以计一个前缀数位和，然后计一个后缀零个数，那么枚举当前位为非0的最后一位，它对答案的贡献就是<span><span class="MathJax_Preview">pre[i][0] * (lst[i+1]-1)</span><script type="math/tex">pre[i][0] * (lst[i+1]-1)</script></span>，然后注意一下把全0的方案数加上去就行了。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.</span>
 <span class="cm">*</span>
 <span class="cm">*   文件名称：k.cpp</span>
@@ -1216,8 +848,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">res</span> <span class="o">+</span> <span class="n">tot</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
                 
                   
                 
@@ -1258,7 +889,7 @@
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

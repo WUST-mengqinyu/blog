@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第四场）/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training%20Logs/2020%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A5/2020%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A5%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%9C%BA%EF%BC%89/">
       
       
       
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
     
     
       
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../Personal Page/Verly/" class="md-tabs__link">
+        <a href="../../../Personal%20Page/Verly/" class="md-tabs__link">
           个人页面
         </a>
       
@@ -311,7 +311,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal Page/Verly/" title="Verly" class="md-nav__link">
+    <a href="../../../Personal%20Page/Verly/" title="Verly" class="md-nav__link">
       Verly
     </a>
   </li>
@@ -323,7 +323,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal Page/badcw/" title="badcw" class="md-nav__link">
+    <a href="../../../Personal%20Page/badcw/" title="badcw" class="md-nav__link">
       badcw
     </a>
   </li>
@@ -501,150 +501,7 @@
 <p>如果每次重新建树复杂度就会退化到 <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>，所以考虑回退操作，如果对线段树有深刻的了解就可以完成这个需求，记录最大值和每个点的原值，每次对 rt 点进行修改时，不下传标记，但是做上传操作即可，最后枚举完一个答案就将操作全部回退一次，将最大值回退成原值。</p>
 <p>由于需要找出某个点的某一层祖先节点位置，可以预处理倍增或者通过使用上一次的父节点进行递推（两个答案之间的第 k 层祖先节点其实是父子关系）。</p>
 <p>总复杂度 <span><span class="MathJax_Preview">O(nlog^2n)</span><script type="math/tex">O(nlog^2n)</script></span></p>
-<details class="node"><summary>Code by badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="node"><summary>Code by badcw</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/23 22:05</span>
@@ -788,102 +645,13 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="b-basic-gcd-problem">B. Basic Gcd Problem<a class="headerlink" href="#b-basic-gcd-problem" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:30:00(-2)</em></p>
 <p>答案是<span><span class="MathJax_Preview">c^{x的质因数个数}</span><script type="math/tex">c^{x的质因数个数}</script></span></p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/20 12:08</span>
@@ -972,69 +740,14 @@
 <span class="c1">//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="c-count-new-string">C. Count New String<a class="headerlink" href="#c-count-new-string" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>题意：函数<span><span class="MathJax_Preview">f(S,x,y)</span><script type="math/tex">f(S,x,y)</script></span>返回一个长度为<span><span class="MathJax_Preview">|y-x+1|</span><script type="math/tex">|y-x+1|</script></span>的字符串，其中第i位的值为<span><span class="MathJax_Preview">S_x~S_{x+k-1}</span><script type="math/tex">S_x~S_{x+k-1}</script></span>的最大值。求<span><span class="MathJax_Preview">1≤x≤y≤n</span><script type="math/tex">1≤x≤y≤n</script></span>的所有<span><span class="MathJax_Preview">f(S,x,y)</span><script type="math/tex">f(S,x,y)</script></span>组成的本质不同的子串个数。</p>
 <p>对串从后往前扫，建立广义后缀自动机，单调栈维护一个递减的字符集，每次把当前字符串插入大于等于它的字符后面，构建出的串的总长不超过10N。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -1089,8 +802,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ans</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="d-dividing-strings">D. Dividing Strings<a class="headerlink" href="#d-dividing-strings" title="Permanent link">Link</a></h2>
@@ -1099,82 +811,7 @@
 <p>首先可以知道答案不能超过9。</p>
 <p>考虑对串切分，最优解一定是长度完全相同或者只相差一位。<span><span class="MathJax_Preview">O(n\sqrt n)</span><script type="math/tex">O(n\sqrt n)</script></span>枚举长度完全相同的情况。</p>
 <p>对于相差一位的情况，只可能有全为9999x和10000y的情况存在最优解，枚举长度并check是否满足条件，计算答案即可。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -1250,87 +887,14 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="f-finding-the-order">F. Finding the Order<a class="headerlink" href="#f-finding-the-order" title="Permanent link">Link</a></h2>
 <p><em>solved 00:48:51</em></p>
 <p>题意：有两个平行线AB与CD，已知AC,AD,BC,BD的长度，求方向是AB//CD还是AB//DC</p>
 <p>最长的值一定是对角线。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/20 12:46</span>
@@ -1403,115 +967,14 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="h-harder-gcd-problem">H. Harder Gcd Problem<a class="headerlink" href="#h-harder-gcd-problem" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 01:33:58</em></p>
 <p>题意：把1-n的数组成若干对匹配，使每组的gcd大于1，求最大匹配数并输出方案</p>
 <p>枚举质因数p未被匹配的倍数，如果奇数个就留下p×2，将剩下的偶数两两匹配</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/20 13:04</span>
@@ -1612,72 +1075,13 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="i-investigating-legions">I. Investigating Legions<a class="headerlink" href="#i-investigating-legions" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: ffacs</em></p>
 <p>炼丹题？不是很懂</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
@@ -1736,8 +1140,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
                 
@@ -1780,7 +1183,7 @@
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
