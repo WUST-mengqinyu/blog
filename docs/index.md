@@ -13,12 +13,12 @@ NULL
 
 ## Training Logs
 
-| Name                                                         | Date      | Solved |  upsolved |
+| Name                                                         | Date      | Solved |  Upsolved |
 | ------------------------------------------------------------ | --------- | ------ | ------ |
 | [2020 Multi-University Training Contest 2](../../Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 2) | 2020/7/23 | 5/12 | 5/12 |
 | [2020 Multi-University Training Contest 1](../../Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 1) | 2020/7/21 | 2/12 | 3/12 |
 
-| Name                                                         | Date      | Solved |  upsolved |
+| Name                                                         | Date      | Solved |  Upsolved |
 | ------------------------------------------------------------ | --------- | ------ | ------ |
 | [2020牛客暑期多校训练营（第四场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第四场）) | 2020/7/20 | 3/10 | 7/10 |
 | [2020牛客暑期多校训练营（第三场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第三场）) | 2020/7/18 | 6/12 | 9/12 |
@@ -59,7 +59,7 @@ NULL
 
 ### Training Logs
 
-| Name                                                         | Date      | Solved |
+| Name                                                         | Date      | Upsolved |
 | ------------------------------------------------------------ | --------- | ------ |
 | [2019 ICPC Asia Nanchang Regional](../../Training Logs/2019 ICPC Regional/2019 ICPC Asia Nanchang Regional) | 2019/12/11 | 5/13 |
 | [2019 ICPC Asia Xuzhou Regional](../../Training Logs/2019 ICPC Regional/2019 ICPC Asia Xuzhou Regional) | 2019/12/7 | 6/12 |
