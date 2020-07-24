@@ -395,6 +395,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#k-minimum-index" class="md-nav__link">
+    K. Minimum Index
+  </a>
+  
+</li>
+      
       
       
       
@@ -449,7 +456,7 @@
 <td align="center">.</td>
 <td align="center">Ø</td>
 <td align="center">.</td>
-<td align="center">.</td>
+<td align="center">Ø</td>
 <td align="center">.</td>
 </tr>
 </tbody>
@@ -518,6 +525,61 @@
             <span class="k">if</span><span class="p">(</span><span class="n">vis</span><span class="p">[</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="n">dsc</span> <span class="o">++</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">top</span> <span class="o">-</span> <span class="n">dsc</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</details>
+<h2 id="k-minimum-index">K. Minimum Index<a class="headerlink" href="#k-minimum-index" title="Permanent link">Link</a></h2>
+<p><em>upsolved by: Verly</em></p>
+<p>推荐阅读 <a href="https://www.docin.com/p-1936795644.html">金策-字符串算法选讲</a> 学习一下Lyndon循环。</p>
+<p>对于S的某个前缀<span><span class="MathJax_Preview">s[0,k]</span><script type="math/tex">s[0,k]</script></span>，把它分为<span><span class="MathJax_Preview">S[0,i-1]</span><script type="math/tex">S[0,i-1]</script></span>和<span><span class="MathJax_Preview">S[i,k]</span><script type="math/tex">S[i,k]</script></span>，其中<span><span class="MathJax_Preview">s[0,i-1]</span><script type="math/tex">s[0,i-1]</script></span>由<span><span class="MathJax_Preview">s_1s_2...s_g</span><script type="math/tex">s_1s_2...s_g</script></span>组成，且<span><span class="MathJax_Preview">s_1...s_{g}</span><script type="math/tex">s_1...s_{g}</script></span>为<span><span class="MathJax_Preview">s_{g}≤s_{g-1}≤..≤s_1</span><script type="math/tex">s_{g}≤s_{g-1}≤..≤s_1</script></span>的Lyndon串，且有<span><span class="MathJax_Preview">S[i,k]&lt;s_g</span><script type="math/tex">S[i,k]<s_g</script></span>，<span><span class="MathJax_Preview">S[i,k]=t_1t_2...t_hv</span><script type="math/tex">S[i,k]=t_1t_2...t_hv</script></span>，其中<span><span class="MathJax_Preview">t_1=t_2=...=t_h</span><script type="math/tex">t_1=t_2=...=t_h</script></span>，且<span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>为<span><span class="MathJax_Preview">t_1</span><script type="math/tex">t_1</script></span>的真前缀，<span><span class="MathJax_Preview">j=k-|t_1|</span><script type="math/tex">j=k-|t_1|</script></span>。</p>
+<p>所以在check循环节时：</p>
+<ul>
+<li>如果<span><span class="MathJax_Preview">S[j]&lt;S[k]</span><script type="math/tex">S[j]<S[k]</script></span>，也就是出现了形如<span><span class="MathJax_Preview">abcabcabz</span><script type="math/tex">abcabcabz</script></span>的情况<span><span class="MathJax_Preview">(i=0, j=5, k=8)</span><script type="math/tex">(i=0, j=5, k=8)</script></span>，此时的答案为所有循环串的开头，<span><span class="MathJax_Preview">res[k]=i</span><script type="math/tex">res[k]=i</script></span></li>
+<li>如果<span><span class="MathJax_Preview">S[j]≥S[k]</span><script type="math/tex">S[j]≥S[k]</script></span>，即<span><span class="MathJax_Preview">abcabcabc</span><script type="math/tex">abcabcabc</script></span>或者<span><span class="MathJax_Preview">abcabcabd(i=0,j=5,k=8,res[j]=3)</span><script type="math/tex">abcabcabd(i=0,j=5,k=8,res[j]=3)</script></span>，此时的答案为最近的一个循环串的串首，<span><span class="MathJax_Preview">res[k]=res[j]+k-j</span><script type="math/tex">res[k]=res[j]+k-j</script></span></li>
+</ul>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mf">1e6</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="mf">1e9</span> <span class="o">+</span> <span class="mi">7</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">res</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">duval</span><span class="p">(</span><span class="kt">char</span> <span class="n">s</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">res</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span> <span class="o">-</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span> <span class="o">++</span><span class="p">;</span>
+            <span class="n">k</span> <span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">)</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">k</span> <span class="o">-</span> <span class="n">j</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">t</span> <span class="o">--</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">duval</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">ll</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">1112</span> <span class="o">%</span> <span class="n">mod</span><span class="p">)</span> 
+            <span class="n">ans</span> <span class="o">=</span> <span class="p">(</span><span class="n">ans</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ans</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
