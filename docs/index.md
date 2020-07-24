@@ -46,7 +46,7 @@ NULL
 ![https://cfrating.ihcr.top/?user=Verly](https://cfrating.ihcr.top/?user=Verly)
 ![https://cfrating.ihcr.top/?user=MesutZ](https://cfrating.ihcr.top/?user=MesutZ)
 
-## Onsite
+### Onsite
 
 | Name                                                         | Date       | Rank             | Solved |
 | ------------------------------------------------------------ | ---------- | ---------------- | ------ |
@@ -57,7 +57,7 @@ NULL
 | The 2019 CCPC, Xiamen Site                                   | 2019/10/20 | Silver(Rank:48)  | 5      |
 
 
-## Training Logs
+### Training Logs
 
 | Name                                                         | Date      | Solved |
 | ------------------------------------------------------------ | --------- | ------ |
