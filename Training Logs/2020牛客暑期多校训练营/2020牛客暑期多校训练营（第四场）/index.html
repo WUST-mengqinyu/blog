@@ -410,13 +410,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a" class="md-nav__link">
-    A.
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#f-finding-the-order" class="md-nav__link">
     F. Finding the Order
   </a>
@@ -655,19 +648,6 @@
 <p>首先可以知道答案不能超过9。</p>
 <p>考虑对串切分，最优解一定是长度完全相同或者只相差一位。<span><span class="MathJax_Preview">O(n\sqrt n)</span><script type="math/tex">O(n\sqrt n)</script></span>枚举长度完全相同的情况。</p>
 <p>对于相差一位的情况，只可能有全为9999x和10000y的情况存在最优解，枚举长度并check是否满足条件，计算答案即可。</p>
-<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span>
-<span class="p">}</span>
-</code></pre></div>
-
-</details>
-<h2 id="a">A.<a class="headerlink" href="#a" title="Permanent link">Link</a></h2>
-<p><em>solved by: xx 00:00(-x) upsolved by:</em></p>
 <details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
