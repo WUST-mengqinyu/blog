@@ -15,7 +15,12 @@ NULL
 
 | Name                                                         | Date      | Solved |  upsolved |
 | ------------------------------------------------------------ | --------- | ------ | ------ |
-| [2020牛客暑期多校训练营（第四场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第四场）) | 2020/7/20 | 3/10 | 5/10 |
+| [2020 Multi-University Training Contest 2](../../Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 2) | 2020/7/23 | 5/12 | 7/10 |
+| [2020 Multi-University Training Contest 1](../../Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 1) | 2020/7/21 | 2/12 | 9/12 |
+
+| Name                                                         | Date      | Solved |  upsolved |
+| ------------------------------------------------------------ | --------- | ------ | ------ |
+| [2020牛客暑期多校训练营（第四场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第四场）) | 2020/7/20 | 3/10 | 7/10 |
 | [2020牛客暑期多校训练营（第三场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第三场）) | 2020/7/18 | 6/12 | 9/12 |
 | [2020牛客暑期多校训练营（第二场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第二场）) | 2020/7/13 | 4/11 | 11/11 |
 | [2020牛客暑期多校训练营（第一场）](../../Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第一场）) | 2020/7/12 | 3/10 | 6/10 |

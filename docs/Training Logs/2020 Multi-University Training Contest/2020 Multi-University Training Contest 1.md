@@ -1,0 +1,3 @@
+| Name                                                         | Date       | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |   L   |
+| ------------------------------------------------------------ | ---------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| [2020 Multi-University Training Contest 1](http://acm.hdu.edu.cn/search.php?field=problem&key=2020+Multi-University+Training+Contest+1&source=1&searchmode=source) | 2020/7/21 | 2/12   |  .   |  .   |  .   |  O   |  O   |  .   |  .   |  .   |  .   |  .   |  .   |  .   |
