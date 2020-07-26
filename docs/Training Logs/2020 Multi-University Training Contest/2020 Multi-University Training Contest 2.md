@@ -10,7 +10,7 @@
 可以逆着做并查集，最大权的肯定是用更多的次数，为根节点，然后不断连边即可。
 
 ??? note "Code"
-	```???
+	```cpp
 	#include <bits/stdc++.h>
 
 	using namespace std;
