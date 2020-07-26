@@ -1,6 +1,6 @@
 | Name                                                         | Date       | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |   L   |
 | ------------------------------------------------------------ | ---------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [2020 Multi-University Training Contest 1](http://acm.hdu.edu.cn/search.php?field=problem&key=2020+Multi-University+Training+Contest+1&source=1&searchmode=source) | 2020/7/21 | 5/12   |  .   |  .   |  .   |  O   |  O   |  Ø   |  .   |  .   |  Ø   |  .   |  Ø   |  .   |
+| [2020 Multi-University Training Contest 1](http://acm.hdu.edu.cn/search.php?field=problem&key=2020+Multi-University+Training+Contest+1&source=1&searchmode=source) | 2020/7/21 | 6/12   |  .   |  .   |  .   |  O   |  O   |  Ø   |  .   |  .   |  Ø   |  .   |  Ø   |  Ø   |
 
 
 ## D. Distinct Sub-palindromes
@@ -443,3 +443,217 @@ n 很大要对其做二项式展开转换为与 k 相关的等比数列通项然
         return 0;
     }
     ```
+
+## L. Mow
+
+给一个凸包，你可以每个单位面积用 A 的代价涂色，或者用一个半径为 r 的圆形的区域（不能超出边界）给一个单位面积以 B 的代价涂色，求全部涂满色的最少花费。
+
+考虑圆心的范围是凸包每条边往内移动 r 距离构成的新凸包。如果 A<B 显然全部用 A 涂色即可，直接算原凸包面积，否则尽量用 B 涂色，最大范围是 $新凸包面积+新凸包周长*r+pi*r*r$。
+
+可以考虑非扇形的区域实际是平行线做切割一共是新凸包周长那么长的，扇形区域拼起来就是一个外角和为 2pi。
+
+所以首先把凸包处理成逆时针，每条边用向量表示的话，向左旋转 pi/2 并表示为单位向量即是它的单位法向量，往这个移动 r 的距离，然后做半平面交求出新凸包的点集，注意如果新凸包点集 <= 2 其实表示它不存在。
+
+??? note "Code"
+	```cpp
+	/*================================================================
+	*
+	*   创 建 者： badcw
+	*   创建日期： 2020/7/25 22:34
+	*
+	================================================================*/
+	#include <bits/stdc++.h>
+
+	#define VI vector<int>
+	#define ll long long
+	using namespace std;
+
+	const int maxn = 205;
+	const int mod = 1e9+7;
+	ll qp(ll a, ll n, ll mod = ::mod) {
+	    ll res = 1;
+	    while (n > 0) {
+	        if (n & 1) res = res * a % mod;
+	        a = a * a % mod;
+	        n >>= 1;
+	    }
+	    return res;
+	}
+
+	template<class T> void _R(T &x) { cin >> x; }
+	void _R(int &x) { scanf("%d", &x); }
+	void _R(ll &x) { scanf("%lld", &x); }
+	void _R(double &x) { scanf("%lf", &x); }
+	void _R(char &x) { x = getchar(); }
+	void _R(char *x) { scanf("%s", x); }
+	void R() {}
+	template<class T, class... U> void R(T &head, U &... tail) { _R(head); R(tail...); }
+	template<class T> void _W(const T &x) { cout << x; }
+	void _W(const int &x) { printf("%d", x); }
+	void _W(const ll &x) { printf("%lld", x); }
+	void _W(const double &x) { printf("%.16f", x); }
+	void _W(const char &x) { putchar(x); }
+	void _W(const char *x) { printf("%s", x); }
+	template<class T,class U> void _W(const pair<T,U> &x) {_W(x.F); putchar(' '); _W(x.S);}
+	template<class T> void _W(const vector<T> &x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
+	void W() {}
+	template<class T, class... U> void W(const T &head, const U &... tail) { _W(head); putchar(sizeof...(tail) ? ' ' : '\n'); W(tail...); }
+
+	#define mp make_pair
+	#define fi first
+	#define se second
+	#define pb push_back
+	typedef double db;
+	const db eps=1e-6;
+	const db pi=acos(-1);
+	int sign(db k){
+	    if (k>eps) return 1; else if (k<-eps) return -1; return 0;
+	}
+	int cmp(db k1,db k2){return sign(k1-k2);}
+	int inmid(db k1,db k2,db k3){return sign(k1-k3)*sign(k2-k3)<=0;}// k3 在 [k1,k2] 内
+	struct point{
+	    db x,y;
+	    point operator + (const point &k1) const{return (point){k1.x+x,k1.y+y};}
+	    point operator - (const point &k1) const{return (point){x-k1.x,y-k1.y};}
+	    point operator * (db k1) const{return (point){x*k1,y*k1};}
+	    point operator / (db k1) const{return (point){x/k1,y/k1};}
+	    int operator == (const point &k1) const{return cmp(x,k1.x)==0&&cmp(y,k1.y)==0;}
+	    // 逆时针旋转
+	    point turn(db k1){return (point){x*cos(k1)-y*sin(k1),x*sin(k1)+y*cos(k1)};}
+	    point turn90(){return (point){-y,x};}
+	    bool operator < (const point k1) const{
+	        int a=cmp(x,k1.x);
+	        if (a==-1) return 1; else if (a==1) return 0; else return cmp(y,k1.y)==-1;
+	    }
+	    db abs(){return sqrt(x*x+y*y);}
+	    db abs2(){return x*x+y*y;}
+	    db dis(point k1){return ((*this)-k1).abs();}
+	    point unit(){db w=abs(); return (point){x/w,y/w};}
+	    void scan(){double k1,k2; scanf("%lf%lf",&k1,&k2); x=k1; y=k2;}
+	    void print(){printf("%.11lf %.11lf\n",x,y);}
+	    db getw(){return atan2(y,x);}
+	    point getdel(){if (sign(x)==-1||(sign(x)==0&&sign(y)==-1)) return (*this)*(-1); else return (*this);}
+	    int getP() const{return sign(y)==1||(sign(y)==0&&sign(x)==-1);}
+	};
+	int inmid(point k1,point k2,point k3){return inmid(k1.x,k2.x,k3.x)&&inmid(k1.y,k2.y,k3.y);}
+	db cross(point k1,point k2){return k1.x*k2.y-k1.y*k2.x;}
+	db dot(point k1,point k2){return k1.x*k2.x+k1.y*k2.y;}
+	db rad(point k1,point k2){return atan2(cross(k1,k2),dot(k1,k2));}
+	// -pi -> pi
+	int compareangle (point k1,point k2){
+	    return k1.getP()<k2.getP()||(k1.getP()==k2.getP()&&sign(cross(k1,k2))>0);
+	}
+	point proj(point k1,point k2,point q){ // q 到直线 k1,k2 的投影
+	    point k=k2-k1; return k1+k*(dot(q-k1,k)/k.abs2());
+	}
+	point reflect(point k1,point k2,point q){return proj(k1,k2,q)*2-q;}
+	int clockwise(point k1,point k2,point k3){// k1 k2 k3 逆时针 1 顺时针 -1 否则 0
+	    return sign(cross(k2-k1,k3-k1));
+	}
+	int checkLL(point k1,point k2,point k3,point k4){// 求直线 (L) 线段 (S)k1,k2 和 k3,k4 的交点
+	    return cmp(cross(k3-k1,k4-k1),cross(k3-k2,k4-k2))!=0;
+	}
+	point getLL(point k1,point k2,point k3,point k4){
+	    db w1=cross(k1-k3,k4-k3),w2=cross(k4-k3,k2-k3); return (k1*w2+k2*w1)/(w1+w2);
+	}
+	int intersect(db l1,db r1,db l2,db r2){
+	    if (l1>r1) swap(l1,r1); if (l2>r2) swap(l2,r2); return cmp(r1,l2)!=-1&&cmp(r2,l1)!=-1;
+	}
+	int checkSS(point k1,point k2,point k3,point k4){
+	    return intersect(k1.x,k2.x,k3.x,k4.x)&&intersect(k1.y,k2.y,k3.y,k4.y)&&
+	           sign(cross(k3-k1,k4-k1))*sign(cross(k3-k2,k4-k2))<=0&&
+	           sign(cross(k1-k3,k2-k3))*sign(cross(k1-k4,k2-k4))<=0;
+	}
+	db disSP(point k1,point k2,point q){
+	    point k3=proj(k1,k2,q);
+	    if (inmid(k1,k2,k3)) return q.dis(k3); else return min(q.dis(k1),q.dis(k2));
+	}
+	db disSS(point k1,point k2,point k3,point k4){
+	    if (checkSS(k1,k2,k3,k4)) return 0;
+	    else return min(min(disSP(k1,k2,k3),disSP(k1,k2,k4)),min(disSP(k3,k4,k1),disSP(k3,k4,k2)));
+	}
+	int onS(point k1,point k2,point q){return inmid(k1,k2,q)&&sign(cross(k1-q,k2-k1))==0;}
+	struct circle{
+	    point o; db r;
+	    void scan(){o.scan(); scanf("%lf",&r);}
+	    int inside(point k){return cmp(r,o.dis(k));}
+	};
+	struct line{
+	    // p[0]->p[1]
+	    point p[2];
+	    line(point k1,point k2){p[0]=k1; p[1]=k2;}
+	    point& operator [] (int k){return p[k];}
+	    int include(point k){return sign(cross(p[1]-p[0],k-p[0]))>0;}
+	    point dir(){return p[1]-p[0];}
+	    line push(){ // 向外 ( 左手边 ) 平移 eps
+	        const db eps = 1e-6;
+	        point delta=(p[1]-p[0]).turn90().unit()*eps;
+	        return {p[0]-delta,p[1]-delta};
+	    }
+	};
+	point getLL(line k1,line k2){return getLL(k1[0],k1[1],k2[0],k2[1]);}
+	int parallel(line k1,line k2){return sign(cross(k1.dir(),k2.dir()))==0;}
+	int sameDir(line k1,line k2){return parallel(k1,k2)&&sign(dot(k1.dir(),k2.dir()))==1;}
+	int operator < (line k1,line k2){
+	    if (sameDir(k1,k2)) return k2.include(k1[0]);
+	    return compareangle(k1.dir(),k2.dir());
+	}
+	int checkpos(line k1,line k2,line k3){return k3.include(getLL(k1,k2));}
+	vector<point> halfPlaneIS(vector<line> &l) {
+	    sort(l.begin(), l.end());
+	    deque<line> q;
+	    for (int i = 0; i < (int)l.size(); ++i) {
+	        if (i && sameDir(l[i], l[i - 1])) continue;
+	        while (q.size() > 1 && !checkpos(q[q.size() - 2], q[q.size() - 1], l[i])) q.pop_back();
+	        while (q.size() > 1 && !checkpos(q[1], q[0], l[i])) q.pop_front();
+	        q.push_back(l[i]);
+	    }
+	    while (q.size() > 2 && !checkpos(q[q.size() - 2], q[q.size() - 1], q[0])) q.pop_back();
+	    while (q.size() > 2 && !checkpos(q[1], q[0], q[q.size() - 1])) q.pop_front();
+	    vector<point> ret;
+	    for (int i = 0; i < (int)q.size(); ++i) ret.push_back(getLL(q[i], q[(i + 1) % q.size()]));
+	    return ret;
+	}
+	db area(vector<point> A){ // 多边形用 vector<point> 表示 , 逆时针
+	    db ans=0;
+	    for (int i=0;i<A.size();i++) ans+=cross(A[i],A[(i+1)%A.size()]);
+	    return ans/2;
+	}
+
+	int main(int argc, char* argv[]) {
+	//     freopen("data.in","r",stdin);
+	//    freopen("my.out", "w", stdout);
+	//    clock_t ST = clock();
+	    int T;
+	    scanf("%d", &T);
+	    for (int kase = 1; kase <= T; ++kase) {
+	        int n;
+	        db r, A, B;
+	        R(n, r, A, B);
+	        vector<point> x(n);
+	        for (int i = 0; i < n; ++i) x[i].scan();
+	        db s = area(x);
+	        if (sign(s) < 0) {
+	            reverse(x.begin(), x.end());
+	            s = -s;
+	        }
+	        vector<line> deal;
+	        for (int i = 0; i < n; ++i) {
+	            point w = (x[(i + 1) % n] - x[i]).turn90().unit();
+	            deal.emplace_back(line(x[i] + w * r, x[(i + 1) % n] + w * r));
+	        }
+	        auto real = halfPlaneIS(deal);
+	        db res = s * A;
+	        if (real.size() > 2) {
+	            db realv = area(real);
+	            db tmp = 0;
+	            for (int i = 0; i < real.size(); ++i) tmp += real[i].dis(real[(i+1)%real.size()]);
+	            db all = (realv + tmp * r + r * r * pi);
+	            res = min(res, all * B + (s - all) * A);
+	        }
+	        W(res);
+	    }
+	//    cerr << "time: " << ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) << "ms" << endl;
+	    return 0;
+	}
+	```
