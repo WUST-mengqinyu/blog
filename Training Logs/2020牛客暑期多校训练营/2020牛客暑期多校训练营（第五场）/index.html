@@ -1140,7 +1140,7 @@
 <h2 id="h-interval">H. Interval<a class="headerlink" href="#h-interval" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: badcw</em></p>
 <p>给一个序列，定义 <span><span class="MathJax_Preview">f(l,r)</span><script type="math/tex">f(l,r)</script></span> 表示 l 到 r 的与。 <span><span class="MathJax_Preview">S(l,r)</span><script type="math/tex">S(l,r)</script></span> 为 l 到 r 的所有子区间的 <span><span class="MathJax_Preview">f(l,r)</span><script type="math/tex">f(l,r)</script></span> 的并集，强制在线询问 q 次 <span><span class="MathJax_Preview">S(l,r)</span><script type="math/tex">S(l,r)</script></span> 的大小。</p>
-<p><span><span class="MathJax_Preview">n,q \le 1e5 ~ a\le 2^30</span><script type="math/tex">n,q \le 1e5 ~ a\le 2^30</script></span></p>
+<p><span><span class="MathJax_Preview">n,q \le 1e5 ~ a\le 2^{30}</span><script type="math/tex">n,q \le 1e5 ~ a\le 2^{30}</script></span></p>
 <p>考虑以任意一个 x 为左端点，所有右端点最多有 <span><span class="MathJax_Preview">log(a)</span><script type="math/tex">log(a)</script></span> 的不同取值。用倍增处理区间与，枚举左起点二分每段就可以求出所有可以构成不同数字的 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>。</p>
 <p>那么如果不考虑重复，我们当前的所有 l,r 对，在询问的 LR 中如果被完全包含则会产生 1 的贡献，问题转换为在线二维数点。</p>
 <p>由于存在重复，我们考虑如何去重。可以知道对于与结果相同的 l,r 对排序，得到 <span><span class="MathJax_Preview">[l1,r1],[l2,r2]....[ln,rn]</span><script type="math/tex">[l1,r1],[l2,r2]....[ln,rn]</script></span> 则如果一个区间包含 <span><span class="MathJax_Preview">[l1,r2],[l2,r3]...</span><script type="math/tex">[l1,r2],[l2,r3]...</script></span> 都会产生 -1 的贡献，那么就可以加一些负权点做数点。</p>
