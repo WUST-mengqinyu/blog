@@ -1,6 +1,6 @@
 | Name                                                         | Date       | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |   L   |
 | ------------------------------------------------------------ | ---------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [2020 Multi-University Training Contest 2](http://acm.hdu.edu.cn/search.php?field=problem&key=2020+Multi-University+Training+Contest+2&source=1&searchmode=source) | 2020/7/23 | 5/12   |  O   |  .   |  .   |  .   |  O   |  O   |  .   |  .   |  .   |  O   |  .   |  O  |
+| [2020 Multi-University Training Contest 2](http://acm.hdu.edu.cn/search.php?field=problem&key=2020+Multi-University+Training+Contest+2&source=1&searchmode=source) | 2020/7/23 | 7/12   |  O   |  .   |  .   |  .   |  O   |  O   |  Ø   |  .   |  Ø   |  O   |  .   |  O  |
 
 
 ## A. Total Eclipse
@@ -365,6 +365,269 @@ fib[1] = 1, fib[2] = 2, fib[i] = fib[i - 1] + fib[i - 2]
 	        }
 	        W(flag);
 	    }
+	    return 0;
+	}
+	```
+
+## G. In Search of Gold
+
+一棵树，每条边有 ab 两种边权，求将其 k 条边做 a 边权， 另外 n-1-k 条做 b 边权，求最小直径。其中 $n \le 2e4, k \le 20$
+
+首先考虑答案显然是满足二分性质的，考虑二分直径。
+
+对于当前直径 x，做 dp 求出是否可以以 x 做直径。
+
+具体来说 $dp_{u,i}=min(dp_{v,i-1}+a,dp_{v,i}+b)$。比较显然的转移，用类似树上背包的形式做即可，复杂度 $O(nk)$。感觉很容易写成 $O(nk^2)$，需要注意子树大小的剪枝。
+
+加上二分复杂度就是 $O(nklog(1e9))$。
+
+??? note "Code"
+	```cpp
+	/*================================================================
+	*
+	*   创 建 者： badcw
+	*   创建日期： 2020/7/27 21:15
+	*
+	================================================================*/
+	#include <bits/stdc++.h>
+
+	#define VI vector<int>
+	#define ll long long
+	using namespace std;
+
+	const int maxn = 2e4 + 50;
+	const int mod = 1e9 + 7;
+
+	ll qp(ll a, ll n, ll mod = ::mod) {
+	    ll res = 1;
+	    while (n > 0) {
+	        if (n & 1) res = res * a % mod;
+	        a = a * a % mod;
+	        n >>= 1;
+	    }
+	    return res;
+	}
+
+	template<class T>
+	void _R(T &x) { cin >> x; }
+
+	void _R(int &x) { scanf("%d", &x); }
+
+	void _R(ll &x) { scanf("%lld", &x); }
+
+	void _R(double &x) { scanf("%lf", &x); }
+
+	void _R(char &x) { x = getchar(); }
+
+	void _R(char *x) { scanf("%s", x); }
+
+	void R() {}
+
+	template<class T, class... U>
+	void R(T &head, U &... tail) {
+	    _R(head);
+	    R(tail...);
+	}
+
+	template<class T>
+	void _W(const T &x) { cout << x; }
+
+	void _W(const int &x) { printf("%d", x); }
+
+	void _W(const ll &x) { printf("%lld", x); }
+
+	void _W(const double &x) { printf("%.16f", x); }
+
+	void _W(const char &x) { putchar(x); }
+
+	void _W(const char *x) { printf("%s", x); }
+
+	template<class T, class U>
+	void _W(const pair<T, U> &x) {
+	    _W(x.F);
+	    putchar(' ');
+	    _W(x.S);
+	}
+
+	template<class T>
+	void _W(const vector<T> &x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
+
+	void W() {}
+
+	template<class T, class... U>
+	void W(const T &head, const U &... tail) {
+	    _W(head);
+	    putchar(sizeof...(tail) ? ' ' : '\n');
+	    W(tail...);
+	}
+
+	struct E {
+	    int v, a, b;
+	};
+	vector<E> edge[maxn];
+
+	ll f[maxn][50], h[maxn], mid, l, r, ans;
+	int sz[maxn];
+	int n, m;
+
+	inline void up(ll &a, ll b) { a > b ? (a = b) : 0; }
+
+	void dfs(int u, int pre) {
+	    sz[u] = 0;
+	    for (int i = 0; i <= m; ++i) f[u][i] = 0;
+	    for (auto x : edge[u]) {
+	        int v = x.v;
+	        if (v == pre) continue;
+	        dfs(v, u);
+	        int a = x.a, b = x.b;
+	        for (int i = 0; i <= m; ++i) h[i] = mid + 1;
+	        for (int i = 0; i <= min(sz[u], m); ++i) {
+	            for (int j = 0; j <= sz[v] && i + j <= m; ++j) {
+	                if (f[u][i] + f[v][j] + a <= mid) up(h[i + j + 1], max(f[u][i], f[v][j] + a));
+	                if (f[u][i] + f[v][j] + b <= mid) up(h[i + j], max(f[u][i], f[v][j] + b));
+	            }
+	        }
+	        sz[u] += sz[v] + 1;
+	        for (int i = 0; i <= min(sz[u], m); ++i) f[u][i] = h[i];
+	    }
+	}
+
+	int main(int argc, char *argv[]) {
+	//    freopen("data.in", "r", stdin);
+	//    freopen("my.out", "w", stdout);
+	    int T;
+	    scanf("%d", &T);
+	    for (int kase = 1; kase <= T; ++kase) {
+	        R(n, m);
+	        for (int i = 0; i <= n; ++i) edge[i].clear();
+	        l = 0, r = 0;
+	        for (int i = 1; i < n; ++i) {
+	            int u, v, a, b;
+	            R(u, v, a, b);
+	            edge[u].push_back({v, a, b});
+	            edge[v].push_back({u, a, b});
+	            r += max(a, b);
+	        }
+	        while (l <= r) {
+	            mid = l + r >> 1;
+	            dfs(1, 0);
+	            if (f[1][m] <= mid) r = (ans = mid) - 1;
+	            else l = mid + 1;
+	        }
+	        W(ans);
+	    }
+	    return 0;
+	}
+	```
+
+## I. It's All Squares
+
+给二维权值矩阵，给 k 次闭合路径，求路径内块的权值和。
+
+直接做出所有边界，差分所有左右移动的路径，对每一列求和即可。
+
+??? note "Code"
+	```cpp
+	/*================================================================
+	*
+	*   创 建 者： badcw
+	*   创建日期： 2020/7/28 10:55
+	*
+	================================================================*/
+	#include <bits/stdc++.h>
+
+	#define VI vector<int>
+	#define ll long long
+	using namespace std;
+
+	const int maxn = 405;
+	const int mod = 1e9+7;
+	ll qp(ll a, ll n, ll mod = ::mod) {
+	    ll res = 1;
+	    while (n > 0) {
+	        if (n & 1) res = res * a % mod;
+	        a = a * a % mod;
+	        n >>= 1;
+	    }
+	    return res;
+	}
+
+	template<class T> void _R(T &x) { cin >> x; }
+	void _R(int &x) { scanf("%d", &x); }
+	void _R(ll &x) { scanf("%lld", &x); }
+	void _R(double &x) { scanf("%lf", &x); }
+	void _R(char &x) { x = getchar(); }
+	void _R(char *x) { scanf("%s", x); }
+	void R() {}
+	template<class T, class... U> void R(T &head, U &... tail) { _R(head); R(tail...); }
+	template<class T> void _W(const T &x) { cout << x; }
+	void _W(const int &x) { printf("%d", x); }
+	void _W(const ll &x) { printf("%lld", x); }
+	void _W(const double &x) { printf("%.16f", x); }
+	void _W(const char &x) { putchar(x); }
+	void _W(const char *x) { printf("%s", x); }
+	template<class T,class U> void _W(const pair<T,U> &x) {_W(x.F); putchar(' '); _W(x.S);}
+	template<class T> void _W(const vector<T> &x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
+	void W() {}
+	template<class T, class... U> void W(const T &head, const U &... tail) { _W(head); putchar(sizeof...(tail) ? ' ' : '\n'); W(tail...); }
+
+	int n, m, q;
+	int flag[maxn][maxn];
+	int w[maxn][maxn];
+	int vis[maxn * maxn];
+	char s[(int)4e6+50];
+
+	char t[] = "UDLR";
+	int xc[] = {0, 0, -1, 1};
+	int yc[] = {1, -1, 0, 0};
+
+	int main(int argc, char* argv[]) {
+	//     freopen("data.in","r",stdin);
+	//    freopen("my.out", "w", stdout);
+	//    clock_t ST = clock();
+	    int T;
+	    scanf("%d", &T);
+	    for (int kase = 1; kase <= T; ++kase) {
+	        R(n, m, q);
+	        for (int i = 1; i <= n; ++i) for (int j = 1; j <= m; ++j) R(w[i][j]);
+	        for (int i = 0; i <= n; ++i) for (int j = 0; j <= m; ++j) flag[i][j] = -1;
+	        for (int i = 1; i <= n * m; ++i) vis[i] = -1;
+	        while (q--) {
+	            int x, y;
+	            R(x, y);
+	            R(s);
+	            int L = x, R = x, U = y, D = y;
+	            for (int i = 0; s[i]; ++i) {
+	                for (int j = 0; j < 4; ++j) {
+	                    if (s[i] == t[j]) {
+	                        x += xc[j];
+	                        y += yc[j];
+	                        break;
+	                    }
+	                }
+	                L = min(L, x);
+	                R = max(R, x);
+	                U = max(U, y);
+	                D = min(D, y);
+	                if (s[i] == 'L' || s[i] == 'R') {
+	                    flag[x + (s[i] == 'L')][y + 1] = q;
+	                }
+	            }
+	//            W(L, R, U, D);
+	            ll res = 0;
+	            for (int i = L; i <= R; ++i) {
+	                for (int j = D, now = 0; j <= U; ++j) {
+	                    now ^= (flag[i][j] == q);
+	                    if (now && vis[w[i][j]] != q) {
+	                        vis[w[i][j]] = q;
+	                        res ++;
+	                    }
+	                }
+	            }
+	            W(res);
+	        }
+	    }
+	//    cerr << "time: " << ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) << "ms" << endl;
 	    return 0;
 	}
 	```
