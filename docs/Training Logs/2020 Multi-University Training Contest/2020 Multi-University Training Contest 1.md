@@ -1,6 +1,6 @@
 | Name                                                         | Date       | Solved |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |   L   |
 | ------------------------------------------------------------ | ---------- | ------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| [2020 Multi-University Training Contest 1](http://acm.hdu.edu.cn/search.php?field=problem&key=2020+Multi-University+Training+Contest+1&source=1&searchmode=source) | 2020/7/21 | 6/12   |  .   |  .   |  .   |  O   |  O   |  Ø   |  .   |  .   |  Ø   |  .   |  Ø   |  Ø   |
+| [2020 Multi-University Training Contest 1](http://acm.hdu.edu.cn/search.php?field=problem&key=2020+Multi-University+Training+Contest+1&source=1&searchmode=source) | 2020/7/21 | 7/12   |  .   |  .   |  .   |  O   |  O   |  Ø   |  .   |  .   |  Ø   |  Ø   |  Ø   |  Ø   |
 
 
 ## D. Distinct Sub-palindromes
@@ -383,6 +383,76 @@ n 很大要对其做二项式展开转换为与 k 相关的等比数列通项然
         return 0;
     }
     ```
+
+## J. Math is Simple
+
+*upsolved by: ffacs*
+
+
+### 题意
+
+求 
+$$
+\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}
+$$
+$T\le1e4,2\le n\le 1e8$ ，输出模 $998244353$ 意义下的值，**时限六秒**
+
+### 解法
+
+这个 $n$ 好像不是很大啊，能不能递推捏？下面这个 大于等于号也太烦了，变成等于才舒服。
+
+设 
+$$
+f_n=\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}
+$$
+来考虑一下 $f_n$ 比 $f_{n-1}$ 多加上了什么东西。
+$$
+\begin{align}
+f_n-f_{n-1}&=\sum\limits_{1\le a < b=n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}-\sum\limits_{1\le a < b \le n-1\\gcd(a,b)=1\\a+b = n-1}{\frac{1}{ab}} \\
+&=\frac{1}{n}\sum_{1\le a\le n\\gcd(a,n)=1}\frac{1}{a}-\sum\limits_{1\le a < b \le n-1\\gcd(a,b)=1\\a+b = n-1}{\frac{1}{ab}} \\
+\end{align}
+$$
+现在都是等号了，右边那个太丑了，简化一下，不妨设 
+$$
+g(n)=\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b = n}{\frac{1}{ab}}
+$$
+这样 $n-1$ 换成 $n$ 比较方便，因为和是定值，我们只枚举 $a$ 即可，又有 $(a,b)=(a,n-a)=(a,n)$ ,$\frac{1}{ab}=\frac{1}{a(n-a)}=\frac{1}{n}(\frac{1}{a}+\frac{1}{n-a})$
+$$
+\begin{align}
+g(n)&=\frac{1}{n}\sum_{1\le a<n-a \le n\\(a,n)=1}(\frac{1}{a}+\frac{1}{n-a})
+\end{align}
+$$
+发现在不考虑  $(a,n)=1$的时候 除了 $a=n-a$ ，所有 $\frac{1}{a},1\le a\le n-1$ 都遍历到了，而 $a=n-a$ 和 $a=n$ 时， $(a,n)\neq 1$ ，还有要注意 $n=2$ 的时候是不成立的。所以可以改写成
+$$
+g(n)=\frac{1}{n}\sum_{1\le a \le n\\gcd(a,n)=1}\frac{1}{a}
+$$
+这个和 $(4)$ 中的第一项居然是一样的。也就是说我们得到了 
+$$
+f_n-f_{n-1}=g_n-g_{n-1} \\
+f_n-f_2=g_n-g_2 \\
+f_n=g_n+\frac{1}{2}
+$$
+其中 
+$$
+g_n=
+\left\{
+\begin{array}{**lr**}
+	\frac{1}{n}\sum\limits_{1\le a \le n\\gcd(a,n)=1}\frac{1}{a} \\
+	0,n=2\\
+\end{array}
+\right.
+$$
+这个 $g(n)$ 看起来就很好求
+$$
+\begin{align}
+g(n)&=\frac{1}{n}\sum_{1\le a\le n}\frac{1}{a}\sum_{d\mid gcd(a,n)}\mu(d) \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\sum_{d\mid a}\frac{1}{a} \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{ad} \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\frac{1}{d}\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{a}
+\end{align}
+$$
+
+后面就是一个调和级数前缀和，又因为里面有 $\mu(d)$ 又要求是 $n$ 的因子，所以我们直接  $\text{dfs}$ 素因子最多出现一次的因子即可。
 
 ## K. Minimum Index
 
