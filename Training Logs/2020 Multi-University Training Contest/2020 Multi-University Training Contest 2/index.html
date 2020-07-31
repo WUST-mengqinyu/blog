@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 2/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training%20Logs/2020%20Multi-University%20Training%20Contest/2020%20Multi-University%20Training%20Contest%202/">
       
       
       
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
     
     
       
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../Personal Page/Verly/" class="md-tabs__link">
+        <a href="../../../Personal%20Page/Verly/" class="md-tabs__link">
           个人页面
         </a>
       
@@ -311,7 +311,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal Page/Verly/" title="Verly" class="md-nav__link">
+    <a href="../../../Personal%20Page/Verly/" title="Verly" class="md-nav__link">
       Verly
     </a>
   </li>
@@ -323,7 +323,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal Page/badcw/" title="badcw" class="md-nav__link">
+    <a href="../../../Personal%20Page/badcw/" title="badcw" class="md-nav__link">
       badcw
     </a>
   </li>
@@ -499,80 +499,7 @@
 <h2 id="a-total-eclipse">A. Total Eclipse<a class="headerlink" href="#a-total-eclipse" title="Permanent link">Link</a></h2>
 <p>给一张图，有点权，每次取一个最大的生成子图将这些点的权-1，如果减到0就不能选他了，然后求最少步数，是一个假题原先并没有说要取最大的点数。</p>
 <p>可以逆着做并查集，最大权的肯定是用更多的次数，为根节点，然后不断连边即可。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -646,163 +573,13 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="e-new-equipments">E. New Equipments<a class="headerlink" href="#e-new-equipments" title="Permanent link">Link</a></h2>
 <p>n 个人，每个人有a，b，c属性，有无限个装备，求其中k个人拿一种装备j，获得的最小 <span><span class="MathJax_Preview">\sum a_i*j^2+b_i*j+c_i</span><script type="math/tex">\sum a_i*j^2+b_i*j+c_i</script></span>。要求 k=1~n 的所有答案。</p>
 <p>直接预处理每个人对称轴左右 50 个点，一共点数 50*50+50=2550，在二分图上跑最小费用流即可，对于答案增加将残余网络增广即可。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -952,8 +729,7 @@
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="f-the-oculus">F. The Oculus<a class="headerlink" href="#f-the-oculus" title="Permanent link">Link</a></h2>
@@ -962,112 +738,7 @@
 <p>给 A B 两个数字用 fib 的表示方案，给出 <span><span class="MathJax_Preview">C=A*B</span><script type="math/tex">C=A*B</script></span> 用 fib 表示方案的错误方案（是正确方案中把一个1变为0），求改的是哪个位置。</p>
 <p>直接 hash，由于乘法和加法对取模都是天然成立的。</p>
 <p>考虑将 <span><span class="MathJax_Preview">fib_i</span><script type="math/tex">fib_i</script></span> 的 hash 值处理出来，试填每一位合法的 C 为 0 的点即可。赛中使用双 hash 通过，实际自然溢出都可以。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/23 14:13</span>
@@ -1173,8 +844,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="g-in-search-of-gold">G. In Search of Gold<a class="headerlink" href="#g-in-search-of-gold" title="Permanent link">Link</a></h2>
@@ -1183,141 +853,7 @@
 <p>对于当前直径 x，做 dp 求出是否可以以 x 做直径。</p>
 <p>具体来说 <span><span class="MathJax_Preview">dp_{u,i}=min(dp_{v,i-1}+a,dp_{v,i}+b)</span><script type="math/tex">dp_{u,i}=min(dp_{v,i-1}+a,dp_{v,i}+b)</script></span>。比较显然的转移，用类似树上背包的形式做即可，复杂度 <span><span class="MathJax_Preview">O(nk)</span><script type="math/tex">O(nk)</script></span>。感觉很容易写成 <span><span class="MathJax_Preview">O(nk^2)</span><script type="math/tex">O(nk^2)</script></span>，需要注意子树大小的剪枝。</p>
 <p>加上二分复杂度就是 <span><span class="MathJax_Preview">O(nklog(1e9))</span><script type="math/tex">O(nklog(1e9))</script></span>。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/27 21:15</span>
@@ -1452,115 +988,13 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="i-its-all-squares">I. It&rsquo;s All Squares<a class="headerlink" href="#i-its-all-squares" title="Permanent link">Link</a></h2>
 <p>给二维权值矩阵，给 k 次闭合路径，求路径内块的权值和。</p>
 <p>直接做出所有边界，差分所有左右移动的路径，对每一列求和即可。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/28 10:55</span>
@@ -1662,8 +1096,7 @@
 <span class="c1">//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="j-lead-of-wisdom">J. Lead of Wisdom<a class="headerlink" href="#j-lead-of-wisdom" title="Permanent link">Link</a></h2>
@@ -1671,119 +1104,7 @@
 <p>求最大化 DMG=(100+∑i∈Sai)(100+∑i∈Sbi)(100+∑i∈Sci)(100+∑i∈Sdi)</p>
 <p>直接爆搜，把一个物品都没有的种类跳过还有将完全逆序对去掉即可剪枝通过。</p>
 <p>需要分析复杂度，最大的情况应该是每种物品 3 个，最后一组 2 个，需要 <span><span class="MathJax_Preview">3^{16}*2</span><script type="math/tex">3^{16}*2</script></span> 的搜索树。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/23 12:24</span>
@@ -1896,8 +1217,7 @@
 <span class="c1">//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="l-string-distance">L. String Distance<a class="headerlink" href="#l-string-distance" title="Permanent link">Link</a></h2>
@@ -1908,120 +1228,7 @@
 <p>转移比较轻松，只要预处理了 <span><span class="MathJax_Preview">a\to z</span><script type="math/tex">a\to z</script></span> 在 t 中第一次出现的位置 x，比如我现在枚举到 <span><span class="MathJax_Preview">s[i]</span><script type="math/tex">s[i]</script></span>，那么 <span><span class="MathJax_Preview">dp[i][x\to m][1]</span><script type="math/tex">dp[i][x\to m][1]</script></span> 都为 i，然后做转移，可以用滚动数组优化。</p>
 <p>到了一个 r 的时候，可以从大到小枚举 k，如果有一个 <span><span class="MathJax_Preview">dp[i][j][k]</span><script type="math/tex">dp[i][j][k]</script></span> 的值不小于 l 则说明 lcs 为 k。</p>
 <p>时间复杂度 <span><span class="MathJax_Preview">O(n*m*m+q*logq+q*m*m)</span><script type="math/tex">O(n*m*m+q*logq+q*m*m)</script></span>，用滚动数组优化空间复杂度为 <span><span class="MathJax_Preview">O(m*m+m*26)</span><script type="math/tex">O(m*m+m*26)</script></span></p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/23 14:58</span>
@@ -2135,8 +1342,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
                 
@@ -2179,7 +1385,7 @@
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

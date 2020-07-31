@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://wiki.verly-badcw.top/Training Logs/2020牛客暑期多校训练营/2020牛客暑期多校训练营（第二场）/">
+        <link rel="canonical" href="https://wiki.verly-badcw.top/Training%20Logs/2020%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A5/2020%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A5%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%9C%BA%EF%BC%89/">
       
       
       
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
     
     
       
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../Personal Page/Verly/" class="md-tabs__link">
+        <a href="../../../Personal%20Page/Verly/" class="md-tabs__link">
           个人页面
         </a>
       
@@ -311,7 +311,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal Page/Verly/" title="Verly" class="md-nav__link">
+    <a href="../../../Personal%20Page/Verly/" title="Verly" class="md-nav__link">
       Verly
     </a>
   </li>
@@ -323,7 +323,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Personal Page/badcw/" title="badcw" class="md-nav__link">
+    <a href="../../../Personal%20Page/badcw/" title="badcw" class="md-nav__link">
       badcw
     </a>
   </li>
@@ -527,66 +527,7 @@
 <p>题意：给n个串，<span><span class="MathJax_Preview">f(s, t)</span><script type="math/tex">f(s, t)</script></span>表示s的前缀与t的后缀最长匹配的长度，求<span><span class="MathJax_Preview">\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)</span><script type="math/tex">\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)</script></span></p>
 <p>hash预处理出所有后缀的出现次数，对每个串的前缀算出hash值，记录该长度的相同串出现次数。</p>
 <p>因为处理出来的后缀不一定最长，可能有<code>a,aba</code>被重复计算的情况，对<code>s[i]</code>求nex数组，从前往后扫一遍<code>cnt[nex[i]]-=cnt[i]</code>即可求出该串对应的每个串的最长后缀。</p>
-<details class="note"><summary>Code by: Verly</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by: Verly</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -646,156 +587,14 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="b-boundary">B. Boundary<a class="headerlink" href="#b-boundary" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: badcw</em></p>
 <p>题意：给n个点，求过原点的圆最多能有多少个点恰好在圆上。</p>
 <p>(O,A,B)三点定圆，选择A并枚举点B并算出圆心，对相同圆心计算个数取max。</p>
-<details class="note"><summary>Code by: badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code by: badcw</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/13 21:13</span>
@@ -937,8 +736,7 @@
     <span class="n">W</span><span class="p">(</span><span class="n">res</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="c-cover-the-tree">C. Cover the Tree<a class="headerlink" href="#c-cover-the-tree" title="Permanent link">Link</a></h2>
@@ -950,176 +748,7 @@
 <p>考虑对叶子节点配对，显然可以得到最少覆盖为 <span><span class="MathJax_Preview">(k+1)/2</span><script type="math/tex">(k+1)/2</script></span>，其中 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 表示叶子节点个数。</p>
 <p>考虑定根之后构造方案，对于一个节点，如果子树内有奇数个叶子往该节点连，取其中任一个往上连，其他两两相连（注意如果是一个子树过来两个的不能相连）即可，对于偶数个节点，取两个往上连。</p>
 <p>其实这种解法会写起来比较难受，标程写的按叶子 dfs 序， <span><span class="MathJax_Preview">i &lt;-&gt; k/2+i</span><script type="math/tex">i <-> k/2+i</script></span> 也很有道理。</p>
-<details class="note"><summary>Code by: badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code by: badcw</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/13 13:48</span>
@@ -1289,67 +918,13 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="d-duration">D. Duration<a class="headerlink" href="#d-duration" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:05:43</em></p>
 <p>签到，时间做差取绝对值即可</p>
-<details class="note"><summary>Code by: badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code by: badcw</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/13 12:02</span>
@@ -1403,8 +978,7 @@
     <span class="n">W</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">res</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="e-exclusive-or">E. Exclusive OR<a class="headerlink" href="#e-exclusive-or" title="Permanent link">Link</a></h2>
@@ -1412,101 +986,7 @@
 <p>由线性基原理可以知道最多 19 个数字就可以获得这 n 个数字的最大值。为什么不是18，因为存在0。</p>
 <p>那么显然后面取任意两个相等的数字，答案显然就是 <span><span class="MathJax_Preview">ans[k-2]</span><script type="math/tex">ans[k-2]</script></span></p>
 <p>那么我们知道第一次 <span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span> 表示存不存在 i 这个数字，那么 <span><span class="MathJax_Preview">g_i=\sum_{j\bigotimes k=i}f_i*f_j</span><script type="math/tex">g_i=\sum_{j\bigotimes k=i}f_i*f_j</script></span> 则表示能不能取两个数表示 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>。然后整个具有传递性，只用做 19 次 fwt 就能获得答案。</p>
-<details class="note"><summary>Code</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/22 13:56</span>
@@ -1601,8 +1081,7 @@
     <span class="n">W</span><span class="p">(</span><span class="n">VI</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">res</span> <span class="o">+</span> <span class="n">n</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="f-fake-maxpooling">F. Fake Maxpooling<a class="headerlink" href="#f-fake-maxpooling" title="Permanent link">Link</a></h2>
@@ -1610,102 +1089,7 @@
 <p>首先要做的是把每个点的值求出来，如果 <span><span class="MathJax_Preview">gcd(i,j)=1</span><script type="math/tex">gcd(i,j)=1</script></span> 那么 <span><span class="MathJax_Preview">gcd(i*x, j*x)=x</span><script type="math/tex">gcd(i*x, j*x)=x</script></span>，类似线筛 <span><span class="MathJax_Preview">O(n*m)</span><script type="math/tex">O(n*m)</script></span> 求出每个点的值。</p>
 <p>然后单调队列处理每列上第 <span><span class="MathJax_Preview">(i-k~i)</span><script type="math/tex">(i-k~i)</script></span> 点的最大值。</p>
 <p>然后单调队列处理行的最大值即可。</p>
-<details class="note"><summary>Code by badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code by badcw</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/17 15:25</span>
@@ -1801,8 +1185,7 @@
     <span class="n">W</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="g-greater-and-greater">G. Greater and Greater<a class="headerlink" href="#g-greater-and-greater" title="Permanent link">Link</a></h2>
@@ -1812,49 +1195,7 @@
 <p>具体来说如果 bitset s[i] 表示 A 的每一位是否比 <span><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 大，<span><span class="MathJax_Preview">s_1&amp;(s_2&gt;&gt;1)&amp;(s_3&gt;&gt;2)...</span><script type="math/tex">s_1&(s_2>>1)&(s_3>>2)...</script></span> 就是答案。</p>
 <p>所以题目转换为了怎么求所有 <span><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 在 A 中 1 的位置。利用单调性排序做即可。</p>
 <p>复杂度 <span><span class="MathJax_Preview">O(n*m/W+mlogm)</span><script type="math/tex">O(n*m/W+mlogm)</script></span></p>
-<details class="note"><summary>Code by Verly</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by Verly</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -1897,8 +1238,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">res</span><span class="p">.</span><span class="n">count</span><span class="p">());</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="h-happy-triangle">H. Happy Triangle<a class="headerlink" href="#h-happy-triangle" title="Permanent link">Link</a></h2>
@@ -1920,138 +1260,7 @@
 <p>考虑相邻两项为 <span><span class="MathJax_Preview">x,y</span><script type="math/tex">x,y</script></span>，则他们能对一个数产生贡献的为 <span><span class="MathJax_Preview">[y-x+1,x+y-1]</span><script type="math/tex">[y-x+1,x+y-1]</script></span> 这个区间，设为 <span><span class="MathJax_Preview">f(x,y)</span><script type="math/tex">f(x,y)</script></span>。</p>
 <p>考虑插入一个数 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，原集合 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 左右两边的数字为 <span><span class="MathJax_Preview">y,z</span><script type="math/tex">y,z</script></span>，则会添加 <span><span class="MathJax_Preview">f(y,x)</span><script type="math/tex">f(y,x)</script></span>，<span><span class="MathJax_Preview">f(x,z)</span><script type="math/tex">f(x,z)</script></span>，删除 <span><span class="MathJax_Preview">f(y,z)</span><script type="math/tex">f(y,z)</script></span></p>
 <p>删除一个数 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，则为添加 <span><span class="MathJax_Preview">f(y,z)</span><script type="math/tex">f(y,z)</script></span>，删除 <span><span class="MathJax_Preview">f(y,x)</span><script type="math/tex">f(y,x)</script></span>，<span><span class="MathJax_Preview">f(x,z)</span><script type="math/tex">f(x,z)</script></span>，所以用线段树维护区间加单点和即可，比较难写的是左右数字边界的处理。</p>
-<details class="note"><summary>Code by: badcw</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*================================================================</span>
+<details class="note"><summary>Code by: badcw</summary><div class="highlight"><pre><span></span><code><span class="cm">/*================================================================</span>
 <span class="cm">*</span>
 <span class="cm">*   创 建 者： badcw</span>
 <span class="cm">*   创建日期： 2020/7/13 14:58</span>
@@ -2183,8 +1392,7 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="i-interval">I. Interval<a class="headerlink" href="#i-interval" title="Permanent link">Link</a></h2>
@@ -2193,74 +1401,7 @@
 <p>给定若干个限制条件(l, r, &lsquo;L&rsquo;, c)或(l, r, &lsquo;R&rsquo;, c)，表示花费c来禁止l&lt;-&gt;l+1或r&lt;-&gt;r-1，问最少花费多少，才能使区间<span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span>无法被修改为<span><span class="MathJax_Preview">l=r</span><script type="math/tex">l=r</script></span>的情况。</p>
 <p>把区间视为网格上的点建网络流模型， 对于每个限制条件连<code>(pt(l,r),pt(l', r'),c)</code>的双向边，起点为<code>(1, n)</code>, 并对<code>(i,i)</code>向T连流量为inf的边。最小割即为所求解。</p>
 <p>网格图最小割可以转化为对偶图最短路求解，对原图中的ST连一条流量为inf的边把网格外的空间分为两部分，将原图中的格视为点，边权为原图中边的流量大小，跑最短路即可。</p>
-<details class="note"><summary>Code by: Verly</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by: Verly</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -2328,8 +1469,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dis</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">inf</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">dis</span><span class="p">[</span><span class="n">t</span><span class="p">]);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="j-just-shuffle">J. Just Shuffle<a class="headerlink" href="#j-just-shuffle" title="Permanent link">Link</a></h2>
@@ -2337,95 +1477,7 @@
 <p>给一个 1~n 的排列求 P，把 1~n 原序运行 k 次 P 排列可以变成该排列，k 为大素数。</p>
 <p>原题相当于一个每行每列只有 1 个 1 的方阵 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>，求 <span><span class="MathJax_Preview">S^{-k}</span><script type="math/tex">S^{-k}</script></span>。</p>
 <p>实际上对 i 和 <span><span class="MathJax_Preview">S_i</span><script type="math/tex">S_i</script></span> 连单向边，最后会得到若干个环，由于 k 是素数，它对环都存在一个偏移量，在每个环上按偏移量走即可得到原序列。</p>
-<details class="note"><summary>Code by: Verly</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by: Verly</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -2514,59 +1566,14 @@
     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%c&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot; </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">[</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">]);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
 <h2 id="k-keyboard-free">K. Keyboard Free<a class="headerlink" href="#k-keyboard-free" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>题意：给三个半径为<code>r1,r2,r3</code>的同心圆，求圆上三点组成的三角形面积期望。</p>
 <p>确定点A(r1,0)枚举BC，预处理完暴力搞一下过了……</p>
-<details class="note"><summary>Code by: Verly</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<details class="note"><summary>Code by: Verly</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
@@ -2611,8 +1618,7 @@
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div>
 
 </details>
                 
@@ -2655,7 +1661,7 @@
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
