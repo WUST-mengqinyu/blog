@@ -417,6 +417,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#j-math-is-simple" class="md-nav__link">
+    J. Math is Simple
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题意
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    解法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#k-minimum-index" class="md-nav__link">
     K. Minimum Index
   </a>
@@ -473,7 +500,7 @@
 <tr>
 <td><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2020+Multi-University+Training+Contest+1&amp;source=1&amp;searchmode=source">2020 Multi-University Training Contest 1</a></td>
 <td>2020/7/21</td>
-<td>6/12</td>
+<td>7/12</td>
 <td align="center">.</td>
 <td align="center">.</td>
 <td align="center">.</td>
@@ -483,7 +510,7 @@
 <td align="center">.</td>
 <td align="center">.</td>
 <td align="center">Ø</td>
-<td align="center">.</td>
+<td align="center">Ø</td>
 <td align="center">Ø</td>
 <td align="center">Ø</td>
 </tr>
@@ -836,6 +863,68 @@
 </code></pre></div>
 
 </details>
+<h2 id="j-math-is-simple">J. Math is Simple<a class="headerlink" href="#j-math-is-simple" title="Permanent link">Link</a></h2>
+<p><em>upsolved by: ffacs</em></p>
+<h3 id="_1">题意<a class="headerlink" href="#_1" title="Permanent link">Link</a></h3>
+<p>求 
+<script type="math/tex; mode=display">
+\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}
+</script>
+<span><span class="MathJax_Preview">T\le1e4,2\le n\le 1e8</span><script type="math/tex">T\le1e4,2\le n\le 1e8</script></span> ，输出模 <span><span class="MathJax_Preview">998244353</span><script type="math/tex">998244353</script></span> 意义下的值，<strong>时限六秒</strong></p>
+<h3 id="_2">解法<a class="headerlink" href="#_2" title="Permanent link">Link</a></h3>
+<p>这个 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 好像不是很大啊，能不能递推捏？下面这个 大于等于号也太烦了，变成等于才舒服。</p>
+<p>设 
+<script type="math/tex; mode=display">
+f_n=\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}
+</script>
+来考虑一下 <span><span class="MathJax_Preview">f_n</span><script type="math/tex">f_n</script></span> 比 <span><span class="MathJax_Preview">f_{n-1}</span><script type="math/tex">f_{n-1}</script></span> 多加上了什么东西。
+<script type="math/tex; mode=display">
+\begin{align}
+f_n-f_{n-1}&=\sum\limits_{1\le a < b=n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}-\sum\limits_{1\le a < b \le n-1\\gcd(a,b)=1\\a+b = n-1}{\frac{1}{ab}} \\
+&=\frac{1}{n}\sum_{1\le a\le n\\gcd(a,n)=1}\frac{1}{a}-\sum\limits_{1\le a < b \le n-1\\gcd(a,b)=1\\a+b = n-1}{\frac{1}{ab}} \\
+\end{align}
+</script>
+现在都是等号了，右边那个太丑了，简化一下，不妨设 
+<script type="math/tex; mode=display">
+g(n)=\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b = n}{\frac{1}{ab}}
+</script>
+这样 <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 换成 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 比较方便，因为和是定值，我们只枚举 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 即可，又有 <span><span class="MathJax_Preview">(a,b)=(a,n-a)=(a,n)</span><script type="math/tex">(a,b)=(a,n-a)=(a,n)</script></span> ,<span><span class="MathJax_Preview">\frac{1}{ab}=\frac{1}{a(n-a)}=\frac{1}{n}(\frac{1}{a}+\frac{1}{n-a})</span><script type="math/tex">\frac{1}{ab}=\frac{1}{a(n-a)}=\frac{1}{n}(\frac{1}{a}+\frac{1}{n-a})</script></span>
+<script type="math/tex; mode=display">
+\begin{align}
+g(n)&=\frac{1}{n}\sum_{1\le a<n-a \le n\\(a,n)=1}(\frac{1}{a}+\frac{1}{n-a})
+\end{align}
+</script>
+发现在不考虑  <span><span class="MathJax_Preview">(a,n)=1</span><script type="math/tex">(a,n)=1</script></span>的时候 除了 <span><span class="MathJax_Preview">a=n-a</span><script type="math/tex">a=n-a</script></span> ，所有 <span><span class="MathJax_Preview">\frac{1}{a},1\le a\le n-1</span><script type="math/tex">\frac{1}{a},1\le a\le n-1</script></span> 都遍历到了，而 <span><span class="MathJax_Preview">a=n-a</span><script type="math/tex">a=n-a</script></span> 和 <span><span class="MathJax_Preview">a=n</span><script type="math/tex">a=n</script></span> 时， <span><span class="MathJax_Preview">(a,n)\neq 1</span><script type="math/tex">(a,n)\neq 1</script></span> ，还有要注意 <span><span class="MathJax_Preview">n=2</span><script type="math/tex">n=2</script></span> 的时候是不成立的。所以可以改写成
+<script type="math/tex; mode=display">
+g(n)=\frac{1}{n}\sum_{1\le a \le n\\gcd(a,n)=1}\frac{1}{a}
+</script>
+这个和 <span><span class="MathJax_Preview">(4)</span><script type="math/tex">(4)</script></span> 中的第一项居然是一样的。也就是说我们得到了 
+<script type="math/tex; mode=display">
+f_n-f_{n-1}=g_n-g_{n-1} \\
+f_n-f_2=g_n-g_2 \\
+f_n=g_n+\frac{1}{2}
+</script>
+其中 
+<script type="math/tex; mode=display">
+g_n=
+\left\{
+\begin{array}{**lr**}
+    \frac{1}{n}\sum\limits_{1\le a \le n\\gcd(a,n)=1}\frac{1}{a} \\
+    0,n=2\\
+\end{array}
+\right.
+</script>
+这个 <span><span class="MathJax_Preview">g(n)</span><script type="math/tex">g(n)</script></span> 看起来就很好求
+<script type="math/tex; mode=display">
+\begin{align}
+g(n)&=\frac{1}{n}\sum_{1\le a\le n}\frac{1}{a}\sum_{d\mid gcd(a,n)}\mu(d) \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\sum_{d\mid a}\frac{1}{a} \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{ad} \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\frac{1}{d}\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{a}
+\end{align}
+</script>
+</p>
+<p>后面就是一个调和级数前缀和，又因为里面有 <span><span class="MathJax_Preview">\mu(d)</span><script type="math/tex">\mu(d)</script></span> 又要求是 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的因子，所以我们直接  <span><span class="MathJax_Preview">\text{dfs}</span><script type="math/tex">\text{dfs}</script></span> 素因子最多出现一次的因子即可。</p>
 <h2 id="k-minimum-index">K. Minimum Index<a class="headerlink" href="#k-minimum-index" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>推荐阅读 <a href="https://www.docin.com/p-1936795644.html">金策-字符串算法选讲</a> 学习一下Lyndon循环。</p>
