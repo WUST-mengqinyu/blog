@@ -403,13 +403,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-easy" class="md-nav__link">
-    C. Easy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#d-drop-voicing" class="md-nav__link">
     D. Drop Voicing
   </a>
@@ -486,10 +479,10 @@
 <tr>
 <td><a href="https://ac.nowcoder.com/acm/contest/5670">2020牛客暑期多校训练营（第五场）</a></td>
 <td>2020/7/25</td>
-<td>8/11</td>
+<td>7/10</td>
 <td align="center">Ø</td>
 <td align="center">Ø</td>
-<td align="center">Ø</td>
+<td align="center">.</td>
 <td align="center">Ø</td>
 <td align="center">O</td>
 <td align="center">O</td>
@@ -642,64 +635,6 @@
     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="n">ins</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
     <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">29</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-</details>
-<h2 id="c-easy">C. Easy<a class="headerlink" href="#c-easy" title="Permanent link">Link</a></h2>
-<p><em>upsolved by: ffacs</em></p>
-<p>题意：对所有满足 <span><span class="MathJax_Preview">\sum\limits_{i=1}^ka_i=N,\sum\limits_{i=1}^kb_i=N</span><script type="math/tex">\sum\limits_{i=1}^ka_i=N,\sum\limits_{i=1}^kb_i=N</script></span> 的 <strong>正整数</strong> 数列 <span><span class="MathJax_Preview">a,b</span><script type="math/tex">a,b</script></span> 求 <span><span class="MathJax_Preview">\sum\prod\limits_{i=1}^{K}min(a_i,b_i)</span><script type="math/tex">\sum\prod\limits_{i=1}^{K}min(a_i,b_i)</script></span>，其中 <span><span class="MathJax_Preview">1 \le N,M \le 1e6,1\le K\le\min(N,M)</span><script type="math/tex">1 \le N,M \le 1e6,1\le K\le\min(N,M)</script></span></p>
-<p>使用双变量生成函数 <span><span class="MathJax_Preview">G(x)</span><script type="math/tex">G(x)</script></span>, <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的系数表示 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的取值，<span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的系数表示 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的取值。<span><span class="MathJax_Preview">x^ay^b</span><script type="math/tex">x^ay^b</script></span> 项的系数为 <span><span class="MathJax_Preview">\min(a,b)</span><script type="math/tex">\min(a,b)</script></span> ，</p>
-<p>那么显然有
-<script type="math/tex; mode=display">
-\begin{align}
-G(x,y)^n=(&xy\quad +xy^2\quad +xy^3\quad +xy^4+...+ \\
-&x^2y\quad +2x^2y^2\quad +2x^2y^3\quad+2x^2y^4+...+ \\
-&x^3y\quad+ 2x^3y^2\quad +3x^3y^3\quad+3x^3y^4+...+\\
-&x^4y\quad+....\\
-)^K
-\end{align}
-</script>
-中 <span><span class="MathJax_Preview">x^Ny^M</span><script type="math/tex">x^Ny^M</script></span> 的系数即为答案。</p>
-<p>我们给 <span><span class="MathJax_Preview">G(x)</span><script type="math/tex">G(x)</script></span> 找个封闭形式。可以发现它就是 <span><span class="MathJax_Preview">F(x,y)=(xy+x^2y^2+...)</span><script type="math/tex">F(x,y)=(xy+x^2y^2+...)</script></span> 乘上一些散的 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 和 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 。容易发现
-<script type="math/tex; mode=display">
-F(x,y)*\frac{1}{1-x}=\sum_n\sum_ix^{n+i}y^n \\
-F(x,y)*\frac{1}{1-x}*\frac{1}{1-y}=\sum_n\sum_i\sum_j\min(i,j)x^iy^j
-</script>
-下面式子的组合意义就是得到 <span><span class="MathJax_Preview">x^iy^j</span><script type="math/tex">x^iy^j</script></span> 总共有 <span><span class="MathJax_Preview">\min(i,j)</span><script type="math/tex">\min(i,j)</script></span>  种方式：（ <span><span class="MathJax_Preview">x^1y^1</span><script type="math/tex">x^1y^1</script></span> 乘上<span><span class="MathJax_Preview">i-1</span><script type="math/tex">i-1</script></span> 个 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> ,<span><span class="MathJax_Preview">j-1</span><script type="math/tex">j-1</script></span> 个 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> ） ,（ <span><span class="MathJax_Preview">x^2y^2</span><script type="math/tex">x^2y^2</script></span> 乘上<span><span class="MathJax_Preview">i-2</span><script type="math/tex">i-2</script></span> 个 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> ,<span><span class="MathJax_Preview">j-2</span><script type="math/tex">j-2</script></span> 个 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> ），（ <span><span class="MathJax_Preview">x^3y^3</span><script type="math/tex">x^3y^3</script></span> 乘上<span><span class="MathJax_Preview">i-3</span><script type="math/tex">i-3</script></span> 个 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> ,<span><span class="MathJax_Preview">j-3</span><script type="math/tex">j-3</script></span> 个 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> ）....</p>
-<p>那么有
-<script type="math/tex; mode=display">
-G(x)^K=\left(\frac{1}{1-x}\frac{1}{1-y}\frac{xy}{1-xy} \right)^K \\
-=(\frac{1}{1-x})^K*(\frac{1}{1-y})^K*(\frac{xy}{1-xy})^K
-</script>
-<span><span class="MathJax_Preview">(\frac{1}{1-x})^a</span><script type="math/tex">(\frac{1}{1-x})^a</script></span> 的系数我们知道是一个不定方程的系数，那么我们只要枚举 <span><span class="MathJax_Preview">(\frac{xy}{1-xy})^K</span><script type="math/tex">(\frac{xy}{1-xy})^K</script></span> 展开式中 <span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span> 的指数，用前面两个式子的 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 和 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 补齐到 <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 和 <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 即可。</p>
-<details class="note"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">ll</span><span class="p">,</span><span class="n">ll</span><span class="o">&gt;</span> <span class="n">pll</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span><span class="o">=</span><span class="mf">2e6</span><span class="o">+</span><span class="mi">5</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">mod</span><span class="o">=</span><span class="mi">998244353</span><span class="p">;</span>
-<span class="n">ll</span> <span class="n">fac</span><span class="p">[</span><span class="n">maxn</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="n">ifac</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
-<span class="n">ll</span> <span class="nf">fastpow</span><span class="p">(</span><span class="n">ll</span> <span class="n">a</span><span class="p">,</span><span class="n">ll</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">ll</span> <span class="n">ans</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(;</span><span class="n">b</span><span class="p">;</span><span class="n">b</span><span class="o">&gt;&gt;=</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">%</span><span class="n">mod</span><span class="p">)</span> <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">)</span> <span class="n">ans</span><span class="o">=</span><span class="n">ans</span><span class="o">*</span><span class="n">a</span><span class="o">%</span><span class="n">mod</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kr">inline</span> <span class="n">ll</span> <span class="nf">C</span><span class="p">(</span><span class="n">ll</span> <span class="n">n</span><span class="p">,</span><span class="n">ll</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">fac</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">*</span><span class="n">ifac</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">%</span><span class="n">mod</span><span class="o">*</span><span class="n">ifac</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">m</span><span class="p">]</span><span class="o">%</span><span class="n">mod</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">maxn</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">fac</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">fac</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">i</span><span class="o">%</span><span class="n">mod</span><span class="p">;</span>
-    <span class="n">ifac</span><span class="p">[</span><span class="n">maxn</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">fastpow</span><span class="p">(</span><span class="n">fac</span><span class="p">[</span><span class="n">maxn</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">mod</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">maxn</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="n">ifac</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">ifac</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">mod</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">T</span><span class="p">;</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">T</span><span class="p">;</span><span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">ll</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">ans</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">m</span><span class="o">&gt;&gt;</span><span class="n">k</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">&gt;</span><span class="n">m</span><span class="p">)</span> <span class="n">swap</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">);</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">k</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="p">(</span><span class="n">ans</span><span class="o">+=</span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">C</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">mod</span><span class="o">*</span><span class="n">C</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">mod</span><span class="p">)</span><span class="o">%=</span><span class="n">mod</span><span class="p">;</span>
-        <span class="p">}</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ans</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
