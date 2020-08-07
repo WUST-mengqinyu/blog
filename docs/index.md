@@ -15,6 +15,7 @@ NULL
 
 | Name                                                         | Date      | Solved |  Upsolved |
 | ------------------------------------------------------------ | --------- | ------ | ------ |
+| [2020 Multi-University Training Contest 4](../../Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 4) | 2020/7/30 | 4/12 | 7/12 |
 | [2020 Multi-University Training Contest 3](../../Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 3) | 2020/7/28 | 4/11 | 7/11 |
 | [2020 Multi-University Training Contest 2](../../Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 2) | 2020/7/23 | 5/12 | 7/12 |
 | [2020 Multi-University Training Contest 1](../../Training Logs/2020 Multi-University Training Contest/2020 Multi-University Training Contest 1) | 2020/7/21 | 2/12 | 6/12 |
