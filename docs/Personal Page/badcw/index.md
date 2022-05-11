@@ -1,6 +1,6 @@
 ## Overview
 
-- 博客: [https://www.cnblog.com/badcw/](https://www.cnblog.com/badcw/) 主要记录CF等小型比赛
+- 博客: [https://www.cnblogs.com/badcw/](https://www.cnblogs.com/badcw/) 主要记录CF等小型比赛
 - CF: [badcw](https://codeforces.com/profile/badcw)
 
 ## Blog Or ProblemSet
