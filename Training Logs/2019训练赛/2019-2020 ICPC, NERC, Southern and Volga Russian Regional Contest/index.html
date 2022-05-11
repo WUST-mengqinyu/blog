@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-4.5.1">
     
     
       
@@ -121,7 +121,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-header-nav__button md-logo">
+        <a href="https://wiki.verly-badcw.top/" title="Team Wiki" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -240,7 +240,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-nav__button md-logo">
+    <a href="https://wiki.verly-badcw.top/" title="Team Wiki" class="md-nav__button md-logo">
       
         <i class="md-icon">cloud</i>
       
@@ -526,7 +526,7 @@
 <p>题意：给一些区间以及区间的权值，求<code>L，R</code>使得完全包含于<code>L，R</code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
 <p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p>
 <h2 id="e-the-coronation">E. The Coronation<a class="headerlink" href="#e-the-coronation" title="Permanent link">Link</a></h2>
-<p>给定<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个长度为<span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
+<p>给定<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个长度为<span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
 <p>2-SAT问题。</p>
 <p>设串不翻转为0，翻转为1，则对于任意两个串都有如下四种情况：</p>
 <ol>
@@ -537,7 +537,7 @@
 </ol>
 <p>一旦出现4，整组情况一定是无解的。</p>
 <p>相当于原串所代表的点形成若干个联通块，每一个联通块中的元素颜色是相互联系的（即如果翻转一个，必须翻转该块中的所有元素）。</p>
-<p>建完图后对点<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>和点<span><span class="MathJax_Preview">i+n​</span><script type="math/tex">i+n​</script></span>进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
+<p>建完图后对点<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>和点<span class="arithmatex"><span class="MathJax_Preview">i+n​</span><script type="math/tex">i+n​</script></span>进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
 <h2 id="f-data-center">F. Data Center<a class="headerlink" href="#f-data-center" title="Permanent link">Link</a></h2>
 <p>签到</p>
 <h2 id="h-happy-birthday">H. Happy Birthday<a class="headerlink" href="#h-happy-birthday" title="Permanent link">Link</a></h2>
@@ -592,7 +592,7 @@
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.3.0",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

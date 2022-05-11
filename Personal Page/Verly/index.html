@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-4.5.1">
     
     
       
@@ -121,7 +121,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-header-nav__button md-logo">
+        <a href="https://wiki.verly-badcw.top/" title="Team Wiki" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -242,7 +242,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-nav__button md-logo">
+    <a href="https://wiki.verly-badcw.top/" title="Team Wiki" class="md-nav__button md-logo">
       
         <i class="md-icon">cloud</i>
       
@@ -656,9 +656,9 @@
 <ul>
 <li>
 <p>BZOJ-1005:给出标号为1到N的点，以及某些点最终的度数，允许在任意两点间连线，可产生多少棵度数满足要求的树。
-    树的Purfer序列中，每个点的出现次数=点的度数-1。设度数确定的点共有<span><span class="MathJax_Preview">cnt</span><script type="math/tex">cnt</script></span>个，令其集合为<span><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span>，<span><span class="MathJax_Preview">sum=\sum_{i∈V}d[i]-1</span><script type="math/tex">sum=\sum_{i∈V}d[i]-1</script></span>
-    对于这样的度数序列，它的Purfer序列中，度数确定的点有<span><span class="MathJax_Preview">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}</span><script type="math/tex">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}</script></span>种填法，剩下的<span><span class="MathJax_Preview">n-2-sum</span><script type="math/tex">n-2-sum</script></span>个点可以填任意一个度数未知的点（在<span><span class="MathJax_Preview">n-cnt</span><script type="math/tex">n-cnt</script></span>个点中选），有<span><span class="MathJax_Preview">(n-cnt)^{n-2-sum}</span><script type="math/tex">(n-cnt)^{n-2-sum}</script></span>种方案。
-    总方案数为<span><span class="MathJax_Preview">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}</span><script type="math/tex">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}</script></span>种</p>
+    树的Purfer序列中，每个点的出现次数=点的度数-1。设度数确定的点共有<span class="arithmatex"><span class="MathJax_Preview">cnt</span><script type="math/tex">cnt</script></span>个，令其集合为<span class="arithmatex"><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span>，<span class="arithmatex"><span class="MathJax_Preview">sum=\sum_{i∈V}d[i]-1</span><script type="math/tex">sum=\sum_{i∈V}d[i]-1</script></span>
+    对于这样的度数序列，它的Purfer序列中，度数确定的点有<span class="arithmatex"><span class="MathJax_Preview">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}</span><script type="math/tex">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}</script></span>种填法，剩下的<span class="arithmatex"><span class="MathJax_Preview">n-2-sum</span><script type="math/tex">n-2-sum</script></span>个点可以填任意一个度数未知的点（在<span class="arithmatex"><span class="MathJax_Preview">n-cnt</span><script type="math/tex">n-cnt</script></span>个点中选），有<span class="arithmatex"><span class="MathJax_Preview">(n-cnt)^{n-2-sum}</span><script type="math/tex">(n-cnt)^{n-2-sum}</script></span>种方案。
+    总方案数为<span class="arithmatex"><span class="MathJax_Preview">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}</span><script type="math/tex">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}</script></span>种</p>
 </li>
 <li>
 <p>BZOJ-1004:给定m种置换和3种颜色，每种颜色的数量固定，求本质不同的染色方案数。
@@ -672,7 +672,7 @@
 <p>BZOJ-4568:在树上路径(u,v)之间选择一些点的权值，使异或和最大：对每个点预处理一个倍增的线性基，找LCA的时候倍增上跳维护整个路径的线性基，然后就可以求最大值了，<a href="https://v-verly.github.io/2019/08/02/BZOJ-4568/">并不详细的题解</a></p>
 </li>
 <li>
-<p>BZOJ-3122：<span><span class="MathJax_Preview">X_{i+1}=(aX_i+b) mod p</span><script type="math/tex">X_{i+1}=(aX_i+b) mod p</script></span>，求最小的i使<span><span class="MathJax_Preview">X_i=t</span><script type="math/tex">X_i=t</script></span>：推个式子处理掉特殊情况然后BSGS，多校那题是这题的加强版所以写了一下这题，<a href="https://v-verly.github.io/2019/08/02/BZOJ-3122/">详细题解</a></p>
+<p>BZOJ-3122：<span class="arithmatex"><span class="MathJax_Preview">X_{i+1}=(aX_i+b) mod p</span><script type="math/tex">X_{i+1}=(aX_i+b) mod p</script></span>，求最小的i使<span class="arithmatex"><span class="MathJax_Preview">X_i=t</span><script type="math/tex">X_i=t</script></span>：推个式子处理掉特殊情况然后BSGS，多校那题是这题的加强版所以写了一下这题，<a href="https://v-verly.github.io/2019/08/02/BZOJ-3122/">详细题解</a></p>
 </li>
 </ul>
 <h4 id="201981">2019/8/1<a class="headerlink" href="#201981" title="Permanent link">Link</a></h4>
@@ -778,7 +778,7 @@
     
       <script src="../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.3.0",url:{base:"../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

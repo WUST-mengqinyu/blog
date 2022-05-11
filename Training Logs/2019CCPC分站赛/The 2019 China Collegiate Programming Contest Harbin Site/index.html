@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-4.5.1">
     
     
       
@@ -121,7 +121,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-header-nav__button md-logo">
+        <a href="https://wiki.verly-badcw.top/" title="Team Wiki" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -240,7 +240,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-nav__button md-logo">
+    <a href="https://wiki.verly-badcw.top/" title="Team Wiki" class="md-nav__button md-logo">
       
         <i class="md-icon">cloud</i>
       
@@ -498,14 +498,14 @@
 </table>
 <h2 id="a-artful-paintings">A. Artful Paintings<a class="headerlink" href="#a-artful-paintings" title="Permanent link">Link</a></h2>
 <p>给一列1-n的块染色，并给出一系列限制条件(l, r, k)， 第一类限制条件为l-r之间的染色数量不小于k，第二类为l-r之外的块染色数量不小于k，求最小的总染色数。</p>
-<p>令<span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span>表示前<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>位被染色的数量，假设总染色数为<span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>考虑差分约束系统，有如下建图：</p>
+<p>令<span class="arithmatex"><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span>表示前<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>位被染色的数量，假设总染色数为<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>考虑差分约束系统，有如下建图：</p>
 <ul>
-<li><span><span class="MathJax_Preview">f_i-f_{i-1}≤1</span><script type="math/tex">f_i-f_{i-1}≤1</script></span></li>
-<li><span><span class="MathJax_Preview">f_{i-1}-f_i≤0</span><script type="math/tex">f_{i-1}-f_i≤0</script></span></li>
-<li>对第一类限制，有<span><span class="MathJax_Preview">f_{l-1}-f_r≤-k</span><script type="math/tex">f_{l-1}-f_r≤-k</script></span></li>
-<li>对第二类限制，有<span><span class="MathJax_Preview">f_r-f_{l-1}≤x-k</span><script type="math/tex">f_r-f_{l-1}≤x-k</script></span></li>
-<li><span><span class="MathJax_Preview">f_n-f_0≤x</span><script type="math/tex">f_n-f_0≤x</script></span></li>
-<li><span><span class="MathJax_Preview">f_0-f_n≤-x</span><script type="math/tex">f_0-f_n≤-x</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">f_i-f_{i-1}≤1</span><script type="math/tex">f_i-f_{i-1}≤1</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">f_{i-1}-f_i≤0</span><script type="math/tex">f_{i-1}-f_i≤0</script></span></li>
+<li>对第一类限制，有<span class="arithmatex"><span class="MathJax_Preview">f_{l-1}-f_r≤-k</span><script type="math/tex">f_{l-1}-f_r≤-k</script></span></li>
+<li>对第二类限制，有<span class="arithmatex"><span class="MathJax_Preview">f_r-f_{l-1}≤x-k</span><script type="math/tex">f_r-f_{l-1}≤x-k</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">f_n-f_0≤x</span><script type="math/tex">f_n-f_0≤x</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">f_0-f_n≤-x</span><script type="math/tex">f_0-f_n≤-x</script></span></li>
 </ul>
 <p>二分x判定答案，当差分约束系统不存在负环且dis[n]=x时表示当前为一组合法解。</p>
 <h2 id="e-exchanging-gifts">E. Exchanging Gifts<a class="headerlink" href="#e-exchanging-gifts" title="Permanent link">Link</a></h2>
@@ -513,8 +513,8 @@
 <p>判断给出的6个单词能否各取一个字母，使其组成Harbin.</p>
 <p>枚举排列即可。</p>
 <h2 id="i-interesting-permutation">I. Interesting Permutation<a class="headerlink" href="#i-interesting-permutation" title="Permanent link">Link</a></h2>
-<p>对于某个排列<span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>，序列<span><span class="MathJax_Preview">h_i</span><script type="math/tex">h_i</script></span>表示排列P中第1-i个数的极差。现在给你序列h，求能组成h的排列个数。</p>
-<p>首先排除不合法的情况（<span><span class="MathJax_Preview">h_0!=0, h_n!=n-2, h_i &lt; i - 1, h_i＜h_{i-1}</span><script type="math/tex">h_0!=0, h_n!=n-2, h_i < i - 1, h_i＜h_{i-1}</script></span> ），统计数列h变化了几次，记为x，答案的总值即乘上<span><span class="MathJax_Preview">2^x</span><script type="math/tex">2^x</script></span>；记一段连续的序列长度为len，开始的字符位置为y，那么这段连续序列对答案的贡献为<span><span class="MathJax_Preview">A_{len}^{p[y] - y + 1}</span><script type="math/tex">A_{len}^{p[y] - y + 1}</script></span>。对于每段连续区间求出这个值，相乘后再乘上<span><span class="MathJax_Preview">2^x</span><script type="math/tex">2^x</script></span>即为答案。</p>
+<p>对于某个排列<span class="arithmatex"><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>，序列<span class="arithmatex"><span class="MathJax_Preview">h_i</span><script type="math/tex">h_i</script></span>表示排列P中第1-i个数的极差。现在给你序列h，求能组成h的排列个数。</p>
+<p>首先排除不合法的情况（<span class="arithmatex"><span class="MathJax_Preview">h_0!=0, h_n!=n-2, h_i &lt; i - 1, h_i＜h_{i-1}</span><script type="math/tex">h_0!=0, h_n!=n-2, h_i < i - 1, h_i＜h_{i-1}</script></span> ），统计数列h变化了几次，记为x，答案的总值即乘上<span class="arithmatex"><span class="MathJax_Preview">2^x</span><script type="math/tex">2^x</script></span>；记一段连续的序列长度为len，开始的字符位置为y，那么这段连续序列对答案的贡献为<span class="arithmatex"><span class="MathJax_Preview">A_{len}^{p[y] - y + 1}</span><script type="math/tex">A_{len}^{p[y] - y + 1}</script></span>。对于每段连续区间求出这个值，相乘后再乘上<span class="arithmatex"><span class="MathJax_Preview">2^x</span><script type="math/tex">2^x</script></span>即为答案。</p>
 <h2 id="j-justifying-the-conjecture">J. Justifying the Conjecture<a class="headerlink" href="#j-justifying-the-conjecture" title="Permanent link">Link</a></h2>
 <p>签到</p>
 <h2 id="h-keeping-rabbits">H. Keeping Rabbits<a class="headerlink" href="#h-keeping-rabbits" title="Permanent link">Link</a></h2>
@@ -561,7 +561,7 @@
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.3.0",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

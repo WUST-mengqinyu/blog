@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-4.5.1">
     
     
       
@@ -121,7 +121,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-header-nav__button md-logo">
+        <a href="https://wiki.verly-badcw.top/" title="Team Wiki" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -240,7 +240,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://wiki.verly-badcw.top" title="Team Wiki" class="md-nav__button md-logo">
+    <a href="https://wiki.verly-badcw.top/" title="Team Wiki" class="md-nav__button md-logo">
       
         <i class="md-icon">cloud</i>
       
@@ -495,25 +495,25 @@
 <p>现场过240+的两个铁牌题不会写，还上去冲sam（？</p>
 <p>啥玩意啊</p>
 <h2 id="a-cat">A. Cat<a class="headerlink" href="#a-cat" title="Permanent link">Link</a></h2>
-<p>每次询问一组<span><span class="MathJax_Preview">L,R,S</span><script type="math/tex">L,R,S</script></span>，问最长的<span><span class="MathJax_Preview">l⊕(l+1)⊕(l+2)⊕……⊕(r-2)⊕(r-1)⊕r&lt;=S(L≤l≤r≤R)</span><script type="math/tex">l⊕(l+1)⊕(l+2)⊕……⊕(r-2)⊕(r-1)⊕r<=S(L≤l≤r≤R)</script></span>的l,r区间长度是多少。</p>
-<p>因为<span><span class="MathJax_Preview">4k⊕4k+1⊕4k+2⊕4k+3=0</span><script type="math/tex">4k⊕4k+1⊕4k+2⊕4k+3=0</script></span>，所以只要枚举左右端点就好。</p>
+<p>每次询问一组<span class="arithmatex"><span class="MathJax_Preview">L,R,S</span><script type="math/tex">L,R,S</script></span>，问最长的<span class="arithmatex"><span class="MathJax_Preview">l⊕(l+1)⊕(l+2)⊕……⊕(r-2)⊕(r-1)⊕r&lt;=S(L≤l≤r≤R)</span><script type="math/tex">l⊕(l+1)⊕(l+2)⊕……⊕(r-2)⊕(r-1)⊕r<=S(L≤l≤r≤R)</script></span>的l,r区间长度是多少。</p>
+<p>因为<span class="arithmatex"><span class="MathJax_Preview">4k⊕4k+1⊕4k+2⊕4k+3=0</span><script type="math/tex">4k⊕4k+1⊕4k+2⊕4k+3=0</script></span>，所以只要枚举左右端点就好。</p>
 <h2 id="c-3-numbers">C. &lt;3 numbers<a class="headerlink" href="#c-3-numbers" title="Permanent link">Link</a></h2>
-<p>每次询问一个<span><span class="MathJax_Preview">L,R</span><script type="math/tex">L,R</script></span>，问L,R区间的素数个数x是否满足</p>
-<div>
+<p>每次询问一个<span class="arithmatex"><span class="MathJax_Preview">L,R</span><script type="math/tex">L,R</script></span>，问L,R区间的素数个数x是否满足</p>
+<div class="arithmatex">
 <div class="MathJax_Preview">\frac{x}{R-L+1}&lt; \frac{1}{3}</div>
 <script type="math/tex; mode=display">\frac{x}{R-L+1}< \frac{1}{3}</script>
 </div>
 <p>题解：由于素数密度，大范围直接输出YES， 小范围暴力判一下。</p>
 <h2 id="e-multiply">E. Multiply<a class="headerlink" href="#e-multiply" title="Permanent link">Link</a></h2>
-<p>给出<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个数<span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span>，令<span><span class="MathJax_Preview">Z=a_1!×a_2!×..×a_n!</span><script type="math/tex">Z=a_1!×a_2!×..×a_n!</script></span></p>
-<p>现在给出<span><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>,令<span><span class="MathJax_Preview">b_i=Z×X^i</span><script type="math/tex">b_i=Z×X^i</script></span>，要求找到最大的<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>，使<span><span class="MathJax_Preview">b_i|Y!</span><script type="math/tex">b_i|Y!</script></span></p>
-<p>题解：Pollard_Rho分解出X的每个质因数及其个数，计算其在<span><span class="MathJax_Preview">\frac{Y!}{Z}</span><script type="math/tex">\frac{Y!}{Z}</script></span>中的出现次数，取所有出现的最小值即可。其中n!的因子个数为<span><span class="MathJax_Preview">\frac{n}{p}+\frac{n}{p^2}+\dots+\frac{n}{p^k}</span><script type="math/tex">\frac{n}{p}+\frac{n}{p^2}+\dots+\frac{n}{p^k}</script></span>.</p>
+<p>给出<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个数<span class="arithmatex"><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span>，令<span class="arithmatex"><span class="MathJax_Preview">Z=a_1!×a_2!×..×a_n!</span><script type="math/tex">Z=a_1!×a_2!×..×a_n!</script></span></p>
+<p>现在给出<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>,令<span class="arithmatex"><span class="MathJax_Preview">b_i=Z×X^i</span><script type="math/tex">b_i=Z×X^i</script></span>，要求找到最大的<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>，使<span class="arithmatex"><span class="MathJax_Preview">b_i|Y!</span><script type="math/tex">b_i|Y!</script></span></p>
+<p>题解：Pollard_Rho分解出X的每个质因数及其个数，计算其在<span class="arithmatex"><span class="MathJax_Preview">\frac{Y!}{Z}</span><script type="math/tex">\frac{Y!}{Z}</script></span>中的出现次数，取所有出现的最小值即可。其中n!的因子个数为<span class="arithmatex"><span class="MathJax_Preview">\frac{n}{p}+\frac{n}{p^2}+\dots+\frac{n}{p^k}</span><script type="math/tex">\frac{n}{p}+\frac{n}{p^2}+\dots+\frac{n}{p^k}</script></span>.</p>
 <h2 id="f-the-answer-to-the-ultimate-question-of-life-the-universe-and-everything">F. The Answer to the Ultimate Question of Life, The Universe, and Everything.<a class="headerlink" href="#f-the-answer-to-the-ultimate-question-of-life-the-universe-and-everything" title="Permanent link">Link</a></h2>
 <p><del>是42！</del></p>
-<p>每次询问给出<span><span class="MathJax_Preview">x(x≤200)</span><script type="math/tex">x(x≤200)</script></span>，输出<span><span class="MathJax_Preview">a,b,c(-5000≤a,b,c≤5000)</span><script type="math/tex">a,b,c(-5000≤a,b,c≤5000)</script></span>，使<span><span class="MathJax_Preview">a^3+b^3+c^3=x</span><script type="math/tex">a^3+b^3+c^3=x</script></span>，如果不存在，输出<code>impossible</code>.</p>
+<p>每次询问给出<span class="arithmatex"><span class="MathJax_Preview">x(x≤200)</span><script type="math/tex">x(x≤200)</script></span>，输出<span class="arithmatex"><span class="MathJax_Preview">a,b,c(-5000≤a,b,c≤5000)</span><script type="math/tex">a,b,c(-5000≤a,b,c≤5000)</script></span>，使<span class="arithmatex"><span class="MathJax_Preview">a^3+b^3+c^3=x</span><script type="math/tex">a^3+b^3+c^3=x</script></span>，如果不存在，输出<code>impossible</code>.</p>
 <p>题解：x比较小，考虑打表，枚举前两维二分第三维即可。</p>
 <h2 id="l-loli-yen-jen-and-a-cool-problem">L. Loli, Yen-Jen, and a cool problem<a class="headerlink" href="#l-loli-yen-jen-and-a-cool-problem" title="Permanent link">Link</a></h2>
-<p>给出一个Trie，每次询问给出<span><span class="MathJax_Preview">x_i,L_i</span><script type="math/tex">x_i,L_i</script></span>，问从Trie上第<span><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span>个节点开始，向父节点上跳<span><span class="MathJax_Preview">L_i-1</span><script type="math/tex">L_i-1</script></span>次的点为起点，<span><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span>为终点的字符串在Trie上共出现多少次。</p>
+<p>给出一个Trie，每次询问给出<span class="arithmatex"><span class="MathJax_Preview">x_i,L_i</span><script type="math/tex">x_i,L_i</script></span>，问从Trie上第<span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span>个节点开始，向父节点上跳<span class="arithmatex"><span class="MathJax_Preview">L_i-1</span><script type="math/tex">L_i-1</script></span>次的点为起点，<span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span>为终点的字符串在Trie上共出现多少次。</p>
 <p>题解：对原Trie dfs建广义后缀自动机，倍增向上跳寻找最大的合法祖先，它的size即为答案。</p>
 <h2 id="m-kill-the-tree">M. Kill the tree<a class="headerlink" href="#m-kill-the-tree" title="Permanent link">Link</a></h2>
 <p>给定一棵以1为根节点的有根树，求每棵子树的重心。如果有多个重心，则从小到大输出。</p>
@@ -559,7 +559,7 @@
     
       <script src="../../../assets/javascripts/application.d151b584.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.3.0",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
