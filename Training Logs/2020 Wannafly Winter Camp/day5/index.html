@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#_1" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -471,10 +471,11 @@
 <h2 id="a-alternative-accounts">A. Alternative Accounts<a class="headerlink" href="#a-alternative-accounts" title="Permanent link">Link</a></h2>
 <p>有至多三场比赛，n 个账号，一个人可能有多个账号，但是一个人在一场比赛中最多使用一个账号，求最少的人数</p>
 <p>首先有 8 种账号，按照三场比赛来进行二进制压位，那么对于任意按位与为 0 的账号都可能属于同一个人，另外可以分析出如果 x 个账号属于同一个人，那么总量将减少 x - 1，所以对任意账号其实只要找出可行对能让它减少，本身并不带权，也就是说不存在优先性问题。所以考虑贪心的减掉所有的边即可。顺序先是减去内部三元环，再减去一对二的边，最后减去内部边即可完全减掉。</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 1e5 + 10;
@@ -483,14 +484,14 @@ int a[maxn], s[10];
 int main()
 {
     int n, k;
-    scanf(&quot;%d%d&quot;, &amp;n, &amp;k);
+    scanf("%d%d", &amp;n, &amp;k);
     for(int i = 0; i &lt; k; i ++)
     {
         int t, x;
-        scanf(&quot;%d&quot;, &amp;t);
+        scanf("%d", &amp;t);
         while(t --)
         {
-            scanf(&quot;%d&quot;, &amp;x);
+            scanf("%d", &amp;x);
             a[x] |= (1 &lt;&lt; i);
         }
     }
@@ -516,26 +517,25 @@ int main()
             s[i] -= tmp, s[j] -= tmp;
         }
     }
-    printf(&quot;%d\n&quot;, res);
+    printf("%d\n", res);
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="e-matching-problem">E. Matching Problem<a class="headerlink" href="#e-matching-problem" title="Permanent link">Link</a></h2>
 <p>给 a，b 两个序列，b 序列长度为 4，求 a 的子序列有多少个满足和 b 的每个等于、不等关系一样</p>
 <p>分类讨论即可，代码有点长</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    const int N=310;
-    typedef long long LL;
-    int n,m;
-    int a[N],b[N];
-    int hx[N],hy[N];
-    map<int,int>mp;int tt;</p>
-<pre class="codehilite"><code class="linenums">int findf(int x){
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=310;
+typedef long long LL;
+int n,m;
+int a[N],b[N];
+int hx[N],hy[N];
+map&lt;int,int&gt;mp;int tt;
+
+int findf(int x){
     int l=1,r=hy[0];
     while(l&lt;=r){
         int mid=l+r&gt;&gt;1;
@@ -566,7 +566,7 @@ void solve1(){
             }
         }
     }
-    printf(&quot;%lld\n&quot;,ans);
+    printf("%lld\n",ans);
 }
 
 
@@ -635,7 +635,7 @@ void solve2(){
             }
         }
     }
-    printf(&quot;%lld\n&quot;,ans);
+    printf("%lld\n",ans);
 }
 
 void solve3(){
@@ -673,7 +673,7 @@ void solve3(){
 
         }
     }
-    printf(&quot;%lld\n&quot;,ans);
+    printf("%lld\n",ans);
 }
 
 
@@ -681,17 +681,17 @@ void solve4(){
     for(int i=1;i&lt;=n;i++)cnt[a[i]]++;
     LL ans=0;m=hy[0];
     for(int i=1;i&lt;=m;i++)if(cnt[a[i]]&gt;=4)ans+=(cnt[a[i]]* (cnt[a[i]]-1) *(cnt[a[i]]-2)*(cnt[a[i]]-3) )/24;
-    printf(&quot;%lld\n&quot;,ans);
+    printf("%lld\n",ans);
 }
 
 int main(){
 #ifdef WK
-    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
+    freopen("in.txt","r",stdin);
 #endif
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]),hx[++hx[0]]=a[i];
+    scanf("%d",&amp;n);
+    for(int i=1;i&lt;=n;i++)scanf("%d",&amp;a[i]),hx[++hx[0]]=a[i];
     for(int i=1;i&lt;=4;i++){
-        scanf(&quot;%d&quot;,&amp;b[i]);
+        scanf("%d",&amp;b[i]);
         if(!mp[b[i]])mp[b[i]]=++tt;
         b[i]=mp[b[i]];
     }
@@ -709,28 +709,27 @@ int main(){
         case 4:solve4();return 0;
     }
     return 0;
-} 
-```
-</code></pre>
-
+} </code></pre>
+</details>
 <h2 id="g-cryptographically-secure-pseudorandom-number-generator">G. Cryptographically Secure Pseudorandom Number Generator<a class="headerlink" href="#g-cryptographically-secure-pseudorandom-number-generator" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    const int N=2000010;
-    typedef long long LL;
-    int n,m;LL p;
-    LL inv[N];
-    LL v[N],v2[N];</p>
-<pre class="codehilite"><code class="linenums">int main(){
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=2000010;
+typedef long long LL;
+int n,m;LL p;
+LL inv[N];
+LL v[N],v2[N];
+
+int main(){
 #ifdef WK
-    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
-    freopen(&quot;out.txt&quot;,&quot;w&quot;,stdout);
+    freopen("in.txt","r",stdin);
+    freopen("out.txt","w",stdout);
 #endif
-    int T;scanf(&quot;%d&quot;,&amp;T);
+    int T;scanf("%d",&amp;T);
     while(T--){
-        scanf(&quot;%lld&quot;,&amp;p);
+        scanf("%lld",&amp;p);
         LL mn=p+1;
         n=0;m=0;
         inv[1]=1;
@@ -750,19 +749,18 @@ int main(){
             v[n]=v2[i];
             v2[n]=v[i];
         }
-        printf(&quot;%d\n&quot;,n);
-        for(int i=1;i&lt;=n;i++)printf(&quot;%lld %lld\n&quot;,v[i],v2[i]);
+        printf("%d\n",n);
+        for(int i=1;i&lt;=n;i++)printf("%lld %lld\n",v[i],v2[i]);
     }
     return 0;
-} 
-```
-</code></pre>
-
+} </code></pre>
+</details>
 <h2 id="j-xor-on-figures">J. Xor on Figures<a class="headerlink" href="#j-xor-on-figures" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int mod = 1e9 + 7;
@@ -818,10 +816,10 @@ char s[50][50];
 int main()
 {
     int k;
-    scanf(&quot;%d&quot;, &amp;k);
+    scanf("%d", &amp;k);
     int n = 1 &lt;&lt; k;
     for(int i = 0; i &lt; n; i ++)
-        scanf(&quot;%s&quot;, s[i]);
+        scanf("%s", s[i]);
     for(int x = 0; x &lt; n; x ++)
     {
         for(int y = 0; y &lt; n; y ++)
@@ -839,11 +837,10 @@ int main()
             solve.insert(tmp);
         }
     }
-    printf(&quot;%lld\n&quot;, qp(2, solve.sz));
+    printf("%lld\n", qp(2, solve.sz));
     return 0;
-}
-```
-</code></pre>
+}</code></pre>
+</details>
 
               
             </article>
@@ -879,7 +876,7 @@ int main()
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

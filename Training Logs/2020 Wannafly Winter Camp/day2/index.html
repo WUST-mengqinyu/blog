@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#_1" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -494,22 +494,23 @@
 <p><code>C/F/J/K</code></p>
 <h2 id="a">A. 托米的字符串<a class="headerlink" href="#a" title="Permanent link">Link</a></h2>
 <p>求所有子串中元音字母占比的平均值</p>
-<p>显然 <span class="arithmatex">\(ans=\sum{\frac{x}{len}}\)</span>，若对单点计算贡献，那么 <span class="arithmatex">\(ans_i = \sum\frac{1}{len}\)</span></p>
+<p>显然 <span class="arithmatex"><span class="MathJax_Preview">ans=\sum{\frac{x}{len}}</span><script type="math/tex">ans=\sum{\frac{x}{len}}</script></span>，若对单点计算贡献，那么 <span class="arithmatex"><span class="MathJax_Preview">ans_i = \sum\frac{1}{len}</span><script type="math/tex">ans_i = \sum\frac{1}{len}</script></span></p>
 <p>考虑这样的情况</p>
 <p><code>(1------i----n)</code></p>
-<p>其中 <code>[1,i]</code> 长度为 <code>x</code>， <code>[i,n]</code> 长度为 <code>y</code>，设 <span class="arithmatex">\(x \le y\)</span> 显然对于 <code>[1,x]</code> 长度的串每个都有期望 1，然后对于 <code>[x+1,y]</code> 的串期望个数为 <code>x</code>。计算式为：<span class="arithmatex">\(\sum_{i=x+1}^{y}\frac{x}{i}\)</span>，对于 <code>[y+1,x+y-1]</code> 的串期望为 <code>[x-1,1]</code> 计算式为：<span class="arithmatex">\(\sum_{i=y+1}^{x+y-1}\frac{x+y-i}{i}\)</span> 化简为 <span class="arithmatex">\({x+y}\cdot\sum_{i=y+1}^{x+y-1}\frac{1}{i}-\sum_{i=y+1}^{x+y-1}1\)</span> 对于 <span class="arithmatex">\(\frac{1}{i}\)</span> 求前缀和即可</p>
-<p>如果 <span class="arithmatex">\(x &gt; y\)</span> 可以考虑交换，因为它们有对称性</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/1/13
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define ll long long
+<p>其中 <code>[1,i]</code> 长度为 <code>x</code>， <code>[i,n]</code> 长度为 <code>y</code>，设 <span class="arithmatex"><span class="MathJax_Preview">x \le y</span><script type="math/tex">x \le y</script></span> 显然对于 <code>[1,x]</code> 长度的串每个都有期望 1，然后对于 <code>[x+1,y]</code> 的串期望个数为 <code>x</code>。计算式为：<span class="arithmatex"><span class="MathJax_Preview">\sum_{i=x+1}^{y}\frac{x}{i}</span><script type="math/tex">\sum_{i=x+1}^{y}\frac{x}{i}</script></span>，对于 <code>[y+1,x+y-1]</code> 的串期望为 <code>[x-1,1]</code> 计算式为：<span class="arithmatex"><span class="MathJax_Preview">\sum_{i=y+1}^{x+y-1}\frac{x+y-i}{i}</span><script type="math/tex">\sum_{i=y+1}^{x+y-1}\frac{x+y-i}{i}</script></span> 化简为 <span class="arithmatex"><span class="MathJax_Preview">{x+y}\cdot\sum_{i=y+1}^{x+y-1}\frac{1}{i}-\sum_{i=y+1}^{x+y-1}1</span><script type="math/tex">{x+y}\cdot\sum_{i=y+1}^{x+y-1}\frac{1}{i}-\sum_{i=y+1}^{x+y-1}1</script></span> 对于 <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{i}</span><script type="math/tex">\frac{1}{i}</script></span> 求前缀和即可</p>
+<p>如果 <span class="arithmatex"><span class="MathJax_Preview">x &gt; y</span><script type="math/tex">x > y</script></span> 可以考虑交换，因为它们有对称性</p>
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   创 建 者： badcw
+*   创建日期： 2020/1/13
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
 using namespace std;
 
 const int maxn = 1e6+50;
@@ -587,7 +588,7 @@ double pre[maxn];
 //double pre2[maxn];
 
 int main(int argc, char* argv[]) {
-    scanf(&quot;%s&quot;, s + 1);
+    scanf("%s", s + 1);
     int len = strlen(s + 1);
     for (int i = 1; i &lt;= len; ++i) {
         pre[i] = pre[i - 1] + 1.0 / i;
@@ -607,30 +608,29 @@ int main(int argc, char* argv[]) {
         }
     }
     res /= len + (double)len * (len - 1) / 2;
-    printf(&quot;%.10f\n&quot;, res);
+    printf("%.10f\n", res);
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="c">C. 纳新一百的石子游戏<a class="headerlink" href="#c" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    const int N=500010;
-    typedef long long LL;
-    int n,m;
-    int cnt[100];
-    LL nowx;</p>
-<pre class="codehilite"><code class="linenums">int main(){
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=500010;
+typedef long long LL;
+int n,m;
+int cnt[100];
+LL nowx;
+
+int main(){
 #ifdef WK
-    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
+    freopen("in.txt","r",stdin);
 #endif
-    scanf(&quot;%d&quot;,&amp;n);
+    scanf("%d",&amp;n);
 
     for(int i=1;i&lt;=n;i++){
-        LL aa;scanf(&quot;%lld&quot;,&amp;aa);
+        LL aa;scanf("%lld",&amp;aa);
         LL ans=0;
         if(aa&gt;nowx)ans++;
         LL t=nowx^aa;int flag=-1;
@@ -647,29 +647,28 @@ int main(int argc, char* argv[]) {
             aa&gt;&gt;=1;
         }
         nowx=t;
-        printf(&quot;%lld\n&quot;,ans);
+        printf("%lld\n",ans);
     }
     return 0;
-} 
-```
-</code></pre>
-
+} </code></pre>
+</details>
 <h2 id="e">E. 阔力梯的树<a class="headerlink" href="#e" title="Permanent link">Link</a></h2>
 <p>给一颗带点权有根树</p>
-<p>对于任意一颗子树定义它的结实程度为对它子树内所有节点的编号排序后获得数组 a, <span class="arithmatex">\(\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2\)</span></p>
+<p>对于任意一颗子树定义它的结实程度为对它子树内所有节点的编号排序后获得数组 a, <span class="arithmatex"><span class="MathJax_Preview">\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2</span><script type="math/tex">\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2</script></span></p>
 <p>显然考虑两个区间怎么合并，首先两个不交叉区间的元素不会互相影响权值，所以直接合并答案再加上边界的答案即可</p>
 <p>直接考虑动态开点权值线段树合并即可</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/1/13
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define ll long long
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   创 建 者： badcw
+*   创建日期： 2020/1/13
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
 using namespace std;
 
 const int maxn = 1e5+50;
@@ -768,33 +767,32 @@ void dfs(int u) {
 }
 
 int main(int argc, char* argv[]) {
-    scanf(&quot;%d&quot;, &amp;n);
+    scanf("%d", &amp;n);
     for (int i = 2; i &lt;= n; ++i) {
         int rt;
-        scanf(&quot;%d&quot;, &amp;rt);
+        scanf("%d", &amp;rt);
         edge[rt].push_back(i);
     }
     dfs(1);
     for (int i = 1; i &lt;= n; ++i) {
-        printf(&quot;%lld\n&quot;, res[i]);
+        printf("%lld\n", res[i]);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="f">F. 采蘑菇的克拉莉丝<a class="headerlink" href="#f" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    const int N=2000010;
-    typedef long long LL;
-    int n,m;
-    struct edge{
-        int b,nt,w;
-    }e[N];</p>
-<pre class="codehilite"><code class="linenums">int fa[N],wfa[N],sz[N];
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=2000010;
+typedef long long LL;
+int n,m;
+struct edge{
+    int b,nt,w;
+}e[N];
+
+int fa[N],wfa[N],sz[N];
 int dfn[N],tt;
 int p[N],nn;
 void anode(int x,int y,int z){
@@ -849,27 +847,27 @@ LL query(int rt,int l,int r,int x,int y){
 
 int main(){
 #ifdef WK
-    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
+    freopen("in.txt","r",stdin);
 #endif
-    scanf(&quot;%d&quot;,&amp;n);
+    scanf("%d",&amp;n);
     for(int i=1;i&lt;n;i++){
         int aa,bb,cc;
-        scanf(&quot;%d%d%d&quot;,&amp;aa,&amp;bb,&amp;cc);
+        scanf("%d%d%d",&amp;aa,&amp;bb,&amp;cc);
         anode(aa,bb,cc);
     }
     dfs(1);
     build(ROOT,1,n);
 
-    scanf(&quot;%d&quot;,&amp;m);
+    scanf("%d",&amp;m);
     int nowR=1;
     for(int tk=1;tk&lt;=m;tk++){
-        int op;scanf(&quot;%d&quot;,&amp;op);
+        int op;scanf("%d",&amp;op);
         if(op==1){
             int aa,bb;
-            scanf(&quot;%d%d&quot;,&amp;aa,&amp;bb);
+            scanf("%d%d",&amp;aa,&amp;bb);
             update(ROOT,1,n,dfn[aa],bb);
         }else{
-            int aa;scanf(&quot;%d&quot;,&amp;aa);
+            int aa;scanf("%d",&amp;aa);
             nowR=aa;
         }
 
@@ -881,13 +879,11 @@ int main(){
         }
 
         ans+=1ll*wfa[nowR]*(sum[ROOT]-query(ROOT,1,n,dfn[nowR],dfn[nowR]+sz[nowR]-1) ) ;
-        printf(&quot;%lld\n&quot;,ans);
+        printf("%lld\n",ans);
     }
     return 0;
-} 
-```
-</code></pre>
-
+} </code></pre>
+</details>
 <h2 id="h">H. 叁佰爱抠的序列<a class="headerlink" href="#h" title="Permanent link">Link</a></h2>
 <p>题意相当于求一个最大的 m 使得 m 个点的完全图可以通过一条长度不超过 n - 1 的路径通过所有的边</p>
 <p>显然对于 m 为奇数时，完全图中每个点的度数为偶数，则必然存在一条欧拉路使得通过所有点</p>
@@ -895,12 +891,13 @@ int main(){
 <p>欧拉路算法为： <code>fleury</code></p>
 <p>m 为偶数时 n 最大为 <code>m * m / 2</code></p>
 <p>m 为奇数时 n 最大为 <code>m * (m - 1) / 2 + 1</code></p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    #define ll long long
-    using namespace std;</p>
-<pre class="codehilite"><code class="linenums">const int N=2010;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+
+const int N=2010;
 const int mod = 1e9+7;
 ll n;
 
@@ -964,12 +961,12 @@ void solve(){
 
 int main(int argc, char* argv[]) {
 #ifdef WK
-    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
-    freopen(&quot;out.txt&quot;,&quot;w&quot;,stdout);
+    freopen("in.txt","r",stdin);
+    freopen("out.txt","w",stdout);
 #endif
-    scanf(&quot;%lld&quot;, &amp;n);
+    scanf("%lld", &amp;n);
     if(n==1){
-        printf(&quot;1\n1&quot;);
+        printf("1\n1");
         return 0;
     }
     ll l = 1, r = 1e9+5;
@@ -995,90 +992,89 @@ int main(int argc, char* argv[]) {
         }
     }
     res = max(res, res1);
-    printf(&quot;%lld\n&quot;, res);
+    printf("%lld\n", res);
     if(n&gt;2000000)return 0;
 
     build(res);
     solve();
     while(ans[0]&lt;n)ans[++ans[0]]=1;
     for(int i=1;i&lt;=n;i++){
-        printf(&quot;%d%c&quot;,ans[i],(i==n)?'\n':' ');
+        printf("%d%c",ans[i],(i==n)?'\n':' ');
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="j-2-sat">J. 邦邦的2-SAT模板<a class="headerlink" href="#j-2-sat" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 int main()
 {
     int n;
-    scanf(&quot;%d&quot;, &amp;n);
-    if(n == 1) return 0 * puts(&quot;0&quot;);
-    printf(&quot;%d\n&quot;, n);
-    for(int i = 1; i &lt; n; i ++) printf(&quot;%d %d\n&quot;, -i, i + 1);
-    printf(&quot;%d %d\n&quot;, -n, -n);
+    scanf("%d", &amp;n);
+    if(n == 1) return 0 * puts("0");
+    printf("%d\n", n);
+    for(int i = 1; i &lt; n; i ++) printf("%d %d\n", -i, i + 1);
+    printf("%d %d\n", -n, -n);
     return 0;
+}</code></pre>
+</details>
+<details class="note">
+<summary>题目附录</summary>
+<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
+using namespace std;
+const int N=3010;
+int g[N&lt;&lt;1],nxt[N&lt;&lt;1],v[N&lt;&lt;1],num;
+int q[N&lt;&lt;1],t;
+bool vis[N&lt;&lt;1];
+int CNT;
+int n,m;
+void add(int x,int y){
+    nxt[++num]=g[x];
+    v[num]=y;
+    g[x]=num;
 }
-```
-</code></pre>
-
-<p>??? note &ldquo;题目附录&rdquo;
-    <code>cpp
-    #include&lt;cstdio&gt;
-    using namespace std;
-    const int N=3010;
-    int g[N&lt;&lt;1],nxt[N&lt;&lt;1],v[N&lt;&lt;1],num;
-    int q[N&lt;&lt;1],t;
-    bool vis[N&lt;&lt;1];
-    int CNT;
-    int n,m;
-    void add(int x,int y){
-        nxt[++num]=g[x];
-        v[num]=y;
-        g[x]=num;
-    }
-    bool dfs(int x){
-        CNT++;
-        if(vis[x&gt;n?x-n:x+n])return 0;
-        if(vis[x])return 1;
-        vis[q[++t]=x]=1;
-        for(int i=g[x];i;i=nxt[i])if(!dfs(v[i]))return 0;
-        return 1;
-    }
-    bool solve(){
-        for(int i=1;i&lt;=n;i++)if(!vis[i]&amp;&amp;!vis[i+n]){
-            t=0;
-            if(!dfs(i)){
-                while(t)vis[q[t--]]=0;
-                if(!dfs(i+n))return 0;
-            }
+bool dfs(int x){
+    CNT++;
+    if(vis[x&gt;n?x-n:x+n])return 0;
+    if(vis[x])return 1;
+    vis[q[++t]=x]=1;
+    for(int i=g[x];i;i=nxt[i])if(!dfs(v[i]))return 0;
+    return 1;
+}
+bool solve(){
+    for(int i=1;i&lt;=n;i++)if(!vis[i]&amp;&amp;!vis[i+n]){
+        t=0;
+        if(!dfs(i)){
+            while(t)vis[q[t--]]=0;
+            if(!dfs(i+n))return 0;
         }
-        return 1;
     }
-    int main()
+    return 1;
+}
+int main()
+{
+    scanf("%d%d",&amp;n,&amp;m);
+    for(int i=1;i&lt;=m;i++)
     {
-        scanf("%d%d",&amp;n,&amp;m);
-        for(int i=1;i&lt;=m;i++)
-        {
-            int x,y;scanf("%d%d",&amp;x,&amp;y);
-            if(x&lt;0)x=n-x;if(y&lt;0)y=n-y;
-            add(x&gt;n?x-n:x+n,y);add(y&gt;n?y-n:y+n,x);
-        }
-        solve();
-        return 0;
-    }</code></p>
+        int x,y;scanf("%d%d",&amp;x,&amp;y);
+        if(x&lt;0)x=n-x;if(y&lt;0)y=n-y;
+        add(x&gt;n?x-n:x+n,y);add(y&gt;n?y-n:y+n,x);
+    }
+    solve();
+    return 0;
+}</code></pre>
+</details>
 <h2 id="k">K. 破忒头的匿名信<a class="headerlink" href="#k" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 5e5 * 26;
@@ -1141,26 +1137,25 @@ void query()
         }
     }
     if(dp[len] == 0x3f3f3f3f3f3f3f3f) dp[len] = -1;
-    printf(&quot;%lld\n&quot;, dp[len]);
+    printf("%lld\n", dp[len]);
 }
 
 int main()
 {
     int n, x;
-    scanf(&quot;%d&quot;, &amp;n);
+    scanf("%d", &amp;n);
     memset(val, 0x3f, sizeof val);
     for(int i = 1; i &lt;= n; i ++) 
     {
-        scanf(&quot;%s%d&quot;, s, &amp;x);
+        scanf("%s%d", s, &amp;x);
         ins(s, x);
     }
     build();
-    scanf(&quot;%s&quot;, t + 1);
+    scanf("%s", t + 1);
     query();
     return 0;
-}
-```
-</code></pre>
+}</code></pre>
+</details>
 
               
             </article>
@@ -1196,7 +1191,7 @@ int main()
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

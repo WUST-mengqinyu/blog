@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#a-a-hard-problem" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -459,13 +459,13 @@
 </table>
 <h2 id="a-a-hard-problem">A. A Hard Problem<a class="headerlink" href="#a-a-hard-problem" title="Permanent link">Link</a></h2>
 <p>给定一个正整数n，找到一个正整数k, 使对于{1, 2, 3, &hellip;, n} 的所有大小为k的子集中都至少存在一组数(u,v)，使u能被v整除。</p>
-<p>最大的两两不互为因子的情况是取大于等于<span class="arithmatex">\(\lceil {n \over 2}\rceil\)</span>的所有数，这种情况下再取一个数，一定是某原集合中某一个数的1/2，答案是<span class="arithmatex">\(\lceil {n \over 2}\rceil + 1\)</span></p>
+<p>最大的两两不互为因子的情况是取大于等于<span class="arithmatex"><span class="MathJax_Preview">\lceil {n \over 2}\rceil</span><script type="math/tex">\lceil {n \over 2}\rceil</script></span>的所有数，这种情况下再取一个数，一定是某原集合中某一个数的&frac12;，答案是<span class="arithmatex"><span class="MathJax_Preview">\lceil {n \over 2}\rceil + 1</span><script type="math/tex">\lceil {n \over 2}\rceil + 1</script></span></p>
 <h2 id="c-digital-path">C. Digital Path<a class="headerlink" href="#c-digital-path" title="Permanent link">Link</a></h2>
 <p>给一个n×m的矩阵，矩阵内值的大小为[-10<sup>7,10</sup>7]。其中一条合法的路径需要满足以下要求：相邻两步的格子之间有边相邻，且当前格子数值为上一步+1，并且不能继续扩展。问该矩阵中有多少条合法路径。</p>
 <p><code>dp[i][j][k]</code>表示i行j列的点有多少条以它结束的路径，k表示路径的长度为2,3, &gt;=4的路径种类，每次向四周更新扩展，如果都不能扩展表示路径以它为结尾，记录答案。</p>
 <h2 id="f-paper-grading">F. Paper Grading<a class="headerlink" href="#f-paper-grading" title="Permanent link">Link</a></h2>
-<p>对序列和交换操作分块，当操作达到块大小时rebuild即可，序列的块内使用字典树维护即可。操作不到块大小时单独计算swap后的增量和减量的贡献即可。复杂度<span class="arithmatex">\(O(nsqrt(n))\)</span></p>
-<p>正解好像是hash+二维数点，复杂度<span class="arithmatex">\(O(nlog^2(n))\)</span></p>
+<p>对序列和交换操作分块，当操作达到块大小时rebuild即可，序列的块内使用字典树维护即可。操作不到块大小时单独计算swap后的增量和减量的贡献即可。复杂度<span class="arithmatex"><span class="MathJax_Preview">O(nsqrt(n))</span><script type="math/tex">O(nsqrt(n))</script></span></p>
+<p>正解好像是hash+二维数点，复杂度<span class="arithmatex"><span class="MathJax_Preview">O(nlog^2(n))</span><script type="math/tex">O(nlog^2(n))</script></span></p>
 <h2 id="h-prince-and-princess">H. Prince and Princess<a class="headerlink" href="#h-prince-and-princess" title="Permanent link">Link</a></h2>
 <p>王子想向公主求婚。宫中有三类人，以公主为首赞成婚礼的人，反对婚礼的人，不关心的人，他们的人数为a，b，c(a&gt;0, b,c≥0)。王子知道三类人的数量，这些人分别呆在各自的房间，王子可以向房间内的人提以下三类问题：</p>
 <ol>
@@ -478,7 +478,7 @@
 <p>特判1,0,0为0，因为只有一个房间，这个房间里面一定是公主。</p>
 <h2 id="j-spy">J. Spy<a class="headerlink" href="#j-spy" title="Permanent link">Link</a></h2>
 <p>A,B各有n支队，其中A的队伍能力值已经确定。B有两类人，要把一类人和另一类人搭配，能力值为两者的能力值之和。搭配完后将A,B的队伍随机排列对战，如果A的第i个队伍能力值小于B和它对战的队伍，则B可以获得分数val[i]。输出组队后B的最大得分的期望×n。</p>
-<p>对期望式子化简之后就是裸的二分图最大权匹配，B的a[i]和b[j]连边的边权为<span class="arithmatex">\(\sum_{k=1}^n{a[i]+b[j]&gt;c[k]?val[k]:0}\)</span>。这题卡了KMdfs板子。</p>
+<p>对期望式子化简之后就是裸的二分图最大权匹配，B的a[i]和b[j]连边的边权为<span class="arithmatex"><span class="MathJax_Preview">\sum_{k=1}^n{a[i]+b[j]&gt;c[k]?val[k]:0}</span><script type="math/tex">\sum_{k=1}^n{a[i]+b[j]>c[k]?val[k]:0}</script></span>。这题卡了KMdfs板子。</p>
 <h2 id="k-triangle">K. Triangle<a class="headerlink" href="#k-triangle" title="Permanent link">Link</a></h2>
 <p>给了三角形三个点的坐标和点P，要求找一个点Q，使线段PQ平分三角形的面积，P,Q都在三角形边上。</p>
 <p>二分100次可过，直接算的话用sin会卡精度，式子里面sin可以化简掉，推出来的答案值也是可以过的。</p>
@@ -517,7 +517,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

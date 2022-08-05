@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#tag" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -470,7 +470,7 @@
 <p>题意：给一张图，有一些关键点，在关键点外可以随意走动（起点为1且不是关键点），第一次到达关键点会随机向相邻点走动，第二次到达关键点就停止，求最多能到的非关键点的期望值（就是说会以最优的方式走动）。</p>
 <p>题解：1的联通块都可以走完，与1这个块相连的关键点中取期望最大的就可以了。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：B.cpp
@@ -545,13 +545,13 @@ inline void dfs(int u) {
 }
 
 int main(int argc, char* argv[]) {
-//    freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);
-//    freopen(&quot;data.out&quot;, &quot;w&quot;, stdout);
+//    freopen("data.in", "r", stdin);
+//    freopen("data.out", "w", stdout);
 //    clock_t ST = clock();
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
-        scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k);
+        scanf("%d%d%d", &amp;n, &amp;m, &amp;k);
         www = 0;
         for (int i = 1; i &lt;= n; ++i) {
             pre[i] = i;
@@ -561,12 +561,12 @@ int main(int argc, char* argv[]) {
             flag[i] = 0;
         }
         for (int i = 1; i &lt;= m; ++i) {
-            scanf(&quot;%d%d&quot;, &amp;u[i], &amp;v[i]);
+            scanf("%d%d", &amp;u[i], &amp;v[i]);
             edge[u[i]].push_back(v[i]);
             edge[v[i]].push_back(u[i]);
         }
         for (int i = 1, x; i &lt;= k; ++i) {
-            scanf(&quot;%d&quot;, &amp;x);
+            scanf("%d", &amp;x);
             flag[x] = 1;
             sz[x] = 0;
         }
@@ -581,22 +581,20 @@ int main(int argc, char* argv[]) {
         res = 0;
         dfs(1);
         if (www == 0) {
-            printf(&quot;%.10f\n&quot;, (double)sz[F(1)]);
+            printf("%.10f\n", (double)sz[F(1)]);
             continue;
         }
-        printf(&quot;%.10f\n&quot;, res + sz[F(1)]);
+        printf("%.10f\n", res + sz[F(1)]);
     }
-//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;
+//    cerr &lt;&lt; "time: " &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; "ms" &lt;&lt; endl;
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <p>赛中判该点是不是1的联通点写了个蠢<code>F(v) != 1</code>，实际上并查集也没有特殊处理过。。。名额没了。</p>
 <h2 id="c-dawn-ks-water">C. Dawn-K&rsquo;s water<a class="headerlink" href="#c-dawn-ks-water" title="Permanent link">Link</a></h2>
 <p>题意：n种物品，每种物品有价值p和重量c，询问求最少要多少钱可以买至少m重量的物品。求出真正买的重量和花费。</p>
 <p>题解：显然完全背包问题，由于最终价值不大于1e4，直接完全背包求到2e4肯定有解。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：C.cpp
@@ -650,9 +648,9 @@ ll dp[maxm];
 
 int main(int argc, char* argv[]) {
     int m;
-    while (scanf(&quot;%d%d&quot;, &amp;n, &amp;m) != EOF) {
+    while (scanf("%d%d", &amp;n, &amp;m) != EOF) {
         for (int i = 1; i &lt;= n; ++i) {
-            scanf(&quot;%d%d&quot;, &amp;a[i].p, &amp;a[i].c);
+            scanf("%d%d", &amp;a[i].p, &amp;a[i].c);
         }
         memset(dp, 0x3f, sizeof dp);
         dp[0] = 0;
@@ -669,17 +667,15 @@ int main(int argc, char* argv[]) {
                 mnc = i;
             }
         }
-        printf(&quot;%lld %lld\n&quot;, mnp, mnc);
+        printf("%lld %lld\n", mnp, mnc);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="dfish-eating-fruit">D、Fish eating fruit<a class="headerlink" href="#dfish-eating-fruit" title="Permanent link">Link</a></h2>
 <p>题意：求一棵树上边权模3分别为0，1，2的边权和是多少</p>
 <p>题解：数据范围较小爆上一个点分治即可，每次统计出过rt模3的边分别为0,1,2的边个数和总和，组合一下就能求出解。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：D.cpp
@@ -805,13 +801,13 @@ inline node cal(int u, int pre) {
 
 node res;
 inline void dfs(int u) {
-//    printf(&quot;%d :%lld\n&quot;, u, cal(u, 0).res[0]);
+//    printf("%d :%lld\n", u, cal(u, 0).res[0]);
     res = res + cal(u, 0);
     vis[u] = 1;
     for (int i = head[u]; i; i = Next[i]) {
         int v = ver[i];
         if (vis[v]) continue;
-//        printf(&quot;%d :-%lld\n&quot;, v, cal(v, edge[i]).res[0]);
+//        printf("%d :-%lld\n", v, cal(v, edge[i]).res[0]);
         res = res - cal(v, edge[i]);
         has = sz[v];
         mxsz = 0x3f3f3f3f;
@@ -821,31 +817,29 @@ inline void dfs(int u) {
 }
 
 int main(int argc, char* argv[]) {
-    while (scanf(&quot;%d&quot;, &amp;n) != EOF) {
+    while (scanf("%d", &amp;n) != EOF) {
         tot = 0; memset(head, 0, sizeof head);
         res.cl();
         memset(vis, 0, sizeof vis);
         for (int i = 1, u, v, w; i &lt; n; ++i) {
-            scanf(&quot;%d%d%d&quot;, &amp;u, &amp;v, &amp;w);
+            scanf("%d%d%d", &amp;u, &amp;v, &amp;w);
             u ++;
             v ++;
             addEdge(u, v, w);
             addEdge(v, u, w);
-//            cout &lt;&lt; u &lt;&lt; &quot; &quot; &lt;&lt; v &lt;&lt; &quot; &quot; &lt;&lt; w &lt;&lt; endl;
+//            cout &lt;&lt; u &lt;&lt; " " &lt;&lt; v &lt;&lt; " " &lt;&lt; w &lt;&lt; endl;
 //            assert(v &gt; 10000);
         }
         mxsz = 0x3f3f3f3f;
         has = n;
         getrt(1, 0);
         dfs(rt);
-        printf(&quot;%lld %lld %lld\n&quot;, (mod + res.res[0]) % mod, (mod + res.res[1]) % mod, (mod + res.res[2]) % mod);
+        printf("%lld %lld %lld\n", (mod + res.res[0]) % mod, (mod + res.res[1]) % mod, (mod + res.res[2]) % mod);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <p>题解2：树形dp换根求解。显然对某个点的答案可以<code>O(n)</code>求解，换根时同样记录子树中0,1,2的路径个数和总和即可。复杂度比点分治低，为<code>O(n)</code>。</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：D.cpp
@@ -952,31 +946,29 @@ inline void dfs2(int u, int pre) {
 }
 
 int main(int argc, char* argv[]) {
-    while (scanf(&quot;%d&quot;, &amp;n) != EOF) {
+    while (scanf("%d", &amp;n) != EOF) {
         for (int i = 0; i &lt; 3; ++i) res[i] = 0;
         for (int i = 1; i &lt;= n; ++i) {
             edge[i].clear();
             for (int j = 0; j &lt; 3; ++j) dp[i][j] = num[i][j] = 0;
         }
         for (int i = 1, u, v, w; i &lt; n; ++i) {
-            scanf(&quot;%d%d%d&quot;, &amp;u, &amp;v, &amp;w);
+            scanf("%d%d%d", &amp;u, &amp;v, &amp;w);
             u ++, v ++;
             edge[u].push_back(make_pair(v, w));
             edge[v].push_back(make_pair(u, w));
         }
         dfs1(1, 0, 0);
         dfs2(1, 0);
-        printf(&quot;%lld %lld %lld\n&quot;, res[0], res[1], res[2]);
+        printf("%lld %lld %lld\n", res[0], res[1], res[2]);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="fhonks-pool">Ｆ、Honk&rsquo;s pool<a class="headerlink" href="#fhonks-pool" title="Permanent link">Link</a></h2>
 <h2 id="htexas-holdem-poker">Ｈ、Texas hold&rsquo;em Poker<a class="headerlink" href="#htexas-holdem-poker" title="Permanent link">Link</a></h2>
 <p>题意：德州扑克比大小</p>
 <p>题解：按题意模拟</p>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 const int maxn=1e5+10;
 struct player
@@ -1325,11 +1317,11 @@ bool cmp(player a,player b)
 int main()
 {
     int n;
-    while(~scanf(&quot;%d&quot;,&amp;n))
+    while(~scanf("%d",&amp;n))
     {
         for(int i=1;i&lt;=n;i++)
         {
-            scanf(&quot;%s%s&quot;,&amp;p[i].name,&amp;card);
+            scanf("%s%s",&amp;p[i].name,&amp;card);
             int len=strlen(card);
             int now=0;
             for(int j=0;j&lt;len;j++)
@@ -1366,25 +1358,23 @@ int main()
         }
         sort(p+1,p+1+n,cmp);
         for(int i=1;i&lt;=n;i++)
-            printf(&quot;%s\n&quot;,p[i].name);
+            printf("%s\n",p[i].name);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="kguanguans-happy-water">K、Guanguan&rsquo;s Happy water<a class="headerlink" href="#kguanguans-happy-water" title="Permanent link">Link</a></h2>
 <p>题意：已知前2×k项，已知每一项只与前k项有关且是固定系数且保证结果为整数，即
-$$
+<script type="math/tex; mode=display">
 f_i = \sum_{j=1}^{k} a_j * f_{i-j}
-$$
+</script>
 其中<code>a[j]</code>的和为1</p>
 <p>题解：高斯消元求出a数组，然后矩阵快速幂即可，由于答案要求
-$$
+<script type="math/tex; mode=display">
 \sum_{i=1}^n f_i
-$$
+</script>
 给快速幂加一维答案就可以了</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
 #define ll long long
@@ -1443,12 +1433,12 @@ struct Matrix {
     }
 
     void pr() {
-        printf(&quot;*\n&quot;);
+        printf("*\n");
         for (int i = 0; i &lt; sz; ++i) {
             for (int j = 0; j &lt; sz; ++j) {
-                printf(&quot;%lld &quot;, a[i][j]);
+                printf("%lld ", a[i][j]);
             }
-            printf(&quot;\n&quot;);
+            printf("\n");
         }
     }
 
@@ -1485,18 +1475,18 @@ ll A[maxn * 2];
 
 int main() {
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     while (T--) {
         int k;
         ll n;
         double b;
-        scanf(&quot;%d%lld&quot;, &amp;k, &amp;n);
+        scanf("%d%lld", &amp;k, &amp;n);
         ll sum = 0;
         for (int i = 0; i &lt; 2 * k; i++) {
-            scanf(&quot;%lld&quot;, &amp;A[i]);
+            scanf("%lld", &amp;A[i]);
             if (i &lt; k) sum = (sum + A[i]) % mod;
             b = A[i];
-//            scanf(&quot;%lf&quot;, &amp;b);
+//            scanf("%lf", &amp;b);
             for (int j = max(k, i + 1); j &lt; 2 * k; j++) {
                 if (j - i &gt; k)
                     break;
@@ -1530,12 +1520,10 @@ int main() {
 //            res.pr();
 //        }
         Matrix gg = qp(n - k);
-        printf(&quot;%lld\n&quot;, gg.a[0][k]);
+        printf("%lld\n", gg.a[0][k]);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <p>bm不知道为什么板子过不了样例就没写</p>
 <p>看别人题解写的不知道啥玩意？？题解写了分块矩阵去求和比我复杂度还大个8倍不太行。</p>
 
@@ -1573,7 +1561,7 @@ int main() {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#a-all-with-pairs" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -494,13 +494,14 @@
 </table>
 <h2 id="a-all-with-pairs">A. All with Pairs<a class="headerlink" href="#a-all-with-pairs" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>题意：给n个串，<span class="arithmatex">\(f(s, t)\)</span>表示s的前缀与t的后缀最长匹配的长度，求<span class="arithmatex">\(\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)\)</span></p>
+<p>题意：给n个串，<span class="arithmatex"><span class="MathJax_Preview">f(s, t)</span><script type="math/tex">f(s, t)</script></span>表示s的前缀与t的后缀最长匹配的长度，求<span class="arithmatex"><span class="MathJax_Preview">\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)</span><script type="math/tex">\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)</script></span></p>
 <p>hash预处理出所有后缀的出现次数，对每个串的前缀算出hash值，记录该长度的相同串出现次数。</p>
 <p>因为处理出来的后缀不一定最长，可能有<code>a,aba</code>被重复计算的情况，对<code>s[i]</code>求nex数组，从前往后扫一遍<code>cnt[nex[i]]-=cnt[i]</code>即可求出该串对应的每个串的最长后缀。</p>
-<p>??? note &ldquo;Code by: Verly&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code by: Verly</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 1e6 + 10;
@@ -535,7 +536,7 @@ void getNex(string s)
 int main()
 {
     int n;
-    scanf(&quot;%d&quot;, &amp;n);
+    scanf("%d", &amp;n);
     for(int i = 1; i &lt;= n; i ++)
     {
         cin &gt;&gt; s[i];
@@ -555,26 +556,25 @@ int main()
         for(int j = 1; j &lt;= s[i].size(); j ++) cnt[nex[j]] -= cnt[j];
         for(int j = 1; j &lt;= s[i].size(); j ++) (res += 1ll * cnt[j] * j * j % mod) %= mod;
     }
-    printf(&quot;%lld\n&quot;, res);
+    printf("%lld\n", res);
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="b-boundary">B. Boundary<a class="headerlink" href="#b-boundary" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: badcw</em></p>
 <p>题意：给n个点，求过原点的圆最多能有多少个点恰好在圆上。</p>
 <p>(O,A,B)三点定圆，选择A并枚举点B并算出圆心，对相同圆心计算个数取max。</p>
-<p>??? note &ldquo;Code by: badcw&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/13 21:13
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code by: badcw</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/13 21:13
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -591,19 +591,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -635,8 +635,8 @@ struct point{
     db abs2(){return x*x+y*y;}
     db dis(point k1){return ((*this)-k1).abs();}
     point unit(){db w=abs(); return (point){x/w,y/w};}
-    void scan(){double k1,k2; scanf(&quot;%lf%lf&quot;,&amp;k1,&amp;k2); x=k1; y=k2;}
-    void print(){printf(&quot;%.11lf %.11lf\n&quot;,x,y);}
+    void scan(){double k1,k2; scanf("%lf%lf",&amp;k1,&amp;k2); x=k1; y=k2;}
+    void print(){printf("%.11lf %.11lf\n",x,y);}
     db getw(){return atan2(y,x);}
     point getdel(){if (sign(x)==-1||(sign(x)==0&amp;&amp;sign(y)==-1)) return (*this)*(-1); else return (*this);}
     int getP() const{return sign(y)==1||(sign(y)==0&amp;&amp;sign(x)==-1);}
@@ -652,7 +652,7 @@ int compareangle (point k1,point k2){
 }
 struct circle{
     point o; db r;
-    void scan(){o.scan(); scanf(&quot;%lf&quot;,&amp;r);}
+    void scan(){o.scan(); scanf("%lf",&amp;r);}
     int inside(point k){return cmp(r,o.dis(k));}
 };
 point getcircle(point k1,point k2,point k3){
@@ -707,29 +707,28 @@ int main(int argc, char* argv[]) {
     }
     W(res + 1);
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="c-cover-the-tree">C. Cover the Tree<a class="headerlink" href="#c-cover-the-tree" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 02:22:47(-1)</em></p>
 <p>题意：给一棵树选择最少的链覆盖所有边，同一条边可以重复覆盖，输出方案。</p>
 <p>题解：</p>
 <p>首先考虑，对于任意一条边，最少需要经过一次，经过多次显然是不优的。</p>
 <p>对于任意选定的链，两端取叶子节点显然是不劣的，就算不取叶子拓展到叶子也是不劣的。</p>
-<p>考虑对叶子节点配对，显然可以得到最少覆盖为 <span class="arithmatex">\((k+1)/2\)</span>，其中 <span class="arithmatex">\(k\)</span> 表示叶子节点个数。</p>
+<p>考虑对叶子节点配对，显然可以得到最少覆盖为 <span class="arithmatex"><span class="MathJax_Preview">(k+1)/2</span><script type="math/tex">(k+1)/2</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 表示叶子节点个数。</p>
 <p>考虑定根之后构造方案，对于一个节点，如果子树内有奇数个叶子往该节点连，取其中任一个往上连，其他两两相连（注意如果是一个子树过来两个的不能相连）即可，对于偶数个节点，取两个往上连。</p>
-<p>其实这种解法会写起来比较难受，标程写的按叶子 dfs 序， <span class="arithmatex">\(i &lt;-&gt; k/2+i\)</span> 也很有道理。</p>
-<p>??? note &ldquo;Code by: badcw&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/13 13:48
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<p>其实这种解法会写起来比较难受，标程写的按叶子 dfs 序， <span class="arithmatex"><span class="MathJax_Preview">i &lt;-&gt; k/2+i</span><script type="math/tex">i <-> k/2+i</script></span> 也很有道理。</p>
+<details class="note">
+<summary>Code by: badcw</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/13 13:48
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -746,19 +745,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -882,7 +881,7 @@ int main(int argc, char* argv[]) {
 //    cerr &lt;&lt; flag &lt;&lt; endl;
     dfs(flag, 0);
 //    for (int i = 1; i &lt;= n; ++i) {
-//        cerr &lt;&lt; i &lt;&lt; &quot; **: &quot; &lt;&lt; has[i].first &lt;&lt; &quot; &quot; &lt;&lt; has[i].second &lt;&lt; endl;
+//        cerr &lt;&lt; i &lt;&lt; " **: " &lt;&lt; has[i].first &lt;&lt; " " &lt;&lt; has[i].second &lt;&lt; endl;
 //    }
     if (sz[flag] == 1) {
         W(has[flag].first, flag);
@@ -890,23 +889,22 @@ int main(int argc, char* argv[]) {
         W(has[flag].first, has[flag].second);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="d-duration">D. Duration<a class="headerlink" href="#d-duration" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:05:43</em></p>
 <p>签到，时间做差取绝对值即可</p>
-<p>??? note &ldquo;Code by: badcw&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/13 12:02
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code by: badcw</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/13 12:02
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -923,19 +921,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -944,32 +942,31 @@ template&lt;class T, class... U&gt; void W(const T &amp;head, const U &amp;... t
 int h1, m1, s1;
 int h2, m2, s2;
 int main(int argc, char* argv[]) {
-    scanf(&quot;%2d:%2d:%2d&quot;, &amp;h1, &amp;m1, &amp;s1);
-    scanf(&quot;%2d:%2d:%2d&quot;, &amp;h2, &amp;m2, &amp;s2);
+    scanf("%2d:%2d:%2d", &amp;h1, &amp;m1, &amp;s1);
+    scanf("%2d:%2d:%2d", &amp;h2, &amp;m2, &amp;s2);
     int res = (h2 - h1) * 60 * 60 + (m2 - m1) * 60 + s2 - s1;
 //    int lim = 24 * 60 * 60;
 //    res = (res + lim) % lim;
     W(abs(res));
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="e-exclusive-or">E. Exclusive OR<a class="headerlink" href="#e-exclusive-or" title="Permanent link">Link</a></h2>
-<p>给 n 个数字，现在 ans[k] 表示挑选任意 k 个数字（可重复挑选一个数）异或起来的最大值，求 ans[1]~ans[n]，值域 <span class="arithmatex">\(2^{18}\)</span>。</p>
+<p>给 n 个数字，现在 ans[k] 表示挑选任意 k 个数字（可重复挑选一个数）异或起来的最大值，求 ans[1]~ans[n]，值域 <span class="arithmatex"><span class="MathJax_Preview">2^{18}</span><script type="math/tex">2^{18}</script></span>。</p>
 <p>由线性基原理可以知道最多 19 个数字就可以获得这 n 个数字的最大值。为什么不是18，因为存在0。</p>
-<p>那么显然后面取任意两个相等的数字，答案显然就是 <span class="arithmatex">\(ans[k-2]\)</span></p>
-<p>那么我们知道第一次 <span class="arithmatex">\(f_i\)</span> 表示存不存在 i 这个数字，那么 <span class="arithmatex">\(g_i=\sum_{j\bigotimes k=i}f_i*f_j\)</span> 则表示能不能取两个数表示 <span class="arithmatex">\(i\)</span>。然后整个具有传递性，只用做 19 次 fwt 就能获得答案。</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/22 13:56
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<p>那么显然后面取任意两个相等的数字，答案显然就是 <span class="arithmatex"><span class="MathJax_Preview">ans[k-2]</span><script type="math/tex">ans[k-2]</script></span></p>
+<p>那么我们知道第一次 <span class="arithmatex"><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span> 表示存不存在 i 这个数字，那么 <span class="arithmatex"><span class="MathJax_Preview">g_i=\sum_{j\bigotimes k=i}f_i*f_j</span><script type="math/tex">g_i=\sum_{j\bigotimes k=i}f_i*f_j</script></span> 则表示能不能取两个数表示 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>。然后整个具有传递性，只用做 19 次 fwt 就能获得答案。</p>
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/22 13:56
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll int
 using namespace std;
 
@@ -986,19 +983,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -1055,25 +1052,24 @@ int main(int argc, char* argv[]) {
     for (int i = 19; i &lt; n; ++i) res[i] = res[i - 2];
     W(VI(res, res + n));
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="f-fake-maxpooling">F. Fake Maxpooling<a class="headerlink" href="#f-fake-maxpooling" title="Permanent link">Link</a></h2>
-<p>给一个 <code>n*m</code> 的矩阵，<code>(i,j)</code> 位置的数为 <span class="arithmatex">\(lcm(i,j)\)</span>，求所有 <code>k*k</code> 的子矩阵的最大值之和。</p>
-<p>首先要做的是把每个点的值求出来，如果 <span class="arithmatex">\(gcd(i,j)=1\)</span> 那么 <span class="arithmatex">\(gcd(i*x, j*x)=x\)</span>，类似线筛 <span class="arithmatex">\(O(n*m)\)</span> 求出每个点的值。</p>
-<p>然后单调队列处理每列上第 <span class="arithmatex">\((i-k~i)\)</span> 点的最大值。</p>
+<p>给一个 <code>n*m</code> 的矩阵，<code>(i,j)</code> 位置的数为 <span class="arithmatex"><span class="MathJax_Preview">lcm(i,j)</span><script type="math/tex">lcm(i,j)</script></span>，求所有 <code>k*k</code> 的子矩阵的最大值之和。</p>
+<p>首先要做的是把每个点的值求出来，如果 <span class="arithmatex"><span class="MathJax_Preview">gcd(i,j)=1</span><script type="math/tex">gcd(i,j)=1</script></span> 那么 <span class="arithmatex"><span class="MathJax_Preview">gcd(i*x, j*x)=x</span><script type="math/tex">gcd(i*x, j*x)=x</script></span>，类似线筛 <span class="arithmatex"><span class="MathJax_Preview">O(n*m)</span><script type="math/tex">O(n*m)</script></span> 求出每个点的值。</p>
+<p>然后单调队列处理每列上第 <span class="arithmatex"><span class="MathJax_Preview">(i-k~i)</span><script type="math/tex">(i-k~i)</script></span> 点的最大值。</p>
 <p>然后单调队列处理行的最大值即可。</p>
-<p>??? note &ldquo;Code by badcw&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/17 15:25
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code by badcw</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/17 15:25
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -1090,19 +1086,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -1126,11 +1122,11 @@ int main(int argc, char* argv[]) {
     }
 //    for (int i = 1; i &lt;= n; ++i) {
 //        for (int j = 1; j &lt;= m; ++j) {
-//            cerr &lt;&lt; mx[i][j] &lt;&lt; &quot; &quot;;
+//            cerr &lt;&lt; mx[i][j] &lt;&lt; " ";
 //        }
 //        cerr &lt;&lt; endl;
 //    }
-//    cerr &lt;&lt; &quot;*&quot; &lt;&lt; endl;
+//    cerr &lt;&lt; "*" &lt;&lt; endl;
     for (int j = 1; j &lt;= m; ++j) {
         int pre = 1, lst = 0;
         for (int i = 1; i &lt;= n; ++i) {
@@ -1143,7 +1139,7 @@ int main(int argc, char* argv[]) {
     }
 //    for (int i = 1; i &lt;= n; ++i) {
 //        for (int j = 1; j &lt;= m; ++j) {
-//            cerr &lt;&lt; mx[i][j] &lt;&lt; &quot; &quot;;
+//            cerr &lt;&lt; mx[i][j] &lt;&lt; " ";
 //        }
 //        cerr &lt;&lt; endl;
 //    }
@@ -1160,21 +1156,20 @@ int main(int argc, char* argv[]) {
     }
     W(res);
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="g-greater-and-greater">G. Greater and Greater<a class="headerlink" href="#g-greater-and-greater" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: badcw, Verly</em></p>
-<p>题意：给两个长度为n和m的序列<span class="arithmatex">\(A,B(m≤n)\)</span>,问A有多少长度为<span class="arithmatex">\(len(B)\)</span>的子串S，满足<span class="arithmatex">\(∀_i∈{1,2,⋯,m},S_i\ge B_i\)</span></p>
-<p>现在用 bitset s[i] 表示 A 的每一位可以作为 <span class="arithmatex">\(B_i\)</span> 的开头位置，然后把所有位与起来就可以得到答案。</p>
-<p>具体来说如果 bitset s[i] 表示 A 的每一位是否比 <span class="arithmatex">\(B_i\)</span> 大，<span class="arithmatex">\(s_1&amp;(s_2&gt;&gt;1)&amp;(s_3&gt;&gt;2)...\)</span> 就是答案。</p>
-<p>所以题目转换为了怎么求所有 <span class="arithmatex">\(B_i\)</span> 在 A 中 1 的位置。利用单调性排序做即可。</p>
-<p>复杂度 <span class="arithmatex">\(O(n*m/W+mlogm)\)</span></p>
-<p>??? note &ldquo;Code by Verly&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<p>题意：给两个长度为n和m的序列<span class="arithmatex"><span class="MathJax_Preview">A,B(m≤n)</span><script type="math/tex">A,B(m≤n)</script></span>,问A有多少长度为<span class="arithmatex"><span class="MathJax_Preview">len(B)</span><script type="math/tex">len(B)</script></span>的子串S，满足<span class="arithmatex"><span class="MathJax_Preview">∀_i∈{1,2,⋯,m},S_i\ge B_i</span><script type="math/tex">∀_i∈{1,2,⋯,m},S_i\ge B_i</script></span></p>
+<p>现在用 bitset s[i] 表示 A 的每一位可以作为 <span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 的开头位置，然后把所有位与起来就可以得到答案。</p>
+<p>具体来说如果 bitset s[i] 表示 A 的每一位是否比 <span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 大，<span class="arithmatex"><span class="MathJax_Preview">s_1&amp;(s_2&gt;&gt;1)&amp;(s_3&gt;&gt;2)...</span><script type="math/tex">s_1&(s_2>>1)&(s_3>>2)...</script></span> 就是答案。</p>
+<p>所以题目转换为了怎么求所有 <span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 在 A 中 1 的位置。利用单调性排序做即可。</p>
+<p>复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(n*m/W+mlogm)</span><script type="math/tex">O(n*m/W+mlogm)</script></span></p>
+<details class="note">
+<summary>Code by Verly</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 2e5 + 10;
@@ -1193,17 +1188,17 @@ struct node
 int main()
 {
     int n, m;
-    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    scanf("%d%d", &amp;n, &amp;m);
     vector&lt;node&gt; ve;
     for(int i = 0; i &lt; n; i ++) 
     {
-        scanf(&quot;%d&quot;, &amp;a[i]);
+        scanf("%d", &amp;a[i]);
         tmp[i] = res[i] = 1;
         ve.push_back({a[i], i, 1});
     }
     for(int i = 0; i &lt; m; i ++) 
     {
-        scanf(&quot;%d&quot;, &amp;b[i]);
+        scanf("%d", &amp;b[i]);
         ve.push_back({b[i], i, 0});
     }
     sort(ve.begin(), ve.end());
@@ -1212,12 +1207,10 @@ int main()
         if(x.tp) tmp[x.pos] = 0;
         else res &amp;= tmp &gt;&gt; x.pos;
     }
-    printf(&quot;%d\n&quot;, (int)res.count());
+    printf("%d\n", (int)res.count());
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="h-happy-triangle">H. Happy Triangle<a class="headerlink" href="#h-happy-triangle" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: badcw</em></p>
 <p>维护一个 mulitset，三种操作：</p>
@@ -1226,27 +1219,28 @@ int main()
 <li>删除一个数 x</li>
 <li>求一个数 x 是否可以与 mulitset 中两个的数构成三角形</li>
 </ol>
-<p>首先对于一个数 x 假设可以在 mulitset 中找到 y,z 与之构成三角形，现在假设 <span class="arithmatex">\(y\le z\)</span> 而且 y 和 z 之间存在一个数字 k</p>
+<p>首先对于一个数 x 假设可以在 mulitset 中找到 y,z 与之构成三角形，现在假设 <span class="arithmatex"><span class="MathJax_Preview">y\le z</span><script type="math/tex">y\le z</script></span> 而且 y 和 z 之间存在一个数字 k</p>
 <ol>
-<li><span class="arithmatex">\(x \le y\)</span>，可以推出 <span class="arithmatex">\(z \lt x + y\)</span> 所以 <span class="arithmatex">\(k \lt x + y\)</span>，所以 <span class="arithmatex">\(x,y,k\)</span> 可以构成三角形</li>
-<li><span class="arithmatex">\(y \le x \le z\)</span>，可以推出 <span class="arithmatex">\(z \lt x + y\)</span> 如果 <span class="arithmatex">\(k \le x\)</span> 则 <span class="arithmatex">\(z \lt x + k\)</span>，所以 <span class="arithmatex">\(x,k,z\)</span> 可以构成三角形， <span class="arithmatex">\(x \le k\)</span> 则 <span class="arithmatex">\(x,y,k\)</span> 可以构成三角形</li>
-<li><span class="arithmatex">\(z \le x\)</span>，可以推出 <span class="arithmatex">\(x \lt z + y\)</span>，所以 <span class="arithmatex">\(x \lt k + z\)</span>，所以 <span class="arithmatex">\(x,z,k\)</span> 可以构成三角形</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">x \le y</span><script type="math/tex">x \le y</script></span>，可以推出 <span class="arithmatex"><span class="MathJax_Preview">z \lt x + y</span><script type="math/tex">z \lt x + y</script></span> 所以 <span class="arithmatex"><span class="MathJax_Preview">k \lt x + y</span><script type="math/tex">k \lt x + y</script></span>，所以 <span class="arithmatex"><span class="MathJax_Preview">x,y,k</span><script type="math/tex">x,y,k</script></span> 可以构成三角形</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">y \le x \le z</span><script type="math/tex">y \le x \le z</script></span>，可以推出 <span class="arithmatex"><span class="MathJax_Preview">z \lt x + y</span><script type="math/tex">z \lt x + y</script></span> 如果 <span class="arithmatex"><span class="MathJax_Preview">k \le x</span><script type="math/tex">k \le x</script></span> 则 <span class="arithmatex"><span class="MathJax_Preview">z \lt x + k</span><script type="math/tex">z \lt x + k</script></span>，所以 <span class="arithmatex"><span class="MathJax_Preview">x,k,z</span><script type="math/tex">x,k,z</script></span> 可以构成三角形， <span class="arithmatex"><span class="MathJax_Preview">x \le k</span><script type="math/tex">x \le k</script></span> 则 <span class="arithmatex"><span class="MathJax_Preview">x,y,k</span><script type="math/tex">x,y,k</script></span> 可以构成三角形</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">z \le x</span><script type="math/tex">z \le x</script></span>，可以推出 <span class="arithmatex"><span class="MathJax_Preview">x \lt z + y</span><script type="math/tex">x \lt z + y</script></span>，所以 <span class="arithmatex"><span class="MathJax_Preview">x \lt k + z</span><script type="math/tex">x \lt k + z</script></span>，所以 <span class="arithmatex"><span class="MathJax_Preview">x,z,k</span><script type="math/tex">x,z,k</script></span> 可以构成三角形</li>
 </ol>
 <p>所以如果存在解一定存在相邻的两个数是它的解。</p>
 <p>那么问题就转换成了：往集合中加入或删除数，维护相邻两项覆盖的点集区间</p>
-<p>考虑相邻两项为 <span class="arithmatex">\(x,y\)</span>，则他们能对一个数产生贡献的为 <span class="arithmatex">\([y-x+1,x+y-1]\)</span> 这个区间，设为 <span class="arithmatex">\(f(x,y)\)</span>。</p>
-<p>考虑插入一个数 <span class="arithmatex">\(x\)</span>，原集合 <span class="arithmatex">\(x\)</span> 左右两边的数字为 <span class="arithmatex">\(y,z\)</span>，则会添加 <span class="arithmatex">\(f(y,x)\)</span>，<span class="arithmatex">\(f(x,z)\)</span>，删除 <span class="arithmatex">\(f(y,z)\)</span></p>
-<p>删除一个数 <span class="arithmatex">\(x\)</span>，则为添加 <span class="arithmatex">\(f(y,z)\)</span>，删除 <span class="arithmatex">\(f(y,x)\)</span>，<span class="arithmatex">\(f(x,z)\)</span>，所以用线段树维护区间加单点和即可，比较难写的是左右数字边界的处理。</p>
-<p>??? note &ldquo;Code by: badcw&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/13 14:58
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<p>考虑相邻两项为 <span class="arithmatex"><span class="MathJax_Preview">x,y</span><script type="math/tex">x,y</script></span>，则他们能对一个数产生贡献的为 <span class="arithmatex"><span class="MathJax_Preview">[y-x+1,x+y-1]</span><script type="math/tex">[y-x+1,x+y-1]</script></span> 这个区间，设为 <span class="arithmatex"><span class="MathJax_Preview">f(x,y)</span><script type="math/tex">f(x,y)</script></span>。</p>
+<p>考虑插入一个数 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，原集合 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 左右两边的数字为 <span class="arithmatex"><span class="MathJax_Preview">y,z</span><script type="math/tex">y,z</script></span>，则会添加 <span class="arithmatex"><span class="MathJax_Preview">f(y,x)</span><script type="math/tex">f(y,x)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">f(x,z)</span><script type="math/tex">f(x,z)</script></span>，删除 <span class="arithmatex"><span class="MathJax_Preview">f(y,z)</span><script type="math/tex">f(y,z)</script></span></p>
+<p>删除一个数 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，则为添加 <span class="arithmatex"><span class="MathJax_Preview">f(y,z)</span><script type="math/tex">f(y,z)</script></span>，删除 <span class="arithmatex"><span class="MathJax_Preview">f(y,x)</span><script type="math/tex">f(y,x)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">f(x,z)</span><script type="math/tex">f(x,z)</script></span>，所以用线段树维护区间加单点和即可，比较难写的是左右数字边界的处理。</p>
+<details class="note">
+<summary>Code by: badcw</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/13 14:58
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -1263,19 +1257,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -1365,24 +1359,23 @@ int main(int argc, char* argv[]) {
         } else if (op[i] == 3) {
             le = re = pos;
             int ss = query(1, 1, sz);
-            W(ss &gt; 0 ? &quot;Yes&quot; : &quot;No&quot;);
+            W(ss &gt; 0 ? "Yes" : "No");
         }
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="i-interval">I. Interval<a class="headerlink" href="#i-interval" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>给一个<span class="arithmatex">\([1,n]\)</span>的初始区间，在满足修改后<span class="arithmatex">\(1≤l&lt;r≤n\)</span>的情况下，对区间<span class="arithmatex">\([l,r](l&lt;r)\)</span>每次可使l,r加1或-1。</p>
-<p>给定若干个限制条件(l, r, &lsquo;L&rsquo;, c)或(l, r, &lsquo;R&rsquo;, c)，表示花费c来禁止l&lt;-&gt;l+1或r&lt;-&gt;r-1，问最少花费多少，才能使区间<span class="arithmatex">\([1,n]\)</span>无法被修改为<span class="arithmatex">\(l=r\)</span>的情况。</p>
+<p>给一个<span class="arithmatex"><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span>的初始区间，在满足修改后<span class="arithmatex"><span class="MathJax_Preview">1≤l&lt;r≤n</span><script type="math/tex">1≤l<r≤n</script></span>的情况下，对区间<span class="arithmatex"><span class="MathJax_Preview">[l,r](l&lt;r)</span><script type="math/tex">[l,r](l<r)</script></span>每次可使l,r加1或-1。</p>
+<p>给定若干个限制条件(l, r, &lsquo;L&rsquo;, c)或(l, r, &lsquo;R&rsquo;, c)，表示花费c来禁止l&lt;-&gt;l+1或r&lt;-&gt;r-1，问最少花费多少，才能使区间<span class="arithmatex"><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span>无法被修改为<span class="arithmatex"><span class="MathJax_Preview">l=r</span><script type="math/tex">l=r</script></span>的情况。</p>
 <p>把区间视为网格上的点建网络流模型， 对于每个限制条件连<code>(pt(l,r),pt(l', r'),c)</code>的双向边，起点为<code>(1, n)</code>, 并对<code>(i,i)</code>向T连流量为inf的边。最小割即为所求解。</p>
 <p>网格图最小割可以转化为对偶图最短路求解，对原图中的ST连一条流量为inf的边把网格外的空间分为两部分，将原图中的格视为点，边权为原图中边的流量大小，跑最短路即可。</p>
-<p>??? note &ldquo;Code by: Verly&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code by: Verly</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 #define int ll
 
@@ -1431,35 +1424,34 @@ signed main()
 {
     int n, m, tot = 0;
     memset(head, 0xff, sizeof head);
-    scanf(&quot;%lld%lld&quot;, &amp;n, &amp;m);
+    scanf("%lld%lld", &amp;n, &amp;m);
     for(int i = 0; i &lt;= n + 1; i ++)
         for(int j = 0; j &lt;= n + 1; j ++) id[i][j] = tot ++;
     for(int i = 1; i &lt;= m; i ++)
     {
         int l, r, c;
         char s[5];
-        scanf(&quot;%lld%lld%s%lld&quot;, &amp;l, &amp;r, s, &amp;c);
+        scanf("%lld%lld%s%lld", &amp;l, &amp;r, s, &amp;c);
         if(s[0] == 'L') add(id[l][r], id[l][r + 1], c);
         else add(id[l - 1][r], id[l][r], c);
     }
     int s = id[0][1], t = id[n + 1][n + 1];
     for(int i = 1; i &lt;= n; i ++) add(s, id[0][i], 0), add(id[i][n + 1], t, 0); 
     dij(s);
-    printf(&quot;%lld\n&quot;, dis[t] == inf ? -1 : dis[t]);
+    printf("%lld\n", dis[t] == inf ? -1 : dis[t]);
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="j-just-shuffle">J. Just Shuffle<a class="headerlink" href="#j-just-shuffle" title="Permanent link">Link</a></h2>
 <p><em>solved by: Verly 04:32:38(-2)</em></p>
 <p>给一个 1~n 的排列求 P，把 1~n 原序运行 k 次 P 排列可以变成该排列，k 为大素数。</p>
-<p>原题相当于一个每行每列只有 1 个 1 的方阵 <span class="arithmatex">\(S\)</span>，求 <span class="arithmatex">\(S^{-k}\)</span>。</p>
-<p>实际上对 i 和 <span class="arithmatex">\(S_i\)</span> 连单向边，最后会得到若干个环，由于 k 是素数，它对环都存在一个偏移量，在每个环上按偏移量走即可得到原序列。</p>
-<p>??? note &ldquo;Code by: Verly&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<p>原题相当于一个每行每列只有 1 个 1 的方阵 <span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>，求 <span class="arithmatex"><span class="MathJax_Preview">S^{-k}</span><script type="math/tex">S^{-k}</script></span>。</p>
+<p>实际上对 i 和 <span class="arithmatex"><span class="MathJax_Preview">S_i</span><script type="math/tex">S_i</script></span> 连单向边，最后会得到若干个环，由于 k 是素数，它对环都存在一个偏移量，在每个环上按偏移量走即可得到原序列。</p>
+<details class="note">
+<summary>Code by: Verly</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 1e5 + 10;
@@ -1518,8 +1510,8 @@ void Place(int len)
 int main()
 {
     int n, k;
-    scanf(&quot;%d%d&quot;, &amp;n, &amp;k);
-    for(int i = 1; i &lt;= n; i ++) scanf(&quot;%d&quot;, &amp;a[i]);
+    scanf("%d%d", &amp;n, &amp;k);
+    for(int i = 1; i &lt;= n; i ++) scanf("%d", &amp;a[i]);
     for(int i = 1; i &lt;= n; i ++) b[a[i]] = i;
     for(int i = 1; i &lt;= n; i ++)
     {
@@ -1540,23 +1532,22 @@ int main()
         sort(ve.begin(), ve.end());
         for(int i = 0; i &lt; ve.size(); i ++) mp[ve[i]] = i + 1, tt[i + 1] = ve[i];
         for(int i = 0; i &lt;= ve.size(); i ++) tmp[i] = 0;
-        if(GetC(ve.size(), len) == false) return 0 * puts(&quot;-1&quot;);
+        if(GetC(ve.size(), len) == false) return 0 * puts("-1");
         Place(ve.size());
     }
-    for(int i = 1; i &lt;= n; i ++) printf(&quot;%d%c&quot;, res[i], &quot; \n&quot;[i == n]);
+    for(int i = 1; i &lt;= n; i ++) printf("%d%c", res[i], " \n"[i == n]);
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="k-keyboard-free">K. Keyboard Free<a class="headerlink" href="#k-keyboard-free" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>题意：给三个半径为<code>r1,r2,r3</code>的同心圆，求圆上三点组成的三角形面积期望。</p>
 <p>确定点A(r1,0)枚举BC，预处理完暴力搞一下过了……</p>
-<p>??? note &ldquo;Code by: Verly&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code by: Verly</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 500 + 10;
@@ -1577,12 +1568,12 @@ double Sin[maxn], Cos[maxn];
 int main()
 {
     int t;
-    scanf(&quot;%d&quot;, &amp;t);
+    scanf("%d", &amp;t);
     for(int i = 0; i &lt; 500; i ++) Sin[i] = sin(2 * PI * i / 500), Cos[i] = cos(2 * PI * i / 500);
     while(t --)
     {
         double r1, r2, r3, res = 0;
-        scanf(&quot;%lf%lf%lf&quot;, &amp;r1, &amp;r2, &amp;r3);
+        scanf("%lf%lf%lf", &amp;r1, &amp;r2, &amp;r3);
         p[0] = {r1, 0};
         for(int i = 0; i &lt; 500; i ++)
         {
@@ -1593,14 +1584,13 @@ int main()
                 res += abs(cross(p[1] - p[0], p[2] - p[0])); 
             }
         }
-        printf(&quot;%.1f\n&quot;, res / 2 / 500 / 500);
+        printf("%.1f\n", res / 2 / 500 / 500);
 
     }
 
     return 0;
-}
-```
-</code></pre>
+}</code></pre>
+</details>
 
               
             </article>
@@ -1636,7 +1626,7 @@ int main()
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

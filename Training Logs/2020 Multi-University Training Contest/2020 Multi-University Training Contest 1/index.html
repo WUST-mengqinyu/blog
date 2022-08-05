@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#d-distinct-sub-palindromes" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -470,16 +470,17 @@
 <p>求长度为 n 的任意串中，本质不同回文子串最少的有多少种</p>
 <p>长度为 1,2,3 的时候随便填都是最少个数</p>
 <p>大于三的只要取三个不同字符 abc 循环即可，最少不同回文子串为 3 个</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/21 12:20
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/21 12:20
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -496,19 +497,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -516,7 +517,7 @@ template&lt;class T, class... U&gt; void W(const T &amp;head, const U &amp;... t
 
 int main(int argc, char* argv[]) {
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     ll res = 1;
     for (int i = 24; i &lt;= 26; ++i) {
         res = res * i % mod;
@@ -535,88 +536,88 @@ int main(int argc, char* argv[]) {
         }
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="e-fibonacci-sum">E. Fibonacci Sum<a class="headerlink" href="#e-fibonacci-sum" title="Permanent link">Link</a></h2>
-<p>求 <span class="arithmatex">\(\sum_{i=0}^N (F^K_{i*C})\)</span> 对 1e9+7 取模</p>
-<p>其中 <span class="arithmatex">\(F_0 = 0, F_1 = 1, F_i=F_{i-1}+F_{i-2}\)</span></p>
+<p>求 <span class="arithmatex"><span class="MathJax_Preview">\sum_{i=0}^N (F^K_{i*C})</span><script type="math/tex">\sum_{i=0}^N (F^K_{i*C})</script></span> 对 1e9+7 取模</p>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">F_0 = 0, F_1 = 1, F_i=F_{i-1}+F_{i-2}</span><script type="math/tex">F_0 = 0, F_1 = 1, F_i=F_{i-1}+F_{i-2}</script></span></p>
 <p>众所周知 5 是 1e9+7 的原根所以随便做一下二次剩余来表示斐波那契数列通项公式即可。</p>
-<p><span class="arithmatex">\(F_n = \frac{1}{\sqrt{5}}\left[(\frac{1+\sqrt{5}}{2})^n-(\frac{1-\sqrt{5}}{n})^n\right]\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F_n = \frac{1}{\sqrt{5}}\left[(\frac{1+\sqrt{5}}{2})^n-(\frac{1-\sqrt{5}}{n})^n\right]</span><script type="math/tex">F_n = \frac{1}{\sqrt{5}}\left[(\frac{1+\sqrt{5}}{2})^n-(\frac{1-\sqrt{5}}{n})^n\right]</script></span></p>
 <p>两个常数项用二次剩余搞一搞就变成</p>
-<p><span class="arithmatex">\(F_n = d(a^n-b^n)\)</span></p>
-<p>然后答案就是 <span class="arithmatex">\(d^k \sum_{i=0}^N \left(a^{C*i}-b^{C*i}\right)^K\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F_n = d(a^n-b^n)</span><script type="math/tex">F_n = d(a^n-b^n)</script></span></p>
+<p>然后答案就是 <span class="arithmatex"><span class="MathJax_Preview">d^k \sum_{i=0}^N \left(a^{C*i}-b^{C*i}\right)^K</span><script type="math/tex">d^k \sum_{i=0}^N \left(a^{C*i}-b^{C*i}\right)^K</script></span></p>
 <p>n 很大要对其做二项式展开转换为与 k 相关的等比数列通项然后做快速幂即可。</p>
 <p>快速幂可以对 1e9+8 取模做欧拉降幂来降低常数。</p>
 <p>另外由于有多组数据本题复杂度出满其实是不能过的。</p>
-<p>??? note &ldquo;Code&rdquo;
-    <code>cpp
-    #include &lt;bits/stdc++.h&gt;
-    using namespace std; 
-    typedef long long ll;
-    const ll mod=1e9+9;
-    const int maxn=1e5+5;
-    ll C[maxn];
-    ll inv[maxn],pr1[maxn],pr2[maxn];
-    int cnt=0;
-    inline ll fastpow(ll a,ll b){
-        if(a%mod==0) b=b%(mod-1)+mod-1;else b%=(mod-1);
-        ll ans=1;
-        for(;b;b&gt;&gt;=1,a=a*a%mod) if(b&amp;1) ans=ans*a%mod;
-            return ans;
-    }
-    inline ll calc(ll x,ll n) {
-        if(x==1) return n%mod;
-        return (x*(1-fastpow(x,n))%mod*fastpow(1-x,mod-2)%mod+mod)%mod;
-    }
-    int main(){
-        clock_t start,end;
-        start=clock();
-        int T;cin&gt;&gt;T;
-        ll n,m,k;
-        inv[1] = 1;pr1[0]=pr2[0]=1;
-        for(int i=2;i&lt;maxn;++i) inv[i]=(mod-mod/i)*inv[mod%i]%mod;
-        while (T--)    {
-            ll s=723398404,r1=308495997,r2=691504013,ans=0;
-            scanf("%lld%lld%lld",&amp;n,&amp;k,&amp;m);
-            r1=fastpow(r1,k);r2=fastpow(r2,k);
-            C[0]=1;
-            for (register int i=1;i&lt;=m;i++){
-                C[i]=C[i-1]*(m-i+1)%mod*inv[i]%mod;
-                pr1[i]=pr1[i-1]*r1%mod;pr2[i]=pr2[i-1]*r2%mod;
-            } 
-            for (int i=0;i&lt;=m;i++) {
-                ll x=C[i];
-                x=x*calc(pr1[i]*pr2[m-i]%mod,n)%mod;
-                x*=((m-i)%2==1)?-1:1;
-                ans=(ans+x+mod)%mod;
-            }
-            ans=fastpow(s,m)*ans%mod;
-            printf("%lld\n",ans);
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std; 
+typedef long long ll;
+const ll mod=1e9+9;
+const int maxn=1e5+5;
+ll C[maxn];
+ll inv[maxn],pr1[maxn],pr2[maxn];
+int cnt=0;
+inline ll fastpow(ll a,ll b){
+    if(a%mod==0) b=b%(mod-1)+mod-1;else b%=(mod-1);
+    ll ans=1;
+    for(;b;b&gt;&gt;=1,a=a*a%mod) if(b&amp;1) ans=ans*a%mod;
+        return ans;
+}
+inline ll calc(ll x,ll n) {
+    if(x==1) return n%mod;
+    return (x*(1-fastpow(x,n))%mod*fastpow(1-x,mod-2)%mod+mod)%mod;
+}
+int main(){
+    clock_t start,end;
+    start=clock();
+    int T;cin&gt;&gt;T;
+    ll n,m,k;
+    inv[1] = 1;pr1[0]=pr2[0]=1;
+    for(int i=2;i&lt;maxn;++i) inv[i]=(mod-mod/i)*inv[mod%i]%mod;
+    while (T--)    {
+        ll s=723398404,r1=308495997,r2=691504013,ans=0;
+        scanf("%lld%lld%lld",&amp;n,&amp;k,&amp;m);
+        r1=fastpow(r1,k);r2=fastpow(r2,k);
+        C[0]=1;
+        for (register int i=1;i&lt;=m;i++){
+            C[i]=C[i-1]*(m-i+1)%mod*inv[i]%mod;
+            pr1[i]=pr1[i-1]*r1%mod;pr2[i]=pr2[i-1]*r2%mod;
+        } 
+        for (int i=0;i&lt;=m;i++) {
+            ll x=C[i];
+            x=x*calc(pr1[i]*pr2[m-i]%mod,n)%mod;
+            x*=((m-i)%2==1)?-1:1;
+            ans=(ans+x+mod)%mod;
         }
-            // cout&lt;&lt;cnt&lt;&lt;endl;
-        end=clock();
-        // cout&lt;&lt;(float)(end-start)*1000/CLOCKS_PER_SEC&lt;&lt;endl;
-        return 0;
-    }</code></p>
+        ans=fastpow(s,m)*ans%mod;
+        printf("%lld\n",ans);
+    }
+        // cout&lt;&lt;cnt&lt;&lt;endl;
+    end=clock();
+    // cout&lt;&lt;(float)(end-start)*1000/CLOCKS_PER_SEC&lt;&lt;endl;
+    return 0;
+}</code></pre>
+</details>
 <h2 id="f-finding-a-mex">F. Finding a MEX<a class="headerlink" href="#f-finding-a-mex" title="Permanent link">Link</a></h2>
 <p>给一张图，有点权带修求一个点直接相邻的点的点权 mex，n,m,q 1e5 a 1e9，时限 3s</p>
 <p>对点的度数分块即可。</p>
 <p>询问对大点用树状数组维护所有的直接相邻点权，小点暴力所有临点。</p>
 <p>修改对相邻的所有大点修改树状数组。</p>
-<p>复杂度 <span class="arithmatex">\(O(n\sqrt n * \log(n))\)</span></p>
+<p>复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(n\sqrt n * \log(n))</span><script type="math/tex">O(n\sqrt n * \log(n))</script></span></p>
 <p>关于树状数组上二分求 mex 做单 log 可以学习一下。貌似二分 check 做双 log 也可以通过</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/24 20:11
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/24 20:11
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -633,19 +634,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -678,12 +679,12 @@ inline int mex(int u) {
 }
 
 int main(int argc, char* argv[]) {
-//     freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;data.out&quot;, &quot;w&quot;, stdout);
+//     freopen("data.in","r",stdin);
+//    freopen("data.out", "w", stdout);
 //    clock_t ST = clock();
-//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;
+//    cerr &lt;&lt; "time: " &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; "ms" &lt;&lt; endl;
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
         R(n, m);
         BIT.clear();
@@ -740,20 +741,19 @@ int main(int argc, char* argv[]) {
         }
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="i-leading-robots">I. Leading Robots<a class="headerlink" href="#i-leading-robots" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>题意：有n个机器人，t时刻的位置为<span class="arithmatex">\(at^2+p\)</span>，问有多少个机器人处于过领先状态，当且仅当处于最前的机器人唯一时才视为领先。</p>
-<p>令<span class="arithmatex">\(x=t^2\)</span>，则<span class="arithmatex">\(y=ax+p\)</span>，问有多少条射线在某一时刻处于最上方，也就是BZOJ1007的问题。维护一个单调递增的下凸包，看栈中有多少点即可。</p>
-<p>这道题需要注意的是直线的交点可能位于y轴的左侧，这种情况是不合法的，需要做一下预处理。对于相同的p只保留最大的a，且对于<span class="arithmatex">\(p_1&lt;p_2\)</span>保证<span class="arithmatex">\(a_1&gt;a_2\)</span>，被丢弃的数据不会对答案产生贡献，处理后的数据一定能保证直线的交点在y轴右侧。</p>
+<p>题意：有n个机器人，t时刻的位置为<span class="arithmatex"><span class="MathJax_Preview">at^2+p</span><script type="math/tex">at^2+p</script></span>，问有多少个机器人处于过领先状态，当且仅当处于最前的机器人唯一时才视为领先。</p>
+<p>令<span class="arithmatex"><span class="MathJax_Preview">x=t^2</span><script type="math/tex">x=t^2</script></span>，则<span class="arithmatex"><span class="MathJax_Preview">y=ax+p</span><script type="math/tex">y=ax+p</script></span>，问有多少条射线在某一时刻处于最上方，也就是BZOJ1007的问题。维护一个单调递增的下凸包，看栈中有多少点即可。</p>
+<p>这道题需要注意的是直线的交点可能位于y轴的左侧，这种情况是不合法的，需要做一下预处理。对于相同的p只保留最大的a，且对于<span class="arithmatex"><span class="MathJax_Preview">p_1&lt;p_2</span><script type="math/tex">p_1<p_2</script></span>保证<span class="arithmatex"><span class="MathJax_Preview">a_1&gt;a_2</span><script type="math/tex">a_1>a_2</script></span>，被丢弃的数据不会对答案产生贡献，处理后的数据一定能保证直线的交点在y轴右侧。</p>
 <p>在计算完后需要减去出现多次的ab点对对答案的贡献。</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 5e4 + 10;
@@ -771,17 +771,17 @@ bool cmp(pair&lt;int, int&gt; a,pair&lt;int, int&gt; b,pair&lt;int, int&gt; c)
 int main()
 {
     int t;
-    scanf(&quot;%d&quot;, &amp;t);
+    scanf("%d", &amp;t);
     while(t --)
     {
         int n;
-        scanf(&quot;%d&quot;, &amp;n);
+        scanf("%d", &amp;n);
         tmp.clear(); ve.clear(); 
         for(int i = 0; i &lt; n; i ++) vis[i] = false;
         for(int i = 1; i &lt;= n; i ++) 
         {
             pair&lt;int, int&gt; t;
-            scanf(&quot;%d%d&quot;, &amp;t.first, &amp;t.second);
+            scanf("%d%d", &amp;t.first, &amp;t.second);
             tmp.push_back(t);
         }
         sort(tmp.begin(), tmp.end());
@@ -808,85 +808,85 @@ int main()
         {
             if(vis[st[i]]) dsc ++;
         }
-        printf(&quot;%d\n&quot;, top - dsc);
+        printf("%d\n", top - dsc);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="j-math-is-simple">J. Math is Simple<a class="headerlink" href="#j-math-is-simple" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: ffacs</em></p>
 <p>题意：求 
-$$
-\sum\limits_{1\le a &lt; b \le n\gcd(a,b)=1\a+b \ge n}{\frac{1}{ab}}
-$$
-<span class="arithmatex">\(T\le1e4,2\le n\le 1e8\)</span> ，输出模 <span class="arithmatex">\(998244353\)</span> 意义下的值，<strong>时限六秒</strong></p>
-<p>这个 <span class="arithmatex">\(n\)</span> 好像不是很大啊，能不能递推捏？下面这个 大于等于号也太烦了，变成等于才舒服。</p>
+<script type="math/tex; mode=display">
+\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}
+</script>
+<span class="arithmatex"><span class="MathJax_Preview">T\le1e4,2\le n\le 1e8</span><script type="math/tex">T\le1e4,2\le n\le 1e8</script></span> ，输出模 <span class="arithmatex"><span class="MathJax_Preview">998244353</span><script type="math/tex">998244353</script></span> 意义下的值，<strong>时限六秒</strong></p>
+<p>这个 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 好像不是很大啊，能不能递推捏？下面这个 大于等于号也太烦了，变成等于才舒服。</p>
 <p>设 
-$$
-f_n=\sum\limits_{1\le a &lt; b \le n\gcd(a,b)=1\a+b \ge n}{\frac{1}{ab}}
-$$
-来考虑一下 <span class="arithmatex">\(f_n\)</span> 比 <span class="arithmatex">\(f_{n-1}\)</span> 多加上了什么东西。
-$$
+<script type="math/tex; mode=display">
+f_n=\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}
+</script>
+来考虑一下 <span class="arithmatex"><span class="MathJax_Preview">f_n</span><script type="math/tex">f_n</script></span> 比 <span class="arithmatex"><span class="MathJax_Preview">f_{n-1}</span><script type="math/tex">f_{n-1}</script></span> 多加上了什么东西。
+<script type="math/tex; mode=display">
 \begin{align}
-f_n-f_{n-1}&amp;=\sum\limits_{1\le a &lt; b=n\gcd(a,b)=1\a+b \ge n}{\frac{1}{ab}}-\sum\limits_{1\le a &lt; b \le n-1\gcd(a,b)=1\a+b = n-1}{\frac{1}{ab}} \
-&amp;=\frac{1}{n}\sum_{1\le a\le n\gcd(a,n)=1}\frac{1}{a}-\sum\limits_{1\le a &lt; b \le n-1\gcd(a,b)=1\a+b = n-1}{\frac{1}{ab}} \
+f_n-f_{n-1}&=\sum\limits_{1\le a < b=n\\gcd(a,b)=1\\a+b \ge n}{\frac{1}{ab}}-\sum\limits_{1\le a < b \le n-1\\gcd(a,b)=1\\a+b = n-1}{\frac{1}{ab}} \\
+&=\frac{1}{n}\sum_{1\le a\le n\\gcd(a,n)=1}\frac{1}{a}-\sum\limits_{1\le a < b \le n-1\\gcd(a,b)=1\\a+b = n-1}{\frac{1}{ab}} \\
 \end{align}
-$$
+</script>
 现在都是等号了，右边那个太丑了，简化一下，不妨设 
-$$
-g(n)=\sum\limits_{1\le a &lt; b \le n\gcd(a,b)=1\a+b = n}{\frac{1}{ab}}
-$$
-这样 <span class="arithmatex">\(n-1\)</span> 换成 <span class="arithmatex">\(n\)</span> 比较方便，因为和是定值，我们只枚举 <span class="arithmatex">\(a\)</span> 即可，又有 <span class="arithmatex">\((a,b)=(a,n-a)=(a,n)\)</span> ,<span class="arithmatex">\(\frac{1}{ab}=\frac{1}{a(n-a)}=\frac{1}{n}(\frac{1}{a}+\frac{1}{n-a})\)</span>
-$$
+<script type="math/tex; mode=display">
+g(n)=\sum\limits_{1\le a < b \le n\\gcd(a,b)=1\\a+b = n}{\frac{1}{ab}}
+</script>
+这样 <span class="arithmatex"><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 换成 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 比较方便，因为和是定值，我们只枚举 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 即可，又有 <span class="arithmatex"><span class="MathJax_Preview">(a,b)=(a,n-a)=(a,n)</span><script type="math/tex">(a,b)=(a,n-a)=(a,n)</script></span> ,<span class="arithmatex"><span class="MathJax_Preview">\frac{1}{ab}=\frac{1}{a(n-a)}=\frac{1}{n}(\frac{1}{a}+\frac{1}{n-a})</span><script type="math/tex">\frac{1}{ab}=\frac{1}{a(n-a)}=\frac{1}{n}(\frac{1}{a}+\frac{1}{n-a})</script></span>
+<script type="math/tex; mode=display">
 \begin{align}
-g(n)&amp;=\frac{1}{n}\sum_{1\le a&lt;n-a \le n\(a,n)=1}(\frac{1}{a}+\frac{1}{n-a})
+g(n)&=\frac{1}{n}\sum_{1\le a<n-a \le n\\(a,n)=1}(\frac{1}{a}+\frac{1}{n-a})
 \end{align}
-$$
-发现在不考虑  <span class="arithmatex">\((a,n)=1\)</span>的时候 除了 <span class="arithmatex">\(a=n-a\)</span> ，所有 <span class="arithmatex">\(\frac{1}{a},1\le a\le n-1\)</span> 都遍历到了，而 <span class="arithmatex">\(a=n-a\)</span> 和 <span class="arithmatex">\(a=n\)</span> 时， <span class="arithmatex">\((a,n)\neq 1\)</span> ，还有要注意 <span class="arithmatex">\(n=2\)</span> 的时候是不成立的。所以可以改写成
-$$
-g(n)=\frac{1}{n}\sum_{1\le a \le n\gcd(a,n)=1}\frac{1}{a}
-$$
-这个和 <span class="arithmatex">\((4)\)</span> 中的第一项居然是一样的。也就是说我们得到了 
-$$
-f_n-f_{n-1}=g_n-g_{n-1} \
-f_n-f_2=g_n-g_2 \
+</script>
+发现在不考虑  <span class="arithmatex"><span class="MathJax_Preview">(a,n)=1</span><script type="math/tex">(a,n)=1</script></span>的时候 除了 <span class="arithmatex"><span class="MathJax_Preview">a=n-a</span><script type="math/tex">a=n-a</script></span> ，所有 <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{a},1\le a\le n-1</span><script type="math/tex">\frac{1}{a},1\le a\le n-1</script></span> 都遍历到了，而 <span class="arithmatex"><span class="MathJax_Preview">a=n-a</span><script type="math/tex">a=n-a</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">a=n</span><script type="math/tex">a=n</script></span> 时， <span class="arithmatex"><span class="MathJax_Preview">(a,n)\neq 1</span><script type="math/tex">(a,n)\neq 1</script></span> ，还有要注意 <span class="arithmatex"><span class="MathJax_Preview">n=2</span><script type="math/tex">n=2</script></span> 的时候是不成立的。所以可以改写成
+<script type="math/tex; mode=display">
+g(n)=\frac{1}{n}\sum_{1\le a \le n\\gcd(a,n)=1}\frac{1}{a}
+</script>
+这个和 <span class="arithmatex"><span class="MathJax_Preview">(4)</span><script type="math/tex">(4)</script></span> 中的第一项居然是一样的。也就是说我们得到了 
+<script type="math/tex; mode=display">
+f_n-f_{n-1}=g_n-g_{n-1} \\
+f_n-f_2=g_n-g_2 \\
 f_n=g_n+\frac{1}{2}
-$$
+</script>
 其中 
-$$
+<script type="math/tex; mode=display">
 g_n=
-\left{
-\begin{array}{<strong>lr</strong>}
-    \frac{1}{n}\sum\limits_{1\le a \le n\gcd(a,n)=1}\frac{1}{a} \
-    0,n=2\
+\left\{
+\begin{array}{**lr**}
+    \frac{1}{n}\sum\limits_{1\le a \le n\\gcd(a,n)=1}\frac{1}{a} \\
+    0,n=2\\
 \end{array}
 \right.
-$$
-这个 <span class="arithmatex">\(g(n)\)</span> 看起来就很好求
-$$
+</script>
+这个 <span class="arithmatex"><span class="MathJax_Preview">g(n)</span><script type="math/tex">g(n)</script></span> 看起来就很好求
+<script type="math/tex; mode=display">
 \begin{align}
-g(n)&amp;=\frac{1}{n}\sum_{1\le a\le n}\frac{1}{a}\sum_{d\mid gcd(a,n)}\mu(d) \
-&amp;=\frac{1}{n}\sum_{d\mid n}\mu(d)\sum_{d\mid a}\frac{1}{a} \
-&amp;=\frac{1}{n}\sum_{d\mid n}\mu(d)\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{ad} \
-&amp;=\frac{1}{n}\sum_{d\mid n}\mu(d)\frac{1}{d}\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{a}
+g(n)&=\frac{1}{n}\sum_{1\le a\le n}\frac{1}{a}\sum_{d\mid gcd(a,n)}\mu(d) \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\sum_{d\mid a}\frac{1}{a} \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{ad} \\
+&=\frac{1}{n}\sum_{d\mid n}\mu(d)\frac{1}{d}\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{a}
 \end{align}
-$$</p>
-<p>后面就是一个调和级数前缀和，又因为里面有 <span class="arithmatex">\(\mu(d)\)</span> 又要求是 <span class="arithmatex">\(n\)</span> 的因子，所以我们直接  <span class="arithmatex">\(\text{dfs}\)</span> 素因子最多出现一次的因子即可。</p>
+</script>
+</p>
+<p>后面就是一个调和级数前缀和，又因为里面有 <span class="arithmatex"><span class="MathJax_Preview">\mu(d)</span><script type="math/tex">\mu(d)</script></span> 又要求是 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的因子，所以我们直接  <span class="arithmatex"><span class="MathJax_Preview">\text{dfs}</span><script type="math/tex">\text{dfs}</script></span> 素因子最多出现一次的因子即可。</p>
 <h2 id="k-minimum-index">K. Minimum Index<a class="headerlink" href="#k-minimum-index" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>推荐阅读 <a href="https://www.docin.com/p-1936795644.html">金策-字符串算法选讲</a> 学习一下Lyndon循环。</p>
-<p>对于S的某个前缀<span class="arithmatex">\(s[0,k]\)</span>，把它分为<span class="arithmatex">\(S[0,i-1]\)</span>和<span class="arithmatex">\(S[i,k]\)</span>，其中<span class="arithmatex">\(s[0,i-1]\)</span>由<span class="arithmatex">\(s_1s_2...s_g\)</span>组成，且<span class="arithmatex">\(s_1...s_{g}\)</span>为<span class="arithmatex">\(s_{g}≤s_{g-1}≤..≤s_1\)</span>的Lyndon串，且有<span class="arithmatex">\(S[i,k]&lt;s_g\)</span>，<span class="arithmatex">\(S[i,k]=t_1t_2...t_hv\)</span>，其中<span class="arithmatex">\(t_1=t_2=...=t_h\)</span>，且<span class="arithmatex">\(v\)</span>为<span class="arithmatex">\(t_1\)</span>的真前缀，<span class="arithmatex">\(j=k-|t_1|\)</span>。</p>
+<p>对于S的某个前缀<span class="arithmatex"><span class="MathJax_Preview">s[0,k]</span><script type="math/tex">s[0,k]</script></span>，把它分为<span class="arithmatex"><span class="MathJax_Preview">S[0,i-1]</span><script type="math/tex">S[0,i-1]</script></span>和<span class="arithmatex"><span class="MathJax_Preview">S[i,k]</span><script type="math/tex">S[i,k]</script></span>，其中<span class="arithmatex"><span class="MathJax_Preview">s[0,i-1]</span><script type="math/tex">s[0,i-1]</script></span>由<span class="arithmatex"><span class="MathJax_Preview">s_1s_2...s_g</span><script type="math/tex">s_1s_2...s_g</script></span>组成，且<span class="arithmatex"><span class="MathJax_Preview">s_1...s_{g}</span><script type="math/tex">s_1...s_{g}</script></span>为<span class="arithmatex"><span class="MathJax_Preview">s_{g}≤s_{g-1}≤..≤s_1</span><script type="math/tex">s_{g}≤s_{g-1}≤..≤s_1</script></span>的Lyndon串，且有<span class="arithmatex"><span class="MathJax_Preview">S[i,k]&lt;s_g</span><script type="math/tex">S[i,k]<s_g</script></span>，<span class="arithmatex"><span class="MathJax_Preview">S[i,k]=t_1t_2...t_hv</span><script type="math/tex">S[i,k]=t_1t_2...t_hv</script></span>，其中<span class="arithmatex"><span class="MathJax_Preview">t_1=t_2=...=t_h</span><script type="math/tex">t_1=t_2=...=t_h</script></span>，且<span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>为<span class="arithmatex"><span class="MathJax_Preview">t_1</span><script type="math/tex">t_1</script></span>的真前缀，<span class="arithmatex"><span class="MathJax_Preview">j=k-|t_1|</span><script type="math/tex">j=k-|t_1|</script></span>。</p>
 <p>所以在check循环节时：</p>
 <ul>
-<li>如果<span class="arithmatex">\(S[j]&lt;S[k]\)</span>，也就是出现了形如<span class="arithmatex">\(abcabcabz\)</span>的情况<span class="arithmatex">\((i=0, j=5, k=8)\)</span>，此时的答案为所有循环串的开头，<span class="arithmatex">\(res[k]=i\)</span></li>
-<li>如果<span class="arithmatex">\(S[j]≥S[k]\)</span>，即<span class="arithmatex">\(abcabcabc\)</span>或者<span class="arithmatex">\(abcabcabd(i=0,j=5,k=8,res[j]=3)\)</span>，此时的答案为最近的一个循环串的串首，<span class="arithmatex">\(res[k]=res[j]+k-j\)</span></li>
+<li>如果<span class="arithmatex"><span class="MathJax_Preview">S[j]&lt;S[k]</span><script type="math/tex">S[j]<S[k]</script></span>，也就是出现了形如<span class="arithmatex"><span class="MathJax_Preview">abcabcabz</span><script type="math/tex">abcabcabz</script></span>的情况<span class="arithmatex"><span class="MathJax_Preview">(i=0, j=5, k=8)</span><script type="math/tex">(i=0, j=5, k=8)</script></span>，此时的答案为所有循环串的开头，<span class="arithmatex"><span class="MathJax_Preview">res[k]=i</span><script type="math/tex">res[k]=i</script></span></li>
+<li>如果<span class="arithmatex"><span class="MathJax_Preview">S[j]≥S[k]</span><script type="math/tex">S[j]≥S[k]</script></span>，即<span class="arithmatex"><span class="MathJax_Preview">abcabcabc</span><script type="math/tex">abcabcabc</script></span>或者<span class="arithmatex"><span class="MathJax_Preview">abcabcabd(i=0,j=5,k=8,res[j]=3)</span><script type="math/tex">abcabcabd(i=0,j=5,k=8,res[j]=3)</script></span>，此时的答案为最近的一个循环串的串首，<span class="arithmatex"><span class="MathJax_Preview">res[k]=res[j]+k-j</span><script type="math/tex">res[k]=res[j]+k-j</script></span></li>
 </ul>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 1e6 + 10;
@@ -914,37 +914,36 @@ void duval(char s[])
 int main()
 {
     int t;
-    scanf(&quot;%d&quot;, &amp;t);
+    scanf("%d", &amp;t);
     while(t --)
     {
-        scanf(&quot;%s&quot;, s);
+        scanf("%s", s);
         int n = strlen(s);
         duval(s);
         ll ans = 0;
         for(int i = 0, p = 1; i &lt; n; i ++, p = 1ll * p * 1112 % mod) 
             ans = (ans + 1ll * p * (res[i] + 1)) % mod;
-        printf(&quot;%lld\n&quot;, ans);
+        printf("%lld\n", ans);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="l-mow">L. Mow<a class="headerlink" href="#l-mow" title="Permanent link">Link</a></h2>
 <p>给一个凸包，你可以每个单位面积用 A 的代价涂色，或者用一个半径为 r 的圆形的区域（不能超出边界）给一个单位面积以 B 的代价涂色，求全部涂满色的最少花费。</p>
-<p>考虑圆心的范围是凸包每条边往内移动 r 距离构成的新凸包。如果 A&lt;B 显然全部用 A 涂色即可，直接算原凸包面积，否则尽量用 B 涂色，最大范围是 <span class="arithmatex">\(新凸包面积+新凸包周长*r+pi*r*r\)</span>。</p>
+<p>考虑圆心的范围是凸包每条边往内移动 r 距离构成的新凸包。如果 A&lt;B 显然全部用 A 涂色即可，直接算原凸包面积，否则尽量用 B 涂色，最大范围是 <span class="arithmatex"><span class="MathJax_Preview">新凸包面积+新凸包周长*r+pi*r*r</span><script type="math/tex">新凸包面积+新凸包周长*r+pi*r*r</script></span>。</p>
 <p>可以考虑非扇形的区域实际是平行线做切割一共是新凸包周长那么长的，扇形区域拼起来就是一个外角和为 2pi。</p>
 <p>所以首先把凸包处理成逆时针，每条边用向量表示的话，向左旋转 pi/2 并表示为单位向量即是它的单位法向量，往这个移动 r 的距离，然后做半平面交求出新凸包的点集，注意如果新凸包点集 &lt;= 2 其实表示它不存在。</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/25 22:34
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/25 22:34
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -961,19 +960,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(ll &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(ll &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const ll &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const ll &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -1009,8 +1008,8 @@ struct point{
     db abs2(){return x*x+y*y;}
     db dis(point k1){return ((*this)-k1).abs();}
     point unit(){db w=abs(); return (point){x/w,y/w};}
-    void scan(){double k1,k2; scanf(&quot;%lf%lf&quot;,&amp;k1,&amp;k2); x=k1; y=k2;}
-    void print(){printf(&quot;%.11lf %.11lf\n&quot;,x,y);}
+    void scan(){double k1,k2; scanf("%lf%lf",&amp;k1,&amp;k2); x=k1; y=k2;}
+    void print(){printf("%.11lf %.11lf\n",x,y);}
     db getw(){return atan2(y,x);}
     point getdel(){if (sign(x)==-1||(sign(x)==0&amp;&amp;sign(y)==-1)) return (*this)*(-1); else return (*this);}
     int getP() const{return sign(y)==1||(sign(y)==0&amp;&amp;sign(x)==-1);}
@@ -1055,7 +1054,7 @@ db disSS(point k1,point k2,point k3,point k4){
 int onS(point k1,point k2,point q){return inmid(k1,k2,q)&amp;&amp;sign(cross(k1-q,k2-k1))==0;}
 struct circle{
     point o; db r;
-    void scan(){o.scan(); scanf(&quot;%lf&quot;,&amp;r);}
+    void scan(){o.scan(); scanf("%lf",&amp;r);}
     int inside(point k){return cmp(r,o.dis(k));}
 };
 struct line{
@@ -1101,11 +1100,11 @@ db area(vector&lt;point&gt; A){ // 多边形用 vector&lt;point&gt; 表示 , 逆
 }
 
 int main(int argc, char* argv[]) {
-//     freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;my.out&quot;, &quot;w&quot;, stdout);
+//     freopen("data.in","r",stdin);
+//    freopen("my.out", "w", stdout);
 //    clock_t ST = clock();
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
         int n;
         db r, A, B;
@@ -1133,11 +1132,10 @@ int main(int argc, char* argv[]) {
         }
         W(res);
     }
-//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;
+//    cerr &lt;&lt; "time: " &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; "ms" &lt;&lt; endl;
     return 0;
-}
-```
-</code></pre>
+}</code></pre>
+</details>
 
               
             </article>
@@ -1173,7 +1171,7 @@ int main(int argc, char* argv[]) {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

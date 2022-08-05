@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#tag" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -465,7 +465,7 @@
 <p>题意：给一个长度为n初始为0的序列，每次操作将区间翻转（0变1，1变0），求最终有多少个点的值为1。数据范围组数<code>1000</code>，长度<code>1e6</code>，操作<code>1000</code>次</p>
 <p>题解：初看是一个线段树区间和、单次查询整个序列的裸题，但是由于数组组数<code>1000</code>复杂度会炸掉，而操作数较少所以直接对操作差分按左右排序，扫一遍求出结果即可。复杂度<code>O(T*mlog(m))</code></p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：B.cpp
@@ -513,14 +513,14 @@ vector&lt;pair&lt;int, int&gt; &gt; query;
 
 int main(int argc, char* argv[]) {
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
         int n, q;
-        scanf(&quot;%d%d&quot;, &amp;n, &amp;q);
+        scanf("%d%d", &amp;n, &amp;q);
         query.resize(q * 2);
         for (int i = 0; i &lt; q; ++i) {
             int x, y;
-            scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+            scanf("%d%d", &amp;x, &amp;y);
             query[i].first = x;
             query[i].second = 0;
             query[i + q].first = y + 1;
@@ -537,20 +537,18 @@ int main(int argc, char* argv[]) {
             } else now ++;
             pre = query[i].first;
         }
-        printf(&quot;Case #%d: %d\n&quot;, kase, res);
+        printf("Case #%d: %d\n", kase, res);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="d-counting-sequences-i">D. Counting Sequences I<a class="headerlink" href="#d-counting-sequences-i" title="Permanent link">Link</a></h2>
-<p>题意：求n个正整数，使得他们的和等于他们的积的方案数<span class="arithmatex">\(n \le 3000\)</span></p>
-<p>题解：论文上写了很多输出所有方案的做法，oeis上也有如果限定这些正整数为1~9时的方案数量的表，还有所有非重集的方案数的表，但是这题要求所有方案数，所以可以考虑爆搜出所有方案。对3000个数打表，每个数k爆搜出<span class="arithmatex">\(\prod a_i = k\)</span>，然后可以根据<span class="arithmatex">\( k - \sum a_i \)</span>求出1的数量，对这个方案进行非重排列即可得到某个数的解。搜索6000个数以内就可以打出3000的表（论文中有证明对于n个数，要组成和与积相等的方案必不大于<code>2×n</code>）这边直接把表打好输出到文件写的代码就不放了。</p>
-<p>科普：非重排列的解法是：一共有<code>n</code>个元素，其中第<code>i</code>种元素有<code>a_i</code>个，则总排列数有<span class="arithmatex">\( \frac{n!}{\prod{a_i!}} \)</span>个。</p>
+<p>题意：求n个正整数，使得他们的和等于他们的积的方案数<span class="arithmatex"><span class="MathJax_Preview">n \le 3000</span><script type="math/tex">n \le 3000</script></span></p>
+<p>题解：论文上写了很多输出所有方案的做法，oeis上也有如果限定这些正整数为1~9时的方案数量的表，还有所有非重集的方案数的表，但是这题要求所有方案数，所以可以考虑爆搜出所有方案。对3000个数打表，每个数k爆搜出<span class="arithmatex"><span class="MathJax_Preview">\prod a_i = k</span><script type="math/tex">\prod a_i = k</script></span>，然后可以根据<span class="arithmatex"><span class="MathJax_Preview"> k - \sum a_i </span><script type="math/tex"> k - \sum a_i </script></span>求出1的数量，对这个方案进行非重排列即可得到某个数的解。搜索6000个数以内就可以打出3000的表（论文中有证明对于n个数，要组成和与积相等的方案必不大于<code>2×n</code>）这边直接把表打好输出到文件写的代码就不放了。</p>
+<p>科普：非重排列的解法是：一共有<code>n</code>个元素，其中第<code>i</code>种元素有<code>a_i</code>个，则总排列数有<span class="arithmatex"><span class="MathJax_Preview"> \frac{n!}{\prod{a_i!}} </span><script type="math/tex"> \frac{n!}{\prod{a_i!}} </script></span>个。</p>
 <h2 id="f-rhyme-scheme">F. Rhyme scheme<a class="headerlink" href="#f-rhyme-scheme" title="Permanent link">Link</a></h2>
 <p>题意：给定一类字符串的构造方案：前i-1位的最大字符为&rsquo;mx&rsquo;，则第i位可以取的范围为[&lsquo;A&rsquo;,&rsquo;mx&rsquo; + 1]。每组询问输出长度为n的串中字典序第k大的字符串。</p>
-<p>题解：构造出的字符串方案数应该为贝尔数。根据题意，rhyme scheme可以形成一棵字典树，并且每个节点的子树大小取决于字典树路径上的最大字符。考虑dp求解某个子树对应的字符个数，令<span class="arithmatex">\(dp[i][j]\)</span>表示在第i层，根节点到当前节点路径字符的最大值为j的子树大小，有dp方程<code>dp[i][j]=j*dp[i-1][j]+dp[i][j+1]</code>。询问时在字典树上从上往下走，假设根节点到当前节点路径上的最大值为mx，那么前mx个点的子树大小为<code>dp[n-dep][mx]</code>，最后一个节点的子树大小为<code>dp[n-dep][mx+1]</code>，不断往下走即可求出解。</p>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<p>题解：构造出的字符串方案数应该为贝尔数。根据题意，rhyme scheme可以形成一棵字典树，并且每个节点的子树大小取决于字典树路径上的最大字符。考虑dp求解某个子树对应的字符个数，令<span class="arithmatex"><span class="MathJax_Preview">dp[i][j]</span><script type="math/tex">dp[i][j]</script></span>表示在第i层，根节点到当前节点路径字符的最大值为j的子树大小，有dp方程<code>dp[i][j]=j*dp[i-1][j]+dp[i][j+1]</code>。询问时在字典树上从上往下走，假设根节点到当前节点路径上的最大值为mx，那么前mx个点的子树大小为<code>dp[n-dep][mx]</code>，最后一个节点的子树大小为<code>dp[n-dep][mx+1]</code>，不断往下走即可求出解。</p>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
 
@@ -578,7 +576,7 @@ inline void out(T x) {
 int main()
 {
     int T, n;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for(int i = 0; i &lt; 30; i ++) dp[0][i] = 1;
     for(int i = 1; i &lt; 30; i ++)
         for(int j = 0; j &lt; 30; j ++)
@@ -588,32 +586,30 @@ int main()
         for(int j = 1; j &lt;= T - i; j ++)
         {
             out(dp[i][j]);
-            printf(&quot; &quot;);
+            printf(" ");
         }
-        puts(&quot;&quot;);
+        puts("");
     }
 
     for(int _ = 1; _ &lt;= T; _ ++)
     {
-        scanf(&quot;%d&quot;, &amp;n); scan(k);
-        printf(&quot;Case #%d: &quot;, _);
+        scanf("%d", &amp;n); scan(k);
+        printf("Case #%d: ", _);
         int c = 0, mx = 0;
         for(int i = 1; i &lt;= n; i ++)
         {
             for(c = 0; c &lt; mx &amp;&amp; k &gt; dp[n - i][mx]; c ++) k -= dp[n - i][mx];
             mx = max(c + 1, mx);
-            printf(&quot;%c&quot;, 'A' + c);
+            printf("%c", 'A' + c);
         }
-        puts(&quot;&quot;);
+        puts("");
     }
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="g-substring">G. Substring<a class="headerlink" href="#g-substring" title="Permanent link">Link</a></h2>
 <p>题意：给一个s串，给m个t串，分别求s串与每个t串乱序匹配的子串数量，乱序匹配指两串长度相等，首尾字符相等，中间重排之后相等即可。</p>
 <p>题解：数据范围中t的总长不超过1e5，所以离线查询，对每种长度按窗口处理一次s，复杂度O（能过），乱序匹配用加法hash就可以了，这个范围甚至不会溢出longlong。唯一比较nb的点在于它的细节卡内存，unordermap只需要管那些t串满足的解，所以count先判断是否存在需要这个解，然后再加就可以了。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：G.cpp
@@ -720,19 +716,17 @@ int main(int argc, char* argv[]) {
             res[p[i].id] = mp[p[i].L][p[i].R][p[i].hash];
         }
         for (int i = 1; i &lt;= q; ++i) {
-            printf(&quot;%d\n&quot;, res[i]);
+            printf("%d\n", res[i]);
         }
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="j-stone-game">J. Stone game<a class="headerlink" href="#j-stone-game" title="Permanent link">Link</a></h2>
 <p>题意：给一个可重集<code>S</code>，求它的一个子集<code>S‘</code>，满足<code>(Sum(S‘)≥Sum(S−S’))∧(∀t∈S‘,Sum(S’)−t≤Sum(S−S‘))</code>的方案数，注意<code>S’</code>不同只要它所包含的数的下标存在不同的即可。</p>
 <p>题解：由于加法的特殊性，它第二个条件可以转化为<code>Sum(S’)−min(S’)≤Sum(S−S‘)</code>，于是可以枚举出每个<code>t</code>，数据范围较小直接背包求出所有方案数即可。注意相同<code>t</code>的处理办法，由于<code>t</code>是<code>S‘</code>集合中的最小元素，一个个枚举的过程中可能枚举到相同的元素，只要将排序后序号比他小的都放入<code>S</code>，它本身放入<code>S‘</code>定然不会产生重复。注意这个背包方案数是不需要重新计算的，可以倒着处理然后就是每次往背包里新增一个元素。</p>
 <p>科普：<code>dp[j] += dp[j - a[i]]</code>是求背包方案数的写法。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：J.cpp
@@ -782,17 +776,17 @@ int a[505];
 ll pre[maxn];
 
 int main(int argc, char* argv[]) {
-//    freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);
-//    freopen(&quot;data.out&quot;, &quot;w&quot;, stdout);
+//    freopen("data.in", "r", stdin);
+//    freopen("data.out", "w", stdout);
 //    clock_t ST = clock();
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
-        scanf(&quot;%d&quot;, &amp;n);
+        scanf("%d", &amp;n);
         ll sum = 0;
         pre[0] = 0;
         for (int i = 1; i &lt;= n; ++i) {
-            scanf(&quot;%d&quot;, &amp;a[i]);
+            scanf("%d", &amp;a[i]);
             pre[i] = pre[i - 1] + a[i];
             sum += a[i];
         }
@@ -814,12 +808,11 @@ int main(int argc, char* argv[]) {
                 dp[j] = (dp[j] + dp[j - a[i]]) % mod;
             }
         }
-        printf(&quot;%lld\n&quot;, res);
+        printf("%lld\n", res);
     }
-//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;
+//    cerr &lt;&lt; "time: " &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; "ms" &lt;&lt; endl;
     return 0;
-}
-</code></pre>
+}</code></pre>
 
               
             </article>
@@ -855,7 +848,7 @@ int main(int argc, char* argv[]) {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

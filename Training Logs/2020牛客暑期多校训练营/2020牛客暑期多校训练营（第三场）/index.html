@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#a-clam-and-fish" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -482,16 +482,17 @@
 </table>
 <h2 id="a-clam-and-fish">A. Clam and Fish<a class="headerlink" href="#a-clam-and-fish" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:19:06(-1)</em></p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/18 12:15
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/18 12:15
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -508,19 +509,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -531,7 +532,7 @@ char s[maxn];
 
 int main(int argc, char* argv[]) {
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
         R(n);
         R(s);
@@ -551,22 +552,21 @@ int main(int argc, char* argv[]) {
         W(res + pre / 2);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="b-classical-string-problem">B. Classical String Problem<a class="headerlink" href="#b-classical-string-problem" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:11:12</em></p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/18 12:07
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/18 12:07
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -583,19 +583,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -623,71 +623,71 @@ int main(int argc, char* argv[]) {
         }
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="c-operation-love">C. Operation Love<a class="headerlink" href="#c-operation-love" title="Permanent link">Link</a></h2>
 <p><em>solved by: ffacs 00:43:53(-1)</em></p>
-<p>??? note &ldquo;Code&rdquo;
-    <code>cpp
-    #include &lt;bits/stdc++.h&gt;
-    using namespace std;
-    typedef long long ll;
-    typedef pair&lt;int,int&gt; pii;
-    typedef pair&lt;ll,ll&gt; pll;
-    const int maxn=1e6+5;
-    struct Poi{
-        double y,x;
-    }poi[30];
-    double dis(const Poi &amp;a,const Poi &amp;b){
-        return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
-    }
-    double is(double a,double b) {
-        return fabs(a-b)&lt;0.0001;
-    }
-    int main() {
-        int T;cin&gt;&gt;T;while(T--) {
-            for(int i=0;i&lt;20;i++) {
-                scanf("%lf%lf",&amp;poi[i].y,&amp;poi[i].x);
-            }
-            for(int i=0;i&lt;20;i++) {
-                double d1=dis(poi[i],poi[(i+19)%20]);
-                double d2=dis(poi[i],poi[(i+1)%20]);
-                Poi p1,p6;
-                if(is(d1,1)&amp;&amp;is(d2,6)) {
-                    p1={poi[(i+19)%20].x-poi[i].x,poi[(i+19)%20].y-poi[i].y}
-                        ,p6={poi[(i+1)%20].x-poi[i].x,poi[(i+1)%20].y-poi[i].y};
-                    if((p1.x*p6.y)-(p6.x*p1.y)&lt;0) {
-                        puts("right");
-                    }else {
-                        puts("left");
-                    }
-                }if(is(d1,6)&amp;&amp;is(d2,1)) {
-                    p6={poi[(i+19)%20].x-poi[i].x,poi[(i+19)%20].y-poi[i].y}
-                        ,p1={poi[(i+1)%20].x-poi[i].x,poi[(i+1)%20].y-poi[i].y};
-                    if((p1.x*p6.y)-(p6.x*p1.y)&lt;0) {
-                        puts("right");
-                    }else {
-                        puts("left");
-                    }
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+typedef pair&lt;int,int&gt; pii;
+typedef pair&lt;ll,ll&gt; pll;
+const int maxn=1e6+5;
+struct Poi{
+    double y,x;
+}poi[30];
+double dis(const Poi &amp;a,const Poi &amp;b){
+    return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+}
+double is(double a,double b) {
+    return fabs(a-b)&lt;0.0001;
+}
+int main() {
+    int T;cin&gt;&gt;T;while(T--) {
+        for(int i=0;i&lt;20;i++) {
+            scanf("%lf%lf",&amp;poi[i].y,&amp;poi[i].x);
+        }
+        for(int i=0;i&lt;20;i++) {
+            double d1=dis(poi[i],poi[(i+19)%20]);
+            double d2=dis(poi[i],poi[(i+1)%20]);
+            Poi p1,p6;
+            if(is(d1,1)&amp;&amp;is(d2,6)) {
+                p1={poi[(i+19)%20].x-poi[i].x,poi[(i+19)%20].y-poi[i].y}
+                    ,p6={poi[(i+1)%20].x-poi[i].x,poi[(i+1)%20].y-poi[i].y};
+                if((p1.x*p6.y)-(p6.x*p1.y)&lt;0) {
+                    puts("right");
+                }else {
+                    puts("left");
+                }
+            }if(is(d1,6)&amp;&amp;is(d2,1)) {
+                p6={poi[(i+19)%20].x-poi[i].x,poi[(i+19)%20].y-poi[i].y}
+                    ,p1={poi[(i+1)%20].x-poi[i].x,poi[(i+1)%20].y-poi[i].y};
+                if((p1.x*p6.y)-(p6.x*p1.y)&lt;0) {
+                    puts("right");
+                }else {
+                    puts("left");
                 }
             }
-            ed:;
         }
-        return 0;
-    }</code></p>
+        ed:;
+    }
+    return 0;
+}</code></pre>
+</details>
 <h2 id="d-points-construction-problem">D. Points Construction Problem<a class="headerlink" href="#d-points-construction-problem" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>题意:在无限大的格子中,原本所有格子都是白色的,把n个格子涂黑,满足上下左右相邻的两个点对为异色的个数为m个</p>
-<p>对于m,容易得到<span class="arithmatex">\(m≤4*n\)</span>且m只能为偶数,找到一组ab,使<span class="arithmatex">\(n≤a*b\)</span>且<span class="arithmatex">\(abs(a-b)≤1\)</span>,<span class="arithmatex">\(2*(a-b)\)</span>即为m的下界</p>
-<p>首先填充长方形的左边缘和下边缘,此时异色点对数为<span class="arithmatex">\(2*(a-b)\)</span>,之后在往长方形内放点,异色点对数不变</p>
+<p>对于m,容易得到<span class="arithmatex"><span class="MathJax_Preview">m≤4*n</span><script type="math/tex">m≤4*n</script></span>且m只能为偶数,找到一组ab,使<span class="arithmatex"><span class="MathJax_Preview">n≤a*b</span><script type="math/tex">n≤a*b</script></span>且<span class="arithmatex"><span class="MathJax_Preview">abs(a-b)≤1</span><script type="math/tex">abs(a-b)≤1</script></span>,<span class="arithmatex"><span class="MathJax_Preview">2*(a-b)</span><script type="math/tex">2*(a-b)</script></span>即为m的下界</p>
+<p>首先填充长方形的左边缘和下边缘,此时异色点对数为<span class="arithmatex"><span class="MathJax_Preview">2*(a-b)</span><script type="math/tex">2*(a-b)</script></span>,之后在往长方形内放点,异色点对数不变</p>
 <p>当异色点对数小于m时,不断将非左边缘和下边缘的点单独丢到远处,此时异色点对数+4,如果异色点对数&gt;m,一定只比m大2,把远处一个单独的点放到0,0下方连接即可</p>
-<p>如果非左边缘和下边缘的点全部丢完时异色点对数仍然小于m,将左边缘最上面或者下边缘最右侧的点丢向远处,每次异色点对+2,直到异色点对数=<span class="arithmatex">\(4*n\)</span></p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<p>如果非左边缘和下边缘的点全部丢完时异色点对数仍然小于m,将左边缘最上面或者下边缘最右侧的点丢向远处,每次异色点对+2,直到异色点对数=<span class="arithmatex"><span class="MathJax_Preview">4*n</span><script type="math/tex">4*n</script></span></p>
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 50 + 10;
@@ -695,19 +695,19 @@ const int maxn = 50 + 10;
 int main()
 {
     int t;
-    scanf(&quot;%d&quot;, &amp;t);
+    scanf("%d", &amp;t);
     while(t --)
     {
         int n, m;
-        scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-        if(m &gt; n * 4 || m % 2) { puts(&quot;No&quot;); continue; }
+        scanf("%d%d", &amp;n, &amp;m);
+        if(m &gt; n * 4 || m % 2) { puts("No"); continue; }
         int a, b;  
         for(int i = 1; ; i ++)
         {
             if(i * i &gt;= n &amp;&amp; i + i - 1 &lt;= n) { a = i, b = i; break; }
             if(i * (i + 1) &gt;= n &amp;&amp; i + i &lt;= n) { a = i, b = i + 1; break; }
         }
-        if(2 * (a + b) &gt; m) { puts(&quot;No&quot;); continue; }
+        if(2 * (a + b) &gt; m) { puts("No"); continue; }
         vector&lt;pair&lt;int, int&gt; &gt; res, res1, res2;
         for(int i = 0; i &lt; a; i ++) res.push_back({0, i});
         for(int j = 1; j &lt; b; j ++) res.push_back({j, 0});
@@ -741,31 +741,30 @@ int main()
                 cnt += 2;
             }
         }
-        puts(&quot;Yes&quot;);
-        for(auto x : res) printf(&quot;%d %d\n&quot;, x.first, x.second);
-        for(auto x : res1) printf(&quot;%d %d\n&quot;, x.first, x.second);
-        for(auto x : res2) printf(&quot;%d %d\n&quot;, x.first, x.second);
+        puts("Yes");
+        for(auto x : res) printf("%d %d\n", x.first, x.second);
+        for(auto x : res1) printf("%d %d\n", x.first, x.second);
+        for(auto x : res2) printf("%d %d\n", x.first, x.second);
 
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="e-two-matchings">E. Two Matchings<a class="headerlink" href="#e-two-matchings" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 03:27:11(-4)</em></p>
 <p>题意：给2n个点的完全图，边的权值为点权差的绝对值，求两个完全不相交的完全匹配，使匹配值之和最小。</p>
 <p>对点权排序，将点分成长度&gt;=4的若干个块，dp求解最小值即可。</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/18 15:06
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/18 15:06
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -782,19 +781,19 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
@@ -805,7 +804,7 @@ ll mn[maxn];
 
 int main(int argc, char* argv[]) {
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
         int n;
         R(n);
@@ -826,50 +825,49 @@ int main(int argc, char* argv[]) {
         W(dp[n]);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="f-fraction-construction-problem">F. Fraction Construction Problem<a class="headerlink" href="#f-fraction-construction-problem" title="Permanent link">Link</a></h2>
 <p><em>solved by: ffacs 04:47:35(-4)</em></p>
-<p>题意：给定一个分数<span class="arithmatex">\(\frac a b\)</span>，求c,d,e,f满足<span class="arithmatex">\(\frac c e - \frac d f = \frac a b(d, f&lt;b,c,e≤ 4×10^{12})\)</span></p>
+<p>题意：给定一个分数<span class="arithmatex"><span class="MathJax_Preview">\frac a b</span><script type="math/tex">\frac a b</script></span>，求c,d,e,f满足<span class="arithmatex"><span class="MathJax_Preview">\frac c e - \frac d f = \frac a b(d, f&lt;b,c,e≤ 4×10^{12})</span><script type="math/tex">\frac c e - \frac d f = \frac a b(d, f<b,c,e≤ 4×10^{12})</script></span></p>
 <p>如果ab不互质，<code>gcd(a,b)+a, b, gcd(a, b), b</code>即为答案</p>
-<p>对于互质的情况，如果b的不同质因数个数只有1个，即<span class="arithmatex">\(b=p^k\)</span>，由于<code>a,b</code>互质,<span class="arithmatex">\(\frac c d - \frac e f\)</span>化简后必须是<span class="arithmatex">\(\frac a b\)</span>,但<code>d,f&lt;b</code>,df的质因数分解质因数指数都小于k,得到矛盾,所以无解</p>
-<p>如果b的不同质因数个数大于1,找到df满足<span class="arithmatex">\(d*f=b\)</span>且<span class="arithmatex">\(__gcd(d,f)=1\)</span>,有<span class="arithmatex">\(\frac {c*f-e*d} {d*f}=\frac a b\)</span>,用exgcd求<span class="arithmatex">\(c*f-e*d=a\)</span></p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    typedef long long ll;
-    typedef pair<int,int> pii;
-    typedef pair<ll,ll> pll;
-    const int maxn=2e6+5;
-    int prim[maxn],pcnt,mn[maxn];
-    bool isnp[maxn];
-    void getp() {
-        for(int i=2;i&lt;maxn;i++) {
-            if(!isnp[i]) {prim[++pcnt]=i;mn[i]=i;}
-            for(int j=1;j&lt;=pcnt&amp;&amp;i<em>prim[j]&lt;maxn;j++) {
-                isnp[i</em>prim[j]]=1;mn[i<em>prim[j]]=prim[j];
-                if(i%prim[j]==0) break;
-            }
+<p>对于互质的情况，如果b的不同质因数个数只有1个，即<span class="arithmatex"><span class="MathJax_Preview">b=p^k</span><script type="math/tex">b=p^k</script></span>，由于<code>a,b</code>互质,<span class="arithmatex"><span class="MathJax_Preview">\frac c d - \frac e f</span><script type="math/tex">\frac c d - \frac e f</script></span>化简后必须是<span class="arithmatex"><span class="MathJax_Preview">\frac a b</span><script type="math/tex">\frac a b</script></span>,但<code>d,f&lt;b</code>,df的质因数分解质因数指数都小于k,得到矛盾,所以无解</p>
+<p>如果b的不同质因数个数大于1,找到df满足<span class="arithmatex"><span class="MathJax_Preview">d*f=b</span><script type="math/tex">d*f=b</script></span>且<span class="arithmatex"><span class="MathJax_Preview">__gcd(d,f)=1</span><script type="math/tex">__gcd(d,f)=1</script></span>,有<span class="arithmatex"><span class="MathJax_Preview">\frac {c*f-e*d} {d*f}=\frac a b</span><script type="math/tex">\frac {c*f-e*d} {d*f}=\frac a b</script></span>,用exgcd求<span class="arithmatex"><span class="MathJax_Preview">c*f-e*d=a</span><script type="math/tex">c*f-e*d=a</script></span></p>
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+typedef pair&lt;int,int&gt; pii;
+typedef pair&lt;ll,ll&gt; pll;
+const int maxn=2e6+5;
+int prim[maxn],pcnt,mn[maxn];
+bool isnp[maxn];
+void getp() {
+    for(int i=2;i&lt;maxn;i++) {
+        if(!isnp[i]) {prim[++pcnt]=i;mn[i]=i;}
+        for(int j=1;j&lt;=pcnt&amp;&amp;i*prim[j]&lt;maxn;j++) {
+            isnp[i*prim[j]]=1;mn[i*prim[j]]=prim[j];
+            if(i%prim[j]==0) break;
         }
     }
-    inline void exgcd(ll a,ll b,ll &amp;g,ll &amp;x,ll &amp;y) {
-        if (!b) g=a,x=1,y=0;
-        else exgcd(b,a%b,g,y,x),y-=x</em>(a/b);
-    }
-    int main() {
-        getp();</p>
-<pre class="codehilite"><code class="linenums">    int T;cin&gt;&gt;T;while(T--) {
-        ll a,b;scanf(&quot;%lld%lld&quot;,&amp;a,&amp;b);
+}
+inline void exgcd(ll a,ll b,ll &amp;g,ll &amp;x,ll &amp;y) {
+    if (!b) g=a,x=1,y=0;
+    else exgcd(b,a%b,g,y,x),y-=x*(a/b);
+}
+int main() {
+    getp();
+
+    int T;cin&gt;&gt;T;while(T--) {
+        ll a,b;scanf("%lld%lld",&amp;a,&amp;b);
         ll c,d,e,f;
-        if(b==1) {puts(&quot;-1 -1 -1 -1&quot;);continue;}
+        if(b==1) {puts("-1 -1 -1 -1");continue;}
         if(!isnp[b]) {
-            if(a%b!=0) {puts(&quot;-1 -1 -1 -1&quot;);continue;}
+            if(a%b!=0) {puts("-1 -1 -1 -1");continue;}
             else {
                 c=a/b+1,d=1,e=1,f=1;
-                printf(&quot;%lld %lld %lld %lld\n&quot;,c,d,e,f);
+                printf("%lld %lld %lld %lld\n",c,d,e,f);
             }
         }else {
             if(__gcd(a,b)!=1) {
@@ -878,14 +876,14 @@ int main(int argc, char* argv[]) {
                 c/=gcd;d/=gcd;
                 gcd=__gcd(e,f);
                 e/=gcd;f/=gcd;
-                printf(&quot;%lld %lld %lld %lld\n&quot;,c,d,e,f);
+                printf("%lld %lld %lld %lld\n",c,d,e,f);
             }else {
                 int t1=mn[b],t2=0;int tem=b;
                 while(tem!=1) {
                     if(mn[tem]==t1) tem/=t1;
                     else {t2=mn[tem];break;}
                 }
-                if(t2==0) {puts(&quot;-1 -1 -1 -1&quot;);continue;}
+                if(t2==0) {puts("-1 -1 -1 -1");continue;}
                 ll y,x,gcd; exgcd(t2,t1,gcd,y,x);
                 // cout&lt;&lt;t2&lt;&lt;' '&lt;&lt;y&lt;&lt;' '&lt;&lt;t1&lt;&lt;' '&lt;&lt;x&lt;&lt;endl;
                 // cout&lt;&lt;t1*(t2-(x%t2+t2)%t2)*a&lt;&lt;' '&lt;&lt;t1*(t2-(x%t2+t2)%t2)*a+a&lt;&lt;endl;
@@ -894,23 +892,22 @@ int main(int argc, char* argv[]) {
                 c/=gcd;d/=gcd;
                 gcd=__gcd(e,f);
                 e/=gcd;f/=gcd;
-                printf(&quot;%lld %lld %lld %lld\n&quot;,c,d,e,f);
+                printf("%lld %lld %lld %lld\n",c,d,e,f);
             }
         }
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="g-operating-on-a-graph">G. Operating on a Graph<a class="headerlink" href="#g-operating-on-a-graph" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>题意:给一张n个点m条边的图,初始时点i的颜色为i，进行q次操作，每次将颜色为i的点周围的点染成i，求q次操作后n个点的颜色。</p>
-<p>考虑每个点所连出的边最多只会被访问一次，所以只要维护某个颜色当前还没有给相邻点染色的点，用链表维护边集，用并查集维护点的颜色，每次染色时合并链表即可，复杂度<span class="arithmatex">\(O(n)\)</span></p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<p>考虑每个点所连出的边最多只会被访问一次，所以只要维护某个颜色当前还没有给相邻点染色的点，用链表维护边集，用并查集维护点的颜色，每次染色时合并链表即可，复杂度<span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 8e5 + 10;
@@ -922,11 +919,11 @@ int Find(int x) { return x == pre[x]? x : pre[x] = Find(pre[x]); }
 int main()
 {
     int t;
-    scanf(&quot;%d&quot;, &amp;t);
+    scanf("%d", &amp;t);
     while(t --)
     {
         int n, m;
-        scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+        scanf("%d%d", &amp;n, &amp;m);
         for(int i = 0; i &lt; n; i ++)
         {
             pre[i] = i;
@@ -935,16 +932,16 @@ int main()
         while(m --)
         {
             int u, v;
-            scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+            scanf("%d%d", &amp;u, &amp;v);
             edge[u].push_back(v);
             edge[v].push_back(u);
         }
         int q;
-        scanf(&quot;%d&quot;, &amp;q);
+        scanf("%d", &amp;q);
         for(int i = 0; i &lt; q; i ++)
         {
             int x;
-            scanf(&quot;%d&quot;, &amp;x);
+            scanf("%d", &amp;x);
             if(x != Find(x)) continue;
             list&lt;int&gt; tmp;
             for(auto v : edge[x])
@@ -957,26 +954,25 @@ int main()
             swap(edge[x], tmp);
         }
         for(int i = 0; i &lt; n; i ++)
-            printf(&quot;%d%c&quot;, Find(i), &quot; \n&quot;[i == n - 1]);
+            printf("%d%c", Find(i), " \n"[i == n - 1]);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="h-sort-the-strings-revision">H. Sort the Strings Revision<a class="headerlink" href="#h-sort-the-strings-revision" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>题意：长度为n的串<span class="arithmatex">\(s_0\)</span>为<code>01234567890123456789...</code>，给定一个0～n-1的排列p和序列d，第i次操作表示把<span class="arithmatex">\(s_{i-1}\)</span>的第<span class="arithmatex">\(p_i\)</span>位修改成<span class="arithmatex">\(d_i\)</span>并生成<span class="arithmatex">\(s_i\)</span>，对<span class="arithmatex">\(s_0\)</span>到<span class="arithmatex">\(s_n\)</span>按字典序排序，<span class="arithmatex">\(r_i\)</span>表示<span class="arithmatex">\(s_i\)</span>在排序后的位置（从0开始），求<span class="arithmatex">\(\sum_{i=0}^n (r_i*10000019^i)\ mod \ 1000000007\)</span></p>
-<p>考虑以<span class="arithmatex">\(p_i\)</span>在区间内的最小值进行分治，对于<span class="arithmatex">\(p_i\)</span>最小值为pos的区间<code>l,r</code>，如果<code>p[pos]%10!=d[pos]</code>，有</p>
+<p>题意：长度为n的串<span class="arithmatex"><span class="MathJax_Preview">s_0</span><script type="math/tex">s_0</script></span>为<code>01234567890123456789...</code>，给定一个0～n-1的排列p和序列d，第i次操作表示把<span class="arithmatex"><span class="MathJax_Preview">s_{i-1}</span><script type="math/tex">s_{i-1}</script></span>的第<span class="arithmatex"><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span>位修改成<span class="arithmatex"><span class="MathJax_Preview">d_i</span><script type="math/tex">d_i</script></span>并生成<span class="arithmatex"><span class="MathJax_Preview">s_i</span><script type="math/tex">s_i</script></span>，对<span class="arithmatex"><span class="MathJax_Preview">s_0</span><script type="math/tex">s_0</script></span>到<span class="arithmatex"><span class="MathJax_Preview">s_n</span><script type="math/tex">s_n</script></span>按字典序排序，<span class="arithmatex"><span class="MathJax_Preview">r_i</span><script type="math/tex">r_i</script></span>表示<span class="arithmatex"><span class="MathJax_Preview">s_i</span><script type="math/tex">s_i</script></span>在排序后的位置（从0开始），求<span class="arithmatex"><span class="MathJax_Preview">\sum_{i=0}^n (r_i*10000019^i)\ mod \ 1000000007</span><script type="math/tex">\sum_{i=0}^n (r_i*10000019^i)\ mod \ 1000000007</script></span></p>
+<p>考虑以<span class="arithmatex"><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span>在区间内的最小值进行分治，对于<span class="arithmatex"><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span>最小值为pos的区间<code>l,r</code>，如果<code>p[pos]%10!=d[pos]</code>，有</p>
 <ul>
 <li><code>p[pos]%10&lt;d[pos]</code>，<code>rk[l~pos-1]+=r-pos</code></li>
 <li><code>p[pos]%10&gt;d[pos]</code>,<code>rk[pos~r]+=pos-l+1</code></li>
 </ul>
 <p>对于每个子区间递归做下去即可。</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 2e6 + 10;
@@ -989,7 +985,7 @@ ll pw[maxn] = {1};
 void rand_p()
 {
     int seed, a, b, mod;
-    scanf(&quot;%d%d%d%d&quot;, &amp;seed, &amp;a, &amp;b, &amp;mod);
+    scanf("%d%d%d%d", &amp;seed, &amp;a, &amp;b, &amp;mod);
     for(int i = 0; i &lt; n; i ++) p[i] = i;
     for(int i = 1; i &lt; n; i ++)
     {
@@ -1001,7 +997,7 @@ void rand_p()
 void rand_d()
 {
     int seed, a, b, mod;
-    scanf(&quot;%d%d%d%d&quot;, &amp;seed, &amp;a, &amp;b, &amp;mod);
+    scanf("%d%d%d%d", &amp;seed, &amp;a, &amp;b, &amp;mod);
     for(int i = 0; i &lt; n; i ++)
     {
         d[i] = seed % 10;
@@ -1022,11 +1018,11 @@ void dfs(int l, int r, int root, int val)
 int main()
 {
     int t;
-    scanf(&quot;%d&quot;, &amp;t);
+    scanf("%d", &amp;t);
     for(int i = 1; i &lt; maxn; i ++) pw[i] = (pw[i - 1] * 10000019) % mod;
     while(t --)
     {
-        scanf(&quot;%d&quot;, &amp;n);
+        scanf("%d", &amp;n);
         rand_p(); rand_d();
         for(int i = 0; i &lt; n; i ++) if(p[i] % 10 == d[i]) p[i] = n;
         int top = 0;
@@ -1042,25 +1038,24 @@ int main()
         dfs(0, n, st[1], 0);
         ll ans = 0;
         for(int i = 0; i &lt;= n; i ++) ans = (ans + rk[i] * pw[i]) % mod; 
-        printf(&quot;%lld\n&quot;, ans);
+        printf("%lld\n", ans);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="l-problem-l-is-the-only-lovely-problem">L. Problem L is the Only Lovely Problem<a class="headerlink" href="#l-problem-l-is-the-only-lovely-problem" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:03:25</em></p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/7/18 12:01
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define VI vector&lt;int&gt;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/7/18 12:01
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define VI vector&lt;int&gt;
 #define ll long long
 using namespace std;
 
@@ -1077,25 +1072,25 @@ ll qp(ll a, ll n, ll mod = ::mod) {
 }
 
 template&lt;class T&gt; void _R(T &amp;x) { cin &gt;&gt; x; }
-void _R(int &amp;x) { scanf(&quot;%d&quot;, &amp;x); }
-void _R(int64_t &amp;x) { scanf(&quot;%lld&quot;, &amp;x); }
-void _R(double &amp;x) { scanf(&quot;%lf&quot;, &amp;x); }
+void _R(int &amp;x) { scanf("%d", &amp;x); }
+void _R(int64_t &amp;x) { scanf("%lld", &amp;x); }
+void _R(double &amp;x) { scanf("%lf", &amp;x); }
 void _R(char &amp;x) { x = getchar(); }
-void _R(char *x) { scanf(&quot;%s&quot;, x); }
+void _R(char *x) { scanf("%s", x); }
 void R() {}
 template&lt;class T, class... U&gt; void R(T &amp;head, U &amp;... tail) { _R(head); R(tail...); }
 template&lt;class T&gt; void _W(const T &amp;x) { cout &lt;&lt; x; }
-void _W(const int &amp;x) { printf(&quot;%d&quot;, x); }
-void _W(const int64_t &amp;x) { printf(&quot;%lld&quot;, x); }
-void _W(const double &amp;x) { printf(&quot;%.16f&quot;, x); }
+void _W(const int &amp;x) { printf("%d", x); }
+void _W(const int64_t &amp;x) { printf("%lld", x); }
+void _W(const double &amp;x) { printf("%.16f", x); }
 void _W(const char &amp;x) { putchar(x); }
-void _W(const char *x) { printf(&quot;%s&quot;, x); }
+void _W(const char *x) { printf("%s", x); }
 template&lt;class T,class U&gt; void _W(const pair&lt;T,U&gt; &amp;x) {_W(x.F); putchar(' '); _W(x.S);}
 template&lt;class T&gt; void _W(const vector&lt;T&gt; &amp;x) { for (auto i = x.begin(); i != x.end(); _W(*i++)) if (i != x.cbegin()) putchar(' '); }
 void W() {}
 template&lt;class T, class... U&gt; void W(const T &amp;head, const U &amp;... tail) { _W(head); putchar(sizeof...(tail) ? ' ' : '\n'); W(tail...); }
 
-string t = &quot;lovely&quot;;
+string t = "lovely";
 
 int main(int argc, char* argv[]) {
     string s;
@@ -1110,11 +1105,10 @@ int main(int argc, char* argv[]) {
         }
         if (flag == t.length()) break;
     }
-    W(flag == t.length() ? &quot;lovely&quot; : &quot;ugly&quot;);
+    W(flag == t.length() ? "lovely" : "ugly");
     return 0;
-}
-```
-</code></pre>
+}</code></pre>
+</details>
 
               
             </article>
@@ -1150,7 +1144,7 @@ int main(int argc, char* argv[]) {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

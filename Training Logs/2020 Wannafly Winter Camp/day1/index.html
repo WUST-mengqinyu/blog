@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#_1" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -482,21 +482,22 @@
 <h2 id="to-do-list">To-do list<a class="headerlink" href="#to-do-list" title="Permanent link">Link</a></h2>
 <p><code>E</code></p>
 <h2 id="a">A. 期望逆序对<a class="headerlink" href="#a" title="Permanent link">Link</a></h2>
-<p>求一个排列，排序一个区间对使得期望逆序对最少求期望。即对于 <span class="arithmatex">\([l_i,r_i]\)</span> 中的任何一个整数 <span class="arithmatex">\(j\)</span>，<span class="arithmatex">\(x_i=j\)</span>的概率都是 <span class="arithmatex">\((r_i-l_i+1)^{-1}\)</span></p>
-<p>显然，对于两个区间 <span class="arithmatex">\([a,b]\)</span> 和 <span class="arithmatex">\([c,d]\)</span>。若 <span class="arithmatex">\(a + b &lt; c + d\)</span>，显然  <span class="arithmatex">\([a,b]\)</span> 应该在 <span class="arithmatex">\([c,d]\)</span> 前面然后由于这个东西是单向有可传递性的所以直接对区间按权排序，然后计算期望即可</p>
-<p>由于 <span class="arithmatex">\(n\le 5\cdot 10^3\)</span> 计算期望的方法是对于每个点对求它可能是逆序对的期望然后求和即可</p>
+<p>求一个排列，排序一个区间对使得期望逆序对最少求期望。即对于 <span class="arithmatex"><span class="MathJax_Preview">[l_i,r_i]</span><script type="math/tex">[l_i,r_i]</script></span> 中的任何一个整数 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>，<span class="arithmatex"><span class="MathJax_Preview">x_i=j</span><script type="math/tex">x_i=j</script></span>的概率都是 <span class="arithmatex"><span class="MathJax_Preview">(r_i-l_i+1)^{-1}</span><script type="math/tex">(r_i-l_i+1)^{-1}</script></span></p>
+<p>显然，对于两个区间 <span class="arithmatex"><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">[c,d]</span><script type="math/tex">[c,d]</script></span>。若 <span class="arithmatex"><span class="MathJax_Preview">a + b &lt; c + d</span><script type="math/tex">a + b < c + d</script></span>，显然  <span class="arithmatex"><span class="MathJax_Preview">[a,b]</span><script type="math/tex">[a,b]</script></span> 应该在 <span class="arithmatex"><span class="MathJax_Preview">[c,d]</span><script type="math/tex">[c,d]</script></span> 前面然后由于这个东西是单向有可传递性的所以直接对区间按权排序，然后计算期望即可</p>
+<p>由于 <span class="arithmatex"><span class="MathJax_Preview">n\le 5\cdot 10^3</span><script type="math/tex">n\le 5\cdot 10^3</script></span> 计算期望的方法是对于每个点对求它可能是逆序对的期望然后求和即可</p>
 <p>所以本题考虑清楚每个点对的期望即可</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/1/12
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define ll long long
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   创 建 者： badcw
+*   创建日期： 2020/1/12
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
 using namespace std;
 
 const int maxn = 5e3+50;
@@ -551,12 +552,12 @@ ll cal(int i, int j) {
 }
 
 int main(int argc, char* argv[]) {
-//    freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);
-//    freopen(&quot;data.out&quot;, &quot;w&quot;, stdout);
+//    freopen("data.in", "r", stdin);
+//    freopen("data.out", "w", stdout);
 //    clock_t ST = clock();
-    scanf(&quot;%d&quot;, &amp;n);
+    scanf("%d", &amp;n);
     for (int i = 1; i &lt;= n; ++i) {
-        scanf(&quot;%d%d&quot;, &amp;l[i], &amp;r[i]), idx[i] = i;
+        scanf("%d%d", &amp;l[i], &amp;r[i]), idx[i] = i;
         inv[i] = qp(r[i] - l[i] + 1, mod - 2);
     }
     sort(idx + 1, idx + 1 + n, [](int x, int y) {
@@ -568,22 +569,21 @@ int main(int argc, char* argv[]) {
             res = (res + cal(i, j)) % mod;
         }
     }
-    printf(&quot;%lld\n&quot;, res % mod);
-//    cerr &lt;&lt; &quot;time: &quot; &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; &quot;ms&quot; &lt;&lt; endl;
+    printf("%lld\n", res % mod);
+//    cerr &lt;&lt; "time: " &lt;&lt; ((clock() - ST) * 1000.0 / CLOCKS_PER_SEC) &lt;&lt; "ms" &lt;&lt; endl;
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="b">B. 密码学<a class="headerlink" href="#b" title="Permanent link">Link</a></h2>
-<p>有个加模的加密方法，输入加密 <span class="arithmatex">\(m\)</span> 次后每个串的形式，求原串</p>
+<p>有个加模的加密方法，输入加密 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次后每个串的形式，求原串</p>
 <p>签到题，减模倒推即可</p>
-<p>??? note &ldquo;Code by Verly&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    typedef long long ll;</p>
-<pre class="codehilite"><code class="linenums">const int maxn = 1000 + 10;
+<details class="note">
+<summary>Code by Verly</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+const int maxn = 1000 + 10;
 char s[maxn][110];
 
 int x[maxn], y[maxn];
@@ -605,12 +605,12 @@ int len[maxn];
 int main()
 {
     int n, m;
-    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    scanf("%d%d", &amp;n, &amp;m);
     for(int i = 1; i &lt;= m; i ++)
-        scanf(&quot;%d%d&quot;, &amp;x[i], &amp;y[i]);
+        scanf("%d%d", &amp;x[i], &amp;y[i]);
     for(int i = 1; i &lt;= n; i ++) 
     {
-        scanf(&quot;%s&quot;, s[i]);
+        scanf("%s", s[i]);
         len[i] = strlen(s[i]);
     }
     for(int i = m; i &gt;= 1; i --)
@@ -623,71 +623,72 @@ int main()
             s[ny][i] = getch(z);
         }
     }
-    for(int i = 1; i &lt;= n; i ++) printf(&quot;%s\n&quot;, s[i]);
+    for(int i = 1; i &lt;= n; i ++) printf("%s\n", s[i]);
     return 0;
 }
-
-```
 </code></pre>
-
-<p>??? note &ldquo;Code by badcw&rdquo;
-    <code>cpp
-    /*================================================================
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/4/18
-    *
-    ================================================================*/
-    #include &lt;bits/stdc++.h&gt;
-    #define ll long long
-    using namespace std;
-    const int maxn = 1e3+50;
-    const int mod = 1e9+7;
-    int n, m;
-    char s[maxn][105];
-    int len[maxn];
-    int chartoint(char x) {
-        if (isupper(x)) return x - 'A' + 26;
-        return x - 'a';
+</details>
+<details class="note">
+<summary>Code by badcw</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*
+*   创 建 者： badcw
+*   创建日期： 2020/4/18
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+const int maxn = 1e3+50;
+const int mod = 1e9+7;
+int n, m;
+char s[maxn][105];
+int len[maxn];
+int chartoint(char x) {
+    if (isupper(x)) return x - 'A' + 26;
+    return x - 'a';
+}
+char inttochar(int x) {
+    if (x &lt; 26) return x + 'a';
+    return x + 'A' - 26;
+}
+void back(char &amp;x, char y) {
+    int xx = chartoint(x);
+    int yy = chartoint(y);
+    xx = (xx - yy + 52) % 52;
+    x = inttochar(xx);
+}
+void roll_back(int x, int y) {
+    for (int i = 0; i &lt; len[x]; ++i) {
+        back(s[x][i], s[y][i % len[y]]);
     }
-    char inttochar(int x) {
-        if (x &lt; 26) return x + 'a';
-        return x + 'A' - 26;
+}
+int main(int argc, char* argv[]) {
+    scanf("%d%d", &amp;n, &amp;m);
+    vector&lt;pair&lt;int, int&gt; &gt; a(m);
+    for (int i = 0; i &lt; m; ++i) scanf("%d%d", &amp;a[i].first, &amp;a[i].second);
+    for (int i = 1; i &lt;= n; ++i) scanf("%s", s[i]), len[i] = strlen(s[i]);
+    for (int i = m - 1; i &gt;= 0; --i) roll_back(a[i].second, a[i].first);
+    for (int i = 1; i &lt;= n; ++i) {
+        printf("%s\n", s[i]);
     }
-    void back(char &amp;x, char y) {
-        int xx = chartoint(x);
-        int yy = chartoint(y);
-        xx = (xx - yy + 52) % 52;
-        x = inttochar(xx);
-    }
-    void roll_back(int x, int y) {
-        for (int i = 0; i &lt; len[x]; ++i) {
-            back(s[x][i], s[y][i % len[y]]);
-        }
-    }
-    int main(int argc, char* argv[]) {
-        scanf("%d%d", &amp;n, &amp;m);
-        vector&lt;pair&lt;int, int&gt; &gt; a(m);
-        for (int i = 0; i &lt; m; ++i) scanf("%d%d", &amp;a[i].first, &amp;a[i].second);
-        for (int i = 1; i &lt;= n; ++i) scanf("%s", s[i]), len[i] = strlen(s[i]);
-        for (int i = m - 1; i &gt;= 0; --i) roll_back(a[i].second, a[i].first);
-        for (int i = 1; i &lt;= n; ++i) {
-            printf("%s\n", s[i]);
-        }
-        return 0;
-    }</code></p>
+    return 0;
+}</code></pre>
+</details>
 <h2 id="c">C. 染色图<a class="headerlink" href="#c" title="Permanent link">Link</a></h2>
-<p>令 <span class="arithmatex">\(g(n,k)\)</span> 为 <span class="arithmatex">\(n\)</span> 个点的无向图对点染成 <span class="arithmatex">\(k\)</span> 种颜色最多的边数，求 <span class="arithmatex">\(\sum_{i=l}^{r} g(n,i)\)</span>
-$$
-g(n,i)=\frac{n<sup>2-\sum_{i=l}</sup>r{(\lceil\frac{n}{i}\rceil)}<sup>2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}</sup>2\cdot(i-n\%i)}{2}
-$$</p>
-<p>对该式分块，当<span class="arithmatex">\(i\le\sqrt{n}\)</span>时对每个点单点求值，当<span class="arithmatex">\(i\ge\sqrt{n}\)</span>时对<span class="arithmatex">\(\lfloor\frac{n}{i}\rfloor\)</span>分块求和，其中<span class="arithmatex">\(\sum_{i=l}^ri\)</span>和<span class="arithmatex">\(n\%i\)</span>均为等差数列，而<span class="arithmatex">\(\lfloor\frac{n}{i}\rfloor\)</span>在单个块内相等，每次求<span class="arithmatex">\(l-1,r\)</span>的前缀和差分即可。</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    typedef long long ll;</p>
-<pre class="codehilite"><code class="linenums">#define int ll
+<p>令 <span class="arithmatex"><span class="MathJax_Preview">g(n,k)</span><script type="math/tex">g(n,k)</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个点的无向图对点染成 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 种颜色最多的边数，求 <span class="arithmatex"><span class="MathJax_Preview">\sum_{i=l}^{r} g(n,i)</span><script type="math/tex">\sum_{i=l}^{r} g(n,i)</script></span>
+<script type="math/tex; mode=display">
+g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}^2\cdot(i-n\%i)}{2}
+</script>
+</p>
+<p>对该式分块，当<span class="arithmatex"><span class="MathJax_Preview">i\le\sqrt{n}</span><script type="math/tex">i\le\sqrt{n}</script></span>时对每个点单点求值，当<span class="arithmatex"><span class="MathJax_Preview">i\ge\sqrt{n}</span><script type="math/tex">i\ge\sqrt{n}</script></span>时对<span class="arithmatex"><span class="MathJax_Preview">\lfloor\frac{n}{i}\rfloor</span><script type="math/tex">\lfloor\frac{n}{i}\rfloor</script></span>分块求和，其中<span class="arithmatex"><span class="MathJax_Preview">\sum_{i=l}^ri</span><script type="math/tex">\sum_{i=l}^ri</script></span>和<span class="arithmatex"><span class="MathJax_Preview">n\%i</span><script type="math/tex">n\%i</script></span>均为等差数列，而<span class="arithmatex"><span class="MathJax_Preview">\lfloor\frac{n}{i}\rfloor</span><script type="math/tex">\lfloor\frac{n}{i}\rfloor</script></span>在单个块内相等，每次求<span class="arithmatex"><span class="MathJax_Preview">l-1,r</span><script type="math/tex">l-1,r</script></span>的前缀和差分即可。</p>
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+#define int ll
 
 const int mod = 998244353;
 
@@ -706,11 +707,11 @@ ll qp(ll a, ll n = mod - 2)
 signed main()
 {
     int t;
-    scanf(&quot;%lld&quot;, &amp;t);
+    scanf("%lld", &amp;t);
     while(t --)
     {
         ll n, l, r;
-        scanf(&quot;%lld%lld%lld&quot;, &amp;n, &amp;l, &amp;r);
+        scanf("%lld%lld%lld", &amp;n, &amp;l, &amp;r);
         int m = sqrt(n);
         ll res = 0;
         res = 1ll * n * n % mod * (r - l + 1) % mod;
@@ -733,146 +734,146 @@ signed main()
             if(posr == r) break;
         }
         res = res * qp(2) % mod;
-        printf(&quot;%lld\n&quot;, res);
+        printf("%lld\n", res);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="e">E. 树与路径<a class="headerlink" href="#e" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    <code>cpp
-    #include &lt;bits/stdc++.h&gt;
-    using namespace std;
-    const int N=500010;
-    typedef long long LL;
-    int n,m;
-    struct edge{
-        int b,nt;
-    }e[N*2];
-    int p[N],nn;
-    int fa[N][32];
-    LL f[N],g[N],h[N];
-    void anode(int x,int y){
-        nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;
-        swap(x,y);
-        nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=500010;
+typedef long long LL;
+int n,m;
+struct edge{
+    int b,nt;
+}e[N*2];
+int p[N],nn;
+int fa[N][32];
+LL f[N],g[N],h[N];
+void anode(int x,int y){
+    nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;
+    swap(x,y);
+    nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;
+}
+int deep[N];
+void dfsLCA(int x,int ff=-1,int dd=0){
+    for(int i=1;(1&lt;&lt;i)&lt;=dd;i++){
+        fa[x][i]=fa[ fa[x][i-1] ][i-1];
     }
-    int deep[N];
-    void dfsLCA(int x,int ff=-1,int dd=0){
-        for(int i=1;(1&lt;&lt;i)&lt;=dd;i++){
-            fa[x][i]=fa[ fa[x][i-1] ][i-1];
-        }
-        deep[x]=dd;
-        for(int i=p[x];i;i=e[i].nt){
-            int t=e[i].b;
-            if(t==ff)continue;
-            fa[t][0]=x;
-            dfsLCA(t,x,dd+1);
-        }
+    deep[x]=dd;
+    for(int i=p[x];i;i=e[i].nt){
+        int t=e[i].b;
+        if(t==ff)continue;
+        fa[t][0]=x;
+        dfsLCA(t,x,dd+1);
     }
-    int LCA(int x,int y){
-        if(deep[x]&lt;deep[y])swap(x,y);
-        int t=deep[x]-deep[y];
-        for(int i=0;(1&lt;&lt;i)&lt;=t;i++)if(t&amp;(1&lt;&lt;i))x=fa[x][i];
-        if(x==y)return y;
-        for(int i=30;i&gt;=0;i--){
-            if(fa[x][i]!=fa[y][i]){
-                x=fa[x][i];
-                y=fa[y][i];
-            }
-        } 
-        return fa[x][0];
-    }
-    int findf(int x,int d){
-        for(int i=0;(1&lt;&lt;i)&lt;=d;i++)if(d&amp;(1&lt;&lt;i))x=fa[x][i];
-        return x;
-    }
-    LL ans[N];
-    void dfs1(int x){
-        for(int i=p[x];i;i=e[i].nt){
-            int t=e[i].b;
-            if(t==fa[x][0])continue;
-            dfs1(t);
-            g[x]+=g[t];
-            h[x]+=h[t];
+}
+int LCA(int x,int y){
+    if(deep[x]&lt;deep[y])swap(x,y);
+    int t=deep[x]-deep[y];
+    for(int i=0;(1&lt;&lt;i)&lt;=t;i++)if(t&amp;(1&lt;&lt;i))x=fa[x][i];
+    if(x==y)return y;
+    for(int i=30;i&gt;=0;i--){
+        if(fa[x][i]!=fa[y][i]){
+            x=fa[x][i];
+            y=fa[y][i];
         }
-        g[x]+=h[x];
+    } 
+    return fa[x][0];
+}
+int findf(int x,int d){
+    for(int i=0;(1&lt;&lt;i)&lt;=d;i++)if(d&amp;(1&lt;&lt;i))x=fa[x][i];
+    return x;
+}
+LL ans[N];
+void dfs1(int x){
+    for(int i=p[x];i;i=e[i].nt){
+        int t=e[i].b;
+        if(t==fa[x][0])continue;
+        dfs1(t);
+        g[x]+=g[t];
+        h[x]+=h[t];
     }
-    void dfs2(int x){
-        for(int i=p[x];i;i=e[i].nt){
-            int t=e[i].b;
-            if(t==fa[x][0])continue;
-            dfs2(t);
-            f[x]+=f[t];
-        }
-        f[x]+=g[x];
+    g[x]+=h[x];
+}
+void dfs2(int x){
+    for(int i=p[x];i;i=e[i].nt){
+        int t=e[i].b;
+        if(t==fa[x][0])continue;
+        dfs2(t);
+        f[x]+=f[t];
     }
-    void getAns(int x,LL now){
-        ans[x]=now;
-        for(int i=p[x];i;i=e[i].nt){
-            int t=e[i].b;
-            if(t==fa[x][0])continue;
-            getAns(t,now-g[t]);
-        }
+    f[x]+=g[x];
+}
+void getAns(int x,LL now){
+    ans[x]=now;
+    for(int i=p[x];i;i=e[i].nt){
+        int t=e[i].b;
+        if(t==fa[x][0])continue;
+        getAns(t,now-g[t]);
     }
-    int main(){
-    #ifdef WK
-        freopen("in.txt","r",stdin);
-    #endif
-        scanf("%d%d",&amp;n,&amp;m);
-        for(int i=1;i&lt;n;i++){
-            int aa,bb;
-            scanf("%d%d",&amp;aa,&amp;bb);
-            anode(aa,bb);
+}
+int main(){
+#ifdef WK
+    freopen("in.txt","r",stdin);
+#endif
+    scanf("%d%d",&amp;n,&amp;m);
+    for(int i=1;i&lt;n;i++){
+        int aa,bb;
+        scanf("%d%d",&amp;aa,&amp;bb);
+        anode(aa,bb);
+    }
+    dfsLCA(1);
+    LL asum=0;
+    for(int i=1;i&lt;=m;i++){
+        int aa,bb;
+        scanf("%d%d",&amp;aa,&amp;bb);
+        if(aa==bb)continue;
+        if(fa[aa][0]==bb||fa[bb][0]==aa)continue;
+        int cc=LCA(aa,bb);
+        int dis=2*deep[cc]-deep[aa]-deep[bb];dis=-dis;
+        if(deep[aa]&lt;deep[bb])swap(aa,bb);
+        f[aa]+=dis-1;f[bb]+=dis-1;
+        if(bb==cc){
+            g[aa]+=dis-1;
+            g[cc]+=dis-1;
+            h[fa[aa][0]]-=2;
+            h[cc]+=2;
+        }else
+        {
+            g[aa]+=dis-1;
+            h[fa[aa][0]]-=2;h[cc]-=2ll*(deep[aa]-deep[cc]-1)+1-dis;
+            g[bb]+=dis-1;
+            h[fa[bb][0]]-=2;h[cc]-=2ll*(deep[bb]-deep[cc]-1)+1-dis;
+            h[cc]+=2;g[cc]-=2;
         }
-        dfsLCA(1);
-        LL asum=0;
-        for(int i=1;i&lt;=m;i++){
-            int aa,bb;
-            scanf("%d%d",&amp;aa,&amp;bb);
-            if(aa==bb)continue;
-            if(fa[aa][0]==bb||fa[bb][0]==aa)continue;
-            int cc=LCA(aa,bb);
-            int dis=2*deep[cc]-deep[aa]-deep[bb];dis=-dis;
-            if(deep[aa]&lt;deep[bb])swap(aa,bb);
-            f[aa]+=dis-1;f[bb]+=dis-1;
-            if(bb==cc){
-                g[aa]+=dis-1;
-                g[cc]+=dis-1;
-                h[fa[aa][0]]-=2;
-                h[cc]+=2;
-            }else
-            {
-                g[aa]+=dis-1;
-                h[fa[aa][0]]-=2;h[cc]-=2ll*(deep[aa]-deep[cc]-1)+1-dis;
-                g[bb]+=dis-1;
-                h[fa[bb][0]]-=2;h[cc]-=2ll*(deep[bb]-deep[cc]-1)+1-dis;
-                h[cc]+=2;g[cc]-=2;
-            }
-            asum += 1ll*(deep[aa]-deep[cc])*(deep[bb]-deep[cc]);
-        }
-        dfs1(1);
-        dfs2(1);
-        getAns(1,asum);
-        for(int i=1;i&lt;=n;i++)printf("%lld\n",ans[i]);
-        return 0;
-    }</code></p>
+        asum += 1ll*(deep[aa]-deep[cc])*(deep[bb]-deep[cc]);
+    }
+    dfs1(1);
+    dfs2(1);
+    getAns(1,asum);
+    for(int i=1;i&lt;=n;i++)printf("%lld\n",ans[i]);
+    return 0;
+} </code></pre>
+</details>
 <h2 id="f">F. 乘法<a class="headerlink" href="#f" title="Permanent link">Link</a></h2>
-<p>给出两个序列，求全积中第 <span class="arithmatex">\(k\)</span> 大的数</p>
-<p>二分答案，然后对答案进行 check，每次求比当前二分的答案小的数的个数，可以考虑将 <span class="arithmatex">\(B\)</span> 序列排序，枚举所有 <span class="arithmatex">\(A\)</span> 套一层二分求出小于它的数的个数即可</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    const int N=100010;
-    typedef long long LL;
-    int n,m;LL k;
-    LL MAXN = 1000000000000000ll;
-    LL A[N],B[N];
-    int L,R;</p>
-<pre class="codehilite"><code class="linenums">int findf(int f,LL x,LL y){
+<p>给出两个序列，求全积中第 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 大的数</p>
+<p>二分答案，然后对答案进行 check，每次求比当前二分的答案小的数的个数，可以考虑将 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 序列排序，枚举所有 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 套一层二分求出小于它的数的个数即可</p>
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=100010;
+typedef long long LL;
+int n,m;LL k;
+LL MAXN = 1000000000000000ll;
+LL A[N],B[N];
+int L,R;
+
+int findf(int f,LL x,LL y){
     //yz=x;
     if(!f){
         LL l=1,r=m,rtn=0;
@@ -903,7 +904,7 @@ int check(LL x){
         if(A[i]==0){
             if(x&lt;0)cnt+=m; 
         }else{
-            int f = (A[i]&gt;0);
+            int f = (A[i]&gt;0);  
 
             cnt+=findf(f,x,A[i]);
         }
@@ -927,27 +928,27 @@ LL solve(){
 
 int main(){
 #ifdef WK
-    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
+    freopen("in.txt","r",stdin);
 #endif
-    scanf(&quot;%d%d%lld&quot;,&amp;n,&amp;m,&amp;k);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;A[i]);
-    for(int i=1;i&lt;=m;i++)scanf(&quot;%lld&quot;,&amp;B[i]);
+    scanf("%d%d%lld",&amp;n,&amp;m,&amp;k);
+    for(int i=1;i&lt;=n;i++)scanf("%lld",&amp;A[i]);
+    for(int i=1;i&lt;=m;i++)scanf("%lld",&amp;B[i]);
     sort(B+1,B+1+m);
     LL ans=solve();
-    printf(&quot;%lld&quot;,ans);
+    printf("%lld",ans);
     return 0;
-} 
-```
-</code></pre>
-
+} </code></pre>
+</details>
 <h2 id="h">H. 最大公约数<a class="headerlink" href="#h" title="Permanent link">Link</a></h2>
-<p>求 <span class="arithmatex">\(y\)</span> 使得在 <span class="arithmatex">\([1,n]\)</span> 中不存在 <span class="arithmatex">\(gcd(i,k)=gcd(y,k)\)</span></p>
-<p>队友一看是个大数，因为如果 <span class="arithmatex">\(n=500, k=1\)</span> 显然是 <span class="arithmatex">\(n\)</span> 中所有的素数积</p>
-<p>然后随便推一推设 <span class="arithmatex">\(p\)</span> 是 <span class="arithmatex">\(n\)</span> 中所有的素数集合，答案就是 <span class="arithmatex">\(k \cdot \prod p\)</span></p>
-<p>??? note &ldquo;Code&rdquo;
-    ```python
-    T = int(input())</p>
-<pre class="codehilite"><code class="linenums">def prim(x):
+<p>求 <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 使得在 <span class="arithmatex"><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 中不存在 <span class="arithmatex"><span class="MathJax_Preview">gcd(i,k)=gcd(y,k)</span><script type="math/tex">gcd(i,k)=gcd(y,k)</script></span></p>
+<p>队友一看是个大数，因为如果 <span class="arithmatex"><span class="MathJax_Preview">n=500, k=1</span><script type="math/tex">n=500, k=1</script></span> 显然是 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 中所有的素数积</p>
+<p>然后随便推一推设 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 中所有的素数集合，答案就是 <span class="arithmatex"><span class="MathJax_Preview">k \cdot \prod p</span><script type="math/tex">k \cdot \prod p</script></span></p>
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-python">T = int(input())
+
+
+def prim(x):
     for i in range(2, x):
         if (x % i == 0):
             return False
@@ -960,26 +961,25 @@ for kase in range(T):
     for i in range(2, int(n / k) + 1):
         if prim(i):
             ans *= i
-    print(ans)
-```
-</code></pre>
-
+    print(ans)</code></pre>
+</details>
 <h2 id="i-k">I. K小数查询<a class="headerlink" href="#i-k" title="Permanent link">Link</a></h2>
 <p>区间推平最大值 + 区间查询第 k 小</p>
 <p>分块 + 二分答案复杂度可过</p>
 <p>正解树套树不会写</p>
 <p>另外区间推平最大值是 segment beats</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/1/12
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define ll long long
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   创 建 者： badcw
+*   创建日期： 2020/1/12
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
 using namespace std;
 
 const int maxn = 8e4+50;
@@ -1061,11 +1061,11 @@ void rebuild() {
         }
         sort(lazy + lpos[i], lazy + rpos[i] + 1);
 //        for (int j = lpos[i]; j &lt;= rpos[i]; ++j) {
-//            printf(&quot;%d &quot;, lazy[j]);
+//            printf("%d ", lazy[j]);
 //        }
-//        printf(&quot; | &quot;);
+//        printf(" | ");
     }
-//    printf(&quot;\n&quot;);
+//    printf("\n");
 }
 
 bool check(int x, int l, int r, int w) {
@@ -1118,11 +1118,11 @@ int query(int l, int r, int w) {
 }
 
 int main(int argc, char* argv[]) {
-    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    scanf("%d%d", &amp;n, &amp;m);
 //    block = n;
     block = sqrt(n);
     for (int i = 1; i &lt;= n; ++i) {
-        scanf(&quot;%d&quot;, &amp;val[i]);
+        scanf("%d", &amp;val[i]);
         lazy[i] = val[i];
         belong[i] = (i - 1) / block + 1;
     }
@@ -1135,17 +1135,16 @@ int main(int argc, char* argv[]) {
     rebuild();
     int op, l, r, x;
     for (int i = 1; i &lt;= m; ++i) {
-        scanf(&quot;%d%d%d%d&quot;, &amp;op, &amp;l, &amp;r, &amp;x);
+        scanf("%d%d%d%d", &amp;op, &amp;l, &amp;r, &amp;x);
         if (op == 1) {
             update(l, r, x);
         } else {
-            printf(&quot;%d\n&quot;, query(l, r, x));
+            printf("%d\n", query(l, r, x));
         }
     }
     return 0;
-}
-```
-</code></pre>
+}</code></pre>
+</details>
 
               
             </article>
@@ -1181,7 +1180,7 @@ int main(int argc, char* argv[]) {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

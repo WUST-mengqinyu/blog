@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#2019-multi-university-training-contest-1" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,7 +350,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -359,7 +359,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -535,21 +535,21 @@
 <h2 id="a-blank">A. <a href="https://cn.vjudge.net/contest/313418#problem/A">Blank</a><a class="headerlink" href="#a-blank" title="Permanent link">Link</a></h2>
 <p>用0123构造一个序列，有m个条件，每个条件描述的是<code>l</code>到<code>r</code>内恰好有<code>k</code>种数，求方案数。</p>
 <p><code>dp[i][j][k][t]</code>表示设0123分别出现的最后位置为<code>i_,j_,k_,t_</code>，那么将这四个位置从大到小排序后得到<code>i,j,k,t</code>，所表示的合法方案数。由于每个地方都要填数，其实<code>i</code>必然是当前位置，所以可以滚动数组枚举一维<code>i</code>，然后递推式很轻易的推出来，如下：
-$$
+<script type="math/tex; mode=display">
 \begin{cases}
-dp[i -1][j][k][t] \to dp[i][j][k][t]\
-dp[i -1][j][k][t] \to dp[i][i-1][j][k]\
-dp[i -1][j][k][t] \to dp[i][i-1][j][t]\
-dp[i -1][j][k][t] \to dp[i][i-1][k][t]\
+dp[i -1][j][k][t] \to dp[i][j][k][t]\\
+dp[i -1][j][k][t] \to dp[i][i-1][j][k]\\
+dp[i -1][j][k][t] \to dp[i][i-1][j][t]\\
+dp[i -1][j][k][t] \to dp[i][i-1][k][t]\\
 \end{cases}
-$$
+</script>
 注意要去掉所有不合法的情况，对每个r记录所有的<code>(l,k)</code>，然后枚举i到r时，如果
-$$
+<script type="math/tex; mode=display">
 1(当前位必有一种数)+(j\ge l) + (k \ge l) + (t \ge l) \neq k
-$$
+</script>
 就把该状态改为0。</p>
 <p>然后就注意一下多组清零的细节。</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：A.cpp
@@ -617,15 +617,15 @@ int n, m;
 vector&lt;pair&lt;int, int&gt; &gt; lim[maxn];
 
 int main(int argc, char* argv[]) {
-//    freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);
-//    freopen(&quot;my.out&quot;, &quot;w&quot;, stdout);
+//    freopen("data.in", "r", stdin);
+//    freopen("my.out", "w", stdout);
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
-        scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+        scanf("%d%d", &amp;n, &amp;m);
         for (int i = 1; i &lt;= n; ++i) lim[i].clear();
         for (int i = 1, u, v, w; i &lt;= m; ++i) {
-            scanf(&quot;%d%d%d&quot;, &amp;u, &amp;v, &amp;w);
+            scanf("%d%d%d", &amp;u, &amp;v, &amp;w);
             lim[v].emplace_back(u, w);
         }
         int now = 0;
@@ -665,19 +665,17 @@ int main(int argc, char* argv[]) {
             }
             now = !now;
         }
-        printf(&quot;%d\n&quot;, res.n);
+        printf("%d\n", res.n);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="b-operation">B. Operation<a class="headerlink" href="#b-operation" title="Permanent link">Link</a></h2>
 <p>对每个点维护一个线性基，插入操作为继承上一个点的线性基并插入当前点的值。</p>
 <p>维护每个基底组成的点g[i]，在未知L的情况下使查询LR尽可能大，考虑贪心，使组成线性基的点尽可能靠近当前点。</p>
 <p>具体操作为，对于某一位的点g[i]，如果pos&gt;g[i]，则把pos与g[i]交换，使pos成为线性基的基底。</p>
 <p>对于每个询问，查询第R个线性基所有pos大于L的基底能组成的最大值。</p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">Link</a></h3>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
 
@@ -717,44 +715,42 @@ struct LinearBasis
 int main()
 {
     int t, q, op, l, r, x;
-    scanf(&quot;%d&quot;, &amp;t);
+    scanf("%d", &amp;t);
     while(t --)
     {
-        scanf(&quot;%d%d&quot;, &amp;n, &amp;q);
+        scanf("%d%d", &amp;n, &amp;q);
         for(int i = 1; i &lt;= n; i ++)
         {
-            scanf(&quot;%d&quot;, &amp;x);
+            scanf("%d", &amp;x);
             base[i] = base[i - 1];
             base[i].ins(x, i);
         }
         int ans = 0;
         while(q --)
         {
-            scanf(&quot;%d&quot;, &amp;op);
+            scanf("%d", &amp;op);
             if(op == 0)
             {
-                scanf(&quot;%d%d&quot;, &amp;l, &amp;r);
+                scanf("%d%d", &amp;l, &amp;r);
                 l = getpos(l, ans), r = getpos(r, ans);
                 if(l &gt; r) swap(l, r);
-                printf(&quot;%d\n&quot;, ans = base[r].query(l));
+                printf("%d\n", ans = base[r].query(l));
             }
             else
             {
-                scanf(&quot;%d&quot;, &amp;x); n ++;
+                scanf("%d", &amp;x); n ++;
                 base[n] = base[n - 1], base[n].ins(x ^ ans, n);
             }
         }
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="d-vacation">D. Vacation<a class="headerlink" href="#d-vacation" title="Permanent link">Link</a></h2>
-<p>考虑<span class="arithmatex">\(O(n)\)</span>的解法。</p>
-<p>对于某一辆车<span class="arithmatex">\(x\)</span>，计算它到达距离停车线0点向右距离为<span class="arithmatex">\(\sum_{i=1}^x l_i​\)</span>的时间，最大值即为答案。</p>
+<p>考虑<span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>的解法。</p>
+<p>对于某一辆车<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，计算它到达距离停车线0点向右距离为<span class="arithmatex"><span class="MathJax_Preview">\sum_{i=1}^x l_i​</span><script type="math/tex">\sum_{i=1}^x l_i​</script></span>的时间，最大值即为答案。</p>
 <p><em>为什么</em>：因为如果某一辆车没有到达这个点，它后面的车肯定被它堵住了，也就导致0车不能到达停车线。所以每辆车都超过了它对应的这个位置的时间就是答案。</p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">Link</a></h3>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
 
@@ -764,11 +760,11 @@ int l[maxn], s[maxn], v[maxn];
 int main()
 {
     int n;
-    while(scanf(&quot;%d&quot;, &amp;n) != EOF)
+    while(scanf("%d", &amp;n) != EOF)
     {
-        for(int i = 0; i &lt;= n; i ++) scanf(&quot;%d&quot;, &amp;l[i]);
-        for(int i = 0; i &lt;= n; i ++) scanf(&quot;%d&quot;, &amp;s[i]);
-        for(int i = 0; i &lt;= n; i ++) scanf(&quot;%d&quot;, &amp;v[i]);
+        for(int i = 0; i &lt;= n; i ++) scanf("%d", &amp;l[i]);
+        for(int i = 0; i &lt;= n; i ++) scanf("%d", &amp;s[i]);
+        for(int i = 0; i &lt;= n; i ++) scanf("%d", &amp;v[i]);
         long long L = 0;
         double ans = 1.0 * s[0] / v[0], tm;
         for(int i = 1; i &lt;= n; i ++)
@@ -777,16 +773,14 @@ int main()
             tm = 1.0 * (L + s[i]) / v[i];
             ans = max(ans, tm);
         }
-        printf(&quot;%f\n&quot;, ans);
+        printf("%f\n", ans);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="e-path">E. Path<a class="headerlink" href="#e-path" title="Permanent link">Link</a></h2>
 <p>跑出最短路，取能够组成最短路的所有边，建新图求最小割。</p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">Link</a></h3>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 #define int long long
 
 using namespace std;
@@ -930,29 +924,27 @@ struct Dijkstra
 signed main()
 {
     int t, n, m, u, v, w;
-    scanf(&quot;%lld&quot;, &amp;t);
+    scanf("%lld", &amp;t);
     while(t --)
     {
-        scanf(&quot;%lld%lld&quot;, &amp;n, &amp;m);
+        scanf("%lld%lld", &amp;n, &amp;m);
         G.init();
         dinic.init();
         while(m --)
         {
-            scanf(&quot;%lld%lld%lld&quot;, &amp;u, &amp;v, &amp;w);
+            scanf("%lld%lld%lld", &amp;u, &amp;v, &amp;w);
             G.add(u, v, w);
         }
         G.dijkstra(1);
-        printf(&quot;%lld\n&quot;, dinic.max_flow(1, n));
+        printf("%lld\n", dinic.max_flow(1, n));
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="f-typewriter">F. Typewriter<a class="headerlink" href="#f-typewriter" title="Permanent link">Link</a></h2>
-<p>令<code>dp[i]</code>表示打出前i个字符的花费。对于第一种操作，<code>dp[i]=dp[i-1]+p</code>，对于第二种操作，考虑有一个最小的<span class="arithmatex">\(j\)</span>，使<span class="arithmatex">\(s(j+1,i)\)</span>是<span class="arithmatex">\(s(1,j)\)</span>的子串，此时花费为<code>dp[i]=dp[j]+q</code>，有状态转移方程<span class="arithmatex">\(<span class="arithmatex">\(dp[i]=min(dp[i-1]+p,dp[j]+q)\)</span>\)</span></p>
-<p>对第二种情况，考虑用后缀自动机维护串<span class="arithmatex">\(s(1,j)\)</span>，当SAM内不存在<span class="arithmatex">\(s(j+1,i)\)</span>时不断往后添加字符并使<code>j=j+1</code>，直到找到串<span class="arithmatex">\(s(j+1,i)\)</span>，复杂度<span class="arithmatex">\(O(n)\)</span>。</p>
+<p>令<code>dp[i]</code>表示打出前i个字符的花费。对于第一种操作，<code>dp[i]=dp[i-1]+p</code>，对于第二种操作，考虑有一个最小的<span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>，使<span class="arithmatex"><span class="MathJax_Preview">s(j+1,i)</span><script type="math/tex">s(j+1,i)</script></span>是<span class="arithmatex"><span class="MathJax_Preview">s(1,j)</span><script type="math/tex">s(1,j)</script></span>的子串，此时花费为<code>dp[i]=dp[j]+q</code>，有状态转移方程<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">dp[i]=min(dp[i-1]+p,dp[j]+q)</span><script type="math/tex">dp[i]=min(dp[i-1]+p,dp[j]+q)</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">dp[i]=min(dp[i-1]+p,dp[j]+q)</span><script type="math/tex">dp[i]=min(dp[i-1]+p,dp[j]+q)</script></span></script></span></p>
+<p>对第二种情况，考虑用后缀自动机维护串<span class="arithmatex"><span class="MathJax_Preview">s(1,j)</span><script type="math/tex">s(1,j)</script></span>，当SAM内不存在<span class="arithmatex"><span class="MathJax_Preview">s(j+1,i)</span><script type="math/tex">s(j+1,i)</script></span>时不断往后添加字符并使<code>j=j+1</code>，直到找到串<span class="arithmatex"><span class="MathJax_Preview">s(j+1,i)</span><script type="math/tex">s(j+1,i)</script></span>，复杂度<span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">Link</a></h3>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
 typedef long long ll;
@@ -1031,19 +1023,17 @@ struct SuffixAutomation
 
 int main()
 {
-    while(scanf(&quot;%s&quot;, s) != EOF)
+    while(scanf("%s", s) != EOF)
     {
-        scanf(&quot;%lld%lld&quot;, &amp;p, &amp;q);
-        printf(&quot;%lld\n&quot;, sam.solve());
+        scanf("%lld%lld", &amp;p, &amp;q);
+        printf("%lld\n", sam.solve());
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="i-string">I. String<a class="headerlink" href="#i-string" title="Permanent link">Link</a></h2>
 <p>逐位构造答案，贪心地加入能够加入的字典序最小的字符（判断加入之后剩下的后缀中每种字符的数目是否满足条件）。</p>
 <h3 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">Link</a></h3>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
 
@@ -1056,10 +1046,10 @@ vector&lt;int&gt; g[26];
 int main()
 {
     int n, m;
-    while(scanf(&quot;%s%d&quot;, s, &amp;m) != EOF)
+    while(scanf("%s%d", s, &amp;m) != EOF)
     {
         n = strlen(s);
-        for(int i = 0; i &lt; 26; i ++) scanf(&quot;%d%d&quot;, &amp;l[i], &amp;r[i]);
+        for(int i = 0; i &lt; 26; i ++) scanf("%d%d", &amp;l[i], &amp;r[i]);
         memset(used, 0, sizeof used);
         memset(cnt, 0, sizeof cnt);
         for(int i = 0; i &lt; 26; i ++) g[i].clear();
@@ -1105,22 +1095,20 @@ int main()
             if(now == i) break;
         }
         s1[m] = 0;
-        if(now &lt; m) printf(&quot;-1\n&quot;);
-        else printf(&quot;%s\n&quot;, s1);
+        if(now &lt; m) printf("-1\n");
+        else printf("%s\n", s1);
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="m-code">M. <a href="https://cn.vjudge.net/problem/HDU-6590">Code</a><a class="headerlink" href="#m-code" title="Permanent link">Link</a></h2>
 <p>题意：给n个点，求感知机是否有解（即能否二分类，用一条直线将两种点分开）</p>
 <p>题解：分别求两类的凸包，判是否凸包相交，方法是枚举凸包内的每个点看是否在另个凸包内，如果存在这样的点两凸包就相交。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">#include&lt;bits/stdc++.h&gt;
-#pragma GCC optimize(&quot;Ofast&quot;)
-#pragma GCC optimize (&quot;unroll-loops&quot;)
-#pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native&quot;)
-#pragma comment(linker, &quot;/STACK:102400000,102400000&quot;)
+<pre class="highlight"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize ("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#pragma comment(linker, "/STACK:102400000,102400000")
 
 using namespace std;
 const int maxn = 1e6 + 5;
@@ -1155,8 +1143,8 @@ struct point{
     db abs2(){return x*x+y*y;}
     db dis(point k1){return ((*this)-k1).abs();}
     point unit(){db w=abs(); return (point){x/w,y/w};}
-    void scan(){double k1,k2; scanf(&quot;%lf%lf&quot;,&amp;k1,&amp;k2); x=k1; y=k2;}
-    void print(){printf(&quot;%.11lf %.11lf\n&quot;,x,y);}
+    void scan(){double k1,k2; scanf("%lf%lf",&amp;k1,&amp;k2); x=k1; y=k2;}
+    void print(){printf("%.11lf %.11lf\n",x,y);}
     db getw(){return atan2(y,x);}
     point getdel(){if (sign(x)==-1||(sign(x)==0&amp;&amp;sign(y)==-1)) return (*this)*(-1); else return (*this);}
     int getP() const{return sign(y)==1||(sign(y)==0&amp;&amp;sign(x)==-1);}
@@ -1190,15 +1178,15 @@ int contain(vector&lt;point&gt;A,point q){ // 2 内部 1 边界 0 外部
 int main()
 {
     int n, T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     while (T--) {
-        scanf(&quot;%d&quot;, &amp;n);
+        scanf("%d", &amp;n);
         int op;
         vector&lt;point&gt; t1, t2;
         point x;
         for (int i = 0; i &lt; n; i++) {
-            scanf(&quot;%lf%lf&quot;, &amp;x.x, &amp;x.y);
-            scanf(&quot;%d&quot;, &amp;op);
+            scanf("%lf%lf", &amp;x.x, &amp;x.y);
+            scanf("%d", &amp;op);
             if (op == 1) t1.push_back(x);
             else t2.push_back(x);
         }
@@ -1217,11 +1205,10 @@ int main()
                 break;
             }
         }
-        printf(&quot;%s\n&quot;, flag ? &quot;Successful!&quot; : &quot;Infinite loop!&quot;);
+        printf("%s\n", flag ? "Successful!" : "Infinite loop!");
     }
     return 0;
-}
-</code></pre>
+}</code></pre>
 
               
             </article>
@@ -1257,7 +1244,7 @@ int main()
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#_1" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,14 +350,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -428,7 +428,7 @@
 
 <h2 id="_1">早上讲课<a class="headerlink" href="#_1" title="Permanent link">Link</a></h2>
 <p>专区 Div1，讲了些很 np 的图论我准备以后补一补，总之一个都不会</p>
-<pre class="codehilite"><code class="linenums">circle-square tree
+<pre class="highlight"><code>circle-square tree
 弦图
 点双联通
 km
@@ -439,9 +439,7 @@ km
 完美消除序列
 三（四）元环计数
 gomory-hu tree
-meet-in-middle
-</code></pre>
-
+meet-in-middle</code></pre>
 <p>然后扯了很久的打比赛方法和队伍间方法，学到很多</p>
 <p>我决定之后跟队友多 battle 签到速度请喝奶茶</p>
 <h2 id="_2">下午比赛<a class="headerlink" href="#_2" title="Permanent link">Link</a></h2>
@@ -485,42 +483,44 @@ meet-in-middle
 <h2 id="to-do-list">To-do list<a class="headerlink" href="#to-do-list" title="Permanent link">Link</a></h2>
 <p><code>A\G</code></p>
 <h2 id="a">A. 黑色气球<a class="headerlink" href="#a" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    <code>cpp
-    #include &lt;bits/stdc++.h&gt;
-    using namespace std;
-    const int N=2010;
-    typedef long long LL;
-    int n,m;
-    int f[N][N];
-    int a[N];
-    int main(){
-    #ifdef WK
-        freopen("in.txt","r",stdin);
-    #endif
-        scanf("%d",&amp;n);
-        for(int i=1;i&lt;=n;i++){
-            for(int j=1;j&lt;=n;j++)scanf("%d",&amp;f[i][j]);
-        }
-        if(n==2){
-            printf("1 1");
-            return 0;
-        }
-        for(int i=2;i&lt;n;i++)a[i+1]=f[1][i+1]-f[1][i];
-        int t=a[3],s=f[2][3];
-        a[2]=(s-t)/2;a[1]=f[1][2]-a[2];
-        for(int i=3;i&lt;=n;i++)a[i]+=a[i-1];
-        for(int i=1;i&lt;=n;i++)printf("%d%c",a[i],(i==n)?'\n':' ');
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=2010;
+typedef long long LL;
+int n,m;
+int f[N][N];
+int a[N];
+int main(){
+#ifdef WK
+    freopen("in.txt","r",stdin);
+#endif
+    scanf("%d",&amp;n);
+    for(int i=1;i&lt;=n;i++){
+        for(int j=1;j&lt;=n;j++)scanf("%d",&amp;f[i][j]);
+    }
+    if(n==2){
+        printf("1 1");
         return 0;
-    }</code></p>
+    }
+    for(int i=2;i&lt;n;i++)a[i+1]=f[1][i+1]-f[1][i];
+    int t=a[3],s=f[2][3];
+    a[2]=(s-t)/2;a[1]=f[1][2]-a[2];
+    for(int i=3;i&lt;=n;i++)a[i]+=a[i-1];
+    for(int i=1;i&lt;=n;i++)printf("%d%c",a[i],(i==n)?'\n':' ');
+    return 0;
+} </code></pre>
+</details>
 <h2 id="c">C. 无向图定向<a class="headerlink" href="#c" title="Permanent link">Link</a></h2>
 <p>给一张无向图，给每个点定向使得其成为一张有向无环图(DAG)，求最短的最长路径</p>
 <p>我的做法是随机对点进行排序，然后将所有边按点大小排序，每次线性 dp 求出最大值，取其最小值即可</p>
 <p>当然正解可以状压优化图的染色</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">using namespace std;
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
 typedef long long ll;
 
 const int maxn = 20;
@@ -533,15 +533,15 @@ int dp[maxn];
 int main()
 {
     int m;
-    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    scanf("%d%d", &amp;n, &amp;m);
     for (int i = 0; i &lt; m; ++i) {
         int u, v;
-        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+        scanf("%d%d", &amp;u, &amp;v);
         u --, v --;
         G[u].push_back(v);
         G[v].push_back(u);
     }
-    if (n == 1) printf(&quot;0\n&quot;);
+    if (n == 1) printf("0\n");
     else {
         for (int i = 0; i &lt; n; ++i) a[i] = i;
         int res = m;
@@ -557,27 +557,26 @@ int main()
             }
             res = min(res, now);
         }
-        printf(&quot;%d\n&quot;, res - 1);
+        printf("%d\n", res - 1);
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="e">E. 棋技哥<a class="headerlink" href="#e" title="Permanent link">Link</a></h2>
 <p>给出一个二位 01 矩阵，两人博弈每次选取一个黑块使得包含该黑块所有左上的点取反，没有黑块时当前选手失败，两人都想让先手获胜</p>
 <p>其实分析一下发现怎么取胜负都是确定的，只需要从后往前把情况枚举一次即可</p>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    /<em>================================================================
-    *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
-    *
-    *   创 建 者： badcw
-    *   创建日期： 2020/1/14
-    *
-    ================================================================</em>/
-    #include <bits/stdc++.h></p>
-<pre class="codehilite"><code class="linenums">#define ll long long
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">/*================================================================
+*   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
+*
+*   创 建 者： badcw
+*   创建日期： 2020/1/14
+*
+================================================================*/
+#include &lt;bits/stdc++.h&gt;
+
+#define ll long long
 using namespace std;
 
 const int maxn = 505;
@@ -616,11 +615,11 @@ char mp[maxn][maxn];
 
 int main(int argc, char* argv[]) {
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     for (int kase = 1; kase &lt;= T; ++kase) {
-        scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+        scanf("%d%d", &amp;n, &amp;m);
         for (int i = 1; i &lt;= n; ++i) {
-            scanf(&quot;%s&quot;, mp[i] + 1);
+            scanf("%s", mp[i] + 1);
         }
         int flag = 0;
         int tmp = 0;
@@ -635,32 +634,31 @@ int main(int argc, char* argv[]) {
                 }
             }
         }
-        if (tmp % 2 == 0) puts(&quot;aoligei&quot;);
-        else puts(&quot;call&quot;);
+        if (tmp % 2 == 0) puts("aoligei");
+        else puts("call");
     }
     return 0;
-}
-```
-</code></pre>
-
+}</code></pre>
+</details>
 <h2 id="g">G. 火山哥周游世界<a class="headerlink" href="#g" title="Permanent link">Link</a></h2>
-<p>??? note &ldquo;Code&rdquo;
-    ```cpp
-    #include <bits/stdc++.h>
-    using namespace std;
-    const int N=500010;
-    typedef long long LL;
-    int n,k;
-    struct edge{
-        int b,nt;LL w;
-    }e[N*2];
-    int p[N],nn;
-    void anode(int x,int y,int z){
-        nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;e[nn].w=z;
-        swap(x,y);
-        nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;e[nn].w=z;
-    }</p>
-<pre class="codehilite"><code class="linenums">LL d[N];int flag[N];
+<details class="note">
+<summary>Code</summary>
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=500010;
+typedef long long LL;
+int n,k;
+struct edge{
+    int b,nt;LL w;
+}e[N*2];
+int p[N],nn;
+void anode(int x,int y,int z){
+    nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;e[nn].w=z;
+    swap(x,y);
+    nn++;e[nn].b=y;e[nn].nt=p[x];p[x]=nn;e[nn].w=z;
+}
+
+LL d[N];int flag[N];
 LL ans[N];
 void dfs(int x,int fa=0){
     for(int i=p[x];i;i=e[i].nt){
@@ -707,25 +705,24 @@ void dfs2(int x,LL ex=0,LL fm=0,int fa=0){
 
 int main(){
 #ifdef WK
-    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
+    freopen("in.txt","r",stdin);
 #endif
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
+    scanf("%d%d",&amp;n,&amp;k);
     for(int i=1;i&lt;n;i++){
         int aa,bb,cc;
-        scanf(&quot;%d%d%d&quot;,&amp;aa,&amp;bb,&amp;cc);
+        scanf("%d%d%d",&amp;aa,&amp;bb,&amp;cc);
         anode(aa,bb,cc);
     }
     for(int i=1;i&lt;=k;i++){
-        int aa;scanf(&quot;%d&quot;,&amp;aa);
+        int aa;scanf("%d",&amp;aa);
         flag[aa]=1;
     }
     dfs(1);
     dfs2(1);
-    for(int i=1;i&lt;=n;i++)printf(&quot;%lld\n&quot;,ans[i]);
+    for(int i=1;i&lt;=n;i++)printf("%lld\n",ans[i]);
     return 0;
-} 
-```
-</code></pre>
+} </code></pre>
+</details>
 
               
             </article>
@@ -761,7 +758,7 @@ int main(){
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

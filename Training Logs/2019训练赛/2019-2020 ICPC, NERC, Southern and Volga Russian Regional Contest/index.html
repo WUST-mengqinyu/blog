@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#tag" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,7 +350,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -359,7 +359,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -496,7 +496,7 @@
 <p>题意：给一些区间以及区间的权值，求<code>L，R</code>使得完全包含于<code>L，R</code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
 <p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p>
 <h2 id="e-the-coronation">E. The Coronation<a class="headerlink" href="#e-the-coronation" title="Permanent link">Link</a></h2>
-<p>给定<span class="arithmatex">\(n\)</span>个长度为<span class="arithmatex">\(m\)</span>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
+<p>给定<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个长度为<span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
 <p>2-SAT问题。</p>
 <p>设串不翻转为0，翻转为1，则对于任意两个串都有如下四种情况：</p>
 <ol>
@@ -507,7 +507,7 @@
 </ol>
 <p>一旦出现4，整组情况一定是无解的。</p>
 <p>相当于原串所代表的点形成若干个联通块，每一个联通块中的元素颜色是相互联系的（即如果翻转一个，必须翻转该块中的所有元素）。</p>
-<p>建完图后对点<span class="arithmatex">\(i\)</span>和点<span class="arithmatex">\(i+n​\)</span>进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
+<p>建完图后对点<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>和点<span class="arithmatex"><span class="MathJax_Preview">i+n​</span><script type="math/tex">i+n​</script></span>进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
 <h2 id="f-data-center">F. Data Center<a class="headerlink" href="#f-data-center" title="Permanent link">Link</a></h2>
 <p>签到</p>
 <h2 id="h-happy-birthday">H. Happy Birthday<a class="headerlink" href="#h-happy-birthday" title="Permanent link">Link</a></h2>
@@ -557,7 +557,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>

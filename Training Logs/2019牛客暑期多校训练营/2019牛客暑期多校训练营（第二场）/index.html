@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -69,7 +69,7 @@
       
         
         <a href="#2019" class="md-skip">
-          Skip to content
+          跳转至
         </a>
       
     </div>
@@ -81,7 +81,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Team Wiki" class="md-header__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
   
@@ -117,14 +117,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -134,7 +134,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -166,7 +166,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Team Wiki" class="md-nav__button md-logo" aria-label="Team Wiki" data-md-component="logo">
       
@@ -350,7 +350,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -359,7 +359,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -463,9 +463,9 @@
 </table>
 <h2 id="aeddy-walker">A、<a href="https://ac.nowcoder.com/acm/contest/882/A">Eddy Walker</a><a class="headerlink" href="#aeddy-walker" title="Permanent link">Link</a></h2>
 <p>题意：有T次操作，每次需要在n次内在m位置结束，每次都是从0出发往前往后都是等概率，然后成环所以0往前是n-1，求发生的总概率（每次与之前的发生概率是有关的）</p>
-<p>题解：首先除非n为1，否则0这个点必不可能是终点，因为它每次都从0开始，然后往前往后概率相等且成环所以是等概率事件，每个点的概率就是<span class="arithmatex">\(\frac{1}{n-1}\)</span>，然后把前缀乘起来就是答案。</p>
+<p>题解：首先除非n为1，否则0这个点必不可能是终点，因为它每次都从0开始，然后往前往后概率相等且成环所以是等概率事件，每个点的概率就是<span class="arithmatex"><span class="MathJax_Preview">\frac{1}{n-1}</span><script type="math/tex">\frac{1}{n-1}</script></span>，然后把前缀乘起来就是答案。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：A.cpp
@@ -495,34 +495,33 @@ ll res = 1;
 int main()
 {
     int t;
-    scanf(&quot;%d&quot;, &amp;t);
+    scanf("%d", &amp;t);
     while (t--) {
-        scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-        if (n == 1) printf(&quot;%lld\n&quot;, res);
+        scanf("%d%d", &amp;n, &amp;m);
+        if (n == 1) printf("%lld\n", res);
         else {
             if (m == 0) {
-                printf(&quot;0\n&quot;);
+                printf("0\n");
                 res = 0;
             }
             else {
                 res = res * qp(n - 1, mod - 2) % mod;
-                printf(&quot;%lld\n&quot;, res);
+                printf("%lld\n", res);
             }
         }
     }
     return 0;
 }
 </code></pre>
-
 <h2 id="beddy-walker-2">B、<a href="https://ac.nowcoder.com/acm/contest/882/B">Eddy Walker 2</a><a class="headerlink" href="#beddy-walker-2" title="Permanent link">Link</a></h2>
-<p>题意：从0点开始往后跳，每次跳1～k格，概率都是<span class="arithmatex">\(\frac{1}{k}\)</span>，然后求到达n点的概率是多少。</p>
+<p>题意：从0点开始往后跳，每次跳1～k格，概率都是<span class="arithmatex"><span class="MathJax_Preview">\frac{1}{k}</span><script type="math/tex">\frac{1}{k}</script></span>，然后求到达n点的概率是多少。</p>
 <p>题解：显然有一个清晰的dp：
-$$
+<script type="math/tex; mode=display">
 dp[i] = \sum_{j=i-k}^{i-1} \frac{dp[j]}{k} = \frac{\sum_{j=i-k}^{i-1} dp[j]}{k}
-$$
-然后就是线性递推式求第n项，由于k有1021那么大无法构造矩阵，所以直接上一手bm，由于递推式有k项，一般来讲是推2*k项进bm跑就可以了。此题还要求无穷远处的概率，考虑无穷远处的概率处处相等，然后每步往前前进步数的期望是<span class="arithmatex">\(\frac{k+1}{2}\)</span>，则无穷远处每个点的概率就是<span class="arithmatex">\(\frac{2}{k+1}\)</span></p>
+</script>
+然后就是线性递推式求第n项，由于k有1021那么大无法构造矩阵，所以直接上一手bm，由于递推式有k项，一般来讲是推2*k项进bm跑就可以了。此题还要求无穷远处的概率，考虑无穷远处的概率处处相等，然后每步往前前进步数的期望是<span class="arithmatex"><span class="MathJax_Preview">\frac{k+1}{2}</span><script type="math/tex">\frac{k+1}{2}</script></span>，则无穷远处每个点的概率就是<span class="arithmatex"><span class="MathJax_Preview">\frac{2}{k+1}</span><script type="math/tex">\frac{2}{k+1}</script></span></p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 #define ll long long
 using namespace std;
 using VI = vector&lt;int&gt;;
@@ -617,12 +616,12 @@ int gao(VI a, ll n)
 
 int main() {
     int T;
-    scanf(&quot;%d&quot;, &amp;T);
+    scanf("%d", &amp;T);
     int k;
     ll n;
     while (T--) {
-        scanf(&quot;%d%lld&quot;, &amp;k, &amp;n);
-        if (n == -1) printf(&quot;%lld\n&quot;, 2 * Pow(k + 1, mod - 2) % mod);
+        scanf("%d%lld", &amp;k, &amp;n);
+        if (n == -1) printf("%lld\n", 2 * Pow(k + 1, mod - 2) % mod);
         else {
             VI tmp;
             tmp.push_back(1);
@@ -634,16 +633,14 @@ int main() {
                 }
                 tmp.push_back(tt);
             }
-            printf(&quot;%d\n&quot;, gao(tmp, n));
+            printf("%d\n", gao(tmp, n));
         }
     }
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="dkth-minimum-clique">D、<a href="https://ac.nowcoder.com/acm/contest/882/D">Kth Minimum Clique</a><a class="headerlink" href="#dkth-minimum-clique" title="Permanent link">Link</a></h2>
 <p>维护一个所有点之间两两有边相连的集合，初始时为空。BFS求解第k大点权和。</p>
 <p>每次取点权和最小的点集，检查新加入的点是否与点集内的所有点相连，如果是，则将该点加入点集，用优先队列维护。</p>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
 
@@ -690,29 +687,27 @@ ll bfs()
 int main()
 {
     char s[N];
-    scanf(&quot;%d%d&quot;, &amp;n, &amp;k);
-    for(int i = 0; i &lt; n; i ++) scanf(&quot;%lld&quot;, &amp;w[i]);
+    scanf("%d%d", &amp;n, &amp;k);
+    for(int i = 0; i &lt; n; i ++) scanf("%lld", &amp;w[i]);
     for(int i = 0; i &lt; n; i ++)
     {
-        scanf(&quot;%s&quot;, s);
+        scanf("%s", s);
         for(int j = 0; j &lt; n; j ++)
             if(s[j] == '1') mp[i][j] = 1;
     }
-    printf(&quot;%lld\n&quot;, bfs());
+    printf("%lld\n", bfs());
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="emaze">E、<a href="https://ac.nowcoder.com/acm/contest/882/E">MAZE</a><a class="headerlink" href="#emaze" title="Permanent link">Link</a></h2>
 <p>题意：最多50000行10列的01矩阵，每次操作对单点取反，每次询问求第一行的某个点到最后一行的某个点的方案数（可以向左向右向下走）。</p>
 <p>题解：显然考虑一个dp
-$$
+<script type="math/tex; mode=display">
 dp[i][j] = \sum dp[i - 1][k], 第i行从k到j的路径可走
-$$
+</script>
 然后因为带修改题目显得不太可做，实际上来讲第i行与第j行有关，列数非常少，可以考虑矩阵转移。</p>
 <p>每次维护第i行的转移矩阵即，第<code>i_</code>行第<code>j_</code>列表示第i行可以从<code>i_</code>到<code>j_</code>，所以上一行的值与该矩阵相乘即可，要求第一行某点出发就把初始矩阵的第x项设为1，其余全0，转移到最后就是解，因为带修改这个直接用线段树维护矩阵就理所当然了，每次单点修改所以只用改一行的矩阵即可。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：E.cpp
@@ -764,12 +759,12 @@ struct Matrix {
         memset(a, 0, sizeof a);
     }
     void pr() {
-        printf(&quot;*\n&quot;);
+        printf("*\n");
         for(int i = 0; i &lt; sz; ++i) {
             for (int j = 0; j &lt; sz; ++j) {
-                printf(&quot;%lld &quot;, a[i][j]);
+                printf("%lld ", a[i][j]);
             }
-            printf(&quot;\n&quot;);
+            printf("\n");
         }
     }
     void tr() {
@@ -857,15 +852,15 @@ void update(int rt, int l, int r) {
 }
 
 int main(int argc, char* argv[]) {
-    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;q);
+    scanf("%d%d%d", &amp;n, &amp;m, &amp;q);
     for (int i = 1; i &lt;= n; ++i) {
-        scanf(&quot;%s&quot;, mp[i] + 1);
+        scanf("%s", mp[i] + 1);
     }
 //    n --;
     build(1, 1, n);
     int op, a, b;
     for (int i = 1; i &lt;= q; ++i) {
-        scanf(&quot;%d%d%d&quot;, &amp;op, &amp;a, &amp;b);
+        scanf("%d%d%d", &amp;op, &amp;a, &amp;b);
         if (op == 1) {
             mp[a][b] = (mp[a][b] == '0' ? '1' : '0');
 //            if (a != n) {
@@ -873,22 +868,20 @@ int main(int argc, char* argv[]) {
                 update(1, 1, n);
 //            }
         } else {
-            if (mp[1][a] == '1' || mp[n][b] == '1') printf(&quot;0\n&quot;);
+            if (mp[1][a] == '1' || mp[n][b] == '1') printf("0\n");
             else {
                 init(a);
-                printf(&quot;%lld\n&quot;, mul(res, p[1].val).a[0][b - 1]);
+                printf("%lld\n", mul(res, p[1].val).a[0][b - 1]);
             }
         }
     }
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="fpartition-problem">F、<a href="https://ac.nowcoder.com/acm/contest/882/F">Partition problem</a><a class="headerlink" href="#fpartition-problem" title="Permanent link">Link</a></h2>
 <p>题意：给最多28个点组成完全图，求转成等点数的二分图后边权最大值。</p>
 <p>题解：爆搜，搜爆，每次转移只用把属于当前集合中的点边权加上，把不属于的减去就是新的状态，然后维护下每个点边权和免得每次都算满n个点。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">/*================================================================
+<pre class="highlight"><code class="language-cpp">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
 *   文件名称：F.cpp
@@ -970,16 +963,14 @@ int main()
         }
     }
     dfs(0, 0);
-    printf(&quot;%lld\n&quot;, resnow);
+    printf("%lld\n", resnow);
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="hsecond-large-rectangle">H、<a href="https://ac.nowcoder.com/acm/contest/882/H">Second Large Rectangle</a><a class="headerlink" href="#hsecond-large-rectangle" title="Permanent link">Link</a></h2>
 <p>题意：求次大的全1矩阵大小</p>
 <p>题解：单调栈对每一行枚举，求出当前最大矩阵的同时更新次大矩阵即可。</p>
 <p>代码：</p>
-<pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
+<pre class="highlight"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 
 #define rep(i, a, b) for( i = (a); i &lt;= (b); i++)
@@ -990,7 +981,7 @@ using namespace std;
 #define LEN(X) strlen(X)
 #define F first
 #define S second
-#define Debug(x) cout&lt;&lt;#x&lt;&lt;&quot;=&quot;&lt;&lt;x&lt;&lt;endl;
+#define Debug(x) cout&lt;&lt;#x&lt;&lt;"="&lt;&lt;x&lt;&lt;endl;
 
 typedef long long LL;
 int a[1005][1005], l[1005], r[1005], h[1005];
@@ -1050,9 +1041,7 @@ int main()
     }
     cout &lt;&lt; anst &lt;&lt; endl;
     return 0;
-}
-</code></pre>
-
+}</code></pre>
 <h2 id="jsubarray">J、<a href="https://ac.nowcoder.com/acm/contest/882/J">Subarray</a><a class="headerlink" href="#jsubarray" title="Permanent link">Link</a></h2>
 
               
@@ -1089,7 +1078,7 @@ int main()
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
