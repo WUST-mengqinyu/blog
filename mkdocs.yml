@@ -5,24 +5,24 @@ nav:
   - 主页:
     - 赛季列表: index.md
   - 个人页面:
-    - Verly: Personal Page/Verly/index.md
-    - badcw: Personal Page/badcw/index.md
+    - Verly: Verly/index.md
+  - badcw: badcw/index.md
   - 关于:
     - About: About/About.md
 
 theme: # yeti
+    language: zh
     name: null
     custom_dir: 'mkdocs-material/material'
     palette:
         primary: white
 
-    language: 'en'
     favicon: 'favicon.ico'
     font:
         text: 'Ubuntu'
         code: 'Ubuntu Mono'
-    logo:
-        icon: "cloud"
+    icon:
+        logo: material/cloud
     feature:
         tabs: true
 
@@ -31,10 +31,13 @@ extra_css:
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - javascripts/mathjax.js
+    - https://polyfill.io/v3/polyfill.min.js?features=es6
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-google_analytics: 
-    - 'UA-139418303-1'
-    - 'wiki.verly-badcw.top'
+      #google_analytics: 
+      #- 'UA-139418303-1'
+      #- 'wiki.verly-badcw.top'
 
 markdown_extensions:
     - extra
