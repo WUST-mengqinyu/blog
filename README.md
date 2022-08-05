@@ -4,7 +4,7 @@
 
 ## 项目链接
 
-https://wiki.verly-badcw.top/
+https://wiki.badcw.cn/
 
 ## Mkdocs 模板使用教程
 

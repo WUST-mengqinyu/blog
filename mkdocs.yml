@@ -1,6 +1,6 @@
 site_name: Team Wiki
 repo_name: https://github.com/WUST-mengqinyu/Team-Wiki
-site_url: https://wiki.verly-badcw.top
+site_url: https://wiki.badcw.cn
 nav:
   - 主页:
     - 赛季列表: index.md
@@ -67,4 +67,4 @@ markdown_extensions:
     - pymdownx.tilde
     - pymdownx.progressbar
 
-copyright: Copyright &copy;  <a href="https://wiki.verly-badcw.top" target="_blank">wiki.verly-badcw.top</a>
+copyright: Copyright &copy;  <a href="https://wiki.badcw.cn" target="_blank">wiki.badcw.cn</a>
