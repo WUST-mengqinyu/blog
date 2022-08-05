@@ -512,7 +512,7 @@
 <p>题解：直接20种字符枚举出所有状态即可，其中<code>mp[i][j]</code>记录每种对出现的次数，使他最大即可。</p>
 <h2 id="e-equal-numbers">E. Equal Numbers<a class="headerlink" href="#e-equal-numbers" title="Permanent link">Link</a></h2>
 <p>题意：有n个数，每次操作选择1个数，使其变为原来的正整数倍；问操作1-n次后序列中最少有多少个不同的数。每个询问是独立的。</p>
-<p>两种操作，一种使一个数成为另一个已经存在的倍数，另一种直接变为(goal=lcm(a_1,a_2, &hellip;,a_n))，更新每个点可能获得的最小值即可。</p>
+<p>两种操作，一种使一个数成为另一个已经存在的倍数，另一种直接变为<span class="arithmatex">\(goal=lcm(a_1,a_2, ...,a_n)\)</span>，更新每个点可能获得的最小值即可。</p>
 <h2 id="f-fygon-20">F. Fygon 2.0<a class="headerlink" href="#f-fygon-20" title="Permanent link">Link</a></h2>
 <p>题意：给一系列for循环和不超过20个变量，计算给的代码的时间复杂度（需要计算常数）。</p>
 <p>每个for循环相当于给出了变量之间大小关系的限制，a-&gt;b表示a≤b，每个SCC内的变量要相等。</p>
@@ -573,6 +573,12 @@
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

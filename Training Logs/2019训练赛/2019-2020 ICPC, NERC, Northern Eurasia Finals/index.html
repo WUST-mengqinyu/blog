@@ -479,10 +479,10 @@
 <p>题意：给n个区间和区间权值，表示在这段区间内可以使用任意多个连续的权值时间，每个时间获得1点答案。求不能时间重叠的情况下可以获得的最大答案。</p>
 <p>题解：</p>
 <p>并不太会的set题，随便思考一下可知它应该是优先权值时间小的取，然后小的取到不能取了才会用大的。</p>
-<p>然后考虑暴力解法：对于所有的时间点$dp[i]$表示到$i$时间能获得的最大答案，那么显然$dp[i]=max(dp[i-t[k]]+1)$，其中$k$为所有合法的点（在区间内的点）。</p>
-<p>但是复杂度达到$O(nt)$，而$t \le 10^{18}$显然是不能出现在复杂度中</p>
+<p>然后考虑暴力解法：对于所有的时间点<span class="arithmatex">\(dp[i]\)</span>表示到<span class="arithmatex">\(i\)</span>时间能获得的最大答案，那么显然<span class="arithmatex">\(dp[i]=max(dp[i-t[k]]+1)\)</span>，其中<span class="arithmatex">\(k\)</span>为所有合法的点（在区间内的点）。</p>
+<p>但是复杂度达到<span class="arithmatex">\(O(nt)\)</span>，而<span class="arithmatex">\(t \le 10^{18}\)</span>显然是不能出现在复杂度中</p>
 <p>然后考虑到由于每段的情况应该是相同的，可以枚举所有块求解。</p>
-<p>首先处理出每种区间的左终点和右终点。即$s[i]-t[i],e[i]$，因为对于同一个起点，显然是优先取会让起点更小的点。然后处理成查分序列的形式即可，用set维护当前最小的$t$，然后维护一个当前起点即可。复杂度$O(nlogn)$</p>
+<p>首先处理出每种区间的左终点和右终点。即<span class="arithmatex">\(s[i]-t[i],e[i]\)</span>，因为对于同一个起点，显然是优先取会让起点更小的点。然后处理成查分序列的形式即可，用set维护当前最小的<span class="arithmatex">\(t\)</span>，然后维护一个当前起点即可。复杂度<span class="arithmatex">\(O(nlogn)\)</span></p>
 <h2 id="b-balls-of-buma"><a href="https://codeforces.com/contest/1267/problem/B">B - Balls of Buma</a><a class="headerlink" href="#b-balls-of-buma" title="Permanent link">Link</a></h2>
 <p>题意：给一个字符串，要添加一个字符，如果当前字符使得连起来的相同字符大于等于三个即可消去这些相同字符，然后如果扩充的字符满足大于等于三个也可以消去，求能全部删掉的方案数</p>
 <p>yysy，脑瘫设定，那么首先必然段数是奇数，其次左右字符对称，再其次左右和大于等于3，再其次中间和大于等于2即可。答案为中间和+1</p>
@@ -496,8 +496,8 @@
 <p>然后将一类中的最小的与二类最小的比较得出更小的，将更小的淘汰，从三类中取一个补齐，直到三类为空，一类和二类人的并集即为答案，且一类和二类本身没有进行比较所以不是完全知道他们的关系。</p>
 <h2 id="j-just-arrange-the-icons"><a href="https://codeforces.com/contest/1267/problem/J">J - Just Arrange the Icons</a><a class="headerlink" href="#j-just-arrange-the-icons" title="Permanent link">Link</a></h2>
 <p>题意：给n个物品，每个物品有分类，求箱子大小为k，使得每个箱子只装一种物品，每个箱子至少填充到k-1情况下箱子的最小个数。（k是任意）</p>
-<p>首先处理成map形式，即第i类有$x[i]$件物品，然后首先考虑k的范围，显然是$1～min(x[i])+
-1$，然后考虑枚举这些值处理答案。</p>
+<p>首先处理成map形式，即第i类有<span class="arithmatex">\(x[i]\)</span>件物品，然后首先考虑k的范围，显然是<span class="arithmatex">\(1～min(x[i])+
+1\)</span>，然后考虑枚举这些值处理答案。</p>
 <p>显然，如果一个k是合法的，当且仅当它对所有的i都满足
 $$
 k * t_1 + (k - 1) * t_2 = a_i, 0 \le t1,t2
@@ -506,7 +506,7 @@ $$
 <h2 id="k-key-storage"><a href="https://codeforces.com/contest/1267/problem/K">K - Key Storage</a><a class="headerlink" href="#k-key-storage" title="Permanent link">Link</a></h2>
 <p>题意：对一个数n，从2开始取模求余，直到n为0，得到一个余数序列，对余数序列排序，求余数序列与n相等的数的个数。</p>
 <p>由于每个数的余数序列显然是不同的，显然就是合法排列数。对于一个排列，它是合法的当且仅当对于每一个模数，它的余数都是小于模数的，然后其实隐藏条件是它不能有后缀0，即最后一个模数不能为0。</p>
-<p>那么显然就是可重排列的一个限制性的变种。不考虑后缀0的话，对于一个余数序列逆权排序之后：${a_1, a_2, \dots a_n}$，$a_i$和与$a_i$相同的权值，必须放在$n+1-2-a[i]+1$的长度的空格中，那么就是一个组合数，然后它前缀填充物品已经有i个了，组合数的下部还需要减掉一个权值，解出来就是原始答案。</p>
+<p>那么显然就是可重排列的一个限制性的变种。不考虑后缀0的话，对于一个余数序列逆权排序之后：<span class="arithmatex">\(\{a_1, a_2, \dots a_n\}\)</span>，<span class="arithmatex">\(a_i\)</span>和与<span class="arithmatex">\(a_i\)</span>相同的权值，必须放在<span class="arithmatex">\(n+1-2-a[i]+1\)</span>的长度的空格中，那么就是一个组合数，然后它前缀填充物品已经有i个了，组合数的下部还需要减掉一个权值，解出来就是原始答案。</p>
 <p>然后再来考虑后缀0，对于后缀0在原始答案中出现的次数，实际上是个递归问题，即取最后一位为0，把0的个数减一，然后再跑一次原始答案，即是含后缀0的合法答案，减去就可以了</p>
 <p>其实看错题了还以为是个状压，结果一看组数就放弃了，以后有机会出成题目。</p>
 <h2 id="l-lexicography"><a href="https://codeforces.com/contest/1267/problem/L">L - Lexicography</a><a class="headerlink" href="#l-lexicography" title="Permanent link">Link</a></h2>
@@ -553,6 +553,12 @@ $$
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

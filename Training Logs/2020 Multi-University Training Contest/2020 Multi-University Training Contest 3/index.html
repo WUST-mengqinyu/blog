@@ -465,11 +465,11 @@
 </tbody>
 </table>
 <h2 id="a-tokitsukaze-csl-and-palindrome-game">A. Tokitsukaze, CSL and Palindrome Game<a class="headerlink" href="#a-tokitsukaze-csl-and-palindrome-game" title="Permanent link">Link</a></h2>
-<p>题意：给一个回文串S，Tokitsukaze和CSL每次会选择回文子串$S_{a..b}$和$S_{c..d}$。有一个空串P，每次会等概率的在a-z之间选择一个字符，$E(S)$表示S成为P子串的操作次数期望。比较$E(S_{a&hellip;b})$和$E(S_{c&hellip;d})$的期望大小。</p>
+<p>题意：给一个回文串S，Tokitsukaze和CSL每次会选择回文子串<span class="arithmatex">\(S_{a..b}\)</span>和<span class="arithmatex">\(S_{c..d}\)</span>。有一个空串P，每次会等概率的在a-z之间选择一个字符，<span class="arithmatex">\(E(S)\)</span>表示S成为P子串的操作次数期望。比较<span class="arithmatex">\(E(S_{a...b})\)</span>和<span class="arithmatex">\(E(S_{c...d})\)</span>的期望大小。</p>
 <p>推荐阅读<a href="https://github.com/enkerewpo/OI-Public-Library/blob/master/IOI%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E5%80%99%E9%80%89%E9%98%9F%E8%AE%BA%E6%96%871999-2019/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2018%E8%AE%BA%E6%96%87%E9%9B%86.pdf">《浅谈生成函数在掷骰子问题上的应用》</a>, 并再次推荐阅读<a href="https://www.docin.com/p-1936795644.html">金策-字符串算法选讲</a>来获取本题相关前置知识</p>
-<p>前置知识1：对于串S，如果$S[1,i]=S[n-i+1,n]$(长度为i的前缀等于后缀），则称$S[1,i]$是S的一个border。</p>
-<p>$E(S)=\sum_i^{|S|}a_i*m^i$，其中$a_i$代表前缀$S[1,i]$是否是$S$的border</p>
-<p>因为后面带了个i的幂次，显然越靠后的前缀贡献越大，所以对于$E(S_{a&hellip;b})$和$E(S_{c&hellip;d})$，比较一下他们的字典序就好。</p>
+<p>前置知识1：对于串S，如果<span class="arithmatex">\(S[1,i]=S[n-i+1,n]\)</span>(长度为i的前缀等于后缀），则称<span class="arithmatex">\(S[1,i]\)</span>是S的一个border。</p>
+<p><span class="arithmatex">\(E(S)=\sum_i^{|S|}a_i*m^i\)</span>，其中<span class="arithmatex">\(a_i\)</span>代表前缀<span class="arithmatex">\(S[1,i]\)</span>是否是<span class="arithmatex">\(S\)</span>的border</p>
+<p>因为后面带了个i的幂次，显然越靠后的前缀贡献越大，所以对于<span class="arithmatex">\(E(S_{a...b})\)</span>和<span class="arithmatex">\(E(S_{c...d})\)</span>，比较一下他们的字典序就好。</p>
 <p>前置知识2：回文串的border由是logn级别个等差数列拼接成的，所以对于一个回文串，一直沿着fail树往上跳就可以得到它的所有border。然后根据等差性质，预处理一下border的若干个等差数列，每次对两组等差数列从后往前做比较即可。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -735,7 +735,7 @@ int main(int argc, char* argv[]) {
     }</code></p>
 <h2 id="g-tokitsukaze-and-rescue">G. Tokitsukaze and Rescue<a class="headerlink" href="#g-tokitsukaze-and-rescue" title="Permanent link">Link</a></h2>
 <p>题意：一张完全图，边权随机，删k(k&lt;=5，删完保证图联通)条边，问删完之后S到T的最短路最大值是多少。</p>
-<p>每次暴力枚举最短路上的边删边，复杂度$O(n^2c^k)$，c为最短路上的边数，因为边权随机，c一定很小，暴力求解即可。</p>
+<p>每次暴力枚举最短路上的边删边，复杂度<span class="arithmatex">\(O(n^2c^k)\)</span>，c为最短路上的边数，因为边权随机，c一定很小，暴力求解即可。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     #include <bits/stdc++.h></p>
@@ -993,6 +993,12 @@ int main()
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

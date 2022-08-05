@@ -494,11 +494,11 @@
 <p><code>C/F/J/K</code></p>
 <h2 id="a">A. 托米的字符串<a class="headerlink" href="#a" title="Permanent link">Link</a></h2>
 <p>求所有子串中元音字母占比的平均值</p>
-<p>显然 $ans=\sum{\frac{x}{len}}$，若对单点计算贡献，那么 $ans_i = \sum\frac{1}{len}$</p>
+<p>显然 <span class="arithmatex">\(ans=\sum{\frac{x}{len}}\)</span>，若对单点计算贡献，那么 <span class="arithmatex">\(ans_i = \sum\frac{1}{len}\)</span></p>
 <p>考虑这样的情况</p>
 <p><code>(1------i----n)</code></p>
-<p>其中 <code>[1,i]</code> 长度为 <code>x</code>， <code>[i,n]</code> 长度为 <code>y</code>，设 $x \le y$ 显然对于 <code>[1,x]</code> 长度的串每个都有期望 1，然后对于 <code>[x+1,y]</code> 的串期望个数为 <code>x</code>。计算式为：$\sum_{i=x+1}^{y}\frac{x}{i}$，对于 <code>[y+1,x+y-1]</code> 的串期望为 <code>[x-1,1]</code> 计算式为：$\sum_{i=y+1}^{x+y-1}\frac{x+y-i}{i}$ 化简为 ${x+y}\cdot\sum_{i=y+1}^{x+y-1}\frac{1}{i}-\sum_{i=y+1}^{x+y-1}1$ 对于 $\frac{1}{i}$ 求前缀和即可</p>
-<p>如果 $x &gt; y$ 可以考虑交换，因为它们有对称性</p>
+<p>其中 <code>[1,i]</code> 长度为 <code>x</code>， <code>[i,n]</code> 长度为 <code>y</code>，设 <span class="arithmatex">\(x \le y\)</span> 显然对于 <code>[1,x]</code> 长度的串每个都有期望 1，然后对于 <code>[x+1,y]</code> 的串期望个数为 <code>x</code>。计算式为：<span class="arithmatex">\(\sum_{i=x+1}^{y}\frac{x}{i}\)</span>，对于 <code>[y+1,x+y-1]</code> 的串期望为 <code>[x-1,1]</code> 计算式为：<span class="arithmatex">\(\sum_{i=y+1}^{x+y-1}\frac{x+y-i}{i}\)</span> 化简为 <span class="arithmatex">\({x+y}\cdot\sum_{i=y+1}^{x+y-1}\frac{1}{i}-\sum_{i=y+1}^{x+y-1}1\)</span> 对于 <span class="arithmatex">\(\frac{1}{i}\)</span> 求前缀和即可</p>
+<p>如果 <span class="arithmatex">\(x &gt; y\)</span> 可以考虑交换，因为它们有对称性</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     /<em>================================================================
@@ -656,7 +656,7 @@ int main(int argc, char* argv[]) {
 
 <h2 id="e">E. 阔力梯的树<a class="headerlink" href="#e" title="Permanent link">Link</a></h2>
 <p>给一颗带点权有根树</p>
-<p>对于任意一颗子树定义它的结实程度为对它子树内所有节点的编号排序后获得数组 a, $\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2$</p>
+<p>对于任意一颗子树定义它的结实程度为对它子树内所有节点的编号排序后获得数组 a, <span class="arithmatex">\(\sum_{i=1}^{k-1}(a_{i+1}-a_i)^2\)</span></p>
 <p>显然考虑两个区间怎么合并，首先两个不交叉区间的元素不会互相影响权值，所以直接合并答案再加上边界的答案即可</p>
 <p>直接考虑动态开点权值线段树合并即可</p>
 <p>??? note &ldquo;Code&rdquo;
@@ -1202,6 +1202,12 @@ int main()
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

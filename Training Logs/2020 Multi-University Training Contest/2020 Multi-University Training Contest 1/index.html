@@ -540,13 +540,13 @@ int main(int argc, char* argv[]) {
 </code></pre>
 
 <h2 id="e-fibonacci-sum">E. Fibonacci Sum<a class="headerlink" href="#e-fibonacci-sum" title="Permanent link">Link</a></h2>
-<p>求 $\sum_{i=0}^N (F^K_{i*C})$ 对 1e9+7 取模</p>
-<p>其中 $F_0 = 0, F_1 = 1, F_i=F_{i-1}+F_{i-2}$</p>
+<p>求 <span class="arithmatex">\(\sum_{i=0}^N (F^K_{i*C})\)</span> 对 1e9+7 取模</p>
+<p>其中 <span class="arithmatex">\(F_0 = 0, F_1 = 1, F_i=F_{i-1}+F_{i-2}\)</span></p>
 <p>众所周知 5 是 1e9+7 的原根所以随便做一下二次剩余来表示斐波那契数列通项公式即可。</p>
-<p>$F_n = \frac{1}{\sqrt{5}}\left[(\frac{1+\sqrt{5}}{2})^n-(\frac{1-\sqrt{5}}{n})^n\right]$</p>
+<p><span class="arithmatex">\(F_n = \frac{1}{\sqrt{5}}\left[(\frac{1+\sqrt{5}}{2})^n-(\frac{1-\sqrt{5}}{n})^n\right]\)</span></p>
 <p>两个常数项用二次剩余搞一搞就变成</p>
-<p>$F_n = d(a^n-b^n)$</p>
-<p>然后答案就是 $d^k \sum_{i=0}^N \left(a^{C<em>i}-b^{C</em>i}\right)^K$</p>
+<p><span class="arithmatex">\(F_n = d(a^n-b^n)\)</span></p>
+<p>然后答案就是 <span class="arithmatex">\(d^k \sum_{i=0}^N \left(a^{C*i}-b^{C*i}\right)^K\)</span></p>
 <p>n 很大要对其做二项式展开转换为与 k 相关的等比数列通项然后做快速幂即可。</p>
 <p>快速幂可以对 1e9+8 取模做欧拉降幂来降低常数。</p>
 <p>另外由于有多组数据本题复杂度出满其实是不能过的。</p>
@@ -605,7 +605,7 @@ int main(int argc, char* argv[]) {
 <p>对点的度数分块即可。</p>
 <p>询问对大点用树状数组维护所有的直接相邻点权，小点暴力所有临点。</p>
 <p>修改对相邻的所有大点修改树状数组。</p>
-<p>复杂度 $O(n\sqrt n * \log(n))$</p>
+<p>复杂度 <span class="arithmatex">\(O(n\sqrt n * \log(n))\)</span></p>
 <p>关于树状数组上二分求 mex 做单 log 可以学习一下。貌似二分 check 做双 log 也可以通过</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -746,9 +746,9 @@ int main(int argc, char* argv[]) {
 
 <h2 id="i-leading-robots">I. Leading Robots<a class="headerlink" href="#i-leading-robots" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>题意：有n个机器人，t时刻的位置为$at^2+p$，问有多少个机器人处于过领先状态，当且仅当处于最前的机器人唯一时才视为领先。</p>
-<p>令$x=t^2$，则$y=ax+p$，问有多少条射线在某一时刻处于最上方，也就是BZOJ1007的问题。维护一个单调递增的下凸包，看栈中有多少点即可。</p>
-<p>这道题需要注意的是直线的交点可能位于y轴的左侧，这种情况是不合法的，需要做一下预处理。对于相同的p只保留最大的a，且对于$p_1<p_2$保证$a_1>a_2$，被丢弃的数据不会对答案产生贡献，处理后的数据一定能保证直线的交点在y轴右侧。</p>
+<p>题意：有n个机器人，t时刻的位置为<span class="arithmatex">\(at^2+p\)</span>，问有多少个机器人处于过领先状态，当且仅当处于最前的机器人唯一时才视为领先。</p>
+<p>令<span class="arithmatex">\(x=t^2\)</span>，则<span class="arithmatex">\(y=ax+p\)</span>，问有多少条射线在某一时刻处于最上方，也就是BZOJ1007的问题。维护一个单调递增的下凸包，看栈中有多少点即可。</p>
+<p>这道题需要注意的是直线的交点可能位于y轴的左侧，这种情况是不合法的，需要做一下预处理。对于相同的p只保留最大的a，且对于<span class="arithmatex">\(p_1&lt;p_2\)</span>保证<span class="arithmatex">\(a_1&gt;a_2\)</span>，被丢弃的数据不会对答案产生贡献，处理后的数据一定能保证直线的交点在y轴右侧。</p>
 <p>在计算完后需要减去出现多次的ab点对对答案的贡献。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -821,13 +821,13 @@ int main()
 $$
 \sum\limits_{1\le a &lt; b \le n\gcd(a,b)=1\a+b \ge n}{\frac{1}{ab}}
 $$
-$T\le1e4,2\le n\le 1e8$ ，输出模 $998244353$ 意义下的值，<strong>时限六秒</strong></p>
-<p>这个 $n$ 好像不是很大啊，能不能递推捏？下面这个 大于等于号也太烦了，变成等于才舒服。</p>
+<span class="arithmatex">\(T\le1e4,2\le n\le 1e8\)</span> ，输出模 <span class="arithmatex">\(998244353\)</span> 意义下的值，<strong>时限六秒</strong></p>
+<p>这个 <span class="arithmatex">\(n\)</span> 好像不是很大啊，能不能递推捏？下面这个 大于等于号也太烦了，变成等于才舒服。</p>
 <p>设 
 $$
 f_n=\sum\limits_{1\le a &lt; b \le n\gcd(a,b)=1\a+b \ge n}{\frac{1}{ab}}
 $$
-来考虑一下 $f_n$ 比 $f_{n-1}$ 多加上了什么东西。
+来考虑一下 <span class="arithmatex">\(f_n\)</span> 比 <span class="arithmatex">\(f_{n-1}\)</span> 多加上了什么东西。
 $$
 \begin{align}
 f_n-f_{n-1}&amp;=\sum\limits_{1\le a &lt; b=n\gcd(a,b)=1\a+b \ge n}{\frac{1}{ab}}-\sum\limits_{1\le a &lt; b \le n-1\gcd(a,b)=1\a+b = n-1}{\frac{1}{ab}} \
@@ -838,17 +838,17 @@ $$
 $$
 g(n)=\sum\limits_{1\le a &lt; b \le n\gcd(a,b)=1\a+b = n}{\frac{1}{ab}}
 $$
-这样 $n-1$ 换成 $n$ 比较方便，因为和是定值，我们只枚举 $a$ 即可，又有 $(a,b)=(a,n-a)=(a,n)$ ,$\frac{1}{ab}=\frac{1}{a(n-a)}=\frac{1}{n}(\frac{1}{a}+\frac{1}{n-a})$
+这样 <span class="arithmatex">\(n-1\)</span> 换成 <span class="arithmatex">\(n\)</span> 比较方便，因为和是定值，我们只枚举 <span class="arithmatex">\(a\)</span> 即可，又有 <span class="arithmatex">\((a,b)=(a,n-a)=(a,n)\)</span> ,<span class="arithmatex">\(\frac{1}{ab}=\frac{1}{a(n-a)}=\frac{1}{n}(\frac{1}{a}+\frac{1}{n-a})\)</span>
 $$
 \begin{align}
 g(n)&amp;=\frac{1}{n}\sum_{1\le a&lt;n-a \le n\(a,n)=1}(\frac{1}{a}+\frac{1}{n-a})
 \end{align}
 $$
-发现在不考虑  $(a,n)=1$的时候 除了 $a=n-a$ ，所有 $\frac{1}{a},1\le a\le n-1$ 都遍历到了，而 $a=n-a$ 和 $a=n$ 时， $(a,n)\neq 1$ ，还有要注意 $n=2$ 的时候是不成立的。所以可以改写成
+发现在不考虑  <span class="arithmatex">\((a,n)=1\)</span>的时候 除了 <span class="arithmatex">\(a=n-a\)</span> ，所有 <span class="arithmatex">\(\frac{1}{a},1\le a\le n-1\)</span> 都遍历到了，而 <span class="arithmatex">\(a=n-a\)</span> 和 <span class="arithmatex">\(a=n\)</span> 时， <span class="arithmatex">\((a,n)\neq 1\)</span> ，还有要注意 <span class="arithmatex">\(n=2\)</span> 的时候是不成立的。所以可以改写成
 $$
 g(n)=\frac{1}{n}\sum_{1\le a \le n\gcd(a,n)=1}\frac{1}{a}
 $$
-这个和 $(4)$ 中的第一项居然是一样的。也就是说我们得到了 
+这个和 <span class="arithmatex">\((4)\)</span> 中的第一项居然是一样的。也就是说我们得到了 
 $$
 f_n-f_{n-1}=g_n-g_{n-1} \
 f_n-f_2=g_n-g_2 \
@@ -864,7 +864,7 @@ g_n=
 \end{array}
 \right.
 $$
-这个 $g(n)$ 看起来就很好求
+这个 <span class="arithmatex">\(g(n)\)</span> 看起来就很好求
 $$
 \begin{align}
 g(n)&amp;=\frac{1}{n}\sum_{1\le a\le n}\frac{1}{a}\sum_{d\mid gcd(a,n)}\mu(d) \
@@ -873,15 +873,15 @@ g(n)&amp;=\frac{1}{n}\sum_{1\le a\le n}\frac{1}{a}\sum_{d\mid gcd(a,n)}\mu(d) \
 &amp;=\frac{1}{n}\sum_{d\mid n}\mu(d)\frac{1}{d}\sum_{a=1}^{\lfloor\frac{n}{d}\rfloor}\frac{1}{a}
 \end{align}
 $$</p>
-<p>后面就是一个调和级数前缀和，又因为里面有 $\mu(d)$ 又要求是 $n$ 的因子，所以我们直接  $\text{dfs}$ 素因子最多出现一次的因子即可。</p>
+<p>后面就是一个调和级数前缀和，又因为里面有 <span class="arithmatex">\(\mu(d)\)</span> 又要求是 <span class="arithmatex">\(n\)</span> 的因子，所以我们直接  <span class="arithmatex">\(\text{dfs}\)</span> 素因子最多出现一次的因子即可。</p>
 <h2 id="k-minimum-index">K. Minimum Index<a class="headerlink" href="#k-minimum-index" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>推荐阅读 <a href="https://www.docin.com/p-1936795644.html">金策-字符串算法选讲</a> 学习一下Lyndon循环。</p>
-<p>对于S的某个前缀$s[0,k]$，把它分为$S[0,i-1]$和$S[i,k]$，其中$s[0,i-1]$由$s_1s_2&hellip;s_g$组成，且$s_1&hellip;s_{g}$为$s_{g}≤s_{g-1}≤..≤s_1$的Lyndon串，且有$S[i,k]&lt;s_g$，$S[i,k]=t_1t_2&hellip;t_hv$，其中$t_1=t_2=&hellip;=t_h$，且$v$为$t_1$的真前缀，$j=k-|t_1|$。</p>
+<p>对于S的某个前缀<span class="arithmatex">\(s[0,k]\)</span>，把它分为<span class="arithmatex">\(S[0,i-1]\)</span>和<span class="arithmatex">\(S[i,k]\)</span>，其中<span class="arithmatex">\(s[0,i-1]\)</span>由<span class="arithmatex">\(s_1s_2...s_g\)</span>组成，且<span class="arithmatex">\(s_1...s_{g}\)</span>为<span class="arithmatex">\(s_{g}≤s_{g-1}≤..≤s_1\)</span>的Lyndon串，且有<span class="arithmatex">\(S[i,k]&lt;s_g\)</span>，<span class="arithmatex">\(S[i,k]=t_1t_2...t_hv\)</span>，其中<span class="arithmatex">\(t_1=t_2=...=t_h\)</span>，且<span class="arithmatex">\(v\)</span>为<span class="arithmatex">\(t_1\)</span>的真前缀，<span class="arithmatex">\(j=k-|t_1|\)</span>。</p>
 <p>所以在check循环节时：</p>
 <ul>
-<li>如果$S[j]&lt;S[k]$，也就是出现了形如$abcabcabz$的情况$(i=0, j=5, k=8)$，此时的答案为所有循环串的开头，$res[k]=i$</li>
-<li>如果$S[j]≥S[k]$，即$abcabcabc$或者$abcabcabd(i=0,j=5,k=8,res[j]=3)$，此时的答案为最近的一个循环串的串首，$res[k]=res[j]+k-j$</li>
+<li>如果<span class="arithmatex">\(S[j]&lt;S[k]\)</span>，也就是出现了形如<span class="arithmatex">\(abcabcabz\)</span>的情况<span class="arithmatex">\((i=0, j=5, k=8)\)</span>，此时的答案为所有循环串的开头，<span class="arithmatex">\(res[k]=i\)</span></li>
+<li>如果<span class="arithmatex">\(S[j]≥S[k]\)</span>，即<span class="arithmatex">\(abcabcabc\)</span>或者<span class="arithmatex">\(abcabcabd(i=0,j=5,k=8,res[j]=3)\)</span>，此时的答案为最近的一个循环串的串首，<span class="arithmatex">\(res[k]=res[j]+k-j\)</span></li>
 </ul>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -932,7 +932,7 @@ int main()
 
 <h2 id="l-mow">L. Mow<a class="headerlink" href="#l-mow" title="Permanent link">Link</a></h2>
 <p>给一个凸包，你可以每个单位面积用 A 的代价涂色，或者用一个半径为 r 的圆形的区域（不能超出边界）给一个单位面积以 B 的代价涂色，求全部涂满色的最少花费。</p>
-<p>考虑圆心的范围是凸包每条边往内移动 r 距离构成的新凸包。如果 A&lt;B 显然全部用 A 涂色即可，直接算原凸包面积，否则尽量用 B 涂色，最大范围是 $新凸包面积+新凸包周长<em>r+pi</em>r*r$。</p>
+<p>考虑圆心的范围是凸包每条边往内移动 r 距离构成的新凸包。如果 A&lt;B 显然全部用 A 涂色即可，直接算原凸包面积，否则尽量用 B 涂色，最大范围是 <span class="arithmatex">\(新凸包面积+新凸包周长*r+pi*r*r\)</span>。</p>
 <p>可以考虑非扇形的区域实际是平行线做切割一共是新凸包周长那么长的，扇形区域拼起来就是一个外角和为 2pi。</p>
 <p>所以首先把凸包处理成逆时针，每条边用向量表示的话，向左旋转 pi/2 并表示为单位向量即是它的单位法向量，往这个移动 r 的距离，然后做半平面交求出新凸包的点集，注意如果新凸包点集 &lt;= 2 其实表示它不存在。</p>
 <p>??? note &ldquo;Code&rdquo;
@@ -1179,6 +1179,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

@@ -467,8 +467,8 @@
 <h2 id="b-binary-vector">B. Binary Vector<a class="headerlink" href="#b-binary-vector" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 02:25:43</em></p>
 <p>线性代数，求一个 n 维线性空间内，只有 01 的 n 个向量不线性相关的概率。</p>
-<p>就硬找规律或者oeis，因为分母其实是可以很轻易算出来的，$2^{n*n}$</p>
-<p>$$a_1=1,a_n=a_{n-1}<em>(2^{2n-1}-2^{n-1}),f_n=\frac{a_n}{2^{n</em>n}}$$</p>
+<p>就硬找规律或者oeis，因为分母其实是可以很轻易算出来的，<span class="arithmatex">\(2^{n*n}\)</span></p>
+<div class="arithmatex">\[a_1=1,a_n=a_{n-1}*(2^{2n-1}-2^{n-1}),f_n=\frac{a_n}{2^{n*n}}\]</div>
 <p>然后处理一下递推性质优化转移即可。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -548,7 +548,7 @@ int main(int argc, char* argv[]) {
 <h2 id="c-combination-of-physics-and-maths">C. Combination of Physics and Maths<a class="headerlink" href="#c-combination-of-physics-and-maths" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:36:04(-1)</em></p>
 <p>找一个可分割取的子矩阵，求子矩阵和与子矩阵最下面一行的和的比值最大值。</p>
-<p>非常轻易的就知道 $\frac{a}{b}+\frac{c}{d} \le max(\frac{a}{b},\frac{c}{d})$</p>
+<p>非常轻易的就知道 <span class="arithmatex">\(\frac{a}{b}+\frac{c}{d} \le max(\frac{a}{b},\frac{c}{d})\)</span></p>
 <p>然后就只取一列，然后每列只要取完上面所有数即可，前缀和一下就做完了。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -621,8 +621,8 @@ int main(int argc, char* argv[]) {
 <h2 id="e-easy-construction">E. Easy Construction<a class="headerlink" href="#e-easy-construction" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:26:22</em></p>
 <p>构造一个 n 的 permutation，使得对于 1~n 的所有 i 都满足有一个长度为 i 的子串的和模 n 为 x，x 是读入的。</p>
-<p>那么显然首先 x 是一个定值： $(1+n)*n/2 %n$，因为长度为 n 的模 n 就是它，那么如果 x 和它不等就无解。</p>
-<p>很轻易的发现可以分奇偶构造，因为奇数显然是 $(1+n)/2$，偶数则为 0</p>
+<p>那么显然首先 x 是一个定值： <span class="arithmatex">\((1+n)*n/2 %n\)</span>，因为长度为 n 的模 n 就是它，那么如果 x 和它不等就无解。</p>
+<p>很轻易的发现可以分奇偶构造，因为奇数显然是 <span class="arithmatex">\((1+n)/2\)</span>，偶数则为 0</p>
 <p>那么考虑把 n 放在最后一位即可，再把成对和为 n 的往前丢即可。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -736,10 +736,10 @@ int main()
 
 <h2 id="h-harmony-pairs">H. Harmony Pairs<a class="headerlink" href="#h-harmony-pairs" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 03:33:55(-1)</em></p>
-<p>求 1~n 中满足 $1 \le x \le y \le n$ 且 $sum(y) \lt sum(x)$ 的数量。</p>
+<p>求 1~n 中满足 <span class="arithmatex">\(1 \le x \le y \le n\)</span> 且 <span class="arithmatex">\(sum(y) \lt sum(x)\)</span> 的数量。</p>
 <p>其中 sum 表示数位和。</p>
 <p>就裸的数位 dp 做差即可。</p>
-<p>$dp_{i,j,[0/1],[0/1],[0/1]}$ 表示前 i 位，x 与 y 的数位差为 j（往右偏移一个 <code>100*9</code> 即可），x 是否达到 n 上界，y 是否达到 n 上界，x 是否已经小于 y 了（因为大的位如果小于 y 就说明后面可以随便排了）的方案数。</p>
+<p><span class="arithmatex">\(dp_{i,j,[0/1],[0/1],[0/1]}\)</span> 表示前 i 位，x 与 y 的数位差为 j（往右偏移一个 <code>100*9</code> 即可），x 是否达到 n 上界，y 是否达到 n 上界，x 是否已经小于 y 了（因为大的位如果小于 y 就说明后面可以随便排了）的方案数。</p>
 <p>然后就做完了。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -818,8 +818,8 @@ int main(int argc, char* argv[]) {
 
 <h2 id="j-josephus-transform">J. Josephus Transform<a class="headerlink" href="#j-josephus-transform" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: ffacs</em></p>
-<p>题意：定义一个排列经过$k$约瑟夫变换后得到的序列为 从第一个位置开始向后每 $k$ 个元素出队一个，形成的新序列。$A<em>(k,x)$ 变换为 排列 $A$ 经过 $x$ 次 $k$约瑟夫变换得到的序列。求$A</em>(k_1,x_1)<em>(k_2,x_2)</em>&hellip;(k_m,x_m)$ 。其中$1\le n,m\le 1e5,1\le n \times m \le 1e6,1\le k\le n,1\le x\le 1e9$</p>
-<p>约瑟夫变换本质上可以看成是一个置换，即将某一位元素移到第一位，某一位元素移到第二位....那么我们求出 $1&hellip;n$ 的 $k$约瑟夫序列就能知道这个置换的移动方式。知道这个置换移动方式之后就可以用快速幂或者倍增 $O(n\log x)$ 求出这个置换的 $x$ 次方的移动方式。作用到之前的序列上即可完成 $(k,x)$。求约瑟夫序列可以 $O(n\log n)$，倍增是 $O(n\log x)$ ，总共 $m$ 次，总时间复杂度就是 $nm\log x$。</p>
+<p>题意：定义一个排列经过<span class="arithmatex">\(k\)</span>约瑟夫变换后得到的序列为 从第一个位置开始向后每 <span class="arithmatex">\(k\)</span> 个元素出队一个，形成的新序列。<span class="arithmatex">\(A*(k,x)\)</span> 变换为 排列 <span class="arithmatex">\(A\)</span> 经过 <span class="arithmatex">\(x\)</span> 次 <span class="arithmatex">\(k\)</span>约瑟夫变换得到的序列。求<span class="arithmatex">\(A*(k_1,x_1)*(k_2,x_2)*...(k_m,x_m)\)</span> 。其中<span class="arithmatex">\(1\le n,m\le 1e5,1\le n \times m \le 1e6,1\le k\le n,1\le x\le 1e9\)</span></p>
+<p>约瑟夫变换本质上可以看成是一个置换，即将某一位元素移到第一位，某一位元素移到第二位....那么我们求出 <span class="arithmatex">\(1...n\)</span> 的 <span class="arithmatex">\(k\)</span>约瑟夫序列就能知道这个置换的移动方式。知道这个置换移动方式之后就可以用快速幂或者倍增 <span class="arithmatex">\(O(n\log x)\)</span> 求出这个置换的 <span class="arithmatex">\(x\)</span> 次方的移动方式。作用到之前的序列上即可完成 <span class="arithmatex">\((k,x)\)</span>。求约瑟夫序列可以 <span class="arithmatex">\(O(n\log n)\)</span>，倍增是 <span class="arithmatex">\(O(n\log x)\)</span> ，总共 <span class="arithmatex">\(m\)</span> 次，总时间复杂度就是 <span class="arithmatex">\(nm\log x\)</span>。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     #include <bits/stdc++.h>
@@ -891,12 +891,12 @@ int main(int argc, char* argv[]) {
 <h2 id="k-k-bag">K. K-Bag<a class="headerlink" href="#k-k-bag" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 02:59:42(-1)</em></p>
 <p>k-bag 序列表示一个长度为 k 的倍数且 <code>(1~k),(k+1~2*k)...(n-k+1,k)</code> 这些段都是 1~k 的某种排列的序列。</p>
-<p>现在输入一个长度为 n 的序列问是否是 k-bag 的子串。$n \le 5e5, k \le 1e9$</p>
-<p>显然，我们可以枚举 $1~i$ 是否是一个不完整的排列，然后后面就可以按 k 的倍数计算是否是一个排列即可，最后一段也要判断是否为 k 的不完整排列。</p>
-<p>复杂度 $O(min(n,k)*n/k)$。</p>
+<p>现在输入一个长度为 n 的序列问是否是 k-bag 的子串。<span class="arithmatex">\(n \le 5e5, k \le 1e9\)</span></p>
+<p>显然，我们可以枚举 <span class="arithmatex">\(1~i\)</span> 是否是一个不完整的排列，然后后面就可以按 k 的倍数计算是否是一个排列即可，最后一段也要判断是否为 k 的不完整排列。</p>
+<p>复杂度 <span class="arithmatex">\(O(min(n,k)*n/k)\)</span>。</p>
 <p>那么如何 O1 判断一段是否为 k 的排列或者 k 的不完整排列呢，像莫队一样直接记录每个点是否都只有一个数即可。</p>
-<p>预处理复杂度 $O(n)$。</p>
-<p>再加上优美的离散化方式即可通过，因为 k 有可能很大无法用数组保存，但是 $k \le n$ 时不需要离散化。</p>
+<p>预处理复杂度 <span class="arithmatex">\(O(n)\)</span>。</p>
+<p>再加上优美的离散化方式即可通过，因为 k 有可能很大无法用数组保存，但是 <span class="arithmatex">\(k \le n\)</span> 时不需要离散化。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     /<em>================================================================
@@ -1067,6 +1067,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

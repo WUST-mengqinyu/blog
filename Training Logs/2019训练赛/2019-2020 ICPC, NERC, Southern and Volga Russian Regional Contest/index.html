@@ -496,7 +496,7 @@
 <p>题意：给一些区间以及区间的权值，求<code>L，R</code>使得完全包含于<code>L，R</code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
 <p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p>
 <h2 id="e-the-coronation">E. The Coronation<a class="headerlink" href="#e-the-coronation" title="Permanent link">Link</a></h2>
-<p>给定$n$个长度为$m$的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
+<p>给定<span class="arithmatex">\(n\)</span>个长度为<span class="arithmatex">\(m\)</span>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
 <p>2-SAT问题。</p>
 <p>设串不翻转为0，翻转为1，则对于任意两个串都有如下四种情况：</p>
 <ol>
@@ -507,7 +507,7 @@
 </ol>
 <p>一旦出现4，整组情况一定是无解的。</p>
 <p>相当于原串所代表的点形成若干个联通块，每一个联通块中的元素颜色是相互联系的（即如果翻转一个，必须翻转该块中的所有元素）。</p>
-<p>建完图后对点(i)和点(i+n​)进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
+<p>建完图后对点<span class="arithmatex">\(i\)</span>和点<span class="arithmatex">\(i+n​\)</span>进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
 <h2 id="f-data-center">F. Data Center<a class="headerlink" href="#f-data-center" title="Permanent link">Link</a></h2>
 <p>签到</p>
 <h2 id="h-happy-birthday">H. Happy Birthday<a class="headerlink" href="#h-happy-birthday" title="Permanent link">Link</a></h2>
@@ -563,6 +563,12 @@
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

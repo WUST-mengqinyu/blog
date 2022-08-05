@@ -733,7 +733,7 @@ int main()
 
 <h2 id="knumber">K、<a href="https://ac.nowcoder.com/acm/contest/884/K">number</a><a class="headerlink" href="#knumber" title="Permanent link">Link</a></h2>
 <p>给一个数字串求能被300整除的数字子串数量（可含前导零，可含相同串）</p>
-<p>众所周知能被3整除的数数位和为3的倍数，所以计一个前缀数位和，然后计一个后缀零个数，那么枚举当前位为非0的最后一位，它对答案的贡献就是(pre[i][0] * (lst[i+1]-1))，然后注意一下把全0的方案数加上去就行了。</p>
+<p>众所周知能被3整除的数数位和为3的倍数，所以计一个前缀数位和，然后计一个后缀零个数，那么枚举当前位为非0的最后一位，它对答案的贡献就是<span class="arithmatex">\(pre[i][0] * (lst[i+1]-1)\)</span>，然后注意一下把全0的方案数加上去就行了。</p>
 <pre class="codehilite"><code class="language-cpp linenums">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
 *
@@ -860,6 +860,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

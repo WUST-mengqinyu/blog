@@ -450,7 +450,7 @@
 </table>
 <h2 id="b-crazy-binary-string">B. <a href="https://ac.nowcoder.com/acm/contest/883/B">Crazy Binary String</a><a class="headerlink" href="#b-crazy-binary-string" title="Permanent link">Link</a></h2>
 <p>给一个01串求最长的01相等的子串和子序列长度</p>
-<p>子串肯定是(max(num(0),num(1)))，子序列直接记录前缀01个数差，出现过说明该子序列是01平衡的。</p>
+<p>子串肯定是<span class="arithmatex">\(max(num(0),num(1))\)</span>，子序列直接记录前缀01个数差，出现过说明该子序列是01平衡的。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
@@ -521,10 +521,10 @@ int main(int argc, char* argv[]) {
 </code></pre>
 
 <h2 id="d-big-integer">D. Big Integer<a class="headerlink" href="#d-big-integer" title="Permanent link">Link</a></h2>
-<p>$$111&hellip;111={10^n-1 \over 9}≡0\ mod\  p$$</p>
-<p>有(10^n≡1 \ mod\  9p)，其中(n)是(1 \over p)的最小循环节，也就是说存在一个最小的(A(n))能被p整除，BSGS求出n的值。(这里我求的是(10^n≡1 \ mod\ p)然后特判了3，因为3和9不互质所以算出来的n不对)，所有的质数中只有2,5无解，其余均有解。</p>
-<p>这个时候问题转化为，有一个最小的整数x(上一段的n)满足(A(x)≡0 \ mod \ p)，求(1≤i≤n, 1≤j≤m, A(i^j)≡0(mod\  p))的数量，显然(i^j)需要是x的倍数。</p>
-<p>对x做质因数分解，有$$x=p_1^{r_1}p_2^{r_2}&hellip;p_n^{r_n}$$对于能满足条件的(i)，它必须包含x的每一个质因数至少一次。j固定的时候，i必须是(g=p_1^{\lceil {k_1 \over j}\rceil}p_2^{\lceil {k_2 \over j}\rceil}p_n^{\lceil {k_n \over j}\rceil})的倍数，共有n/g个合法的i，并且j枚举不超过30</p>
+<div class="arithmatex">\[111...111={10^n-1 \over 9}≡0\ mod\  p\]</div>
+<p>有<span class="arithmatex">\(10^n≡1 \ mod\  9p\)</span>，其中<span class="arithmatex">\(n\)</span>是<span class="arithmatex">\(1 \over p\)</span>的最小循环节，也就是说存在一个最小的<span class="arithmatex">\(A(n)\)</span>能被p整除，BSGS求出n的值。(这里我求的是<span class="arithmatex">\(10^n≡1 \ mod\ p\)</span>然后特判了3，因为3和9不互质所以算出来的n不对)，所有的质数中只有2,5无解，其余均有解。</p>
+<p>这个时候问题转化为，有一个最小的整数x(上一段的n)满足<span class="arithmatex">\(A(x)≡0 \ mod \ p\)</span>，求<span class="arithmatex">\(1≤i≤n, 1≤j≤m, A(i^j)≡0(mod\  p)\)</span>的数量，显然<span class="arithmatex">\(i^j\)</span>需要是x的倍数。</p>
+<p>对x做质因数分解，有<span class="arithmatex">\(<span class="arithmatex">\(x=p_1^{r_1}p_2^{r_2}...p_n^{r_n}\)</span>\)</span>对于能满足条件的<span class="arithmatex">\(i\)</span>，它必须包含x的每一个质因数至少一次。j固定的时候，i必须是<span class="arithmatex">\(g=p_1^{\lceil {k_1 \over j}\rceil}p_2^{\lceil {k_2 \over j}\rceil}p_n^{\lceil {k_n \over j}\rceil}\)</span>的倍数，共有n/g个合法的i，并且j枚举不超过30</p>
 <p>赛中没A死于少打一个括号</p>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
 
@@ -640,7 +640,7 @@ int main()
 
 <h2 id="f-planting-trees">F. <a href="https://ac.nowcoder.com/acm/contest/883/F">Planting Trees</a><a class="headerlink" href="#f-planting-trees" title="Permanent link">Link</a></h2>
 <p>给一矩阵，求最大的极差不超过m的矩阵大小。</p>
-<p>暗示(n^3)复杂度，直接枚举上下端的同时维护所有列的最大最小值，然后单调队列跑对于每个(l)的最右端(r)。</p>
+<p>暗示<span class="arithmatex">\(n^3\)</span>复杂度，直接枚举上下端的同时维护所有列的最大最小值，然后单调队列跑对于每个<span class="arithmatex">\(l\)</span>的最右端<span class="arithmatex">\(r\)</span>。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
@@ -1026,6 +1026,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

@@ -494,7 +494,7 @@
 </table>
 <h2 id="a-all-with-pairs">A. All with Pairs<a class="headerlink" href="#a-all-with-pairs" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>题意：给n个串，$f(s, t)$表示s的前缀与t的后缀最长匹配的长度，求$\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)$</p>
+<p>题意：给n个串，<span class="arithmatex">\(f(s, t)\)</span>表示s的前缀与t的后缀最长匹配的长度，求<span class="arithmatex">\(\sum_{i=1}^n \sum_{i=1}^n f(s_i, s_j)^2 (mod\ 998244353)\)</span></p>
 <p>hash预处理出所有后缀的出现次数，对每个串的前缀算出hash值，记录该长度的相同串出现次数。</p>
 <p>因为处理出来的后缀不一定最长，可能有<code>a,aba</code>被重复计算的情况，对<code>s[i]</code>求nex数组，从前往后扫一遍<code>cnt[nex[i]]-=cnt[i]</code>即可求出该串对应的每个串的最长后缀。</p>
 <p>??? note &ldquo;Code by: Verly&rdquo;
@@ -717,9 +717,9 @@ int main(int argc, char* argv[]) {
 <p>题解：</p>
 <p>首先考虑，对于任意一条边，最少需要经过一次，经过多次显然是不优的。</p>
 <p>对于任意选定的链，两端取叶子节点显然是不劣的，就算不取叶子拓展到叶子也是不劣的。</p>
-<p>考虑对叶子节点配对，显然可以得到最少覆盖为 $(k+1)/2$，其中 $k$ 表示叶子节点个数。</p>
+<p>考虑对叶子节点配对，显然可以得到最少覆盖为 <span class="arithmatex">\((k+1)/2\)</span>，其中 <span class="arithmatex">\(k\)</span> 表示叶子节点个数。</p>
 <p>考虑定根之后构造方案，对于一个节点，如果子树内有奇数个叶子往该节点连，取其中任一个往上连，其他两两相连（注意如果是一个子树过来两个的不能相连）即可，对于偶数个节点，取两个往上连。</p>
-<p>其实这种解法会写起来比较难受，标程写的按叶子 dfs 序， $i &lt;-&gt; k/2+i$ 也很有道理。</p>
+<p>其实这种解法会写起来比较难受，标程写的按叶子 dfs 序， <span class="arithmatex">\(i &lt;-&gt; k/2+i\)</span> 也很有道理。</p>
 <p>??? note &ldquo;Code by: badcw&rdquo;
     ```cpp
     /<em>================================================================
@@ -956,10 +956,10 @@ int main(int argc, char* argv[]) {
 </code></pre>
 
 <h2 id="e-exclusive-or">E. Exclusive OR<a class="headerlink" href="#e-exclusive-or" title="Permanent link">Link</a></h2>
-<p>给 n 个数字，现在 ans[k] 表示挑选任意 k 个数字（可重复挑选一个数）异或起来的最大值，求 ans[1]~ans[n]，值域 $2^{18}$。</p>
+<p>给 n 个数字，现在 ans[k] 表示挑选任意 k 个数字（可重复挑选一个数）异或起来的最大值，求 ans[1]~ans[n]，值域 <span class="arithmatex">\(2^{18}\)</span>。</p>
 <p>由线性基原理可以知道最多 19 个数字就可以获得这 n 个数字的最大值。为什么不是18，因为存在0。</p>
-<p>那么显然后面取任意两个相等的数字，答案显然就是 $ans[k-2]$</p>
-<p>那么我们知道第一次 $f_i$ 表示存不存在 i 这个数字，那么 $g_i=\sum_{j\bigotimes k=i}f_i*f_j$ 则表示能不能取两个数表示 $i$。然后整个具有传递性，只用做 19 次 fwt 就能获得答案。</p>
+<p>那么显然后面取任意两个相等的数字，答案显然就是 <span class="arithmatex">\(ans[k-2]\)</span></p>
+<p>那么我们知道第一次 <span class="arithmatex">\(f_i\)</span> 表示存不存在 i 这个数字，那么 <span class="arithmatex">\(g_i=\sum_{j\bigotimes k=i}f_i*f_j\)</span> 则表示能不能取两个数表示 <span class="arithmatex">\(i\)</span>。然后整个具有传递性，只用做 19 次 fwt 就能获得答案。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     /<em>================================================================
@@ -1060,9 +1060,9 @@ int main(int argc, char* argv[]) {
 </code></pre>
 
 <h2 id="f-fake-maxpooling">F. Fake Maxpooling<a class="headerlink" href="#f-fake-maxpooling" title="Permanent link">Link</a></h2>
-<p>给一个 <code>n*m</code> 的矩阵，<code>(i,j)</code> 位置的数为 $lcm(i,j)$，求所有 <code>k*k</code> 的子矩阵的最大值之和。</p>
-<p>首先要做的是把每个点的值求出来，如果 $gcd(i,j)=1$ 那么 $gcd(i<em>x, j</em>x)=x$，类似线筛 $O(n*m)$ 求出每个点的值。</p>
-<p>然后单调队列处理每列上第 $(i-k~i)$ 点的最大值。</p>
+<p>给一个 <code>n*m</code> 的矩阵，<code>(i,j)</code> 位置的数为 <span class="arithmatex">\(lcm(i,j)\)</span>，求所有 <code>k*k</code> 的子矩阵的最大值之和。</p>
+<p>首先要做的是把每个点的值求出来，如果 <span class="arithmatex">\(gcd(i,j)=1\)</span> 那么 <span class="arithmatex">\(gcd(i*x, j*x)=x\)</span>，类似线筛 <span class="arithmatex">\(O(n*m)\)</span> 求出每个点的值。</p>
+<p>然后单调队列处理每列上第 <span class="arithmatex">\((i-k~i)\)</span> 点的最大值。</p>
 <p>然后单调队列处理行的最大值即可。</p>
 <p>??? note &ldquo;Code by badcw&rdquo;
     ```cpp
@@ -1166,11 +1166,11 @@ int main(int argc, char* argv[]) {
 
 <h2 id="g-greater-and-greater">G. Greater and Greater<a class="headerlink" href="#g-greater-and-greater" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: badcw, Verly</em></p>
-<p>题意：给两个长度为n和m的序列$A,B(m≤n)$,问A有多少长度为$len(B)$的子串S，满足$∀_i∈{1,2,⋯,m},S_i\ge B_i$</p>
-<p>现在用 bitset s[i] 表示 A 的每一位可以作为 $B_i$ 的开头位置，然后把所有位与起来就可以得到答案。</p>
-<p>具体来说如果 bitset s[i] 表示 A 的每一位是否比 $B_i$ 大，$s_1&amp;(s_2&gt;&gt;1)&amp;(s_3&gt;&gt;2)&hellip;$ 就是答案。</p>
-<p>所以题目转换为了怎么求所有 $B_i$ 在 A 中 1 的位置。利用单调性排序做即可。</p>
-<p>复杂度 $O(n*m/W+mlogm)$</p>
+<p>题意：给两个长度为n和m的序列<span class="arithmatex">\(A,B(m≤n)\)</span>,问A有多少长度为<span class="arithmatex">\(len(B)\)</span>的子串S，满足<span class="arithmatex">\(∀_i∈{1,2,⋯,m},S_i\ge B_i\)</span></p>
+<p>现在用 bitset s[i] 表示 A 的每一位可以作为 <span class="arithmatex">\(B_i\)</span> 的开头位置，然后把所有位与起来就可以得到答案。</p>
+<p>具体来说如果 bitset s[i] 表示 A 的每一位是否比 <span class="arithmatex">\(B_i\)</span> 大，<span class="arithmatex">\(s_1&amp;(s_2&gt;&gt;1)&amp;(s_3&gt;&gt;2)...\)</span> 就是答案。</p>
+<p>所以题目转换为了怎么求所有 <span class="arithmatex">\(B_i\)</span> 在 A 中 1 的位置。利用单调性排序做即可。</p>
+<p>复杂度 <span class="arithmatex">\(O(n*m/W+mlogm)\)</span></p>
 <p>??? note &ldquo;Code by Verly&rdquo;
     ```cpp
     #include <bits/stdc++.h></p>
@@ -1226,17 +1226,17 @@ int main()
 <li>删除一个数 x</li>
 <li>求一个数 x 是否可以与 mulitset 中两个的数构成三角形</li>
 </ol>
-<p>首先对于一个数 x 假设可以在 mulitset 中找到 y,z 与之构成三角形，现在假设 $y\le z$ 而且 y 和 z 之间存在一个数字 k</p>
+<p>首先对于一个数 x 假设可以在 mulitset 中找到 y,z 与之构成三角形，现在假设 <span class="arithmatex">\(y\le z\)</span> 而且 y 和 z 之间存在一个数字 k</p>
 <ol>
-<li>$x \le y$，可以推出 $z \lt x + y$ 所以 $k \lt x + y$，所以 $x,y,k$ 可以构成三角形</li>
-<li>$y \le x \le z$，可以推出 $z \lt x + y$ 如果 $k \le x$ 则 $z \lt x + k$，所以 $x,k,z$ 可以构成三角形， $x \le k$ 则 $x,y,k$ 可以构成三角形</li>
-<li>$z \le x$，可以推出 $x \lt z + y$，所以 $x \lt k + z$，所以 $x,z,k$ 可以构成三角形</li>
+<li><span class="arithmatex">\(x \le y\)</span>，可以推出 <span class="arithmatex">\(z \lt x + y\)</span> 所以 <span class="arithmatex">\(k \lt x + y\)</span>，所以 <span class="arithmatex">\(x,y,k\)</span> 可以构成三角形</li>
+<li><span class="arithmatex">\(y \le x \le z\)</span>，可以推出 <span class="arithmatex">\(z \lt x + y\)</span> 如果 <span class="arithmatex">\(k \le x\)</span> 则 <span class="arithmatex">\(z \lt x + k\)</span>，所以 <span class="arithmatex">\(x,k,z\)</span> 可以构成三角形， <span class="arithmatex">\(x \le k\)</span> 则 <span class="arithmatex">\(x,y,k\)</span> 可以构成三角形</li>
+<li><span class="arithmatex">\(z \le x\)</span>，可以推出 <span class="arithmatex">\(x \lt z + y\)</span>，所以 <span class="arithmatex">\(x \lt k + z\)</span>，所以 <span class="arithmatex">\(x,z,k\)</span> 可以构成三角形</li>
 </ol>
 <p>所以如果存在解一定存在相邻的两个数是它的解。</p>
 <p>那么问题就转换成了：往集合中加入或删除数，维护相邻两项覆盖的点集区间</p>
-<p>考虑相邻两项为 $x,y$，则他们能对一个数产生贡献的为 $[y-x+1,x+y-1]$ 这个区间，设为 $f(x,y)$。</p>
-<p>考虑插入一个数 $x$，原集合 $x$ 左右两边的数字为 $y,z$，则会添加 $f(y,x)$，$f(x,z)$，删除 $f(y,z)$</p>
-<p>删除一个数 $x$，则为添加 $f(y,z)$，删除 $f(y,x)$，$f(x,z)$，所以用线段树维护区间加单点和即可，比较难写的是左右数字边界的处理。</p>
+<p>考虑相邻两项为 <span class="arithmatex">\(x,y\)</span>，则他们能对一个数产生贡献的为 <span class="arithmatex">\([y-x+1,x+y-1]\)</span> 这个区间，设为 <span class="arithmatex">\(f(x,y)\)</span>。</p>
+<p>考虑插入一个数 <span class="arithmatex">\(x\)</span>，原集合 <span class="arithmatex">\(x\)</span> 左右两边的数字为 <span class="arithmatex">\(y,z\)</span>，则会添加 <span class="arithmatex">\(f(y,x)\)</span>，<span class="arithmatex">\(f(x,z)\)</span>，删除 <span class="arithmatex">\(f(y,z)\)</span></p>
+<p>删除一个数 <span class="arithmatex">\(x\)</span>，则为添加 <span class="arithmatex">\(f(y,z)\)</span>，删除 <span class="arithmatex">\(f(y,x)\)</span>，<span class="arithmatex">\(f(x,z)\)</span>，所以用线段树维护区间加单点和即可，比较难写的是左右数字边界的处理。</p>
 <p>??? note &ldquo;Code by: badcw&rdquo;
     ```cpp
     /<em>================================================================
@@ -1375,8 +1375,8 @@ int main(int argc, char* argv[]) {
 
 <h2 id="i-interval">I. Interval<a class="headerlink" href="#i-interval" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>给一个$[1,n]$的初始区间，在满足修改后$1≤l&lt;r≤n$的情况下，对区间$<a href="l&lt;r">l,r</a>$每次可使l,r加1或-1。</p>
-<p>给定若干个限制条件(l, r, &lsquo;L&rsquo;, c)或(l, r, &lsquo;R&rsquo;, c)，表示花费c来禁止l&lt;-&gt;l+1或r&lt;-&gt;r-1，问最少花费多少，才能使区间$[1,n]$无法被修改为$l=r$的情况。</p>
+<p>给一个<span class="arithmatex">\([1,n]\)</span>的初始区间，在满足修改后<span class="arithmatex">\(1≤l&lt;r≤n\)</span>的情况下，对区间<span class="arithmatex">\([l,r](l&lt;r)\)</span>每次可使l,r加1或-1。</p>
+<p>给定若干个限制条件(l, r, &lsquo;L&rsquo;, c)或(l, r, &lsquo;R&rsquo;, c)，表示花费c来禁止l&lt;-&gt;l+1或r&lt;-&gt;r-1，问最少花费多少，才能使区间<span class="arithmatex">\([1,n]\)</span>无法被修改为<span class="arithmatex">\(l=r\)</span>的情况。</p>
 <p>把区间视为网格上的点建网络流模型， 对于每个限制条件连<code>(pt(l,r),pt(l', r'),c)</code>的双向边，起点为<code>(1, n)</code>, 并对<code>(i,i)</code>向T连流量为inf的边。最小割即为所求解。</p>
 <p>网格图最小割可以转化为对偶图最短路求解，对原图中的ST连一条流量为inf的边把网格外的空间分为两部分，将原图中的格视为点，边权为原图中边的流量大小，跑最短路即可。</p>
 <p>??? note &ldquo;Code by: Verly&rdquo;
@@ -1454,8 +1454,8 @@ signed main()
 <h2 id="j-just-shuffle">J. Just Shuffle<a class="headerlink" href="#j-just-shuffle" title="Permanent link">Link</a></h2>
 <p><em>solved by: Verly 04:32:38(-2)</em></p>
 <p>给一个 1~n 的排列求 P，把 1~n 原序运行 k 次 P 排列可以变成该排列，k 为大素数。</p>
-<p>原题相当于一个每行每列只有 1 个 1 的方阵 $S$，求 $S^{-k}$。</p>
-<p>实际上对 i 和 $S_i$ 连单向边，最后会得到若干个环，由于 k 是素数，它对环都存在一个偏移量，在每个环上按偏移量走即可得到原序列。</p>
+<p>原题相当于一个每行每列只有 1 个 1 的方阵 <span class="arithmatex">\(S\)</span>，求 <span class="arithmatex">\(S^{-k}\)</span>。</p>
+<p>实际上对 i 和 <span class="arithmatex">\(S_i\)</span> 连单向边，最后会得到若干个环，由于 k 是素数，它对环都存在一个偏移量，在每个环上按偏移量走即可得到原序列。</p>
 <p>??? note &ldquo;Code by: Verly&rdquo;
     ```cpp
     #include <bits/stdc++.h></p>
@@ -1642,6 +1642,12 @@ int main()
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

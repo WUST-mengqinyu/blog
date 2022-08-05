@@ -544,12 +544,12 @@ int main(int argc, char* argv[]) {
 </code></pre>
 
 <h2 id="d-counting-sequences-i">D. Counting Sequences I<a class="headerlink" href="#d-counting-sequences-i" title="Permanent link">Link</a></h2>
-<p>题意：求n个正整数，使得他们的和等于他们的积的方案数(n \le 3000)</p>
-<p>题解：论文上写了很多输出所有方案的做法，oeis上也有如果限定这些正整数为1~9时的方案数量的表，还有所有非重集的方案数的表，但是这题要求所有方案数，所以可以考虑爆搜出所有方案。对3000个数打表，每个数k爆搜出(\prod a_i = k)，然后可以根据( k - \sum a_i )求出1的数量，对这个方案进行非重排列即可得到某个数的解。搜索6000个数以内就可以打出3000的表（论文中有证明对于n个数，要组成和与积相等的方案必不大于<code>2×n</code>）这边直接把表打好输出到文件写的代码就不放了。</p>
-<p>科普：非重排列的解法是：一共有<code>n</code>个元素，其中第<code>i</code>种元素有<code>a_i</code>个，则总排列数有( \frac{n!}{\prod{a_i!}} )个。</p>
+<p>题意：求n个正整数，使得他们的和等于他们的积的方案数<span class="arithmatex">\(n \le 3000\)</span></p>
+<p>题解：论文上写了很多输出所有方案的做法，oeis上也有如果限定这些正整数为1~9时的方案数量的表，还有所有非重集的方案数的表，但是这题要求所有方案数，所以可以考虑爆搜出所有方案。对3000个数打表，每个数k爆搜出<span class="arithmatex">\(\prod a_i = k\)</span>，然后可以根据<span class="arithmatex">\( k - \sum a_i \)</span>求出1的数量，对这个方案进行非重排列即可得到某个数的解。搜索6000个数以内就可以打出3000的表（论文中有证明对于n个数，要组成和与积相等的方案必不大于<code>2×n</code>）这边直接把表打好输出到文件写的代码就不放了。</p>
+<p>科普：非重排列的解法是：一共有<code>n</code>个元素，其中第<code>i</code>种元素有<code>a_i</code>个，则总排列数有<span class="arithmatex">\( \frac{n!}{\prod{a_i!}} \)</span>个。</p>
 <h2 id="f-rhyme-scheme">F. Rhyme scheme<a class="headerlink" href="#f-rhyme-scheme" title="Permanent link">Link</a></h2>
 <p>题意：给定一类字符串的构造方案：前i-1位的最大字符为&rsquo;mx&rsquo;，则第i位可以取的范围为[&lsquo;A&rsquo;,&rsquo;mx&rsquo; + 1]。每组询问输出长度为n的串中字典序第k大的字符串。</p>
-<p>题解：构造出的字符串方案数应该为贝尔数。根据题意，rhyme scheme可以形成一棵字典树，并且每个节点的子树大小取决于字典树路径上的最大字符。考虑dp求解某个子树对应的字符个数，令(dp[i][j])表示在第i层，根节点到当前节点路径字符的最大值为j的子树大小，有dp方程<code>dp[i][j]=j*dp[i-1][j]+dp[i][j+1]</code>。询问时在字典树上从上往下走，假设根节点到当前节点路径上的最大值为mx，那么前mx个点的子树大小为<code>dp[n-dep][mx]</code>，最后一个节点的子树大小为<code>dp[n-dep][mx+1]</code>，不断往下走即可求出解。</p>
+<p>题解：构造出的字符串方案数应该为贝尔数。根据题意，rhyme scheme可以形成一棵字典树，并且每个节点的子树大小取决于字典树路径上的最大字符。考虑dp求解某个子树对应的字符个数，令<span class="arithmatex">\(dp[i][j]\)</span>表示在第i层，根节点到当前节点路径字符的最大值为j的子树大小，有dp方程<code>dp[i][j]=j*dp[i-1][j]+dp[i][j+1]</code>。询问时在字典树上从上往下走，假设根节点到当前节点路径上的最大值为mx，那么前mx个点的子树大小为<code>dp[n-dep][mx]</code>，最后一个节点的子树大小为<code>dp[n-dep][mx+1]</code>，不断往下走即可求出解。</p>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
@@ -861,6 +861,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

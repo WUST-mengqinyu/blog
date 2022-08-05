@@ -482,9 +482,9 @@
 <h2 id="to-do-list">To-do list<a class="headerlink" href="#to-do-list" title="Permanent link">Link</a></h2>
 <p><code>E</code></p>
 <h2 id="a">A. 期望逆序对<a class="headerlink" href="#a" title="Permanent link">Link</a></h2>
-<p>求一个排列，排序一个区间对使得期望逆序对最少求期望。即对于 $[l_i,r_i]$ 中的任何一个整数 $j$，$x_i=j$的概率都是 $(r_i-l_i+1)^{-1}$</p>
-<p>显然，对于两个区间 $[a,b]$ 和 $[c,d]$。若 $a + b &lt; c + d$，显然  $[a,b]$ 应该在 $[c,d]$ 前面然后由于这个东西是单向有可传递性的所以直接对区间按权排序，然后计算期望即可</p>
-<p>由于 $n\le 5\cdot 10^3$ 计算期望的方法是对于每个点对求它可能是逆序对的期望然后求和即可</p>
+<p>求一个排列，排序一个区间对使得期望逆序对最少求期望。即对于 <span class="arithmatex">\([l_i,r_i]\)</span> 中的任何一个整数 <span class="arithmatex">\(j\)</span>，<span class="arithmatex">\(x_i=j\)</span>的概率都是 <span class="arithmatex">\((r_i-l_i+1)^{-1}\)</span></p>
+<p>显然，对于两个区间 <span class="arithmatex">\([a,b]\)</span> 和 <span class="arithmatex">\([c,d]\)</span>。若 <span class="arithmatex">\(a + b &lt; c + d\)</span>，显然  <span class="arithmatex">\([a,b]\)</span> 应该在 <span class="arithmatex">\([c,d]\)</span> 前面然后由于这个东西是单向有可传递性的所以直接对区间按权排序，然后计算期望即可</p>
+<p>由于 <span class="arithmatex">\(n\le 5\cdot 10^3\)</span> 计算期望的方法是对于每个点对求它可能是逆序对的期望然后求和即可</p>
 <p>所以本题考虑清楚每个点对的期望即可</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -576,7 +576,7 @@ int main(int argc, char* argv[]) {
 </code></pre>
 
 <h2 id="b">B. 密码学<a class="headerlink" href="#b" title="Permanent link">Link</a></h2>
-<p>有个加模的加密方法，输入加密 $m$ 次后每个串的形式，求原串</p>
+<p>有个加模的加密方法，输入加密 <span class="arithmatex">\(m\)</span> 次后每个串的形式，求原串</p>
 <p>签到题，减模倒推即可</p>
 <p>??? note &ldquo;Code by Verly&rdquo;
     ```cpp
@@ -677,11 +677,11 @@ int main()
         return 0;
     }</code></p>
 <h2 id="c">C. 染色图<a class="headerlink" href="#c" title="Permanent link">Link</a></h2>
-<p>令 $g(n,k)$ 为 $n$ 个点的无向图对点染成 $k$ 种颜色最多的边数，求 $\sum_{i=l}^{r} g(n,i)$
+<p>令 <span class="arithmatex">\(g(n,k)\)</span> 为 <span class="arithmatex">\(n\)</span> 个点的无向图对点染成 <span class="arithmatex">\(k\)</span> 种颜色最多的边数，求 <span class="arithmatex">\(\sum_{i=l}^{r} g(n,i)\)</span>
 $$
-g(n,i)=\frac{n^2-\sum_{i=l}^r{(\lceil\frac{n}{i}\rceil)}^2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}^2\cdot(i-n\%i)}{2}
+g(n,i)=\frac{n<sup>2-\sum_{i=l}</sup>r{(\lceil\frac{n}{i}\rceil)}<sup>2\cdot(n\%i)+{\lfloor\frac{n}{i}\rfloor}</sup>2\cdot(i-n\%i)}{2}
 $$</p>
-<p>对该式分块，当$i\le\sqrt{n}$时对每个点单点求值，当$i\ge\sqrt{n}$时对$\lfloor\frac{n}{i}\rfloor$分块求和，其中$\sum_{i=l}^ri$和$n\%i$均为等差数列，而$\lfloor\frac{n}{i}\rfloor$在单个块内相等，每次求$l-1,r$的前缀和差分即可。</p>
+<p>对该式分块，当<span class="arithmatex">\(i\le\sqrt{n}\)</span>时对每个点单点求值，当<span class="arithmatex">\(i\ge\sqrt{n}\)</span>时对<span class="arithmatex">\(\lfloor\frac{n}{i}\rfloor\)</span>分块求和，其中<span class="arithmatex">\(\sum_{i=l}^ri\)</span>和<span class="arithmatex">\(n\%i\)</span>均为等差数列，而<span class="arithmatex">\(\lfloor\frac{n}{i}\rfloor\)</span>在单个块内相等，每次求<span class="arithmatex">\(l-1,r\)</span>的前缀和差分即可。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     #include <bits/stdc++.h>
@@ -860,8 +860,8 @@ signed main()
         return 0;
     }</code></p>
 <h2 id="f">F. 乘法<a class="headerlink" href="#f" title="Permanent link">Link</a></h2>
-<p>给出两个序列，求全积中第 $k$ 大的数</p>
-<p>二分答案，然后对答案进行 check，每次求比当前二分的答案小的数的个数，可以考虑将 $B$ 序列排序，枚举所有 $A$ 套一层二分求出小于它的数的个数即可</p>
+<p>给出两个序列，求全积中第 <span class="arithmatex">\(k\)</span> 大的数</p>
+<p>二分答案，然后对答案进行 check，每次求比当前二分的答案小的数的个数，可以考虑将 <span class="arithmatex">\(B\)</span> 序列排序，枚举所有 <span class="arithmatex">\(A\)</span> 套一层二分求出小于它的数的个数即可</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     #include <bits/stdc++.h>
@@ -941,9 +941,9 @@ int main(){
 </code></pre>
 
 <h2 id="h">H. 最大公约数<a class="headerlink" href="#h" title="Permanent link">Link</a></h2>
-<p>求 $y$ 使得在 $[1,n]$ 中不存在 $gcd(i,k)=gcd(y,k)$</p>
-<p>队友一看是个大数，因为如果 $n=500, k=1$ 显然是 $n$ 中所有的素数积</p>
-<p>然后随便推一推设 $p$ 是 $n$ 中所有的素数集合，答案就是 $k \cdot \prod p$</p>
+<p>求 <span class="arithmatex">\(y\)</span> 使得在 <span class="arithmatex">\([1,n]\)</span> 中不存在 <span class="arithmatex">\(gcd(i,k)=gcd(y,k)\)</span></p>
+<p>队友一看是个大数，因为如果 <span class="arithmatex">\(n=500, k=1\)</span> 显然是 <span class="arithmatex">\(n\)</span> 中所有的素数积</p>
+<p>然后随便推一推设 <span class="arithmatex">\(p\)</span> 是 <span class="arithmatex">\(n\)</span> 中所有的素数集合，答案就是 <span class="arithmatex">\(k \cdot \prod p\)</span></p>
 <p>??? note &ldquo;Code&rdquo;
     ```python
     T = int(input())</p>
@@ -1187,6 +1187,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

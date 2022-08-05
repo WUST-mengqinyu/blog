@@ -750,8 +750,8 @@ int main()
 </code></pre>
 
 <h2 id="d-vacation">D. Vacation<a class="headerlink" href="#d-vacation" title="Permanent link">Link</a></h2>
-<p>考虑(O(n))的解法。</p>
-<p>对于某一辆车(x)，计算它到达距离停车线0点向右距离为(\sum_{i=1}^x l_i​)的时间，最大值即为答案。</p>
+<p>考虑<span class="arithmatex">\(O(n)\)</span>的解法。</p>
+<p>对于某一辆车<span class="arithmatex">\(x\)</span>，计算它到达距离停车线0点向右距离为<span class="arithmatex">\(\sum_{i=1}^x l_i​\)</span>的时间，最大值即为答案。</p>
 <p><em>为什么</em>：因为如果某一辆车没有到达这个点，它后面的车肯定被它堵住了，也就导致0车不能到达停车线。所以每辆车都超过了它对应的这个位置的时间就是答案。</p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">Link</a></h3>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
@@ -949,8 +949,8 @@ signed main()
 </code></pre>
 
 <h2 id="f-typewriter">F. Typewriter<a class="headerlink" href="#f-typewriter" title="Permanent link">Link</a></h2>
-<p>令<code>dp[i]</code>表示打出前i个字符的花费。对于第一种操作，<code>dp[i]=dp[i-1]+p</code>，对于第二种操作，考虑有一个最小的(j)，使(s(j+1,i))是(s(1,j))的子串，此时花费为<code>dp[i]=dp[j]+q</code>，有状态转移方程$$dp[i]=min(dp[i-1]+p,dp[j]+q)$$</p>
-<p>对第二种情况，考虑用后缀自动机维护串(s(1,j))，当SAM内不存在(s(j+1,i))时不断往后添加字符并使<code>j=j+1</code>，直到找到串(s(j+1,i))，复杂度(O(n))。</p>
+<p>令<code>dp[i]</code>表示打出前i个字符的花费。对于第一种操作，<code>dp[i]=dp[i-1]+p</code>，对于第二种操作，考虑有一个最小的<span class="arithmatex">\(j\)</span>，使<span class="arithmatex">\(s(j+1,i)\)</span>是<span class="arithmatex">\(s(1,j)\)</span>的子串，此时花费为<code>dp[i]=dp[j]+q</code>，有状态转移方程<span class="arithmatex">\(<span class="arithmatex">\(dp[i]=min(dp[i-1]+p,dp[j]+q)\)</span>\)</span></p>
+<p>对第二种情况，考虑用后缀自动机维护串<span class="arithmatex">\(s(1,j)\)</span>，当SAM内不存在<span class="arithmatex">\(s(j+1,i)\)</span>时不断往后添加字符并使<code>j=j+1</code>，直到找到串<span class="arithmatex">\(s(j+1,i)\)</span>，复杂度<span class="arithmatex">\(O(n)\)</span>。</p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">Link</a></h3>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
 
@@ -1263,6 +1263,12 @@ int main()
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

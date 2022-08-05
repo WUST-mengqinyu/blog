@@ -480,10 +480,10 @@
 </ol>
 <p>即可求解。</p>
 <h2 id="j-philosophical-balance">J. Philosophical … Balance<a class="headerlink" href="#j-philosophical-balance" title="Permanent link">Link</a></h2>
-<p>给一个字符串，先手给串的每一个位置赋一个值(p_i)并保证(p_i \ge 0, \sum_{i=1}^n p_i = 1)，后手选择一个子串(j)。有式子(\sum_{k=1}^n p_k \mathrm{lcp}(s_k,s_j))，先手想使其尽可能大，后手想使其尽可能小。先手要如何操作才能使这个值最大，求这个最大值。</p>
+<p>给一个字符串，先手给串的每一个位置赋一个值<span class="arithmatex">\(p_i\)</span>并保证<span class="arithmatex">\(p_i \ge 0, \sum_{i=1}^n p_i = 1\)</span>，后手选择一个子串<span class="arithmatex">\(j\)</span>。有式子<span class="arithmatex">\(\sum_{k=1}^n p_k \mathrm{lcp}(s_k,s_j)\)</span>，先手想使其尽可能大，后手想使其尽可能小。先手要如何操作才能使这个值最大，求这个最大值。</p>
 <p>题解：将原串反向，建立后缀自动机。</p>
-<p>对于反串的后缀树，此时后手如果选择某个子树(u)中选择串(s_j)，在(p)固定的情况下要使lcp最小，显然最优解为选择子树的根。</p>
-<p>在后缀自动机的suffix link树中，如果当前state为np节点，则直接取当前节点的len作为答案。否则需要合并若干子树的答案，答案为一个纳什均衡的模型，即每个子节点的贡献相等。那么该点的贡献为(len[u]+x)，其中$len[u])一定会取到，(x)为纳什均衡下可以取到的最大值，推一下子树的(x)得到(x = \frac{1}{\sum \frac{1}{f_i}})，那么在suffix link树上dfs即可求出答案。</p>
+<p>对于反串的后缀树，此时后手如果选择某个子树<span class="arithmatex">\(u\)</span>中选择串<span class="arithmatex">\(s_j\)</span>，在<span class="arithmatex">\(p\)</span>固定的情况下要使lcp最小，显然最优解为选择子树的根。</p>
+<p>在后缀自动机的suffix link树中，如果当前state为np节点，则直接取当前节点的len作为答案。否则需要合并若干子树的答案，答案为一个纳什均衡的模型，即每个子节点的贡献相等。那么该点的贡献为<span class="arithmatex">\(len[u]+x\)</span>，其中$len[u])一定会取到，<span class="arithmatex">\(x\)</span>为纳什均衡下可以取到的最大值，推一下子树的<span class="arithmatex">\(x\)</span>得到<span class="arithmatex">\(x = \frac{1}{\sum \frac{1}{f_i}}\)</span>，那么在suffix link树上dfs即可求出答案。</p>
 <h2 id="l-eventual-journey">L. Eventual … Journey<a class="headerlink" href="#l-eventual-journey" title="Permanent link">Link</a></h2>
 <p>有 n 个车站，相互之间有 m 条公共的双向铁路连通，车站分成 0,1 两种类别，任意两个 0 类车站之间都有一条私有的铁路相互连接，1 类车站也类似。</p>
 <p>现在，从每车站 i 出发，到车站 j 的最少走过的铁路数目为 D(u,v)，要求你对每个固定的车站 i，都输出到其他所有车站的 D(i,j) 之和。</p>
@@ -529,6 +529,12 @@
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

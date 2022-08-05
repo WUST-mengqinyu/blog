@@ -467,10 +467,10 @@
 <p>一棵以 1 为根节点的有根树，需要确定 k 个关键点，使得每个点到某个关键祖先节点最近距离的最大值最小，求 k 为 1~n 的所有答案。 树的节点数量 1e5</p>
 <p>由于已知 k 求答案比较复杂，先考虑已知答案求最少 k 如何处理。已知最大值的情况下，一定是从最深处开始枚举，每次把最深处的节点的 ans 层父亲作为关键点贪心即可，问题转换为维护全局最深点，去掉一棵子树。</p>
 <p>可以用线段树维护 dfs 序，将一棵子树置空 tag 不需要下传，因为询问只有全局最深点。</p>
-<p>那么考虑答案最多为 n-1，最少为 0，对于一个答案 i，他需要的关键点量级大概在 $O(\frac{n}{i})$，枚举所有答案，对于每个答案需要修改这个量级次数的线段树，不考虑重新建树的复杂度就是调和级数 $O(nlog^2(n))$</p>
-<p>如果每次重新建树复杂度就会退化到 $O(n^2)$，所以考虑回退操作，如果对线段树有深刻的了解就可以完成这个需求，记录最大值和每个点的原值，每次对 rt 点进行修改时，不下传标记，但是做上传操作即可，最后枚举完一个答案就将操作全部回退一次，将最大值回退成原值。</p>
+<p>那么考虑答案最多为 n-1，最少为 0，对于一个答案 i，他需要的关键点量级大概在 <span class="arithmatex">\(O(\frac{n}{i})\)</span>，枚举所有答案，对于每个答案需要修改这个量级次数的线段树，不考虑重新建树的复杂度就是调和级数 <span class="arithmatex">\(O(nlog^2(n))\)</span></p>
+<p>如果每次重新建树复杂度就会退化到 <span class="arithmatex">\(O(n^2)\)</span>，所以考虑回退操作，如果对线段树有深刻的了解就可以完成这个需求，记录最大值和每个点的原值，每次对 rt 点进行修改时，不下传标记，但是做上传操作即可，最后枚举完一个答案就将操作全部回退一次，将最大值回退成原值。</p>
 <p>由于需要找出某个点的某一层祖先节点位置，可以预处理倍增或者通过使用上一次的父节点进行递推（两个答案之间的第 k 层祖先节点其实是父子关系）。</p>
-<p>总复杂度 $O(nlog^2n)$</p>
+<p>总复杂度 <span class="arithmatex">\(O(nlog^2n)\)</span></p>
 <p>??? node &ldquo;Code by badcw&rdquo;
     ```cpp
     /<em>================================================================
@@ -621,7 +621,7 @@ int main(int argc, char* argv[]) {
 
 <h2 id="b-basic-gcd-problem">B. Basic Gcd Problem<a class="headerlink" href="#b-basic-gcd-problem" title="Permanent link">Link</a></h2>
 <p><em>solved by: badcw 00:30:00(-2)</em></p>
-<p>答案是$c^{x的质因数个数}$</p>
+<p>答案是<span class="arithmatex">\(c^{x的质因数个数}\)</span></p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     /<em>================================================================
@@ -717,7 +717,7 @@ int main(int argc, char* argv[]) {
 
 <h2 id="c-count-new-string">C. Count New String<a class="headerlink" href="#c-count-new-string" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>题意：函数$f(S,x,y)$返回一个长度为$|y-x+1|$的字符串，其中第i位的值为$S_x~S_{x+k-1}$的最大值。求$1≤x≤y≤n$的所有$f(S,x,y)$组成的本质不同的子串个数。</p>
+<p>题意：函数<span class="arithmatex">\(f(S,x,y)\)</span>返回一个长度为<span class="arithmatex">\(|y-x+1|\)</span>的字符串，其中第i位的值为<span class="arithmatex">\(S_x~S_{x+k-1}\)</span>的最大值。求<span class="arithmatex">\(1≤x≤y≤n\)</span>的所有<span class="arithmatex">\(f(S,x,y)\)</span>组成的本质不同的子串个数。</p>
 <p>对串从后往前扫，建立广义后缀自动机，单调栈维护一个递减的字符集，每次把当前字符串插入大于等于它的字符后面，构建出的串的总长不超过10N。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -782,7 +782,7 @@ int main()
 <p><em>upsolved by: Verly</em></p>
 <p>题意：把数字字符串切成任意块（不能有前导零），求切完之后最大值与最小值的差最小是多少。</p>
 <p>首先可以知道答案不能超过9。</p>
-<p>考虑对串切分，最优解一定是长度完全相同或者只相差一位。$O(n\sqrt n)$枚举长度完全相同的情况。</p>
+<p>考虑对串切分，最优解一定是长度完全相同或者只相差一位。<span class="arithmatex">\(O(n\sqrt n)\)</span>枚举长度完全相同的情况。</p>
 <p>对于相差一位的情况，只可能有全为9999x和10000y的情况存在最优解，枚举长度并check是否满足条件，计算答案即可。</p>
 <p>??? note &ldquo;Code by Verly&rdquo;
     ```cpp
@@ -1300,6 +1300,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

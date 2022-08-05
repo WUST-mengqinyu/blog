@@ -499,7 +499,7 @@ $$
 显然暴力两种方式：枚举每个点是否在某个q中，或者枚举所有q中的点都是<code>O(nmq)</code>的复杂度</p>
 <p>考虑一维暴力，另一维用差分数组优化即可<code>O(nq)</code></p>
 <h2 id="i-matrix-game">I. <a href="https://ac.nowcoder.com/acm/contest/163/I">Matrix Game</a><a class="headerlink" href="#i-matrix-game" title="Permanent link">Link</a></h2>
-<p>给定一个$n×m$矩阵上的数，每次可以将矩阵上的某个数+1或-1，问最少操作多少次，能使每行上的个数相等，且每列上的个数相等。</p>
+<p>给定一个<span class="arithmatex">\(n×m\)</span>矩阵上的数，每次可以将矩阵上的某个数+1或-1，问最少操作多少次，能使每行上的个数相等，且每列上的个数相等。</p>
 <p>费用流。行列模型建图，原有的点行列连边，流量为<code>mp[i][j]</code>，费用为-1(强制先取)，再对该行该列连流量为inf的边，费用为1。令原有的点总和为sum，当前的花费即为sum+mcmf。</p>
 <p>枚举流量，每次增加<code>n*m/__gcd(n,m)</code>，从源点向行分成n份，列向汇点分成m份，求出最大值。</p>
 <p>注意这里是<strong>有负圈</strong>的费用流。并且在跑的时候有些玄学的常数优化……？</p>
@@ -553,6 +553,12 @@ $$</p>
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

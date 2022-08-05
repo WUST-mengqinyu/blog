@@ -465,22 +465,22 @@
 <p>现场过240+的两个铁牌题不会写，还上去冲sam（？</p>
 <p>啥玩意啊</p>
 <h2 id="a-cat">A. Cat<a class="headerlink" href="#a-cat" title="Permanent link">Link</a></h2>
-<p>每次询问一组$L,R,S$，问最长的$l⊕(l+1)⊕(l+2)⊕……⊕(r-2)⊕(r-1)⊕r&lt;=S(L≤l≤r≤R)$的l,r区间长度是多少。</p>
-<p>因为$4k⊕4k+1⊕4k+2⊕4k+3=0$，所以只要枚举左右端点就好。</p>
+<p>每次询问一组<span class="arithmatex">\(L,R,S\)</span>，问最长的<span class="arithmatex">\(l⊕(l+1)⊕(l+2)⊕……⊕(r-2)⊕(r-1)⊕r&lt;=S(L≤l≤r≤R)\)</span>的l,r区间长度是多少。</p>
+<p>因为<span class="arithmatex">\(4k⊕4k+1⊕4k+2⊕4k+3=0\)</span>，所以只要枚举左右端点就好。</p>
 <h2 id="c-3-numbers">C. &lt;3 numbers<a class="headerlink" href="#c-3-numbers" title="Permanent link">Link</a></h2>
-<p>每次询问一个$L,R$，问L,R区间的素数个数x是否满足</p>
-<p>$$\frac{x}{R-L+1}&lt; \frac{1}{3}$$</p>
+<p>每次询问一个<span class="arithmatex">\(L,R\)</span>，问L,R区间的素数个数x是否满足</p>
+<div class="arithmatex">\[\frac{x}{R-L+1}&lt; \frac{1}{3}\]</div>
 <p>题解：由于素数密度，大范围直接输出YES， 小范围暴力判一下。</p>
 <h2 id="e-multiply">E. Multiply<a class="headerlink" href="#e-multiply" title="Permanent link">Link</a></h2>
-<p>给出$n$个数$a_i$，令$Z=a_1!×a_2!×..×a_n!$</p>
-<p>现在给出$X,Y$,令$b_i=Z×X^i$，要求找到最大的$i$，使$b_i|Y!$</p>
-<p>题解：Pollard_Rho分解出X的每个质因数及其个数，计算其在$\frac{Y!}{Z}$中的出现次数，取所有出现的最小值即可。其中n!的因子个数为$\frac{n}{p}+\frac{n}{p^2}+\dots+\frac{n}{p^k}$.</p>
+<p>给出<span class="arithmatex">\(n\)</span>个数<span class="arithmatex">\(a_i\)</span>，令<span class="arithmatex">\(Z=a_1!×a_2!×..×a_n!\)</span></p>
+<p>现在给出<span class="arithmatex">\(X,Y\)</span>,令<span class="arithmatex">\(b_i=Z×X^i\)</span>，要求找到最大的<span class="arithmatex">\(i\)</span>，使<span class="arithmatex">\(b_i|Y!\)</span></p>
+<p>题解：Pollard_Rho分解出X的每个质因数及其个数，计算其在<span class="arithmatex">\(\frac{Y!}{Z}\)</span>中的出现次数，取所有出现的最小值即可。其中n!的因子个数为<span class="arithmatex">\(\frac{n}{p}+\frac{n}{p^2}+\dots+\frac{n}{p^k}\)</span>.</p>
 <h2 id="f-the-answer-to-the-ultimate-question-of-life-the-universe-and-everything">F. The Answer to the Ultimate Question of Life, The Universe, and Everything.<a class="headerlink" href="#f-the-answer-to-the-ultimate-question-of-life-the-universe-and-everything" title="Permanent link">Link</a></h2>
-<p>~~是42！~~</p>
-<p>每次询问给出$x(x≤200)$，输出$a,b,c(-5000≤a,b,c≤5000)$，使$a^3+b^3+c^3=x$，如果不存在，输出<code>impossible</code>.</p>
+<p><del>是42！</del></p>
+<p>每次询问给出<span class="arithmatex">\(x(x≤200)\)</span>，输出<span class="arithmatex">\(a,b,c(-5000≤a,b,c≤5000)\)</span>，使<span class="arithmatex">\(a^3+b^3+c^3=x\)</span>，如果不存在，输出<code>impossible</code>.</p>
 <p>题解：x比较小，考虑打表，枚举前两维二分第三维即可。</p>
 <h2 id="l-loli-yen-jen-and-a-cool-problem">L. Loli, Yen-Jen, and a cool problem<a class="headerlink" href="#l-loli-yen-jen-and-a-cool-problem" title="Permanent link">Link</a></h2>
-<p>给出一个Trie，每次询问给出$x_i,L_i$，问从Trie上第$x_i$个节点开始，向父节点上跳$L_i-1$次的点为起点，$x_i$为终点的字符串在Trie上共出现多少次。</p>
+<p>给出一个Trie，每次询问给出<span class="arithmatex">\(x_i,L_i\)</span>，问从Trie上第<span class="arithmatex">\(x_i\)</span>个节点开始，向父节点上跳<span class="arithmatex">\(L_i-1\)</span>次的点为起点，<span class="arithmatex">\(x_i\)</span>为终点的字符串在Trie上共出现多少次。</p>
 <p>题解：对原Trie dfs建广义后缀自动机，倍增向上跳寻找最大的合法祖先，它的size即为答案。</p>
 <h2 id="m-kill-the-tree">M. Kill the tree<a class="headerlink" href="#m-kill-the-tree" title="Permanent link">Link</a></h2>
 <p>给定一棵以1为根节点的有根树，求每棵子树的重心。如果有多个重心，则从小到大输出。</p>
@@ -527,6 +527,12 @@
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

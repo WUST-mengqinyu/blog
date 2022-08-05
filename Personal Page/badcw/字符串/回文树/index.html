@@ -589,7 +589,7 @@ int p{};//表示添加的节点个数。
 <p><a href="https://vjudge.net/contest/292544">https://vjudge.net/contest/292544</a></p>
 <h4 id="a-palisection">A - Palisection<a class="headerlink" href="#a-palisection" title="Permanent link">Link</a></h4>
 <p>题意：求一个串所有回文子串两两相交的对数</p>
-<p>题解：正向建立回文树，保存以每个点为结尾的回文串个数<code>a</code>，再反向建立回文树保存后缀回文串个数<code>b</code>，则总数为(sum*(sum-1)/2 - \sum {a_i * b_{i+1}} )，注意此题卡了回文树内存，需要一些奇技淫巧用时间换取空间。</p>
+<p>题解：正向建立回文树，保存以每个点为结尾的回文串个数<code>a</code>，再反向建立回文树保存后缀回文串个数<code>b</code>，则总数为<span class="arithmatex">\(sum*(sum-1)/2 - \sum {a_i * b_{i+1}} \)</span>，注意此题卡了回文树内存，需要一些奇技淫巧用时间换取空间。</p>
 <p>使用vector保存next数组以简化空间，first是字符，second是值即可。</p>
 <pre class="codehilite"><code class="language-cpp linenums">vector&lt;pair&lt;int, int&gt; &gt; next[maxn];
 </code></pre>
@@ -673,6 +673,12 @@ int p{};//表示添加的节点个数。
       <script src="../../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../../search/main.js"></script>
       

@@ -483,7 +483,7 @@ int main(int argc, char* argv[]) {
 
 <h2 id="bgenerator-1">B、<a href="https://ac.nowcoder.com/acm/contest/885/B">generator 1</a><a class="headerlink" href="#bgenerator-1" title="Permanent link">Link</a></h2>
 <p>题意：求非素模数大数级fib数</p>
-<p>题解：快速幂，n有(10^{(10^10)})复杂度就是(O(2<em>2</em>log(n)))。由于n过大右移导致复杂度爆炸所以采用十进制快速幂，每次只把位数往右移动，以减小复杂度，还可以套一个二进制快速幂来解决10以内的矩阵乘法。复杂度大概在(O(1e6<em>log(10)</em>4))，赛中没套那个二进制快速幂也通过了此题。</p>
+<p>题解：快速幂，n有<span class="arithmatex">\(10^{(10^10)}\)</span>复杂度就是<span class="arithmatex">\(O(2*2*log(n))\)</span>。由于n过大右移导致复杂度爆炸所以采用十进制快速幂，每次只把位数往右移动，以减小复杂度，还可以套一个二进制快速幂来解决10以内的矩阵乘法。复杂度大概在<span class="arithmatex">\(O(1e6*log(10)*4)\)</span>，赛中没套那个二进制快速幂也通过了此题。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
@@ -986,6 +986,12 @@ int main()
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

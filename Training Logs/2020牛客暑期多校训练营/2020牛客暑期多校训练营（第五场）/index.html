@@ -621,31 +621,31 @@ int main()
 
 <h2 id="c-easy">C. Easy<a class="headerlink" href="#c-easy" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: ffacs</em></p>
-<p>题意：对所有满足 $\sum\limits_{i=1}^ka_i=N,\sum\limits_{i=1}^kb_i=N$ 的 <strong>正整数</strong> 数列 $a,b$ 求 $\sum\prod\limits_{i=1}^{K}min(a_i,b_i)$，其中 $1 \le N,M \le 1e6,1\le K\le\min(N,M)$</p>
-<p>使用双变量生成函数 $G(x)$, $x$ 的系数表示 $x$ 的取值，$y$ 的系数表示 $y$ 的取值。$x^ay^b$ 项的系数为 $\min(a,b)$ ，</p>
+<p>题意：对所有满足 <span class="arithmatex">\(\sum\limits_{i=1}^ka_i=N,\sum\limits_{i=1}^kb_i=N\)</span> 的 <strong>正整数</strong> 数列 <span class="arithmatex">\(a,b\)</span> 求 <span class="arithmatex">\(\sum\prod\limits_{i=1}^{K}min(a_i,b_i)\)</span>，其中 <span class="arithmatex">\(1 \le N,M \le 1e6,1\le K\le\min(N,M)\)</span></p>
+<p>使用双变量生成函数 <span class="arithmatex">\(G(x)\)</span>, <span class="arithmatex">\(x\)</span> 的系数表示 <span class="arithmatex">\(x\)</span> 的取值，<span class="arithmatex">\(y\)</span> 的系数表示 <span class="arithmatex">\(y\)</span> 的取值。<span class="arithmatex">\(x^ay^b\)</span> 项的系数为 <span class="arithmatex">\(\min(a,b)\)</span> ，</p>
 <p>那么显然有
 $$
 \begin{align}
 G(x,y)^n=(&amp;xy\quad +xy^2\quad +xy^3\quad +xy^4+&hellip;+ \
-&amp;x^2y\quad +2x^2y^2\quad +2x^2y^3\quad+2x^2y^4+&hellip;+ \
-&amp;x^3y\quad+ 2x^3y^2\quad +3x^3y^3\quad+3x^3y^4+&hellip;+\
+&amp;x^2y\quad +2x<sup>2y</sup>2\quad +2x<sup>2y</sup>3\quad+2x<sup>2y</sup>4+&hellip;+ \
+&amp;x^3y\quad+ 2x<sup>3y</sup>2\quad +3x<sup>3y</sup>3\quad+3x<sup>3y</sup>4+&hellip;+\
 &amp;x^4y\quad+....\
 )^K
 \end{align}
 $$
-中 $x^Ny^M$ 的系数即为答案。</p>
-<p>我们给 $G(x)$ 找个封闭形式。可以发现它就是 $F(x,y)=(xy+x^2y^2+&hellip;)$ 乘上一些散的 $x$ 和 $y$ 。容易发现
+中 <span class="arithmatex">\(x^Ny^M\)</span> 的系数即为答案。</p>
+<p>我们给 <span class="arithmatex">\(G(x)\)</span> 找个封闭形式。可以发现它就是 <span class="arithmatex">\(F(x,y)=(xy+x^2y^2+...)\)</span> 乘上一些散的 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 。容易发现
 $$
-F(x,y)<em>\frac{1}{1-x}=\sum_n\sum_ix^{n+i}y^n \
-F(x,y)</em>\frac{1}{1-x}*\frac{1}{1-y}=\sum_n\sum_i\sum_j\min(i,j)x^iy^j
+F(x,y)<em>\frac{1}{1-x}=\sum_n\sum_ix<sup>{n+i}y</sup>n \
+F(x,y)</em>\frac{1}{1-x}*\frac{1}{1-y}=\sum_n\sum_i\sum_j\min(i,j)x<sup>iy</sup>j
 $$
-下面式子的组合意义就是得到 $x^iy^j$ 总共有 $\min(i,j)$  种方式：（ $x^1y^1$ 乘上$i-1$ 个 $x$ ,$j-1$ 个 $y$ ） ,（ $x^2y^2$ 乘上$i-2$ 个 $x$ ,$j-2$ 个 $y$ ），（ $x^3y^3$ 乘上$i-3$ 个 $x$ ,$j-3$ 个 $y$ ）....</p>
+下面式子的组合意义就是得到 <span class="arithmatex">\(x^iy^j\)</span> 总共有 <span class="arithmatex">\(\min(i,j)\)</span>  种方式：（ <span class="arithmatex">\(x^1y^1\)</span> 乘上<span class="arithmatex">\(i-1\)</span> 个 <span class="arithmatex">\(x\)</span> ,<span class="arithmatex">\(j-1\)</span> 个 <span class="arithmatex">\(y\)</span> ） ,（ <span class="arithmatex">\(x^2y^2\)</span> 乘上<span class="arithmatex">\(i-2\)</span> 个 <span class="arithmatex">\(x\)</span> ,<span class="arithmatex">\(j-2\)</span> 个 <span class="arithmatex">\(y\)</span> ），（ <span class="arithmatex">\(x^3y^3\)</span> 乘上<span class="arithmatex">\(i-3\)</span> 个 <span class="arithmatex">\(x\)</span> ,<span class="arithmatex">\(j-3\)</span> 个 <span class="arithmatex">\(y\)</span> ）....</p>
 <p>那么有
 $$
 G(x)^K=\left(\frac{1}{1-x}\frac{1}{1-y}\frac{xy}{1-xy} \right)^K \
-=(\frac{1}{1-x})^K<em>(\frac{1}{1-y})^K</em>(\frac{xy}{1-xy})^K
+=(\frac{1}{1-x})<sup>K*(\frac{1}{1-y})</sup>K*(\frac{xy}{1-xy})^K
 $$
-$(\frac{1}{1-x})^a$ 的系数我们知道是一个不定方程的系数，那么我们只要枚举 $(\frac{xy}{1-xy})^K$ 展开式中 $xy$ 的指数，用前面两个式子的 $x$ 和 $y$ 补齐到 $N$ 和 $M$ 即可。</p>
+<span class="arithmatex">\((\frac{1}{1-x})^a\)</span> 的系数我们知道是一个不定方程的系数，那么我们只要枚举 <span class="arithmatex">\((\frac{xy}{1-xy})^K\)</span> 展开式中 <span class="arithmatex">\(xy\)</span> 的指数，用前面两个式子的 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 补齐到 <span class="arithmatex">\(N\)</span> 和 <span class="arithmatex">\(M\)</span> 即可。</p>
 <p>??? note &ldquo;Code&rdquo;
     <code>cpp
     #include &lt;bits/stdc++.h&gt;
@@ -880,11 +880,11 @@ int main(int argc, char* argv[]) {
 
 <h2 id="h-interval">H. Interval<a class="headerlink" href="#h-interval" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: badcw</em></p>
-<p>给一个序列，定义 $f(l,r)$ 表示 l 到 r 的与。 $S(l,r)$ 为 l 到 r 的所有子区间的 $f(l,r)$ 的并集，强制在线询问 q 次 $S(l,r)$ 的大小。</p>
-<p>$n,q \le 1e5 ~ a\le 2^{30}$</p>
-<p>考虑以任意一个 x 为左端点，所有右端点最多有 $log(a)$ 的不同取值。用倍增处理区间与，枚举左起点二分每段就可以求出所有可以构成不同数字的 $[l,r]$。</p>
+<p>给一个序列，定义 <span class="arithmatex">\(f(l,r)\)</span> 表示 l 到 r 的与。 <span class="arithmatex">\(S(l,r)\)</span> 为 l 到 r 的所有子区间的 <span class="arithmatex">\(f(l,r)\)</span> 的并集，强制在线询问 q 次 <span class="arithmatex">\(S(l,r)\)</span> 的大小。</p>
+<p><span class="arithmatex">\(n,q \le 1e5 ~ a\le 2^{30}\)</span></p>
+<p>考虑以任意一个 x 为左端点，所有右端点最多有 <span class="arithmatex">\(log(a)\)</span> 的不同取值。用倍增处理区间与，枚举左起点二分每段就可以求出所有可以构成不同数字的 <span class="arithmatex">\([l,r]\)</span>。</p>
 <p>那么如果不考虑重复，我们当前的所有 l,r 对，在询问的 LR 中如果被完全包含则会产生 1 的贡献，问题转换为在线二维数点。</p>
-<p>由于存在重复，我们考虑如何去重。可以知道对于与结果相同的 l,r 对排序，得到 $[l1,r1],[l2,r2]....[ln,rn]$ 则如果一个区间包含 $[l1,r2],[l2,r3]&hellip;$ 都会产生 -1 的贡献，那么就可以加一些负权点做数点。</p>
+<p>由于存在重复，我们考虑如何去重。可以知道对于与结果相同的 l,r 对排序，得到 <span class="arithmatex">\([l1,r1],[l2,r2]....[ln,rn]\)</span> 则如果一个区间包含 <span class="arithmatex">\([l1,r2],[l2,r3]...\)</span> 都会产生 -1 的贡献，那么就可以加一些负权点做数点。</p>
 <p>具体来说静态在线二维数点用主席树即可，出题人脑瘫非要在线。</p>
 <p>???note &ldquo;Code&rdquo;
     ```cpp
@@ -1053,7 +1053,7 @@ int main(int argc, char* argv[]) {
 </code></pre>
 
 <h2 id="i-hard-math-problem">I. Hard Math Problem<a class="headerlink" href="#i-hard-math-problem" title="Permanent link">Link</a></h2>
-<p>一张无限网格填入 012，要求每个 0 的旁边都有至少一个 1 和一个 2，问 $s_0 / (m * n)$ 最大是多少。</p>
+<p>一张无限网格填入 012，要求每个 0 的旁边都有至少一个 1 和一个 2，问 <span class="arithmatex">\(s_0 / (m * n)\)</span> 最大是多少。</p>
 <pre class="codehilite"><code class="linenums">  1002
  2001
 1002
@@ -1151,6 +1151,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

@@ -544,10 +544,10 @@ int main(int argc, char* argv[]) {
 <h2 id="c-contest-of-rope-pulling">C. Contest of Rope Pulling<a class="headerlink" href="#c-contest-of-rope-pulling" title="Permanent link">Link</a></h2>
 <p>一堆里面 n 个物品，每个有大小 x 和价值 w，令一堆有 m 个也有这两个属性。</p>
 <p>问在一堆中挑选出大小和二堆中完全一样的最大价值和。</p>
-<p>$n,m \le 1000~x \le 1000~-1e9\le w \le 1e9$</p>
+<p><span class="arithmatex">\(n,m \le 1000~x \le 1000~-1e9\le w \le 1e9\)</span></p>
 <p>显然是一个背包性质的问题不可能存在线性或者优化的做法。将 m 个物品的大小弄成负数加到 n 堆里去，然后最后就是容量为 0 的最大值，随机物品顺序之后确定一个阈值 k，考虑到全 1000 导致值域达到 1e6 级别的概率太小。</p>
 <p>阈值取到 80000 就可以通过此题。</p>
-<p>复杂度 $O((n+m)*k)$</p>
+<p>复杂度 <span class="arithmatex">\(O((n+m)*k)\)</span></p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     /<em>================================================================
@@ -757,7 +757,7 @@ int main(int argc, char* argv[]) {
 
 <h2 id="e-equal-sentences">E. Equal Sentences<a class="headerlink" href="#e-equal-sentences" title="Permanent link">Link</a></h2>
 <p>给一个句子，求将他中的每个单词最多移动 1 的位置的本质不同串个数。</p>
-<p>显然 dp 就完事了，$dp_{i,0/1}$ 表示第 i 个位置是否移动的方案数。遇到相同单词只能转移 0 的方案数即可。</p>
+<p>显然 dp 就完事了，<span class="arithmatex">\(dp_{i,0/1}\)</span> 表示第 i 个位置是否移动的方案数。遇到相同单词只能转移 0 的方案数即可。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     /<em>================================================================
@@ -828,10 +828,10 @@ int main(int argc, char* argv[]) {
 </code></pre>
 
 <h2 id="g-go-running">G. Go Running<a class="headerlink" href="#g-go-running" title="Permanent link">Link</a></h2>
-<p>有若干个速度为 1 在数轴上移动的点，它可能出现或者消失在任何时候，给一些出现事件对 $(t,x)$ 表示 t 时刻在 x 点有点。求最少有多少个不同的点。</p>
-<p>显然的一点是如果考虑全部是往右的点，$t-x$ 相等的点是可以合并的，往左则是 $t+x$ 相等可以合并。</p>
+<p>有若干个速度为 1 在数轴上移动的点，它可能出现或者消失在任何时候，给一些出现事件对 <span class="arithmatex">\((t,x)\)</span> 表示 t 时刻在 x 点有点。求最少有多少个不同的点。</p>
+<p>显然的一点是如果考虑全部是往右的点，<span class="arithmatex">\(t-x\)</span> 相等的点是可以合并的，往左则是 <span class="arithmatex">\(t+x\)</span> 相等可以合并。</p>
 <p>那么问题转换为在二维坐标上，取多少个斜率为 1 或 -1 的直线能把全部点覆盖。</p>
-<p>考虑对一个点 $t-x$ 和 $t+x$ 建二分图连边（注意就算某个 $t-x$ 若与某个 $t+x$ 相同它们也是两个不同点），问题转换为最小点覆盖即可用 Dinic 或者 Hopcroft二分图匹配算法 以 $O(n\sqrt(m))$ 复杂度通过。</p>
+<p>考虑对一个点 <span class="arithmatex">\(t-x\)</span> 和 <span class="arithmatex">\(t+x\)</span> 建二分图连边（注意就算某个 <span class="arithmatex">\(t-x\)</span> 若与某个 <span class="arithmatex">\(t+x\)</span> 相同它们也是两个不同点），问题转换为最小点覆盖即可用 Dinic 或者 Hopcroft二分图匹配算法 以 <span class="arithmatex">\(O(n\sqrt(m))\)</span> 复杂度通过。</p>
 <p>??? note &ldquo;Code&rdquo;
     <code>cpp
     /*================================================================
@@ -1102,6 +1102,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

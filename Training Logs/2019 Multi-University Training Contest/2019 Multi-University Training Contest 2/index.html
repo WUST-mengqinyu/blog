@@ -506,7 +506,7 @@
 </table>
 <h2 id="e-everything-is-generated-in-equal-probability">E. Everything Is Generated In Equal Probability<a class="headerlink" href="#e-everything-is-generated-in-equal-probability" title="Permanent link">Link</a></h2>
 <p>暴力跑出前两项，按题意模拟题目给的随机算法算出第3,4项，丢进OEIS找规律得到通项。</p>
-<p>前5项分别是0,1/3,8/9,5/3,8/3，把分母通分成9之后的分子序列是0,3,8,15,24，那么通项就是$$F(i)=\frac{(i+1)(i-1)}{9}$$</p>
+<p>前5项分别是0,1/3,8/9,5/3,8/3，把分母通分成9之后的分子序列是0,3,8,15,24，那么通项就是<span class="arithmatex">\(<span class="arithmatex">\(F(i)=\frac{(i+1)(i-1)}{9}\)</span>\)</span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">Link</a></h3>
 <h4 id="random">Random<a class="headerlink" href="#random" title="Permanent link">Link</a></h4>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
@@ -590,11 +590,11 @@ int main()
 <p>出了一万遍的最小割模型，然而比赛的时候看都没看这题。</p>
 <p>大概BZOJ2127，BZOJ2132，BZOJ3894都是这个模型的题。</p>
 <p><img alt="pic" src="https://images2015.cnblogs.com/blog/790791/201603/790791-20160322161742151-1423086674.png" /></p>
-<p>对这个模型建像上图这样的网络流，我们令(S=A+B+C)表示三种收益的和，图上每一种割法表示减去一部分的收益，假设当前割集之和为(X)，我们需要构造网络使S-割集=当前选法的收益，这个时候的最小割即为所求解。</p>
-<p>割集为{a,b}时表示两人选的都是Mages，收益为C，需要减去的收益为(S-C=A+B)，有(a+b=A+B)</p>
-<p>割集为{c,d}时表示两人选的都是Warriors，收益为A，需要减去的收益为(S-A=B+C)，有(c+d=B+C)</p>
-<p>割集为{a,e,d}或者{b,e,c}时表示一个人选Mage，另一个人选Warrior，收益为B，需要减去的收益为(S-B=A+C)，有(a+e+d=A+C),(b+e+c=A+C)</p>
-<p>不妨令a=b,c=d,可以得到一组解(a=b=(A+B)/2)，(c=d=(C+D)/2)，(e=-B+(A+C)/2)</p>
+<p>对这个模型建像上图这样的网络流，我们令<span class="arithmatex">\(S=A+B+C\)</span>表示三种收益的和，图上每一种割法表示减去一部分的收益，假设当前割集之和为<span class="arithmatex">\(X\)</span>，我们需要构造网络使S-割集=当前选法的收益，这个时候的最小割即为所求解。</p>
+<p>割集为{a,b}时表示两人选的都是Mages，收益为C，需要减去的收益为<span class="arithmatex">\(S-C=A+B\)</span>，有<span class="arithmatex">\(a+b=A+B\)</span></p>
+<p>割集为{c,d}时表示两人选的都是Warriors，收益为A，需要减去的收益为<span class="arithmatex">\(S-A=B+C\)</span>，有<span class="arithmatex">\(c+d=B+C\)</span></p>
+<p>割集为{a,e,d}或者{b,e,c}时表示一个人选Mage，另一个人选Warrior，收益为B，需要减去的收益为<span class="arithmatex">\(S-B=A+C\)</span>，有<span class="arithmatex">\(a+e+d=A+C\)</span>,<span class="arithmatex">\(b+e+c=A+C\)</span></p>
+<p>不妨令a=b,c=d,可以得到一组解<span class="arithmatex">\(a=b=(A+B)/2\)</span>，<span class="arithmatex">\(c=d=(C+D)/2\)</span>，<span class="arithmatex">\(e=-B+(A+C)/2\)</span></p>
 <p>对于每一组(x,y)建这样的网络跑最小割，用总收益减去最小割即为所求解。</p>
 <p>为了避免建图过程中出现小数可以把所有权值x2，输出时再/2</p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">Link</a></h3>
@@ -721,8 +721,8 @@ signed main()
 </code></pre>
 
 <h2 id="i-i-love-palindrome-string">I. <a href="https://cn.vjudge.net/contest/314097#problem/I">I Love Palindrome String</a><a class="headerlink" href="#i-i-love-palindrome-string" title="Permanent link">Link</a></h2>
-<p>题意：求所有长度为1～n的子串满足(S_i^j)和(S_i^{(i+j)/2})为回文串的个数</p>
-<p>题解：对所有回文串来说，它前半段是否是回文串都是确定是，所以回文树维护所有本质不同串，每增加一个节点就计算这个节点的前半段是否是回文串，可以直接上一手hash快速判断，然后如果是，该本质串的长度就要加个它个数的权值，最后整合起来即可，复杂度(O(n))。</p>
+<p>题意：求所有长度为1～n的子串满足<span class="arithmatex">\(S_i^j\)</span>和<span class="arithmatex">\(S_i^{(i+j)/2}\)</span>为回文串的个数</p>
+<p>题解：对所有回文串来说，它前半段是否是回文串都是确定是，所以回文树维护所有本质不同串，每增加一个节点就计算这个节点的前半段是否是回文串，可以直接上一手hash快速判断，然后如果是，该本质串的长度就要加个它个数的权值，最后整合起来即可，复杂度<span class="arithmatex">\(O(n)\)</span>。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
@@ -1234,6 +1234,12 @@ int main() {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

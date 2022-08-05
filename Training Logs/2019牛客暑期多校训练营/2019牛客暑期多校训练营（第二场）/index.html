@@ -463,7 +463,7 @@
 </table>
 <h2 id="aeddy-walker">A、<a href="https://ac.nowcoder.com/acm/contest/882/A">Eddy Walker</a><a class="headerlink" href="#aeddy-walker" title="Permanent link">Link</a></h2>
 <p>题意：有T次操作，每次需要在n次内在m位置结束，每次都是从0出发往前往后都是等概率，然后成环所以0往前是n-1，求发生的总概率（每次与之前的发生概率是有关的）</p>
-<p>题解：首先除非n为1，否则0这个点必不可能是终点，因为它每次都从0开始，然后往前往后概率相等且成环所以是等概率事件，每个点的概率就是(\frac{1}{n-1})，然后把前缀乘起来就是答案。</p>
+<p>题解：首先除非n为1，否则0这个点必不可能是终点，因为它每次都从0开始，然后往前往后概率相等且成环所以是等概率事件，每个点的概率就是<span class="arithmatex">\(\frac{1}{n-1}\)</span>，然后把前缀乘起来就是答案。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">/*================================================================
 *   Copyright (C) 2019 Sangfor Ltd. All rights reserved.
@@ -515,12 +515,12 @@ int main()
 </code></pre>
 
 <h2 id="beddy-walker-2">B、<a href="https://ac.nowcoder.com/acm/contest/882/B">Eddy Walker 2</a><a class="headerlink" href="#beddy-walker-2" title="Permanent link">Link</a></h2>
-<p>题意：从0点开始往后跳，每次跳1～k格，概率都是(\frac{1}{k})，然后求到达n点的概率是多少。</p>
+<p>题意：从0点开始往后跳，每次跳1～k格，概率都是<span class="arithmatex">\(\frac{1}{k}\)</span>，然后求到达n点的概率是多少。</p>
 <p>题解：显然有一个清晰的dp：
 $$
 dp[i] = \sum_{j=i-k}^{i-1} \frac{dp[j]}{k} = \frac{\sum_{j=i-k}^{i-1} dp[j]}{k}
 $$
-然后就是线性递推式求第n项，由于k有1021那么大无法构造矩阵，所以直接上一手bm，由于递推式有k项，一般来讲是推2*k项进bm跑就可以了。此题还要求无穷远处的概率，考虑无穷远处的概率处处相等，然后每步往前前进步数的期望是(\frac{k+1}{2})，则无穷远处每个点的概率就是(\frac{2}{k+1})</p>
+然后就是线性递推式求第n项，由于k有1021那么大无法构造矩阵，所以直接上一手bm，由于递推式有k项，一般来讲是推2*k项进bm跑就可以了。此题还要求无穷远处的概率，考虑无穷远处的概率处处相等，然后每步往前前进步数的期望是<span class="arithmatex">\(\frac{k+1}{2}\)</span>，则无穷远处每个点的概率就是<span class="arithmatex">\(\frac{2}{k+1}\)</span></p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
 #define ll long long
@@ -1095,6 +1095,12 @@ int main()
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

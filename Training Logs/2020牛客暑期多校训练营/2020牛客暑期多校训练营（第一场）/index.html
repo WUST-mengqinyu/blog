@@ -557,14 +557,14 @@ int main() {
 
 <h2 id="b-infinite-tree">B. Infinite Tree<a class="headerlink" href="#b-infinite-tree" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: badcw</em></p>
-<p>一张无限图（树），其中每个点 $x$ 都与 $x/mindiv(x)$ 相连， mindiv 是 x 最小非一因子。</p>
+<p>一张无限图（树），其中每个点 <span class="arithmatex">\(x\)</span> 都与 <span class="arithmatex">\(x/mindiv(x)\)</span> 相连， mindiv 是 x 最小非一因子。</p>
 <p>现在 1~n 的阶乘这 n 个点作为关键点，给出关键点的点权，要求找到一个点到所有点的点权边长积的和最小。</p>
 <p>首先，最小非一因子一定是素数。所有素数都将和 1 连边，考虑将 1 看作根节点。那么 x! 的层数一定是 (x-1)! 的层数加上 x 的完全分解的个数。</p>
-<p>考虑把虚树建出来，由于关键点的层数一定是递增的，考虑如何求出 x! 和 (x-1)! 的 lca，设 $x=p1^{x1}<em>p2^{x2}</em>\dots pn^{xn}$，则一定会在 $pn^xx * p....$ 相遇，也就是说是 (x-1)! 中大于等于 x 最大的素因子的部分。</p>
+<p>考虑把虚树建出来，由于关键点的层数一定是递增的，考虑如何求出 x! 和 (x-1)! 的 lca，设 <span class="arithmatex">\(x=p1^{x1}*p2^{x2}*\dots pn^{xn}\)</span>，则一定会在 <span class="arithmatex">\(pn^xx * p....\)</span> 相遇，也就是说是 (x-1)! 中大于等于 x 最大的素因子的部分。</p>
 <p>用某种数据结构维护素因子的前缀和，用来处理层数即可直接暴力建出虚树。</p>
-<p>有了虚树直接换根dp就可以求出最小值。 $f_u$ 表示以 $u$ 为根的答案， $g_u$ 表示 $u$ 子树内的权值和。</p>
-<p>$g_u=\sum g_v$</p>
-<p>$f_u=\sum f_v + w * g_v$</p>
+<p>有了虚树直接换根dp就可以求出最小值。 <span class="arithmatex">\(f_u\)</span> 表示以 <span class="arithmatex">\(u\)</span> 为根的答案， <span class="arithmatex">\(g_u\)</span> 表示 <span class="arithmatex">\(u\)</span> 子树内的权值和。</p>
+<p><span class="arithmatex">\(g_u=\sum g_v\)</span></p>
+<p><span class="arithmatex">\(f_u=\sum f_v + w * g_v\)</span></p>
 <p>即可，换根很简单就不写了。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
@@ -933,12 +933,12 @@ int main()
 
 <h2 id="i-1-or-2">I. 1 or 2<a class="headerlink" href="#i-1-or-2" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>题意：给一张n个点m条边的图$(1≤n≤50, 1≤m≤100)$，问是否存在生成子图，满足点i的度数为$de<a href="1≤d_i≤2">i</a>$</p>
+<p>题意：给一张n个点m条边的图<span class="arithmatex">\((1≤n≤50, 1≤m≤100)\)</span>，问是否存在生成子图，满足点i的度数为<span class="arithmatex">\(de[i](1≤d_i≤2)\)</span></p>
 <p>对于原图的点拆点表示度数，对连接<code>u，v</code>的边拆点<code>e,e'</code>，连边<code>u-&gt;e, v-&gt;e', e-&gt;e'</code>跑一般图匹配，考虑以下情况:
 - u,v都不与其它边匹配，此时选中<code>u-&gt;e, v-&gt;e'</code>，maxmatch为2，代表边e被选中，并为<code>u,v</code>各提供了一个度数
 - u,v有至少一个点与其他边匹配，maxmatch为1</p>
 <p>可以看到当某条边被选中时，对最大匹配的贡献+1</p>
-<p>$sum=\sum_{i=1}^n de_i$为奇数显然无解，否则当$maxmatch=sum/2+m$时存在可行解。</p>
+<p><span class="arithmatex">\(sum=\sum_{i=1}^n de_i\)</span>为奇数显然无解，否则当<span class="arithmatex">\(maxmatch=sum/2+m\)</span>时存在可行解。</p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     #include <bits/stdc++.h></p>
@@ -1072,13 +1072,13 @@ int main()
 
 <h2 id="j-easy-integration">J. Easy Integration<a class="headerlink" href="#j-easy-integration" title="Permanent link">Link</a></h2>
 <p><em>solved by:  badcw</em></p>
-<p>题意： 给 $n$ 求 $\int_0^1 (x-x^2)^n\rm dx$</p>
+<p>题意： 给 <span class="arithmatex">\(n\)</span> 求 <span class="arithmatex">\(\int_0^1 (x-x^2)^n\rm dx\)</span></p>
 <p>题解：贝塔函数</p>
-<p>$B(P,Q)=\int_0^1 x^{P-1}(1-x)^{Q-1}\rm dx$</p>
-<p>那么此题是 $\int_0^1 (x-x^2)^n\rm dx = \int_0^1 x^n(1-x)^n\rm dx=B(n+1,n+1)$</p>
-<p>$B(P,Q)=\frac{\Gamma(P)\Gamma(Q)}{\Gamma(P+Q)}$</p>
-<p>其中 $\Gamma(n)=(n-1)!$</p>
-<p>所以答案是 $B(n+1,n+1)=\frac{n!^2}{(2n+1)!}$</p>
+<p><span class="arithmatex">\(B(P,Q)=\int_0^1 x^{P-1}(1-x)^{Q-1}\rm dx\)</span></p>
+<p>那么此题是 <span class="arithmatex">\(\int_0^1 (x-x^2)^n\rm dx = \int_0^1 x^n(1-x)^n\rm dx=B(n+1,n+1)\)</span></p>
+<p><span class="arithmatex">\(B(P,Q)=\frac{\Gamma(P)\Gamma(Q)}{\Gamma(P+Q)}\)</span></p>
+<p>其中 <span class="arithmatex">\(\Gamma(n)=(n-1)!\)</span></p>
+<p>所以答案是 <span class="arithmatex">\(B(n+1,n+1)=\frac{n!^2}{(2n+1)!}\)</span></p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     /<em>================================================================
@@ -1167,6 +1167,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

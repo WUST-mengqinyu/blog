@@ -459,25 +459,25 @@
 <ol>
 <li>左侧的某些点不能同时出现在新图中；</li>
 <li>右侧的所有点必须同时出现在新图中；</li>
-<li>左侧的点有权值w[i]，在新图中的花费为$w^{d}$，其中d为该点的度数；</li>
+<li>左侧的点有权值w[i]，在新图中的花费为<span class="arithmatex">\(w^{d}\)</span>，其中d为该点的度数；</li>
 </ol>
 <p>求构建一张满足上述条件的图的最小花费。</p>
 <p>题解：正解是dp，我随便dfs常规剪一下枝就过了噫</p>
 <h2 id="c-and-and-pair">C. And and Pair<a class="headerlink" href="#c-and-and-pair" title="Permanent link">Link</a></h2>
-<p>给一个二进制数n，求满足如下限制的点对$(i,j)$的数量：</p>
+<p>给一个二进制数n，求满足如下限制的点对<span class="arithmatex">\((i,j)\)</span>的数量：</p>
 <ul>
-<li>$0≤j≤i≤n$</li>
-<li>$i\&amp;n=i$</li>
-<li>$i\&amp;j=0$</li>
+<li><span class="arithmatex">\(0≤j≤i≤n\)</span></li>
+<li><span class="arithmatex">\(i\&amp;n=i\)</span></li>
+<li><span class="arithmatex">\(i\&amp;j=0\)</span></li>
 </ul>
-<p>其中n的位数≤$10^5$</p>
-<p>题解：对于二进制数n的每个以1开头的后缀，它的答案为$3^x+2^y$，其中$x$表示后缀二进制位中1的个数，$y$表示0的个数，求和+1（表示0,0的贡献）即可。</p>
+<p>其中n的位数≤<span class="arithmatex">\(10^5\)</span></p>
+<p>题解：对于二进制数n的每个以1开头的后缀，它的答案为<span class="arithmatex">\(3^x+2^y\)</span>，其中<span class="arithmatex">\(x\)</span>表示后缀二进制位中1的个数，<span class="arithmatex">\(y\)</span>表示0的个数，求和+1（表示0,0的贡献）即可。</p>
 <h2 id="e-bobs-problem">E. Bob&rsquo;s Problem<a class="headerlink" href="#e-bobs-problem" title="Permanent link">Link</a></h2>
 <p>给一张无向图，图上的边分为黑边和白边两类。要求构造一张新图，其中白边的数量不超过k，使新图中的点两两可达，求能构造出的新图的最大边权。</p>
 <p>题解：首先连上所有黑边，对白边跑最大生成树，如果不到k则贪心地取没有取的白边。记得判图是否连通。</p>
 <h2 id="g-eating-plan">G. Eating Plan<a class="headerlink" href="#g-eating-plan" title="Permanent link">Link</a></h2>
-<p>给一个序列a，a为1-n的某个排列，$b_i=a_i!$ 一共给出m次询问，每次询问该序列最短的满足条件的子串($(b_l+b_{l+1}+&hellip;+b_r)\%t ≥k$)的子串长度，其中t=998857459。</p>
-<p>题解：拆分一下素因子可以得到$t=461×773×2803$，也就是当$a_i≥2803$时，$a_i！\%t=0$.所以for一下所有可能得到的子串和的最小长度，对于每个询问二分查找一下就行。</p>
+<p>给一个序列a，a为1-n的某个排列，<span class="arithmatex">\(b_i=a_i!\)</span> 一共给出m次询问，每次询问该序列最短的满足条件的子串(<span class="arithmatex">\((b_l+b_{l+1}+...+b_r)\%t ≥k\)</span>)的子串长度，其中t=998857459。</p>
+<p>题解：拆分一下素因子可以得到<span class="arithmatex">\(t=461×773×2803\)</span>，也就是当<span class="arithmatex">\(a_i≥2803\)</span>时，<span class="arithmatex">\(a_i！\%t=0\)</span>.所以for一下所有可能得到的子串和的最小长度，对于每个询问二分查找一下就行。</p>
 <h2 id="l-who-is-the-champion">L. Who is the Champion<a class="headerlink" href="#l-who-is-the-champion" title="Permanent link">Link</a></h2>
 <p>N 支球队进行足球比赛,每两支球队均进行一场比赛,胜方积三分,负方积零分,若打平则两队均积一分。按照积分与净胜球进行排名,问最后哪支球队获得冠军,若无法决出冠军则输出“play-offs’’。</p>
 <p>签到题，按题意模拟即可。</p>
@@ -522,6 +522,12 @@
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

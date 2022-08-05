@@ -680,10 +680,10 @@ int main(int argc, char* argv[]) {
 <h2 id="d-points-construction-problem">D. Points Construction Problem<a class="headerlink" href="#d-points-construction-problem" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>题意:在无限大的格子中,原本所有格子都是白色的,把n个格子涂黑,满足上下左右相邻的两个点对为异色的个数为m个</p>
-<p>对于m,容易得到$m≤4<em>n$且m只能为偶数,找到一组ab,使$n≤a</em>b$且$abs(a-b)≤1$,$2*(a-b)$即为m的下界</p>
-<p>首先填充长方形的左边缘和下边缘,此时异色点对数为$2*(a-b)$,之后在往长方形内放点,异色点对数不变</p>
+<p>对于m,容易得到<span class="arithmatex">\(m≤4*n\)</span>且m只能为偶数,找到一组ab,使<span class="arithmatex">\(n≤a*b\)</span>且<span class="arithmatex">\(abs(a-b)≤1\)</span>,<span class="arithmatex">\(2*(a-b)\)</span>即为m的下界</p>
+<p>首先填充长方形的左边缘和下边缘,此时异色点对数为<span class="arithmatex">\(2*(a-b)\)</span>,之后在往长方形内放点,异色点对数不变</p>
 <p>当异色点对数小于m时,不断将非左边缘和下边缘的点单独丢到远处,此时异色点对数+4,如果异色点对数&gt;m,一定只比m大2,把远处一个单独的点放到0,0下方连接即可</p>
-<p>如果非左边缘和下边缘的点全部丢完时异色点对数仍然小于m,将左边缘最上面或者下边缘最右侧的点丢向远处,每次异色点对+2,直到异色点对数=$4*n$</p>
+<p>如果非左边缘和下边缘的点全部丢完时异色点对数仍然小于m,将左边缘最上面或者下边缘最右侧的点丢向远处,每次异色点对+2,直到异色点对数=<span class="arithmatex">\(4*n\)</span></p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     #include <bits/stdc++.h></p>
@@ -832,10 +832,10 @@ int main(int argc, char* argv[]) {
 
 <h2 id="f-fraction-construction-problem">F. Fraction Construction Problem<a class="headerlink" href="#f-fraction-construction-problem" title="Permanent link">Link</a></h2>
 <p><em>solved by: ffacs 04:47:35(-4)</em></p>
-<p>题意：给定一个分数$\frac a b$，求c,d,e,f满足$\frac c e - \frac d f = \frac a b(d, f&lt;b,c,e≤ 4×10^{12})$</p>
+<p>题意：给定一个分数<span class="arithmatex">\(\frac a b\)</span>，求c,d,e,f满足<span class="arithmatex">\(\frac c e - \frac d f = \frac a b(d, f&lt;b,c,e≤ 4×10^{12})\)</span></p>
 <p>如果ab不互质，<code>gcd(a,b)+a, b, gcd(a, b), b</code>即为答案</p>
-<p>对于互质的情况，如果b的不同质因数个数只有1个，即$b=p^k$，由于<code>a,b</code>互质,$\frac c d - \frac e f$化简后必须是$\frac a b$,但<code>d,f&lt;b</code>,df的质因数分解质因数指数都小于k,得到矛盾,所以无解</p>
-<p>如果b的不同质因数个数大于1,找到df满足$d<em>f=b$且$__gcd(d,f)=1$,有$\frac {c</em>f-e<em>d} {d</em>f}=\frac a b$,用exgcd求$c<em>f-e</em>d=a$</p>
+<p>对于互质的情况，如果b的不同质因数个数只有1个，即<span class="arithmatex">\(b=p^k\)</span>，由于<code>a,b</code>互质,<span class="arithmatex">\(\frac c d - \frac e f\)</span>化简后必须是<span class="arithmatex">\(\frac a b\)</span>,但<code>d,f&lt;b</code>,df的质因数分解质因数指数都小于k,得到矛盾,所以无解</p>
+<p>如果b的不同质因数个数大于1,找到df满足<span class="arithmatex">\(d*f=b\)</span>且<span class="arithmatex">\(__gcd(d,f)=1\)</span>,有<span class="arithmatex">\(\frac {c*f-e*d} {d*f}=\frac a b\)</span>,用exgcd求<span class="arithmatex">\(c*f-e*d=a\)</span></p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     #include <bits/stdc++.h>
@@ -906,7 +906,7 @@ int main(int argc, char* argv[]) {
 <h2 id="g-operating-on-a-graph">G. Operating on a Graph<a class="headerlink" href="#g-operating-on-a-graph" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
 <p>题意:给一张n个点m条边的图,初始时点i的颜色为i，进行q次操作，每次将颜色为i的点周围的点染成i，求q次操作后n个点的颜色。</p>
-<p>考虑每个点所连出的边最多只会被访问一次，所以只要维护某个颜色当前还没有给相邻点染色的点，用链表维护边集，用并查集维护点的颜色，每次染色时合并链表即可，复杂度$O(n)$</p>
+<p>考虑每个点所连出的边最多只会被访问一次，所以只要维护某个颜色当前还没有给相邻点染色的点，用链表维护边集，用并查集维护点的颜色，每次染色时合并链表即可，复杂度<span class="arithmatex">\(O(n)\)</span></p>
 <p>??? note &ldquo;Code&rdquo;
     ```cpp
     #include <bits/stdc++.h></p>
@@ -966,8 +966,8 @@ int main()
 
 <h2 id="h-sort-the-strings-revision">H. Sort the Strings Revision<a class="headerlink" href="#h-sort-the-strings-revision" title="Permanent link">Link</a></h2>
 <p><em>upsolved by: Verly</em></p>
-<p>题意：长度为n的串$s_0$为<code>01234567890123456789...</code>，给定一个0～n-1的排列p和序列d，第i次操作表示把$s_{i-1}$的第$p_i$位修改成$d_i$并生成$s_i$，对$s_0$到$s_n$按字典序排序，$r_i$表示$s_i$在排序后的位置（从0开始），求$\sum_{i=0}^n (r_i*10000019^i)\ mod \ 1000000007$</p>
-<p>考虑以$p_i$在区间内的最小值进行分治，对于$p_i$最小值为pos的区间<code>l,r</code>，如果<code>p[pos]%10!=d[pos]</code>，有</p>
+<p>题意：长度为n的串<span class="arithmatex">\(s_0\)</span>为<code>01234567890123456789...</code>，给定一个0～n-1的排列p和序列d，第i次操作表示把<span class="arithmatex">\(s_{i-1}\)</span>的第<span class="arithmatex">\(p_i\)</span>位修改成<span class="arithmatex">\(d_i\)</span>并生成<span class="arithmatex">\(s_i\)</span>，对<span class="arithmatex">\(s_0\)</span>到<span class="arithmatex">\(s_n\)</span>按字典序排序，<span class="arithmatex">\(r_i\)</span>表示<span class="arithmatex">\(s_i\)</span>在排序后的位置（从0开始），求<span class="arithmatex">\(\sum_{i=0}^n (r_i*10000019^i)\ mod \ 1000000007\)</span></p>
+<p>考虑以<span class="arithmatex">\(p_i\)</span>在区间内的最小值进行分治，对于<span class="arithmatex">\(p_i\)</span>最小值为pos的区间<code>l,r</code>，如果<code>p[pos]%10!=d[pos]</code>，有</p>
 <ul>
 <li><code>p[pos]%10&lt;d[pos]</code>，<code>rk[l~pos-1]+=r-pos</code></li>
 <li><code>p[pos]%10&gt;d[pos]</code>,<code>rk[pos~r]+=pos-l+1</code></li>
@@ -1156,6 +1156,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

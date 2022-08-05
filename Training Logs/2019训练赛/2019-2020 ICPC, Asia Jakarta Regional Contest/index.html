@@ -488,15 +488,15 @@
 </tbody>
 </table>
 <h2 id="a-copying-homework">A. Copying Homework<a class="headerlink" href="#a-copying-homework" title="Permanent link">Link</a></h2>
-<p>给一个长度为n的序列a，输出序列b使(\sum_{i=1}^n{|b_i-a_i|}≥n)。</p>
+<p>给一个长度为n的序列a，输出序列b使<span class="arithmatex">\(\sum_{i=1}^n{|b_i-a_i|}≥n\)</span>。</p>
 <p>输出n-a[i]即可。</p>
 <h2 id="c-even-path">C. Even Path<a class="headerlink" href="#c-even-path" title="Permanent link">Link</a></h2>
-<p>给定一个网格，点(i,j)的值为R[i]+c[j]，判断是否存在从((sx,sy))走到((tx,ty))的全为奇数的路径。</p>
+<p>给定一个网格，点(i,j)的值为R[i]+c[j]，判断是否存在从<span class="arithmatex">\((sx,sy)\)</span>走到<span class="arithmatex">\((tx,ty)\)</span>的全为奇数的路径。</p>
 <p>判断sx-tx，sy-ty的R,C值是否同时全为奇数或者全为偶数，前缀和搞一下就好。</p>
 <h2 id="d-find-string-in-a-grid">D. Find String in a Grid<a class="headerlink" href="#d-find-string-in-a-grid" title="Permanent link">Link</a></h2>
 <p>给定一个字符矩阵，每次查询一个串，问在矩阵中选任意一个点作为起点，首先向右走再向下走，能找到多少个查询串。</p>
 <p>题解：将每个查询串切成两部分，前半部分与行匹配，后半部分与列匹配，字符矩阵中如果有某个点同时作为匹配的行结尾和列开头，则计算一次贡献。</p>
-<p>将行串H和列串V分别建立一个SA，可以得到SA中的一个区间(l,r)满足<code>lcp(x,y)&gt;=len(x)</code>，在建串的时候把查询串也加入SA的串以确定位置，行串需要反向（因为查询的是公共后缀），二分找出行和列的区间(h_l,h_r),(v_l,v_r)，如果有字符矩阵上的点在SA中的位置(pos_h,pos_v)满足(h_l≤pos_h≤h_r)且(v_l≤pos_v≤v_r)，则计算一次它对查询串的贡献。</p>
+<p>将行串H和列串V分别建立一个SA，可以得到SA中的一个区间(l,r)满足<code>lcp(x,y)&gt;=len(x)</code>，在建串的时候把查询串也加入SA的串以确定位置，行串需要反向（因为查询的是公共后缀），二分找出行和列的区间(h_l,h_r),(v_l,v_r)，如果有字符矩阵上的点在SA中的位置(pos_h,pos_v)满足<span class="arithmatex">\(h_l≤pos_h≤h_r\)</span>且<span class="arithmatex">\(v_l≤pos_v≤v_r\)</span>，则计算一次它对查询串的贡献。</p>
 <p>考虑二维数点，求出每个查询串每个点的行列区间，求块内的点数和即可。</p>
 <h2 id="e-songwriter">E. Songwriter<a class="headerlink" href="#e-songwriter" title="Permanent link">Link</a></h2>
 <p>已知序列中的每个值和上一个值的关系（上升/下降/不变），上升/下降的范围为[1,k]，要求序列的所有值都在[l,r]区间内，构造字典序最小的合法序列，如果没有，输出-1。</p>
@@ -523,10 +523,10 @@
 <p>把运算处理成2x2的矩阵，用线段树维护处理操作。</p>
 <h2 id="l-road-construction">L. Road Construction<a class="headerlink" href="#l-road-construction" title="Permanent link">Link</a></h2>
 <p>给定一棵基环树上的边，每一条边可以被指定类的工人维修，求能使树上点联通的维修方案。</p>
-<p>如果对于边和工人一一连边，边数可能达到$NK$，考虑简化边数。</p>
-<p>对于每组边对应的类型数$M_i$，有$\sum_{i=1}^n M_i&lt;=10000$，所以让树边与工人类型数连边，并对每种类型的工人计数，连向汇点即可。</p>
-<p>对于一棵基环树，要选$n-1$条边使其联通，假设其环上有k条边，必须选择“环上的k-1条边”和“环外的所有边”。dfs求出基环树上的环，存储“环外的边”为A集合，“环上的边”为B集合。</p>
-<p>首先对起点向A集合中的点连边，判断是否全部匹配；再对起点向B集合中的点连边，判断总的流量是否$&gt;=n-1$即可。</p>
+<p>如果对于边和工人一一连边，边数可能达到<span class="arithmatex">\(NK\)</span>，考虑简化边数。</p>
+<p>对于每组边对应的类型数<span class="arithmatex">\(M_i\)</span>，有<span class="arithmatex">\(\sum_{i=1}^n M_i&lt;=10000\)</span>，所以让树边与工人类型数连边，并对每种类型的工人计数，连向汇点即可。</p>
+<p>对于一棵基环树，要选<span class="arithmatex">\(n-1\)</span>条边使其联通，假设其环上有k条边，必须选择“环上的k-1条边”和“环外的所有边”。dfs求出基环树上的环，存储“环外的边”为A集合，“环上的边”为B集合。</p>
+<p>首先对起点向A集合中的点连边，判断是否全部匹配；再对起点向B集合中的点连边，判断总的流量是否<span class="arithmatex">\(&gt;=n-1\)</span>即可。</p>
 
               
             </article>
@@ -568,6 +568,12 @@
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

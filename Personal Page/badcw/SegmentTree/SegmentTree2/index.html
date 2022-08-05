@@ -450,11 +450,11 @@
 <p><a href="https://vjudge.net/contest/314268">url</a></p>
 <h2 id="f-counter-strike">F - Counter Strike<a class="headerlink" href="#f-counter-strike" title="Permanent link">Link</a></h2>
 <p>题意：给n个带权物品求取法方案数，需要保证取的物品平均权值大于k且取的物品是连续的</p>
-<p>$$
-pre[i] - pre[j] &gt; k * (i - j + 1) \
-(a[i] - k) + (a[i + 1] - k) + \dots + (a[j] - k) &gt; 0 \
-i &gt; j \&amp;\&amp; newpre[i] &gt; newpre[j] \
-$$</p>
+<div class="arithmatex">\[
+pre[i] - pre[j] &gt; k * (i - j + 1) \\
+(a[i] - k) + (a[i + 1] - k) + \dots + (a[j] - k) &gt; 0 \\
+i &gt; j \&amp;\&amp; newpre[i] &gt; newpre[j] \\
+\]</div>
 <p>即求正序对个数</p>
 <h2 id="g-rectangles">G - Rectangles<a class="headerlink" href="#g-rectangles" title="Permanent link">Link</a></h2>
 <p>题意：给n个二维区间，m次询问面积并</p>
@@ -467,7 +467,7 @@ $$</p>
 <p>题意：给出一个排列中每个点前面有多少个小于它的点，构造出此排列</p>
 <p>从后往前枚举即可，每次二分一个最小点使得前缀和符合题意即可</p>
 <h2 id="j-billboard">J - Billboard<a class="headerlink" href="#j-billboard" title="Permanent link">Link</a></h2>
-<p>题意：给$h<em>w$的矩阵，要把$n$件物品填入，每件物品的大小是$1</em>w_i$，每次贪心的找最上、最左的点，如果能填入则输出行号。</p>
+<p>题意：给<span class="arithmatex">\(h*w\)</span>的矩阵，要把<span class="arithmatex">\(n\)</span>件物品填入，每件物品的大小是<span class="arithmatex">\(1*w_i\)</span>，每次贪心的找最上、最左的点，如果能填入则输出行号。</p>
 <p>经典线段树，维护一个区间最大值即可，找出可以改的最左区间，比较类似权值线段树的操作</p>
 <h2 id="k-memory-control">K - Memory Control<a class="headerlink" href="#k-memory-control" title="Permanent link">Link</a></h2>
 <p>题意：有一个全空地址，4种操作：
@@ -535,6 +535,12 @@ $$</p>
       <script src="../../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../../search/main.js"></script>
       

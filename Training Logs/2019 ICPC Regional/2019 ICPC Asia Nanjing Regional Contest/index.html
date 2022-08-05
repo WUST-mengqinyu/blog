@@ -459,13 +459,13 @@
 </table>
 <h2 id="a-a-hard-problem">A. A Hard Problem<a class="headerlink" href="#a-a-hard-problem" title="Permanent link">Link</a></h2>
 <p>给定一个正整数n，找到一个正整数k, 使对于{1, 2, 3, &hellip;, n} 的所有大小为k的子集中都至少存在一组数(u,v)，使u能被v整除。</p>
-<p>最大的两两不互为因子的情况是取大于等于(\lceil {n \over 2}\rceil)的所有数，这种情况下再取一个数，一定是某原集合中某一个数的1/2，答案是(\lceil {n \over 2}\rceil + 1)</p>
+<p>最大的两两不互为因子的情况是取大于等于<span class="arithmatex">\(\lceil {n \over 2}\rceil\)</span>的所有数，这种情况下再取一个数，一定是某原集合中某一个数的1/2，答案是<span class="arithmatex">\(\lceil {n \over 2}\rceil + 1\)</span></p>
 <h2 id="c-digital-path">C. Digital Path<a class="headerlink" href="#c-digital-path" title="Permanent link">Link</a></h2>
-<p>给一个n×m的矩阵，矩阵内值的大小为[-10^7,10^7]。其中一条合法的路径需要满足以下要求：相邻两步的格子之间有边相邻，且当前格子数值为上一步+1，并且不能继续扩展。问该矩阵中有多少条合法路径。</p>
+<p>给一个n×m的矩阵，矩阵内值的大小为[-10<sup>7,10</sup>7]。其中一条合法的路径需要满足以下要求：相邻两步的格子之间有边相邻，且当前格子数值为上一步+1，并且不能继续扩展。问该矩阵中有多少条合法路径。</p>
 <p><code>dp[i][j][k]</code>表示i行j列的点有多少条以它结束的路径，k表示路径的长度为2,3, &gt;=4的路径种类，每次向四周更新扩展，如果都不能扩展表示路径以它为结尾，记录答案。</p>
 <h2 id="f-paper-grading">F. Paper Grading<a class="headerlink" href="#f-paper-grading" title="Permanent link">Link</a></h2>
-<p>对序列和交换操作分块，当操作达到块大小时rebuild即可，序列的块内使用字典树维护即可。操作不到块大小时单独计算swap后的增量和减量的贡献即可。复杂度$O(nsqrt(n))$</p>
-<p>正解好像是hash+二维数点，复杂度$O(nlog^2(n))$</p>
+<p>对序列和交换操作分块，当操作达到块大小时rebuild即可，序列的块内使用字典树维护即可。操作不到块大小时单独计算swap后的增量和减量的贡献即可。复杂度<span class="arithmatex">\(O(nsqrt(n))\)</span></p>
+<p>正解好像是hash+二维数点，复杂度<span class="arithmatex">\(O(nlog^2(n))\)</span></p>
 <h2 id="h-prince-and-princess">H. Prince and Princess<a class="headerlink" href="#h-prince-and-princess" title="Permanent link">Link</a></h2>
 <p>王子想向公主求婚。宫中有三类人，以公主为首赞成婚礼的人，反对婚礼的人，不关心的人，他们的人数为a，b，c(a&gt;0, b,c≥0)。王子知道三类人的数量，这些人分别呆在各自的房间，王子可以向房间内的人提以下三类问题：</p>
 <ol>
@@ -478,7 +478,7 @@
 <p>特判1,0,0为0，因为只有一个房间，这个房间里面一定是公主。</p>
 <h2 id="j-spy">J. Spy<a class="headerlink" href="#j-spy" title="Permanent link">Link</a></h2>
 <p>A,B各有n支队，其中A的队伍能力值已经确定。B有两类人，要把一类人和另一类人搭配，能力值为两者的能力值之和。搭配完后将A,B的队伍随机排列对战，如果A的第i个队伍能力值小于B和它对战的队伍，则B可以获得分数val[i]。输出组队后B的最大得分的期望×n。</p>
-<p>对期望式子化简之后就是裸的二分图最大权匹配，B的a[i]和b[j]连边的边权为(\sum_{k=1}^n{a[i]+b[j]&gt;c[k]?val[k]:0})。这题卡了KMdfs板子。</p>
+<p>对期望式子化简之后就是裸的二分图最大权匹配，B的a[i]和b[j]连边的边权为<span class="arithmatex">\(\sum_{k=1}^n{a[i]+b[j]&gt;c[k]?val[k]:0}\)</span>。这题卡了KMdfs板子。</p>
 <h2 id="k-triangle">K. Triangle<a class="headerlink" href="#k-triangle" title="Permanent link">Link</a></h2>
 <p>给了三角形三个点的坐标和点P，要求找一个点Q，使线段PQ平分三角形的面积，P,Q都在三角形边上。</p>
 <p>二分100次可过，直接算的话用sin会卡精度，式子里面sin可以化简掉，推出来的答案值也是可以过的。</p>
@@ -523,6 +523,12 @@
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

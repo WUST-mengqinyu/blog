@@ -442,9 +442,9 @@
 <h3 id="_2">算法简述<a class="headerlink" href="#_2" title="Permanent link">Link</a></h3>
 <p>也叫做可持久化线段树，没有找到合适的英文译名，主要用来使用前缀和对权值线段树进行优化来处理区间信息</p>
 <h3 id="_3">算法实现<a class="headerlink" href="#_3" title="Permanent link">Link</a></h3>
-<p>对于一颗权值线段树，如果分 $n$ 次对其中某个点进行修改，则可以得到以下形式的主席树</p>
+<p>对于一颗权值线段树，如果分 <span class="arithmatex">\(n\)</span> 次对其中某个点进行修改，则可以得到以下形式的主席树</p>
 <p><img alt="image" src="images/Snipaste_2020-04-23_02-15-13.png" /></p>
-<p>大大减少了数据冗余，每次修改最多增加 $log$ 级别的节点，所以一半来说也需要动态开点线段树来做，一个长度为 $n$ 的修改总初始化节点数量级为 $O(nlog(n)*4)$，每次查询点的数量级由前缀和思想进行差分，复杂度与普通线段树相同，为 $O(log(n))$，所以主席树其实和线段树有相同的复杂度，但是空间上需要多一个 $log$</p>
+<p>大大减少了数据冗余，每次修改最多增加 <span class="arithmatex">\(log\)</span> 级别的节点，所以一半来说也需要动态开点线段树来做，一个长度为 <span class="arithmatex">\(n\)</span> 的修改总初始化节点数量级为 <span class="arithmatex">\(O(nlog(n)*4)\)</span>，每次查询点的数量级由前缀和思想进行差分，复杂度与普通线段树相同，为 <span class="arithmatex">\(O(log(n))\)</span>，所以主席树其实和线段树有相同的复杂度，但是空间上需要多一个 <span class="arithmatex">\(log\)</span></p>
 <h3 id="_4">模板代码<a class="headerlink" href="#_4" title="Permanent link">Link</a></h3>
 <p>??? note &ldquo;Luogu P3834&rdquo;
     ```cpp
@@ -630,6 +630,12 @@ int main(int argc, char* argv[]) {
       <script src="../../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../../search/main.js"></script>
       

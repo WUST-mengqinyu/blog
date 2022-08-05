@@ -471,7 +471,7 @@
 <p><a href="https://ac.nowcoder.com/acm/contest/881">比赛地址</a></p>
 <h2 id="aequivalent-prefixes">A、<a href="https://ac.nowcoder.com/acm/contest/881/A">Equivalent Prefixes</a><a class="headerlink" href="#aequivalent-prefixes" title="Permanent link">Link</a></h2>
 <p>题意：定义两个序列相当，当且仅当对于这两个序列长度一致而且所有的<code>(l,r)</code>对都有当前区间的最小值位置相同。给定两个序列，求两个最长的相当前缀序列的长度。</p>
-<p>题解：考虑二分前缀长度，首先显然可知的是如果两个序列相当，那么他们所有的相同位置的连续子序列也相当。所以最长的前缀序列的前缀序列也一定是相当的，也就是说对于任何小于等于<code>res</code>的前缀序列一定是相当的，对于任何大于<code>res</code>的前缀序列一定是不想当的。然后考虑如何判断两个序列相当，官方题解给出笛卡尔树的模式，这里介绍另外一种做法（复杂度<code>O(nlogn)</code>比官方题解多一些），考虑一个序列的最小值位置为<code>x</code>，那么( l \in [1,x], r \in [x,n] )这部分的所有区间的最小值位置都是<code>x</code>，那么可以分治<code>(1,x-1)(x+1,n)</code>，不断进行下去，每次判断两个序列最小值位置是否相同即可。</p>
+<p>题解：考虑二分前缀长度，首先显然可知的是如果两个序列相当，那么他们所有的相同位置的连续子序列也相当。所以最长的前缀序列的前缀序列也一定是相当的，也就是说对于任何小于等于<code>res</code>的前缀序列一定是相当的，对于任何大于<code>res</code>的前缀序列一定是不想当的。然后考虑如何判断两个序列相当，官方题解给出笛卡尔树的模式，这里介绍另外一种做法（复杂度<code>O(nlogn)</code>比官方题解多一些），考虑一个序列的最小值位置为<code>x</code>，那么<span class="arithmatex">\( l \in [1,x], r \in [x,n] \)</span>这部分的所有区间的最小值位置都是<code>x</code>，那么可以分治<code>(1,x-1)(x+1,n)</code>，不断进行下去，每次判断两个序列最小值位置是否相同即可。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
 #define ll long long
@@ -525,27 +525,27 @@ int main() {
 <h2 id="bintegration">B、<a href="https://ac.nowcoder.com/acm/contest/881/B">Integration</a><a class="headerlink" href="#bintegration" title="Permanent link">Link</a></h2>
 <p>题意：给定序列<code>a</code>，求
 $$
-\frac{1}{\pi} \int_0^\infty \frac{1}{\prod_{i=1}^n(a_i^2+x^2)} dx
+\frac{1}{\pi} \int_0^\infty \frac{1}{\prod_{i=1}<sup>n(a_i</sup>2+x^2)} dx
 $$
 人尽皆知多次项在分母的函数求积分异常难算，但是
 $$
-\int_0^\infty \frac{1}{t^2+x^2}dx=\frac{\pi}{2t}
+\int_0^\infty \frac{1}{t<sup>2+x</sup>2}dx=\frac{\pi}{2t}
 $$
 然后考虑拆项
 $$
-\prod_{i=1}^n\frac{1}{a_i^2+x^2}=\sum_{i=1}^n\frac{c_i}{a_i^2+x^2}
+\prod_{i=1}<sup>n\frac{1}{a_i</sup>2+x<sup>2}=\sum_{i=1}</sup>n\frac{c_i}{a_i<sup>2+x</sup>2}
 $$
-左边分母把某一项(a_t)提取出来
+左边分母把某一项<span class="arithmatex">\(a_t\)</span>提取出来
 $$
-\frac{1}{a_t^2+x^2}\prod_{i \neq t}\frac{1}{a_i^2+x^2}=\sum_{i\neq t}\frac{c_i}{a_i^2+x^2}+\frac{c_t}{a_t^2+x^2}
+\frac{1}{a_t<sup>2+x</sup>2}\prod_{i \neq t}\frac{1}{a_i<sup>2+x</sup>2}=\sum_{i\neq t}\frac{c_i}{a_i<sup>2+x</sup>2}+\frac{c_t}{a_t<sup>2+x</sup>2}
 $$
 将分母乘过去
 $$
-\prod_{i \neq t}\frac{1}{a_i^2+x^2}=\sum_{i\neq t}\frac{c_i}{a_i^2+x^2}(a_t^2+x^2)+c_t
+\prod_{i \neq t}\frac{1}{a_i<sup>2+x</sup>2}=\sum_{i\neq t}\frac{c_i}{a_i<sup>2+x</sup>2}(a_t<sup>2+x</sup>2)+c_t
 $$
-由于对任意<code>x</code>都要使等式成立，取(x=a_t \dot i)得到(x^2=-a_t^2)然后等式就变成
+由于对任意<code>x</code>都要使等式成立，取<span class="arithmatex">\(x=a_t \dot i\)</span>得到<span class="arithmatex">\(x^2=-a_t^2\)</span>然后等式就变成
 $$
-\prod_{i \neq t}\frac{1}{a_i^2-a_t^2}=c_t
+\prod_{i \neq t}\frac{1}{a_i<sup>2-a_t</sup>2}=c_t
 $$
 解出所有c后即可积分。</p>
 <p>代码：</p>
@@ -590,7 +590,7 @@ int main()
 </code></pre>
 
 <h2 id="ceuclidean-distance">C、<a href="https://ac.nowcoder.com/acm/contest/881/C">Euclidean Distance</a><a class="headerlink" href="#ceuclidean-distance" title="Permanent link">Link</a></h2>
-<p>题意：给一个m维向量，求另一个m维向量((p_1,p_2,&hellip;p_n))使得(p_i \ge 0 \sum p_i = 1)且两向量间的欧几里得距离最短。</p>
+<p>题意：给一个m维向量，求另一个m维向量<span class="arithmatex">\((p_1,p_2,...p_n)\)</span>使得<span class="arithmatex">\(p_i \ge 0 \sum p_i = 1\)</span>且两向量间的欧几里得距离最短。</p>
 <p>题解：官方题解用拉格朗日乘子法不是很会，简单来讲是首先使最高的变矮，然后总和为1的情况下要怎么使最大值最小的一个问题。当然负数那边是反过来的，要使得总距离更接近0。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
@@ -632,7 +632,7 @@ int main()
 </code></pre>
 
 <h2 id="eabba">E、<a href="https://ac.nowcoder.com/acm/contest/881/E">ABBA</a><a class="headerlink" href="#eabba" title="Permanent link">Link</a></h2>
-<p>题意：求构造一个长度为(2*(n+m))的ab串使得有n对<code>ab</code>和m对<code>ba</code>，使用过的串不能重复使用。</p>
+<p>题意：求构造一个长度为<span class="arithmatex">\(2*(n+m)\)</span>的ab串使得有n对<code>ab</code>和m对<code>ba</code>，使用过的串不能重复使用。</p>
 <p>题解：其实是带限制的卡特兰数，与卡特兰数唯一的区别是不能有任何一个前缀的0的个数比1的个数多n以上，也不能有任何一个前缀的1的个数比0多m以上，然后就写个卡特兰数的递推把不合法状态去掉就可以了。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
@@ -786,8 +786,8 @@ int main()
 $$
 if(i\in A \and j\in B \and x_i\ge x_j) y_i\gt y_j
 $$
-使得方案中(\sum a_i + \sum b_j)最大。</p>
-<p>题解：相当于求斜率始终为正的折线，且折线的所有端点是给定点（折线以上部分为A集合，其余为B集合）。可以枚举A集合中点的折线端点。那么考虑如果点的横坐标均不相同且后面的纵坐标总大于前者，那么折线是确定的，的最大权值要求的话可以线段树维护一个离散化的纵坐标，然后每个点把大于纵坐标的部分加上b权，小于等于的部分加上a权，最后答案就是线段树维护的最大值。现在纵坐标可能不单增的话考虑从左往右把小于它的部分加上a权，大于的部分加上b权，等于的部分修改成现在可能取到的最大权值，即查询([1,y_i-1])的最值，加上a权，然后再考虑有可能有共横坐标的情况，那么考虑加点顺序，因为要保证当前点加入时可以取到最大值，可以优先右到左，次排下到上即可，因为枚举的是A集合上的点，是可以取等的，同一横坐标下也不会产生错误解。</p>
+使得方案中<span class="arithmatex">\(\sum a_i + \sum b_j\)</span>最大。</p>
+<p>题解：相当于求斜率始终为正的折线，且折线的所有端点是给定点（折线以上部分为A集合，其余为B集合）。可以枚举A集合中点的折线端点。那么考虑如果点的横坐标均不相同且后面的纵坐标总大于前者，那么折线是确定的，的最大权值要求的话可以线段树维护一个离散化的纵坐标，然后每个点把大于纵坐标的部分加上b权，小于等于的部分加上a权，最后答案就是线段树维护的最大值。现在纵坐标可能不单增的话考虑从左往右把小于它的部分加上a权，大于的部分加上b权，等于的部分修改成现在可能取到的最大权值，即查询<span class="arithmatex">\([1,y_i-1]\)</span>的最值，加上a权，然后再考虑有可能有共横坐标的情况，那么考虑加点顺序，因为要保证当前点加入时可以取到最大值，可以优先右到左，次排下到上即可，因为枚举的是A集合上的点，是可以取等的，同一横坐标下也不会产生错误解。</p>
 <p>代码：</p>
 <pre class="codehilite"><code class="language-cpp linenums">#include &lt;bits/stdc++.h&gt;
 #define ll long long
@@ -892,7 +892,7 @@ int main() {
 
 <p>本题很难调，其实最需要注意的就是取等的条件，考虑从右往左和取A集合就是为了避免取等困难。</p>
 <h2 id="jfraction-comparision">J、<a href="https://ac.nowcoder.com/acm/contest/881/J">Fraction Comparision</a><a class="headerlink" href="#jfraction-comparision" title="Permanent link">Link</a></h2>
-<p>题意：判断(\frac{x}{a})与(\frac{y}{b})的大小</p>
+<p>题意：判断<span class="arithmatex">\(\frac{x}{a}\)</span>与<span class="arithmatex">\(\frac{y}{b}\)</span>的大小</p>
 <p>题解：最简单没有思维难度的当然是改成乘法上大数，实在不行就取余数和商两部分分别比较。</p>
 <pre class="codehilite"><code class="language-java linenums">import java.io.OutputStream;
 import java.io.IOException;
@@ -977,6 +977,12 @@ public class Main {
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../search/main.js"></script>
       

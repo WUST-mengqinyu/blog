@@ -627,9 +627,9 @@
 <ul>
 <li>
 <p>BZOJ-1005:给出标号为1到N的点，以及某些点最终的度数，允许在任意两点间连线，可产生多少棵度数满足要求的树。
-    树的Purfer序列中，每个点的出现次数=点的度数-1。设度数确定的点共有(cnt)个，令其集合为(V)，(sum=\sum_{i∈V}d[i]-1)
-    对于这样的度数序列，它的Purfer序列中，度数确定的点有(C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)})种填法，剩下的(n-2-sum)个点可以填任意一个度数未知的点（在(n-cnt)个点中选），有((n-cnt)^{n-2-sum})种方案。
-    总方案数为$C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}$种</p>
+    树的Purfer序列中，每个点的出现次数=点的度数-1。设度数确定的点共有<span class="arithmatex">\(cnt\)</span>个，令其集合为<span class="arithmatex">\(V\)</span>，<span class="arithmatex">\(sum=\sum_{i∈V}d[i]-1\)</span>
+    对于这样的度数序列，它的Purfer序列中，度数确定的点有<span class="arithmatex">\(C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}\)</span>种填法，剩下的<span class="arithmatex">\(n-2-sum\)</span>个点可以填任意一个度数未知的点（在<span class="arithmatex">\(n-cnt\)</span>个点中选），有<span class="arithmatex">\((n-cnt)^{n-2-sum}\)</span>种方案。
+    总方案数为<span class="arithmatex">\(C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}\)</span>种</p>
 </li>
 <li>
 <p>BZOJ-1004:给定m种置换和3种颜色，每种颜色的数量固定，求本质不同的染色方案数。
@@ -643,7 +643,7 @@
 <p>BZOJ-4568:在树上路径(u,v)之间选择一些点的权值，使异或和最大：对每个点预处理一个倍增的线性基，找LCA的时候倍增上跳维护整个路径的线性基，然后就可以求最大值了，<a href="https://v-verly.github.io/2019/08/02/BZOJ-4568/">并不详细的题解</a></p>
 </li>
 <li>
-<p>BZOJ-3122：(X_{i+1}=(aX_i+b) mod p)，求最小的i使(X_i=t)：推个式子处理掉特殊情况然后BSGS，多校那题是这题的加强版所以写了一下这题，<a href="https://v-verly.github.io/2019/08/02/BZOJ-3122/">详细题解</a></p>
+<p>BZOJ-3122：<span class="arithmatex">\(X_{i+1}=(aX_i+b) mod p\)</span>，求最小的i使<span class="arithmatex">\(X_i=t\)</span>：推个式子处理掉特殊情况然后BSGS，多校那题是这题的加强版所以写了一下这题，<a href="https://v-verly.github.io/2019/08/02/BZOJ-3122/">详细题解</a></p>
 </li>
 </ul>
 <h4 id="201981">2019/8/1<a class="headerlink" href="#201981" title="Permanent link">Link</a></h4>
@@ -751,6 +751,12 @@
       <script src="../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../search/main.js"></script>
       

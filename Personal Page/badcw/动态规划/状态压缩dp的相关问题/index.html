@@ -487,10 +487,10 @@ for (int i = 0; i &lt; n; ++i) {
 <p>这里是基础部分，会的可以跳过</p>
 </li>
 <li>
-<p>设计( dp[i][j][k] )是第i行第j列，上方状态为k的方案数</p>
+<p>设计<span class="arithmatex">\( dp[i][j][k] \)</span>是第i行第j列，上方状态为k的方案数</p>
 </li>
 <li>
-<p>最后求解的是( dp[n][m][(1&lt;&lt;m)-1] )</p>
+<p>最后求解的是<span class="arithmatex">\( dp[n][m][(1&lt;&lt;m)-1] \)</span></p>
 </li>
 <li>
 <p>0000xxx</p>
@@ -600,9 +600,9 @@ int main() {
 }
 </code></pre>
 
-<p>首先( val[1～4] )表示了1×1到4×4的方格填充的轮廓线形状</p>
-<p>然后预处理中的一个 nxt 数组是真的精髓，( net[m][p] )表示的是把m状态经过p这个转移方式可以转移到的状态，p这个转移方式的代价为$cost[p]$，由于状压dp这种东西真的是不能表示很多状态，题目的数据范围也会很小，这样的预处理不仅可以很好的提高代码运行效率还可以减低我们的编写难度。</p>
-<p>注意他这里转移方式的总数的问题，其实我们说16个格子用1~4的方格填满最多甚至需要16个1*1，但是4个1× 1必然是只与前一列相关联，所以最多4个就可以解决所有问题p的状态数就是$1×2×3×4=24$种，虽然不明白他为何要写成120种但是这个nxt数组的优越性就体现出来了，就算后面的p不做处理，它仍然是正确的，因为nxt数组默认指向0，再怎么瞎弄它最终0既不是答案，也不能改变中间状态，同时代价也是0。</p>
+<p>首先<span class="arithmatex">\( val[1～4] \)</span>表示了1×1到4×4的方格填充的轮廓线形状</p>
+<p>然后预处理中的一个 nxt 数组是真的精髓，<span class="arithmatex">\( net[m][p] \)</span>表示的是把m状态经过p这个转移方式可以转移到的状态，p这个转移方式的代价为<span class="arithmatex">\(cost[p]\)</span>，由于状压dp这种东西真的是不能表示很多状态，题目的数据范围也会很小，这样的预处理不仅可以很好的提高代码运行效率还可以减低我们的编写难度。</p>
+<p>注意他这里转移方式的总数的问题，其实我们说16个格子用1~4的方格填满最多甚至需要16个1*1，但是4个1× 1必然是只与前一列相关联，所以最多4个就可以解决所有问题p的状态数就是<span class="arithmatex">\(1×2×3×4=24\)</span>种，虽然不明白他为何要写成120种但是这个nxt数组的优越性就体现出来了，就算后面的p不做处理，它仍然是正确的，因为nxt数组默认指向0，再怎么瞎弄它最终0既不是答案，也不能改变中间状态，同时代价也是0。</p>
 <p>然后可以说后面随便设计轮廓线都是可以写的了，不过多赘述。</p>
 <h2 id="4dp">4、插头dp<a class="headerlink" href="#4dp" title="Permanent link">Link</a></h2>
 <p>等哪天会手撕了再写</p>
@@ -617,7 +617,7 @@ int main() {
 <p>例题：https://www.cometoj.com/contest/52/problem/C</p>
 </li>
 <li>
-<p>很精髓的一题，求解所有合法排列的逆序对( ∣i−j∣ × ∣pos_j−pos_i∣ )的权值和</p>
+<p>很精髓的一题，求解所有合法排列的逆序对<span class="arithmatex">\( ∣i−j∣ × ∣pos_j−pos_i∣ \)</span>的权值和</p>
 </li>
 <li>
 <p>本来状压解决这种问题相当困难，因为相当于是一个带顺序的选择问题，一般来讲暴力是阶乘级别的算法，但是这种问题就和状压dp解决旅行商问题一样，将阶乘复杂度降低到指数级。</p>
@@ -626,7 +626,7 @@ int main() {
 <p>其实可以对已选择的位置进行状压，然后添加序列就是从小到大，这样就可以不必考虑顺序。</p>
 </li>
 <li>
-<p>用一个( dp[1&lt;&lt;maxn] )表示某种选择下的权值贡献</p>
+<p>用一个<span class="arithmatex">\( dp[1&lt;&lt;maxn] \)</span>表示某种选择下的权值贡献</p>
 </li>
 <li>
 <p>这样降低复杂度的原因是其实它状态中1的个数就是当前取的数的大小-1。</p>
@@ -635,7 +635,7 @@ int main() {
 <p>考虑转移方乘：</p>
 </li>
 <li>
-<p>( dp[s] = \sum (dp[s&rsquo;] + \sum_{x=s \bigoplus s&rsquo;+1}^n(pre - t)*(x - s\bigoplus s&rsquo;)) )</p>
+<p><span class="arithmatex">\( dp[s] = \sum (dp[s'] + \sum_{x=s \bigoplus s'+1}^n(pre - t)*(x - s\bigoplus s')) \)</span></p>
 </li>
 <li>
 <p>其中s&rsquo;表示s的子集，t表示s&rsquo;中1的个数（即当前取的数-1），pre表示比t小的某个数</p>
@@ -644,10 +644,10 @@ int main() {
 <p>看似不可解，其实由于确定了从小到大放数的顺序，它真正每种情况的顺序反而变得不那么重要了。</p>
 </li>
 <li>
-<p>记录( g[1&lt;&lt;maxn] )表示某种状态的可能排列个数</p>
+<p>记录<span class="arithmatex">\( g[1&lt;&lt;maxn] \)</span>表示某种状态的可能排列个数</p>
 </li>
 <li>
-<p>( t[1&lt;&lt;maxn][maxn] )表示某种状态下某位置上所有排列可能性的值的和。</p>
+<p><span class="arithmatex">\( t[1&lt;&lt;maxn][maxn] \)</span>表示某种状态下某位置上所有排列可能性的值的和。</p>
 </li>
 <li>
 <p>由于下一种状态的数比已添加的数都大，所以只要是包含在值内且在当前位置后面的数都是逆序对。</p>
@@ -656,23 +656,23 @@ int main() {
 <p>转移就变简单了</p>
 </li>
 <li>
-<p>设s的二进制表示中1的个数为y，枚举到的位置（( s\bigoplus s&rsquo; )）为x</p>
+<p>设s的二进制表示中1的个数为y，枚举到的位置（<span class="arithmatex">\( s\bigoplus s' \)</span>）为x</p>
 </li>
 <li>
 <p>则有</p>
 </li>
 <li>
-<p>$$
+<div class="arithmatex">\[
   \begin{cases} 
-  dp[s] = \sum_{s&rsquo;} (dp[s&rsquo;] + \sum_{z&gt;x，z\in s&rsquo;} (z - x)<em>(g[s]</em>y - t[s][z]))
-  \
-  t[s][i] = \sum_{s&rsquo;}(t[s][i]) &amp; \text{i != x}
-  \
-  t[s][x] = \sum_{s&rsquo;}(g[s]*y + t[s][x])
-  \
-  g[s] = \sum_{s&rsquo;}g[s&rsquo;]
+  dp[s] = \sum_{s'} (dp[s'] + \sum_{z&gt;x，z\in s'} (z - x)*(g[s]*y - t[s][z]))
+  \\
+  t[s][i] = \sum_{s'}(t[s][i]) &amp; \text{i != x}
+  \\
+  t[s][x] = \sum_{s'}(g[s]*y + t[s][x])
+  \\
+  g[s] = \sum_{s'}g[s']
   \end{cases}
-  $$</p>
+  \]</div>
 </li>
 <li>
 <p>看的有点云里雾里，实际上就是把所有子集的情况都累加到一起，t数组就是用来储存每位上子集所有情况的数字和。然后每次把它后面的和加到dp数组即可</p>
@@ -687,7 +687,7 @@ int main() {
 <p>一道新题：codeforces 1152F1</p>
 </li>
 <li>
-<p>大意：有n个物品，你可以选k个，每次选择的是之前没有选过而且设上一个的位置为x，当前物品只能在(1~x+m)之间选择，求选k个的方案数</p>
+<p>大意：有n个物品，你可以选k个，每次选择的是之前没有选过而且设上一个的位置为x，当前物品只能在<span class="arithmatex">\(1~x+m\)</span>之间选择，求选k个的方案数</p>
 </li>
 <li>
 <p>又是指定了顺序，如果确定（坐标）从小往大取，那么当前要取的点只与前m个位置的取数情况有关，这个点要么直接是最后一个取，要么之前m位有取过的情况下可以是它们转移过来。</p>
@@ -696,16 +696,16 @@ int main() {
 <p>直接设计轮廓线为前m个位置的取数情况</p>
 </li>
 <li>
-<p>( dp[i][j][k] )表示前i个物品，取了j个，i-k到i的取数情况为k的方案数。</p>
+<p><span class="arithmatex">\( dp[i][j][k] \)</span>表示前i个物品，取了j个，i-k到i的取数情况为k的方案数。</p>
 </li>
 <li>
-<p>( dp[i + 1][j][stat&gt;&gt;1] += dp[i][j][stat] )表示不取直接把轮廓线移位</p>
+<p><span class="arithmatex">\( dp[i + 1][j][stat&gt;&gt;1] += dp[i][j][stat] \)</span>表示不取直接把轮廓线移位</p>
 </li>
 <li>
-<p>( dp[i + 1][j + 1][stat&gt;&gt;1|(1&lt;&lt;m-1)] += dp[i][j][stat] * (bitcount(stat) + 1) ) 表示取最后一个，方案与前m个位置情况相关</p>
+<p><span class="arithmatex">\( dp[i + 1][j + 1][stat&gt;&gt;1|(1&lt;&lt;m-1)] += dp[i][j][stat] * (bitcount(stat) + 1) \)</span> 表示取最后一个，方案与前m个位置情况相关</p>
 </li>
 <li>
-<p>此题large版本的n范围扩大到了1e9，就涉及到一个不怎么常见的操作：轮廓线+矩阵快速幂，一般来讲轮廓线的第一维是可以用滚动数组代替的，因为往往确定了枚举顺序之后每一位其实就只与前一位有关，所以出成矩阵快速幂也是可以理解的，但是这个题目很怪异的是就算不算第一维，它还有一维取的数量和一个mask，那么这样一来矩阵快速幂需要维护的是一个矩阵本身，也就是三维矩阵快速幂，众所周知矩阵到二维递推基本无解，复杂度能上天，但是本题的m限制在了4以内而且k在12以内。将这个二维矩阵按mapindex缩成一维之后矩阵大小也只有(12<em>(1&lt;&lt;4))，总体复杂度就是(O(logn</em>(k*(1&lt;&lt;m))^3))，还是在可接受范围之内</p>
+<p>此题large版本的n范围扩大到了1e9，就涉及到一个不怎么常见的操作：轮廓线+矩阵快速幂，一般来讲轮廓线的第一维是可以用滚动数组代替的，因为往往确定了枚举顺序之后每一位其实就只与前一位有关，所以出成矩阵快速幂也是可以理解的，但是这个题目很怪异的是就算不算第一维，它还有一维取的数量和一个mask，那么这样一来矩阵快速幂需要维护的是一个矩阵本身，也就是三维矩阵快速幂，众所周知矩阵到二维递推基本无解，复杂度能上天，但是本题的m限制在了4以内而且k在12以内。将这个二维矩阵按mapindex缩成一维之后矩阵大小也只有<span class="arithmatex">\(12*(1&lt;&lt;4)\)</span>，总体复杂度就是<span class="arithmatex">\(O(logn*(k*(1&lt;&lt;m))^3)\)</span>，还是在可接受范围之内</p>
 </li>
 <li>
 <p>此题large版本的递推矩阵确实不太好计算，具体方式见<a href="../%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82dp/#2">矩阵快速幂</a></p>
@@ -757,6 +757,12 @@ int main() {
       <script src="../../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../../../search/main.js"></script>
       
