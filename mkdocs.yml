@@ -50,9 +50,9 @@ markdown_extensions:
         enable_dollar_delimiter: True
     - footnotes
     - admonition
-    - codehilite:
-        guess_lang: false
-        linenums: true
+      #- codehilite:
+      #  guess_lang: false
+      #  linenums: true
     - footnotes
     - pymdownx.arithmatex
     - pymdownx.betterem:
@@ -69,5 +69,9 @@ markdown_extensions:
         custom_checkbox: true
     - pymdownx.tilde
     - pymdownx.progressbar
-
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.superfences 
+    - pymdownx.snippets
+    - pymdownx.superfences
 copyright: Copyright &copy;  <a href="https://wiki.badcw.cn" target="_blank">wiki.badcw.cn</a>

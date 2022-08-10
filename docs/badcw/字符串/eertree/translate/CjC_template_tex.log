@@ -1,0 +1,2214 @@
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.8.8)  10 AUG 2022 21:43
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"/home/badcw/Downloads/New Folder/CjC_template_tex.tex"
+(/home/badcw/Downloads/New Folder/CjC_template_tex.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-04-10> (./CjC.cls
+Document Class: CjC 2019/01/01 v0.1 CjC LaTeX Chinese template class
+(/usr/share/texmf-dist/tex/latex/ctex/ctexart.cls (/usr/share/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
+File: ctexbackend.cfg 2021/12/12 v2.5.8 Backend configuration file (CTEX)
+) (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-04-10 L3 programming layer (loader) 
+ (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2022-04-14 L3 backend support: XeTeX
+\l__color_backend_stack_int=\count181
+\g__color_backend_stack_int=\count182
+\g__graphics_track_int=\count183
+\l__pdf_internal_box=\box50
+\g__pdf_backend_object_int=\count184
+\g__pdf_backend_annotation_int=\count185
+\g__pdf_backend_link_int=\count186
+))
+Document Class: ctexart 2021/12/12 v2.5.8 Chinese adapter for class article (CTEX)
+(/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2022-01-12 L3 Experimental document command parser
+) (/usr/share/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+) (/usr/share/texmf-dist/tex/latex/ctex/ctexhook.sty
+Package: ctexhook 2021/12/12 v2.5.8 Document and package hooks (CTEX)
+) (/usr/share/texmf-dist/tex/latex/ctex/ctexpatch.sty
+Package: ctexpatch 2021/12/12 v2.5.8 Patching commands (CTEX)
+) (/usr/share/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+ (/usr/share/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\l__ctex_tmp_int=\count187
+\l__ctex_tmp_box=\box51
+\l__ctex_tmp_dim=\dimen138
+\g__ctex_section_depth_int=\count188
+\g__ctex_font_size_int=\count189
+ (/usr/share/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
+File: ctexopts.cfg 2021/12/12 v2.5.8 Option configuration file (CTEX)
+) (/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count190
+\c@section=\count191
+\c@subsection=\count192
+\c@subsubsection=\count193
+\c@paragraph=\count194
+\c@subparagraph=\count195
+\c@figure=\count196
+\c@table=\count197
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen139
+) (/usr/share/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
+File: ctex-engine-xetex.def 2021/12/12 v2.5.8 XeLaTeX adapter (CTEX)
+ (/usr/share/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
+Package: xeCJK 2021/12/12 v3.8.8 Typesetting CJK scripts with XeLaTeX
+ (/usr/share/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2022-01-12 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen140
+\l__xtemplate_tmp_int=\count198
+\l__xtemplate_tmp_muskip=\muskip16
+\l__xtemplate_tmp_skip=\skip49
+)
+\l__xeCJK_tmp_int=\count199
+\l__xeCJK_tmp_box=\box52
+\l__xeCJK_tmp_dim=\dimen141
+\l__xeCJK_tmp_skip=\skip50
+\g__xeCJK_space_factor_int=\count266
+\l__xeCJK_begin_int=\count267
+\l__xeCJK_end_int=\count268
+\c__xeCJK_CJK_class_int=\XeTeXcharclass1
+\c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
+\c__xeCJK_FullRight_class_int=\XeTeXcharclass3
+\c__xeCJK_HalfLeft_class_int=\XeTeXcharclass4
+\c__xeCJK_HalfRight_class_int=\XeTeXcharclass5
+\c__xeCJK_NormalSpace_class_int=\XeTeXcharclass6
+\c__xeCJK_CM_class_int=\XeTeXcharclass7
+\c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
+\l__xeCJK_last_skip=\skip51
+\g__xeCJK_node_int=\count269
+\c__xeCJK_CJK_node_dim=\dimen142
+\c__xeCJK_CJK-space_node_dim=\dimen143
+\c__xeCJK_default_node_dim=\dimen144
+\c__xeCJK_default-space_node_dim=\dimen145
+\c__xeCJK_CJK-widow_node_dim=\dimen146
+\c__xeCJK_normalspace_node_dim=\dimen147
+\l__xeCJK_ccglue_skip=\skip52
+\l__xeCJK_ecglue_skip=\skip53
+\l__xeCJK_punct_kern_skip=\skip54
+\l__xeCJK_last_penalty_int=\count270
+\l__xeCJK_last_bound_dim=\dimen148
+\l__xeCJK_last_kern_dim=\dimen149
+\l__xeCJK_widow_penalty_int=\count271
+
+Package xtemplate Info: Declaring object type 'xeCJK/punctuation' taking 0
+(xtemplate)             argument(s) on line 2337.
+
+\l__xeCJK_fixed_punct_width_dim=\dimen150
+\l__xeCJK_mixed_punct_width_dim=\dimen151
+\l__xeCJK_middle_punct_width_dim=\dimen152
+\l__xeCJK_fixed_margin_width_dim=\dimen153
+\l__xeCJK_mixed_margin_width_dim=\dimen154
+\l__xeCJK_middle_margin_width_dim=\dimen155
+\l__xeCJK_bound_punct_width_dim=\dimen156
+\l__xeCJK_bound_margin_width_dim=\dimen157
+\l__xeCJK_margin_minimum_dim=\dimen158
+\l__xeCJK_kerning_total_width_dim=\dimen159
+\l__xeCJK_same_align_margin_dim=\dimen160
+\l__xeCJK_different_align_margin_dim=\dimen161
+\l__xeCJK_kerning_margin_width_dim=\dimen162
+\l__xeCJK_kerning_margin_minimum_dim=\dimen163
+\l__xeCJK_bound_dim=\dimen164
+\l__xeCJK_reverse_bound_dim=\dimen165
+\l__xeCJK_margin_dim=\dimen166
+\l__xeCJK_minimum_bound_dim=\dimen167
+\l__xeCJK_kerning_margin_dim=\dimen168
+\g__xeCJK_family_int=\count272
+\l__xeCJK_fam_int=\count273
+\g__xeCJK_fam_allocation_int=\count274
+\l__xeCJK_verb_case_int=\count275
+\l__xeCJK_verb_exspace_skip=\skip55
+ (/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+ (/usr/share/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count276
+\l__fontspec_language_int=\count277
+\l__fontspec_strnum_int=\count278
+\l__fontspec_tmp_int=\count279
+\l__fontspec_tmpa_int=\count280
+\l__fontspec_tmpb_int=\count281
+\l__fontspec_tmpc_int=\count282
+\l__fontspec_em_int=\count283
+\l__fontspec_emdef_int=\count284
+\l__fontspec_strong_int=\count285
+\l__fontspec_strongdef_int=\count286
+\l__fontspec_tmpa_dim=\dimen169
+\l__fontspec_tmpb_dim=\dimen170
+\l__fontspec_tmpc_dim=\dimen171
+ (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/share/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
+File: xeCJK.cfg 2021/12/12 v3.8.8 Configuration file for xeCJK package
+))
+\ccwd=\dimen172
+\l__ctex_ccglue_skip=\skip56
+)
+\l__ctex_ziju_dim=\dimen173
+ (/usr/share/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+Package: zhnumber 2020/05/01 v2.8 Typesetting numbers with Chinese glyphs
+\l__zhnum_scale_int=\count287
+ (/usr/share/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
+File: zhnumber-utf8.cfg 2020/05/01 v2.8 Chinese numerals with UTF8 encoding
+))
+\l__ctex_heading_skip=\skip57
+ (/usr/share/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese-article.def
+File: ctex-scheme-chinese-article.def 2021/12/12 v2.5.8 Chinese scheme for article (CTEX)
+ (/usr/share/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
+File: ctex-name-utf8.cfg 2021/12/12 v2.5.8 Caption with encoding UTF-8 (CTEX)
+)) (/usr/share/texmf-dist/tex/latex/ctex/ctex-c5size.clo
+File: ctex-c5size.clo 2021/12/12 v2.5.8 c5size option (CTEX)
+) (/usr/share/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
+File: ctex-fontset-fandol.def 2021/12/12 v2.5.8 Fandol fonts definition (CTEX)
+
+
+Package fontspec Warning: Font "FandolSong-Regular" does not contain requested
+(fontspec)                Script "CJK".
+
+
+Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
+(fontspec)             'FandolSong-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf},BoldFont={FandolSong-Bold},ItalicFont={FandolKai-Regular}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolSong-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[FandolSong-Bold.otf]/OT:language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[FandolKai-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+)) (/usr/share/texmf-dist/tex/latex/ctex/config/ctex.cfg
+File: ctex.cfg 2021/12/12 v2.5.8 Configuration file (CTEX)
+) (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+) (/usr/share/texmf-dist/tex/latex/sttools/flushend.sty
+Package: flushend 2021/10/04 v4.0 Balancing columns in twocolumn mode
+\flushend@@lastskip@a=\skip58
+\flushend@@lastskip@b=\skip59
+\flushend@@lastnode=\count288
+\var@@loop@iter=\count289
+\var@@temp@spread=\dimen174
+\var@@temp@a=\dimen175
+\var@@temp@loop=\dimen176
+\flushend@@page@rule=\dimen177
+\flushend@@varbox@lastpage=\box53
+\flushend@@varbox@a=\box54
+\flushend@@varbox@c=\box55
+\flushend@@tempbox@a=\box56
+\flushend@@tempbox@c=\box57
+\flushend@@floatbox=\box58
+\@viper=\box59
+\hold@viper=\box60
+\atColsBreak=\toks16
+\atColsEnd=\toks17
+\oldbreak@skip=\dimen178
+) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+) (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 107.
+ (/usr/share/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/04/12 v5.0l Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen179
+\Gin@req@width=\dimen180
+) (/usr/share/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+) (./picins.sty Option `picins' Version 3.0 Sep. 1992, TH Darmstadt/HRZ
+\@BILD=\box61
+\@TEXT=\box62
+\d@breite=\dimen181
+\d@hoehe=\dimen182
+\d@xoff=\dimen183
+\d@yoff=\dimen184
+\d@shad=\dimen185
+\d@dash=\dimen186
+\d@boxl=\dimen187
+\d@pichskip=\dimen188
+\d@tmp=\dimen189
+\d@tmpa=\dimen190
+\d@bskip=\dimen191
+\hsiz@=\dimen192
+\p@getot@l=\dimen193
+\c@breite=\count290
+\c@hoehe=\count291
+\c@xoff=\count292
+\c@yoff=\count293
+\c@pos=\count294
+\c@shad=\count295
+\c@dash=\count296
+\c@boxl=\count297
+\c@zeilen=\count298
+\@changemode=\count299
+\c@piccaption=\count300
+\c@piccaptionpos=\count301
+\c@picpos=\count302
+\c@whole=\count303
+\c@half=\count304
+\c@tmp=\count305
+\c@tmpa=\count306
+\c@tmpb=\count307
+\c@tmpc=\count308
+\c@tmpd=\count309
+\d@leftskip=\skip60
+\ptoti=\dimen194
+\ptotii=\dimen195
+\env@box=\box63
+\d@envdp=\dimen196
+\c@hsize=\count310
+\c@envdp=\count311
+\d@envb=\dimen197
+) (/usr/share/texmf-dist/tex/latex/ccaption/ccaption.sty
+Package: ccaption 2011/08/07 v3.2c Extended captioning and new floats
+\@contcwidth=\skip61
+\@contindw=\skip62
+\abovelegendskip=\skip63
+\belowlegendskip=\skip64
+\c@newflo@tctr=\count312
+) (/usr/share/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count313
+\calc@Bcount=\count314
+\calc@Adimen=\dimen198
+\calc@Bdimen=\dimen199
+\calc@Askip=\skip65
+\calc@Bskip=\skip66
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count315
+\calc@Cskip=\skip67
+)
+\CjC@linespace=\skip68
+)
+
+Package ctex Warning: Package `CJKutf8' can not be loaded with `xeCJK'.
+
+(/usr/share/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
+\FN@temptoken=\toks19
+\footnotemargin=\dimen256
+\@outputbox@depth=\dimen257
+Package footmisc Info: Declaring symbol style bringhurst on input line 695.
+Package footmisc Info: Declaring symbol style chicago on input line 703.
+Package footmisc Info: Declaring symbol style wiley on input line 712.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 723.
+Package footmisc Info: Declaring symbol style lamport* on input line 743.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 764.
+) (/usr/share/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip69
+\subfigcapskip=\skip70
+\subfigcaptopadj=\dimen258
+\subfigbottomskip=\skip71
+\subfigcapmargin=\dimen259
+\subfiglabelskip=\skip72
+\c@subfigure=\count316
+\c@lofdepth=\count317
+\c@subtable=\count318
+\c@lotdepth=\count319
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip73
+\subfig@bottom=\skip74
+) (/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip75
+\multirow@cntb=\count320
+\multirow@dima=\skip76
+\bigstrutjot=\dimen260
+) (/usr/share/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+) (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip77
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen261
+)) (/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen262
+) (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
+)
+\inf@bad=\count321
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count322
+\leftroot@=\count323
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count324
+\DOTSCASE@=\count325
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box64
+\strutbox@=\box65
+\big@size=\dimen263
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count326
+\c@MaxMatrixCols=\count327
+\dotsspace@=\muskip18
+\c@parentequation=\count328
+\dspbrk@lvl=\count329
+\tag@help=\toks21
+\row@=\count330
+\column@=\count331
+\maxfields@=\count332
+\andhelp@=\toks22
+\eqnshift@=\dimen264
+\alignsep@=\dimen265
+\tagshift@=\dimen266
+\tagwidth@=\dimen267
+\totwidth@=\dimen268
+\lineht@=\dimen269
+\@envbody=\toks23
+\multlinegap=\skip78
+\multlinetaggap=\skip79
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+) (/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks25
+\thm@bodyfont=\toks26
+\thm@headfont=\toks27
+\thm@notefont=\toks28
+\thm@headpunct=\toks29
+\thm@preskip=\skip80
+\thm@postskip=\skip81
+\thm@headsep=\skip82
+\dth@everypar=\toks30
+) (/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen270
+\lightrulewidth=\dimen271
+\cmidrulewidth=\dimen272
+\belowrulesep=\dimen273
+\belowbottomsep=\dimen274
+\aboverulesep=\dimen275
+\abovetopsep=\dimen276
+\cmidrulesep=\dimen277
+\cmidrulekern=\dimen278
+\defaultaddspace=\dimen279
+\@cmidla=\count333
+\@cmidlb=\count334
+\@aboverulesep=\dimen280
+\@belowrulesep=\dimen281
+\@thisruleclass=\count335
+\@lastruleclass=\count336
+\@thisrulewidth=\dimen282
+) (/usr/share/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
+ (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: xetex.def on input line 149.
+) (/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count337
+\float@exts=\toks31
+\float@box=\box66
+\@float@everytoks=\toks32
+\@floatcapt=\box67
+) (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip83
+\f@nch@O@elh=\skip84
+\f@nch@O@erh=\skip85
+\f@nch@O@olh=\skip86
+\f@nch@O@orh=\skip87
+\f@nch@O@elf=\skip88
+\f@nch@O@erf=\skip89
+\f@nch@O@olf=\skip90
+\f@nch@O@orf=\skip91
+) (/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+ (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen283
+\captionmargin=\dimen284
+\caption@leftmargin=\dimen285
+\caption@rightmargin=\dimen286
+\caption@width=\dimen287
+\caption@indent=\dimen288
+\caption@parindent=\dimen289
+\caption@hangindent=\dimen290
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\let \@conttempa \relax \ifdim \prevdepth >-99\p@ \vskip \abovecaptionskip \else \def \@conttempa {\vbox to\topskip {}}\fi \let \@contfnote \footnote \renewcommand {\footnote }[2][]{} \let \@contfmark \footnotemark \renewcommand {\footnotemark }[1][]{} \let \@contlabel \label \renewcommand {\label }[1]{} \sbox \@tempboxa {\@contnfont #1\@contdelim \@conttfont #2} \let \footnote \@contfnote \let \footnotemark \@contfmark \let \label \@contlabel \ifdim \wd \@tempboxa <\linewidth \centering \fi \if@contcw \centering \parbox {\@contcwidth }{\fi \if@conthang \sbox \@tempboxa {\@contnfont #1\@contdelim } \@contpre {\@contnfont #1\@contdelim }\@conttempa {\@contcstyle \hangindent =\wd \@tempboxa \hangafter =\@ne \@conttfont #2\par } \else \if@contindent \@contpre {\@contnfont #1\@contdelim }\@conttempa {\@contcstyle \hangindent =\@contindw \hangafter =\@ne \@conttfont #2\par } \else \@contpre {\@contnfont #1\@contdelim }\@conttempa {\@contcstyle \@conttfont #2\par } \fi \fi \@contpost \if@contcw \par } \fi \vskip \belowcaptionskip  on input line 1176.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count338
+\c@continuedfloat=\count339
+Package caption Info: float package is loaded.
+Package caption Info: picins package is loaded.
+Package caption Info: subfigure package is loaded.
+) (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+ (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+) (/usr/share/texmf-dist/tex/latex/sttools/stfloats.sty
+Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip settings
+\@dblbotnum=\count340
+\c@dblbotnumber=\count341
+) (/usr/share/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write3
+ Excluding comment 'comment') (/usr/share/texmf-dist/tex/latex/sttools/cuted.sty
+Package: cuted 2021/10/04 v2.0 Mixing onecolumn and twocolumn modes
+\At@ViperColsBreak=\toks33
+\preCutedStrip=\toks34
+\postCutedStrip=\toks35
+\cuted@@tempbox@a=\box68
+\cuted@@tempbox@c=\box69
+\cuted@@tempbox@var=\box70
+\cuted@@varbox@a=\box71
+\cuted@@varbox@c=\box72
+\cuted@@tempdim@spread=\dimen291
+\cuted@@tempdim@a=\dimen292
+\cuted@@tempdim@b=\dimen293
+\ht@hold@viper=\dimen294
+\ht@viper=\dimen295
+\var@@pagediscards@ht=\dimen296
+\stripsep=\skip92
+\viper@penalty=\count342
+) (./captionhack.sty) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.sty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+ (/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/share/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+ (/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)) (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+ (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+
+Package epstopdf Warning: Drivers other than `pdftex' and `luatex' are not supported.
+
+))
+LaTeX Font Info:    Trying to load font information for TU+ptm on input line 59.
+LaTeX Font Info:    No file TUptm.fd. on input line 59.
+
+
+LaTeX Font Warning: Font shape `TU/ptm/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 59.
+
+
+LaTeX Warning: Unused global option(s):
+    [10.5pt,journal].
+
+(./CjC_template_tex.aux)
+\openout1 = `CjC_template_tex.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 59.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 59.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 59.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 59.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 59.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 59.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 59.
+LaTeX Font Info:    Redeclaring math accent \check on input line 59.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 59.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 59.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 59.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 59.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 59.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/ptm/m/n on input line 59.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 59.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/ptm/m/n on input line 59.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/ptm/m/n --> TU/ptm/m/n on input line 59.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/ptm/m/it on input line 59.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/ptm/b/n on input line 59.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/phv/m/n on input line 59.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/pcr/m/n on input line 59.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/ptm/m/n --> TU/ptm/b/n on input line 59.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/ptm/b/it on input line 59.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/phv/b/n on input line 59.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/pcr/b/n on input line 59.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:77: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 \zihao{5-}\begin{CJK*}
+                           {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:78: LaTeX Error: \begin{tabular} on input line 76 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.78 ... Ñ§\quad ±¨\hfill Vol. ??  No. ?\end{CJK*}
+                                                  \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:79: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.79 \zihao{5-}\begin{CJK*}
+                           {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:80: LaTeX Error: \begin{tabular} on input line 76 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ...AL OF COMPUTERS \hfill ???. 20??\end{CJK*}
+                                                  \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (0.61888pt too wide) in paragraph at lines 76--83
+[][] 
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:86: LaTeX Error: Environment CJK undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.86 \begin{CJK}
+                {GBK}{hei}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:88: LaTeX Error: \begin{table*} on input line 74 ended by \end{CJK}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 \end{CJK}
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (133.51527pt too wide) in paragraph at lines 86--89
+ \TU/ptm/m/n/22.08249 ÌâÄ¿£¨ÖÐÓ¢ÎÄÌâÄ¿Ò»ÖÂ)×ÖÌåÎª2ºÅºÚÌå(È«ÎÄ³ýÌØ±ðÉùÃ÷Íâ£¬ 
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:91: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 {\zihao{3}\begin{CJK*}
+                           {GBK}{fs}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:92: LaTeX Error: \begin{table*} on input line 74 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 ...$^{3) }$($^*$×ÖÌåÎª3ºÅ·ÂËÎ*×÷Õß)\end{CJK*}
+                                                  }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:95: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95 \zihao{6}{\begin{CJK*}
+                           {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:98: LaTeX Error: \begin{table*} on input line 74 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98 \end{CJK*}
+               }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:100: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100 \zihao{6}{\begin{CJK*}
+                            {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:103: LaTeX Error: \begin{table*} on input line 74 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 \end{CJK*}
+                }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:105: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.105 \zihao{6}{\begin{CJK*}
+                            {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:107: LaTeX Error: \begin{table*} on input line 74 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.107 \end{CJK*}
+                }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:109: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 \zihao{6}{\begin{CJK*}
+                            {GBK}{hei}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:111: LaTeX Error: \begin{table*} on input line 74 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 \end{CJK*}
+                }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (166.84633pt too wide) in paragraph at lines 109--112
+ \TU/ptm/m/n/7.52812 ÂÛÎÄ¶¨¸åºó£¬×÷ÕßÊðÃû¡¢µ¥Î»ÎÞÌØÊâÇé¿ö²»ÄÜ±ä¸ü¡£Èô±ä¸ü£¬ÐëÌá½»Ç©ÕÂÉêÇë£¬¹ú¼ÒÃûÎªÖÐ¹ú¿ÉÒÔ²»Ð´£¬Ê¡»á³ÇÊÐ²»Ð´Ê¡µÄÃû³Æ£¬ÆäËû¹ú¼Ò±ØÐëÐ´¹ú¼ÒÃû¡£ 
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:118: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118 \noindent\begin{CJK*}
+                           {GBK}{hei}Õª\quad Òª\quad \end{CJK*} \begin{CJK*}...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:118: LaTeX Error: \begin{tabular} on input line 115 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118 ...CJK*}{GBK}{hei}Õª\quad Òª\quad \end{CJK*}
+                                                   \begin{CJK*}{GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:118: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118 ...i}Õª\quad Òª\quad \end{CJK*} \begin{CJK*}
+                                                  {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (81.32677pt too wide) in paragraph at lines 118--121
+\TU/ptm/m/n/9.03374 GBKheiÕª Òª  GBKsong *ÖÐÎÄÕªÒªÄÚÈÝÖÃÓÚ´Ë´¦(Ó¢ÎÄÕªÒªÖÐÒªÓÐÕâÐ©ÄÚÈÝ)£¬×ÖÌåÎªÐ¡5ºÅËÎÌå¡£ÕªÒª¹±Ï×²¿ |\TU/FandolSong-Regular(0)/m/n/9.03374 ·|
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:122: LaTeX Error: \begin{tabular} on input line 115 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.122 \end{CJK*}
+                \par}}\\[2mm]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:125: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.125 \begin{CJK*}
+                  {GBK}{hei}¹Ø¼ü´Ê\end{CJK*} \quad \begin{CJK*}{GBK}{song}{*...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:125: LaTeX Error: \begin{tabular} on input line 115 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.125 \begin{CJK*}{GBK}{hei}¹Ø¼ü´Ê\end{CJK*}
+                                             \quad \begin{CJK*}{GBK}{song}{*...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:125: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.125 ...}{hei}¹Ø¼ü´Ê\end{CJK*} \quad \begin{CJK*}
+                                                  {GBK}{song}{*¹Ø¼ü´Ê£¨ÖÐÎÄ¹...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:126: LaTeX Error: \begin{tabular} on input line 115 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.126 \end{CJK*}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--127
+\TU/ptm/m/n/9.03374 GBKhei¹Ø¼ü´Ê  GBKsong*¹Ø¼ü´Ê£¨ÖÐÎÄ¹Ø¼ü×ÖÓëÓ¢ÎÄ¹Ø¼ü×Ö¶ÔÓ¦ÇÒÒ»ÖÂ£¬Ó¦ÓÐ5-
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:128: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 \zihao{5-}{\begin{CJK*}
+                             {GBK}{hei}ÖÐÍ¼·¨·ÖÀàºÅ\end{CJK*}^^I\begin{CJK*}...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:128: LaTeX Error: \begin{tabular} on input line 115 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 ...gin{CJK*}{GBK}{hei}ÖÐÍ¼·¨·ÖÀàºÅ\end{CJK*}
+                                                  ^^I\begin{CJK*}{GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:128: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 ...hei}ÖÐÍ¼·¨·ÖÀàºÅ\end{CJK*}^^I\begin{CJK*}
+                                                  {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:129: LaTeX Error: \begin{tabular} on input line 115 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 TP\end{CJK*}
+                  \rm{\quad \quad \quad     }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:130: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 \begin{CJK*}
+                  {GBK}{hei}DOIºÅ:\end{CJK*}\begin{CJK*}{GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:130: LaTeX Error: \begin{tabular} on input line 115 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 \begin{CJK*}{GBK}{hei}DOIºÅ:\end{CJK*}
+                                            \begin{CJK*}{GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:130: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 ...K*}{GBK}{hei}DOIºÅ:\end{CJK*}\begin{CJK*}
+                                                  {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:131: LaTeX Error: \begin{tabular} on input line 115 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.131 *Í¶¸åÊ±²»Ìá¹©DOIºÅ\end{CJK*}
+                                  }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:137: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.137 \zihao{3}{ {\begin{CJK*}
+                              {GBK}{hei}Title *£¨ÖÐÓ¢ÎÄÌâÄ¿Ò»ÖÂ)×ÖÌåÎª4ºÅTim...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:137: LaTeX Error: \begin{center} on input line 136 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.137 ...ª4ºÅTimes New Roman,¼Ó´Ö* Title\end{CJK*}
+                                                  }}\\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:139: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 \zihao{5}{ {\begin{CJK*}
+                              {GBK}{hei}NAME Name-Name$^{1)}$ NAME Name$^{2)...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:140: LaTeX Error: \begin{center} on input line 136 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 new Roman*Name\end{CJK*}
+                              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:143: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143 \zihao{6}{\begin{CJK*}
+                            {GBK}{hei}{$^{1)}$(Department of ****, Universit...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:144: LaTeX Error: \begin{center} on input line 136 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 new Roman* Depart.Correspond}\end{CJK*}
+                                             }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:146: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 \zihao{6}{\begin{CJK*}
+                            {GBK}{hei}{$^{2)}$(Department of ****, Universit...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:146: LaTeX Error: \begin{center} on input line 136 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 ... City ZipCode)*ÖÐ¹ú²»Ð´¹ú¼ÒÃû*}\end{CJK*}
+                                                  }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:148: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.148 \zihao{6}{\begin{CJK*}
+                            {GBK}{hei}{$^{3)}$(Department of ****, Universit...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:148: LaTeX Error: \begin{center} on input line 136 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.148 ...ipCode, country)*Íâ¹úÐ´¹ú¼ÒÃû*}\end{CJK*}
+                                                  }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/m/n' instead on input line 157.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:157: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.157 {\bf Abstract}\quad \begin{CJK*}
+                                      {GBK}{hei}(\textbf{500Ó¢ÎÄµ¥´Ê£¬ÄÚÈÝ°ü...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:158: LaTeX Error: \begin{tabular} on input line 154 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.158 ...mes new Roman,×ÖºÅ5ºÅ* Abstract\end{CJK*}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--159
+[]\TU/ptm/b/n/10.53937 Abstract GBKhei(500Ó¢ÎÄµ¥´Ê£¬ÄÚÈÝ°üº¬ÖÐÎÄÕªÒªµÄÄÚÈÝ). ×ÖÌåÎªTimes new
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:165: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.165 {\bf Keywords}\quad \begin{CJK*}
+                                      {GBK}{hei}ÖÐÎÄ¹Ø¼ü×ÖÓëÓ¢ÎÄ¹Ø¼ü×Ö¶ÔÓ¦ÇÒ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:166: LaTeX Error: \begin{tabular} on input line 154 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.166 ...ª5ºÅTimes new Roman * Key words\end{CJK*}
+                                                  }\par}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 165--166
+[]\TU/ptm/b/n/10.53937 Keywords GBKheiÖÐÎÄ¹Ø¼ü×ÖÓëÓ¢ÎÄ¹Ø¼ü×Ö¶ÔÓ¦ÇÒÒ»ÖÂ£¬²»ÒªÓÃÓ¢ÎÄËõÐ´); key
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:172: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 &\begin{CJK*}
+                   {GBK}{gbsn}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:175: LaTeX Error: \begin{tabular} on input line 170 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175 \end{CJK*}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--176
+[]\TU/ptm/m/n/7.52812 GBKgbsn ÊÕ¸åÈÕÆÚ£º  - - £»×îÖÕÐÞ¸Ä¸åÊÕµ½ÈÕÆÚ£º  - - .*Í¶¸åÊ±²»ÌîÐ´´ËÏî*. ±¾¿ÎÌâµÃµ½¡-
+ []
+
+
+Overfull \hbox (266.88422pt too wide) in paragraph at lines 172--176
+\TU/ptm/m/n/7.52812 ¡-»ù½ðÖÐÎÄÍêÕûÃû³Æ(No.ÏîÄ¿ºÅ)¡¢¡- ¡-»ù½ðÖÐÎÄÍêÕûÃû³Æ(No.ÏîÄ¿ºÅ)¡¢¡- ¡- »ù½ðÖÐÎÄÍêÕûÃû³Æ(No.ÏîÄ¿ºÅ)×ÊÖú.×÷ÕßÃû1(Í¨ÐÅ×÷Õß)£¬ÐÔ±ð£¬xxxxÄêÉú£¬Ñ§Î»(»òÄ¿Ç°Ñ§Àú)£¬Ö°³Æ£¬ÊÇ/ |\TU/FandolSong-Regular(0)/m/n/7.52812 ·|
+ []
+
+
+Overfull \hbox (218.68167pt too wide) in paragraph at lines 172--176
+\TU/ptm/m/n/7.52812 ñ¼ÆËã»úÑ§»á(CCF)»áÔ±£¨Ìá¹©»áÔ±ºÅ),Ö÷ÒªÑÐ¾¿ÁìÓòÎª*****¡¢****.E-mail: **************.×÷ÕßÃû2£¨Í¨ÐÅ×÷Õß)£¬ÐÔ±ð£¬xxxxÄêÉú£¬Ñ§Î»(»òÄ¿Ç°Ñ§Àú)£¬Ö°³Æ£¬ÊÇ/ |\TU/FandolSong-Regular(0)/m/n/7.52812 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--176
+\TU/ptm/m/n/7.52812 ñ¼ÆËã»úÑ§»á(CCF)»áÔ±£¨Ìá¹©»áÔ±ºÅ),Ö÷ÒªÑÐ¾¿ÁìÓòÎª*****¡¢****.E-mail: **************.
+ []
+
+
+Overfull \hbox (141.75177pt too wide) in paragraph at lines 172--176
+\TU/ptm/m/n/7.52812 ×÷ÕßÃû3£¨Í¨ÐÅ×÷Õß)£¬ÐÔ±ð£¬xxxxÄêÉú£¬Ñ§Î»(»òÄ¿Ç°Ñ§Àú)£¬Ö°³Æ£¬ÊÇ/ |\TU/FandolSong-Regular(0)/m/n/7.52812 ·| \TU/ptm/m/n/7.52812 ñ¼ÆËã»úÑ§»á(CCF)»áÔ±£¨Ìá¹©»áÔ±ºÅ),Ö÷ÒªÑÐ¾¿ÁìÓòÎª*****¡¢****.E-
+ []
+
+
+Overfull \hbox (35.24367pt too wide) in paragraph at lines 172--176
+\TU/ptm/m/n/7.52812 mail: **************.(¸ø³öµÄµç×ÓÓÊ¼þµØÖ |\TU/FandolSong-Regular(0)/m/n/7.52812 ·| \TU/ptm/m/n/7.52812 Ó¦²»»áÒò³ö¹ú¡¢±ÏÒµ¡¢¸ü»»¹¤×÷µ¥Î»µÈÔ-Òò¶ø±ä¶¯¡£Çë¸ø³öËùÓÐ×÷ÕßµÄµç×ÓÓÊ¼þ)
+ []
+
+
+LaTeX Warning: Float too large for page by 174.76657pt on input line 176.
+
+[1]
+CUTED [- LAST -]
+Extra skip:0.0pt
+Left:0.0pt/0.0pt
+Right:0.0pt/0.0pt
+Split: 0.0pt
+Output:0.0pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:668.63977pt
+CUTED [output]: 0.0pt
+CUTED [leftcolumn badness]: 0
+CUTED [rightcolumn badness]: 0
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:182: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.182 \begin{CJK*}
+                  {GBK}{hei}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:187: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 \end{CJK*}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:189: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.189 \begin{CJK*}
+                  {GBK}{song}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (260.22495pt too wide) in paragraph at lines 189--191
+[]\TU/ptm/b/n/10.53937 GBKsong (1) ÑÐ¾¿ÐÔÂÛÎÄÖ÷ÌåÓ¦°üÀ¨ÒýÑÔ(ÖØµãÂÛÊöÑÐ¾¿µÄ¿ÆÑ§ÎÊÌâ¡¢ÒâÒå¡¢½â¾öË¼Â |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--191
+\TU/ptm/b/n/10.53937 ¡¢¼ÛÖµ¡¢¹±Ï×µÈ)¡¢Ïà¹Ø¹¤×÷(ÎªÓëÒýÑÔ²¿ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Overfull \hbox (922.76114pt too wide) in paragraph at lines 189--191
+\TU/ptm/b/n/10.53937 Ö¶ÀÁ¢µÄÒ»¸öÕÂ½Ú)¡¢Ö÷Òª³É¹ûÂÛÊö¡¢¹Ø¼üÊµÏÖ¼¼Êõ¡¢ÑéÖ¤(¶Ô±ÈÊµÑé»òÀíÂÛÖ¤Ã÷)¡¢½áÂÛ(½áÊøÓï)µÈÄÚÈÝ£»ÏµÍ³ÊµÏÖ»òÊµÑéÓ¦ÓÐ¹Ø¼üµãµÄÏêÏ¸ÂÛÊö£¬ÒÔ±ã¶ÁÕßÄÜ¹»ÖØ¸´ÊµÏÖÂÛÎÄËùÊö³É¹û¡£ÊµÑéÓ¦ÓÐ¾ßÌåµÄÊµÑé» |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Overfull \hbox (28.79095pt too wide) in paragraph at lines 192--193
+[]\TU/ptm/b/n/10.53937 (2) ×ÛÊöÓ¦°üÀ¨ÒýÑÔ¡¢ÎÊÌâÓëÌôÕ½¡¢ÑÐ¾¿ÏÖ×´ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+\TU/ptm/b/n/10.53937 ÖÎö¡¢Î´À´ÑÐ¾¿ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·| \TU/ptm/b/n/10.53937 ½Ïò¡¢½áÂÛµÈÄÚÈÝ¡£ÒÔ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Overfull \hbox (68.08171pt too wide) in paragraph at lines 192--193
+\TU/ptm/b/n/10.53937 ÖÎö¡¢¶Ô±ÈÎªÖ÷£¬±ÜÃâ¶ÑÆöÎÄÏ×»òÒ»°ãÐÔ½éÉÜ¡¢ÐðÊö¡£ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+[]\TU/ptm/b/n/10.53937 (3) ¶¨ÀíÖ¤Ã÷¡¢¹«Ê½ÍÆµ¼¡¢´óÆª |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+\TU/ptm/b/n/10.53937 ùµÄÊýÑ§ÂÛÊö¡¢Ô-Ê¼Êý¾Ý£¬ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
+[]\TU/ptm/b/n/10.53937 (1) ±¾Ä£°åÖÐÒªÇóµÄ¸÷ÏîÄÚÈÝÕýÈ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+[]\TU/ptm/b/n/10.53937 (2) Óï¾äÍ¨Ë³£¬ÎÞÖÐÎÄ¡¢Ó¢ÎÄÓï |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+\TU/ptm/b/n/10.53937 ¨´íÎó£¬Ò×ÓÚÔÄ¶ÁÀí½â£¬ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·| \TU/ptm/b/n/10.53937 ûºÅÊ¹ÓÃÕýÈ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \hbox (badness 1783) in paragraph at lines 202--203
+[]\TU/ptm/b/n/10.53937 (3) ÔÚÑ§Êõ¡¢¼¼ÊõÉÏ£¬ÂÛÎÄÄÚÈÝÕýÈ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:204: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.204 {\begin{CJK*}
+                   {GBK}{hei}\subsection{¶þ¼¶±êÌâ *×ÖÌåÎª5ºÅºÚÌå*±êÌâ2}\end{...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:204: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.204 ...{¶þ¼¶±êÌâ *×ÖÌåÎª5ºÅºÚÌå*±êÌâ2}\end{CJK*}
+                                                  }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+[]\TU/ptm/b/n/10.53937 ÕýÎÄÎÄ×ÖÒªÇóÓï¾äÍ¨Ë³£¬ÎÞÓï |\TU/FandolSong-Regular(0)/b/n/10.53937 ·|
+ []
+
+
+Overfull \hbox (338.47972pt too wide) in paragraph at lines 208--209
+\TU/ptm/b/n/10.53937 ¨´íÎó£¬½á¹¹ºÏÀí£¬ÌõÀíÇå³þ£¬²»Ó°ÏìÉó¸åÈË¡¢¶ÁÕßÔÄ¶ÁÀí½âÈ«ÎÄÄÚÈÝ¡£ÒÔÏÂ¼¸ÀàÎÊÌâÇë×÷ÕßÃÇÌØ±ð×¢Òâ£º 
+ []
+
+
+Overfull \hbox (44.8319pt too wide) in paragraph at lines 214--215
+[]\TU/ptm/b/n/10.53937 3) ¹«Ê½ÖÐÎÞ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·| \TU/ptm/b/n/10.53937 ûºÅ¡¢±í´ïÊ½µÄÊèÂ©£¬Ã»ÓÐÍ¬Ò»¸ö |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
+[]\TU/ptm/b/n/10.53937 4) ÊýÑ§ÖÐÊ¹ÓÃµÄ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Overfull \hbox (294.76239pt too wide) in paragraph at lines 224--225
+\TU/ptm/b/n/10.53937 (Í¼±í±ØÐëÔÚÕýÎÄÖÐÓÐËù±íÊöºó³öÏÖ£¬¼´…ÈçÍ¼1ËùÊ¾)(×¢Òâ×Ý¡¢ºá×ø±êÓ¦ÓÐ×ø±êÃû³ÆºÍ¿Ì¶ÈÖµ)¡£ 
+ []
+
+
+Overfull \hbox (404.47722pt too wide) in paragraph at lines 226--227
+[]\TU/ptm/b/n/10.53937 9) ÁÐ³öµÄ²Î¿¼ÎÄÏ×±ØÐëÔÚÎÄÖÐ°´Ë³ÐòÒýÓÃ£¬¼´²Î¿¼ÎÄÏ×Ë³ÐòÓëÒýÓÃË³ÐòÒ»ÖÂ£¬¸÷ÏîÐÅÏ¢ÆëÈ«(¸ñÊ½¼û²Î¿¼ÎÄÏ×²¿ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Overfull \hbox (37.11705pt too wide) in paragraph at lines 228--229
+[]\TU/ptm/b/n/10.53937 10) Ê×´Î³öÏÖµÄËõÐ´ÐèÐ´Ã÷È«³Æ£¬Ê×´Î³öÏÖµÄ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Overfull \hbox (41.07985pt too wide) in paragraph at lines 230--231
+[]\TU/ptm/b/n/10.53937 11) Í¼µÄÍ¼ÀýËµÃ÷¡¢×ø±êËµÃ÷È«²¿ÓÃÖÐÎÄ»òÁ¿ |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (50.09769pt too wide) in paragraph at lines 248--250
+[]\TU/ptm/b/n/10.53937 15) ×éºÏµ¥Î»²ÉÓÃ±ê×¼¸ñÊ½£¬Èç£º“pJ/bit/m$[]$”Ó¦Îª
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:251: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.251 {\begin{CJK*}
+                   {GBK}{hei}\textbf{¶¨Àí1}.\end{CJK*}}\quad ******. *¶¨ÀíÄÚ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:251: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.251 ...{CJK*}{GBK}{hei}\textbf{¶¨Àí1}.\end{CJK*}
+                                                  }\quad ******. *¶¨ÀíÄÚÈÝ.*
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (216.0228pt too wide) in paragraph at lines 253--254
+[]\TU/ptm/b/n/10.53937 [“¶¨Òå”¡¢“¼ÙÉè”¡¢“¹«Àí”¡¢“ÒýÀí”µÈµÄÅÅ°æ¸ñÊ½Óë´ËÏàÍ¬£¬ÏêÏ¸¶¨ÀíÖ¤Ã÷¡¢¹«Ê½¿É |\TU/FandolSong-Regular(0)/m/n/10.53937 ·|
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:255: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.255 {\begin{CJK*}
+                   {GBK}{fs}Ö¤Ã÷\end{CJK*}}.\quad  *Ö¤Ã÷¹ý³Ì.* [``Àý x''µÈµÄ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:255: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.255 {\begin{CJK*}{GBK}{fs}Ö¤Ã÷\end{CJK*}
+                                          }.\quad  *Ö¤Ã÷¹ý³Ì.* [``Àý x''µÈµÄ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
+[]\TU/ptm/b/n/10.53937 GBKfsÖ¤Ã÷. *Ö¤Ã÷¹ý³Ì.* [“Àý
+ []
+
+File: CJC1.pdf Graphic file (type pdf)
+<use CJC1.pdf>
+
+Overfull \hbox (210.15219pt too wide) in paragraph at lines 261--263
+[]\TU/ptm/b/n/10.53937 Í¼X Í¼Æ¬ËµÃ÷ *×ÖÌåÎªÐ¡5ºÅ£¬Í¼Æ¬Ó¦ÎªºÚ°×Í¼£¬Í¼ÖÐµÄ×ÓÍ¼ÒªÓÐ×ÓÍ¼ËµÃ÷*
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:266: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.266 \centering {\begin{CJK*}
+                              {GBK}{hei}±íX\quad ±íËµÃ÷ *±íËµÃ÷²ÉÓÃºÚÌå*\end...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:266: LaTeX Error: \begin{table} on input line 265 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.266 ...íX\quad ±íËµÃ÷ *±íËµÃ÷²ÉÓÃºÚÌå*\end{CJK*}
+                                                  }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (18.9385pt too wide) in paragraph at lines 269--284
+ [] 
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:287: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.287 \begin{CJK*}
+                  {GBK}{hei}¹ý³ÌX.\end{CJK*}\quad ¹ý³ÌÃû³Æ
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:287: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.287 \begin{CJK*}{GBK}{hei}¹ý³ÌX.\end{CJK*}
+                                            \quad ¹ý³ÌÃû³Æ
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 289--290
+[]\TU/ptm/m/n/9.03374 *¡¶¼ÆËã»úÑ§±¨¡ |\TU/FandolSong-Regular(0)/m/n/9.03374 ·| \TU/ptm/m/n/9.03374 µÄ |\TU/FandolSong-Regular(0)/m/n/9.03374 ·| \TU/ptm/m/n/9.03374 ½ |\TU/FandolSong-Regular(0)/m/n/9.03374 ·|
+ []
+
+
+Overfull \hbox (223.47829pt too wide) in paragraph at lines 289--290
+\TU/ptm/m/n/9.03374 ¨¹ý³ÌÃèÊö×ÖÌåÎªÐ¡5ºÅËÎÌå£¬IF¡¢THENµÈÎ±´úÂë¹Ø¼ü´ÊÈ«²¿ÓÃ´óÐ´×ÖÄ¸£¬±äÁ¿ºÍº¯ÊýÃû³ÆÓÃÐ±Ìå* 
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:292: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.292 \begin{CJK*}
+                  {GBK}{hei}Ëã·¨\textbf{Y}\end{CJK*}.\quad Ëã·¨Ãû³Æ.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:292: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.292 ...n{CJK*}{GBK}{hei}Ëã·¨\textbf{Y}\end{CJK*}
+                                                  .\quad Ëã·¨Ãû³Æ.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (95.07277pt too wide) in paragraph at lines 299--300
+\TU/ptm/m/n/9.03374 IF¡¢THENµÈÎ±´úÂë¹Ø¼ü´ÊÈ«²¿ÓÃ´óÐ´×ÖÄ¸£¬±äÁ¿ºÍº¯ÊýÃû³ÆÓÃÐ±Ìå* 
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:303: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.303 \noindent \begin{CJK*}
+                            {GBK}{hei}ÖÂ\quad Ð»\end{CJK*}\quad \begin{CJK*}...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:303: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.303 ...begin{CJK*}{GBK}{hei}ÖÂ\quad Ð»\end{CJK*}
+                                                  \quad \begin{CJK*}{GBK}{ka...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:303: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.303 ...ei}ÖÂ\quad Ð»\end{CJK*}\quad \begin{CJK*}
+                                                  {GBK}{kai} *ÖÂÐ»ÄÚÈÝ.* ÖÂÐ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:303: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.303 ...JK*}{GBK}{kai} *ÖÂÐ»ÄÚÈÝ.* ÖÂÐ»\end{CJK*}
+                                                  }
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
+\TU/ptm/b/n/10.53937 GBKheiÖÂ Ð» GBKkai *ÖÂÐ»ÄÚÈÝ.*
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:309: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.309 \begin{CJK*}{GBK}{hei}²Î~¿¼~ÎÄ~Ï×\end{CJK*}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:309: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.309 \begin{CJK*}{GBK}{hei}²Î~¿¼~ÎÄ~Ï×\end{CJK*}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \vbox (badness 1540) has occurred while \output is active []
+
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.311 \begin{thebibliography}{99}
+                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: LaTeX Error: \begin{thebibliography} on input line 311 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.311 \begin{thebibliography}{99}
+                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.311 \begin{thebibliography}{99}
+                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: LaTeX Error: \begin{thebibliography} on input line 311 ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.311 \begin{thebibliography}{99}
+                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \vbox (7.12204pt too high) has occurred while \output is active []
+
+ [2
+
+
+
+]
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: Undefined control sequence.
+<argument> \equal 
+                  {5}{0}
+l.311 \begin{thebibliography}{99}
+                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: Argument of \@tempc has an extra }.
+<inserted text> 
+                \par 
+l.311 \begin{thebibliography}{99}
+                                 
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+{\TE@neg }\def \@tempb {\@tempc }\ifx \@tempa \@tempb \toks@ \expandafter \ETC.
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: Paragraph ended before \@tempc was complete.
+<to be read again> 
+                   \par 
+l.311 \begin{thebibliography}{99}
+                                 
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: Undefined control sequence.
+<argument> \equal 
+                  {5}{0}
+l.311 \begin{thebibliography}{99}
+                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: Argument of \@tempc has an extra }.
+<inserted text> 
+                \par 
+l.311 \begin{thebibliography}{99}
+                                 
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+{\TE@neg }\def \@tempb {\@tempc }\ifx \@tempa \@tempb \toks@ \expandafter \ETC.
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:311: Paragraph ended before \@tempc was complete.
+<to be read again> 
+                   \par 
+l.311 \begin{thebibliography}{99}
+                                 
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 319--319
+[][]\TU/ptm/b/n/9.03374 The Cooperative Association for Internet Data
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--320
+[]\TU/ptm/b/n/9.03374 ÍøÉÏµÄÎÄÏ×(¾ÙÀý£ºThe Cooperative
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--320
+\TU/ptm/b/n/9.03374 Association for Internet Data
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--320
+\TU/ptm/b/n/9.03374 Analysis(CAIDA),http://www.caida.org/data
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--320
+\TU/ptm/b/n/9.03374 2010,7,18) *Çë²ÉÓÃ½Å×¢ |\TU/FandolSong-Regular(0)/b/n/9.03374 ·|
+ []
+
+
+Overfull \hbox (13.65149pt too wide) in paragraph at lines 316--320
+\TU/ptm/b/n/9.03374 ÅÓÚÕýÎÄ³öÏÖ´¦£¬Ã¿Ò³µÄ½Å×¢´Ó1¿ªÊ¼±àÐòºÅ*[] 
+ []
+
+
+Overfull \hbox (19.48582pt too wide) in paragraph at lines 321--322
+[]\TU/ptm/b/n/9.03374 ÖÐÎÄµÄ²Î¿¼ÎÄÏ×Ðè¸ø³öÖÐÓ¢ÎÄ¶ÔÕÕ¡£ÐÎÊ½Èç[3]¡£ 
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 323--327
+\TU/ptm/b/n/9.03374 (ÖÜÓÀ±ò,  |\TU/FandolSong-Regular(0)/m/n/9.03374 ·| \TU/ptm/b/n/9.03374 ëµÇ¹ú. RFID°²È«Ð-ÒéµÄÉè¼ÆÓë |\TU/FandolSong-Regular(0)/m/n/9.03374 ·|
+ []
+
+
+Overfull \hbox (84.0407pt too wide) in paragraph at lines 330--333
+\TU/ptm/b/n/9.03374 ÌâÄ¿(Ó¢ÎÄÌâÄ¿µÚÒ»×ÖÄ¸´óÐ´£¬ÆäËü¾ùÐ¡Ð´)£º¸±±êÌâ(Èç¹ûÓÐ).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--333
+\TU/ptm/b/n/9.03374 ¿¯Ãû(È«³Æ), Äê, ¾í(ÆÚ): Ò³Âë
+ []
+
+
+Overfull \hbox (186.37186pt too wide) in paragraph at lines 334--338
+[]\TU/ptm/b/n/9.03374 ×÷Õß. ÎÄÕÂÌâÄ¿(Ó¢ÎÄÌâÄ¿µÚ1×ÖÄ¸´óÐ´£¬ÆäËü¾ùÐ¡Ð´)£º¸±±êÌâ(Èç¹ûÓÐ)//Proceedings
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--338
+\TU/ptm/b/n/9.03374 of the … (»áÒéÃû³Æ). »áÒéÕÙ¿ª³ÇÊÐ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--338
+\TU/ptm/b/n/9.03374 »áÒéÕÙ¿ª³ÇÊÐËùÔÚ¹ú¼Ò, Äê: Ò³Âë
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--342
+[]\TU/ptm/b/n/9.03374 ×÷Õß. ÎÄÕÂÌâÄ¿(Ó¢ÎÄÌâÄ¿µÚÒ»×ÖÄ¸´óÐ´,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--342
+\TU/ptm/b/n/9.03374 ÆäËü¾ùÐ¡Ð´): ¸±±êÌâ(Èç¹ûÓÐ)//±àÕß.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--342
+\TU/ptm/b/n/9.03374 ÎÄ¼¯±êÌâ. ³ö°æµØ: ³ö°æÉç, ³ö°æÄê: Ò³Âë
+ []
+
+
+Overfull \hbox (5.56163pt too wide) in paragraph at lines 346--348
+[]\TU/ptm/b/n/9.03374 ×÷Õß. ÎÄÕÂÌâÄ¿[²©Ê¿Ñ§Î»ÂÛÎÄ/Ë¶Ê¿Ñ§Î»ÂÛÎÄ].
+ []
+
+
+Overfull \hbox (56.86423pt too wide) in paragraph at lines 349--351
+[]\TU/ptm/b/n/9.03374 ×÷Õß. ÎÄÕÂÌâÄ¿(Ó¢ÎÄÌâÄ¿µÚÒ»×ÖÄ¸´óÐ´£¬ÆäËü¾ùÐ¡Ð´).
+ []
+
+
+Overfull \hbox (79.43051pt too wide) in paragraph at lines 352--354
+[]\TU/ptm/b/n/9.03374 ×¨ÀûÓµÓÐÈË. ×¨ÀûÃû³Æ£¬×¨ÀûÊÚÈ¨¹ú¼Ò£¬×¨ÀûÊÚÈ¨ÈÕÆÚ
+ []
+
+CUTED [- LAST -]
+Extra skip:38.22707pt
+Left:218.166pt/2.24939pt
+Right:182.18832pt/0.0pt
+Split: 222.62376pt
+Output:222.62376pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:668.63977pt
+CUTED [output]: 222.62376pt
+CUTED [leftcolumn badness]: 1
+CUTED [rightcolumn badness]: 543
+
+Overfull \hbox (269.01738pt too wide) in paragraph at lines 362--363
+[]\TU/ptm/b/n/9.03374 *¸½Â¼ÄÚÈÝÖÃÓÚ´Ë´¦£¬×ÖÌåÎªÐ¡5ºÅËÎÌå¡£¸½Â¼ÄÚÈÝ°üÀ¨£ºÏêÏ¸µÄ¶¨ÀíÖ¤Ã÷¡¢¹«Ê½ÍÆµ¼¡¢Ô-Ê¼Êý¾ÝµÈ* 
+ []
+
+CUTED [- LAST -]
+Extra skip:26.19656pt
+Left:23.93814pt/2.25842pt
+Right:0.0pt/0.0pt
+Split: 34.5714pt
+Output:34.5714pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:406.016pt
+CUTED [output]: 34.5714pt
+CUTED [leftcolumn badness]: 10000
+CUTED [rightcolumn badness]: 0
+File: yourphotofilename.jpg Graphic file (type bmp)
+<yourphotofilename.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--371
+\TU/ptm/b/n/9.03374 First A.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--371
+\TU/ptm/b/n/9.03374 Author
+ []
+
+
+Overfull \hbox (609.36166pt too wide) in paragraph at lines 368--371
+\TU/ptm/b/n/9.03374 *¼ÆËã»úÑ§±¨µÚ1×÷ÕßÌá¹©ÕÕÆ¬µç×ÓÍ¼Æ¬£¬³ß´çÎª1´ç¡£Ó¢ÎÄ×÷Õß½éÉÜÄÚÈÝ°üÀ¨£º³öÉúÄê,Ñ§Î»(»òÄ¿Ç°Ñ§Àú),Ö°³Æ,Ö÷ÒªÑÐ¾¿ÁìÓò(ÓëÖÐÎÄ×÷Õß½éÉÜÖÐµÄÑÐ¾¿ |\TU/FandolSong-Regular(0)/b/n/9.03374 ·|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--371
+\TU/ptm/b/n/9.03374 ½ÏòÒ»ÖÂ).* *×ÖÌåÎªÐ¡5ºÅTimes
+ []
+
+File: yourphotofilename.jpg Graphic file (type bmp)
+<yourphotofilename.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--378
+\TU/ptm/b/n/9.03374 Second B.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--378
+\TU/ptm/b/n/9.03374 Author
+ []
+
+
+Overfull \hbox (346.53412pt too wide) in paragraph at lines 375--378
+\TU/ptm/b/n/9.03374 *Ó¢ÎÄ×÷Õß½éÉÜÄÚÈÝ°üÀ¨£º³öÉúÄê,Ñ§Î»(»òÄ¿Ç°Ñ§Àú),Ö°³Æ,Ö÷ÒªÑÐ¾¿ÁìÓò(ÓëÖÐÎÄ×÷Õß½éÉÜÖÐµÄÑÐ¾¿ |\TU/FandolSong-Regular(0)/b/n/9.03374 ·|
+ []
+
+
+Underfull \hbox (badness 3312) in paragraph at lines 375--378
+\TU/ptm/b/n/9.03374 ½ÏòÒ»ÖÂ)¡£* *×ÖÌåÎªÐ¡5ºÅTimes
+ []
+
+CUTED [- LAST -]
+Extra skip:29.65196pt
+Left:80.2716pt/0.19873pt
+Right:50.81837pt/0.0pt
+Split: 87.9916pt
+Output:87.9916pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:358.84924pt
+CUTED [output]: 87.9916pt
+CUTED [leftcolumn badness]: 5741
+CUTED [rightcolumn badness]: 10000
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
+[]\TU/ptm/b/n/9.03374 *ÂÛÎÄ±³¾°½éÉÜÎªÓ¢ÎÄ£¬×ÖÌåÎªÐ¡5ºÅTimes
+ []
+
+
+Overfull \hbox (86.8521pt too wide) in paragraph at lines 388--389
+[]\TU/ptm/b/n/9.03374 ÂÛÎÄºóÃæÎª400µ¥´Ê×óÓÒµÄÓ¢ÎÄ±³¾°½éÉÜ¡£½éÉÜµÄÄÚÈÝ°üÀ¨£º 
+ []
+
+
+Overfull \hbox (188.7978pt too wide) in paragraph at lines 390--391
+[]\TU/ptm/b/n/9.03374 ±¾ÎÄÑÐ¾¿µÄÎÊÌâÊôÓÚÄÄÒ»¸öÁìÓòµÄÊ²Ã´ÎÊÌâ¡£¸ÃÀàÎÊÌâÄ¿Ç°¹ú¼ÊÉÏ½â¾öµ½Ê²Ã´³Ì¶È¡£ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--402
+[]\TU/ptm/b/n/9.03374 ±¾ÎÄµÄ³É¹ûÊÇ½â¾ö´ó¿ÎÌâÖÐµÄÄÄÒ»²¿ |\TU/FandolSong-Regular(0)/m/n/9.03374 ·|
+ []
+
+
+Overfull \hbox (199.42949pt too wide) in paragraph at lines 400--402
+\TU/ptm/b/n/9.03374 Ö£¬Èç¹ûÉæ¼°863$\OMS/cmsy/m/n/9.03374 n$\TU/ptm/b/n/9.03374 973ÒÔ¼°ÆäÏîÄ¿¡¢»ù½ð¡¢ÑÐ¾¿¼Æ»®£¬×¢ÒâÕâÐ©ÏîÄ¿µÄÓ¢ÎÄÃû³ÆÓ¦ÊéÐ´ÕýÈ |\TU/FandolSong-Regular(0)/m/n/9.03374 ·|
+ []
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:403: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.403 \end{CJK*}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[leftcolumn badness]: 1000000 on 14.101pt
+[rightcolumn badness]: 1000000 on 14.101pt
+[leftcolumn badness]: 1000000 on 14.101pt
+[rightcolumn badness]: 1000000 on 14.101pt
+[leftcolumn badness]: 1000000 on 14.101pt
+[rightcolumn badness]: 1000000 on 14.101pt
+[leftcolumn badness]: 1000000 on 14.101pt
+[rightcolumn badness]: 1000000 on 14.101pt
+[leftcolumn badness]: 1000000 on 14.101pt
+[rightcolumn badness]: 1000000 on 14.101pt
+- LAST -
+Extra skip:9.79295pt
+Left:93.62883pt/1.95128pt
+Right:82.20303pt/3.58412pt
+Split: 93.88942pt
+Output:93.88942pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:311.68248pt
+FLUSHEND [output]: 93.88942pt
+FLUSHEND [leftcolumn badness]: 10000
+FUSHEND [rightcolumn badness]: 0
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:404: LaTeX Error: Environment CJK* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/home/badcw/Downloads/New Folder/CjC_template_tex.tex:404: LaTeX Error: \begin{document} ended by \end{CJK*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (2.33975pt too wide) has occurred while \output is active
+[] 
+ []
+
+[3] (./CjC_template_tex.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 12651 strings out of 476156
+ 300842 string characters out of 5814964
+ 638944 words of memory out of 5000000
+ 33185 multiletter control sequences out of 15000+600000
+ 483247 words of font info for 103 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 103i,11n,111p,1376b,512s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on CjC_template_tex.xdv (3 pages, 88296 bytes).
