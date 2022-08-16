@@ -1,9 +1,9 @@
 
 **Members**:
 
-![https://cfrating.ihcr.top/?user=badcw](https://cfrating.ihcr.top/?user=badcw)
-![https://cfrating.ihcr.top/?user=Verly](https://cfrating.ihcr.top/?user=Verly)
-![https://cfrating.ihcr.top/?user=is_ffacs](https://cfrating.ihcr.top/?user=is_ffacs) 
+![https://cfrating.ihcr.top/?user=badcw](https://cubercsl.cn/api/?user=badcw)
+![https://cfrating.ihcr.top/?user=Verly](https://cubercsl.cn/api/?user=Verly)
+![https://cfrating.ihcr.top/?user=is_ffacs](https://cubercsl.cn/api/?user=is_ffacs) 
 
 **DashBoard**: [Team DashBoard](http://www.weaselcrow.com/pro/cf/team/?h=badcw;Verly;is_ffacs)
 
@@ -46,9 +46,9 @@ NULL
 
 **Members**:
 
-![https://cfrating.ihcr.top/?user=badcw](https://cfrating.ihcr.top/?user=badcw)
-![https://cfrating.ihcr.top/?user=Verly](https://cfrating.ihcr.top/?user=Verly)
-![https://cfrating.ihcr.top/?user=MesutZ](https://cfrating.ihcr.top/?user=MesutZ)
+![https://cfrating.ihcr.top/?user=badcw](https://cubercsl.cn/api/?user=badcw)
+![https://cfrating.ihcr.top/?user=Verly](https://cubercsl.cn/api/?user=Verly)
+![https://cfrating.ihcr.top/?user=MesutZ](https://cubercsl.cn/api/?user=MesutZ)
 
 ### Onsite
 

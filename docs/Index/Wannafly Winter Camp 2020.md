@@ -1,8 +1,8 @@
 ## 队伍组成结构
 
-![https://cfrating.ihcr.top/?user=badcw](https://cfrating.ihcr.top/?user=badcw)
-![https://cfrating.ihcr.top/?user=Verly](https://cfrating.ihcr.top/?user=Verly)
-![https://cfrating.ihcr.top/?user=Hamsterw](https://cfrating.ihcr.top/?user=Hamsterw)
+![https://cfrating.ihcr.top/?user=badcw](https://cubercsl.cn/api/?user=badcw)
+![https://cfrating.ihcr.top/?user=Verly](https://cubercsl.cn/api/?user=Verly)
+![https://cfrating.ihcr.top/?user=Hamsterw](https://cubercsl.cn/api/?user=Hamsterw)
 
 ## 记录篇
 
