@@ -271,6 +271,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://wiki.badcw.cn/badcw/string/kmp/</loc>
+         <lastmod>2022-08-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.badcw.cn/badcw/string/%E5%9B%9E%E6%96%87%E6%A0%91/</loc>
+         <lastmod>2022-08-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.badcw.cn/badcw/string/eertree/eertree_relearn/</loc>
+         <lastmod>2022-08-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://wiki.badcw.cn/badcw/%E4%B8%BB%E5%B8%AD%E6%A0%91/%E4%B8%BB%E5%B8%AD%E6%A0%91%E5%85%A5%E9%97%A8/</loc>
          <lastmod>2022-08-16</lastmod>
          <changefreq>daily</changefreq>
@@ -282,21 +297,6 @@
     </url>
     <url>
          <loc>https://wiki.badcw.cn/badcw/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82dp/</loc>
-         <lastmod>2022-08-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://wiki.badcw.cn/badcw/%E5%AD%97%E7%AC%A6%E4%B8%B2/kmp/</loc>
-         <lastmod>2022-08-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://wiki.badcw.cn/badcw/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E5%9B%9E%E6%96%87%E6%A0%91/</loc>
-         <lastmod>2022-08-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://wiki.badcw.cn/badcw/%E5%AD%97%E7%AC%A6%E4%B8%B2/eertree/eertree%E9%87%8D%E5%AD%A6/</loc>
          <lastmod>2022-08-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
