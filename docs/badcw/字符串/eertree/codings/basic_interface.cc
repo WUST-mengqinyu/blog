@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-#define todo exit(-1)
-
 /**
  * @brief eertree
  *

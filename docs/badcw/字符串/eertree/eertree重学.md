@@ -1,8 +1,8 @@
-# eertree 重新学习
+# EERTREE 重新学习
 
 ## 背景
 
-发现还是不会[写题](https://ac.nowcoder.com/acm/contest/33189/F)，作为退役选手尝试努力重新系统性的学习一下 eertree（2022年8月）
+发现还是不会[写题](https://ac.nowcoder.com/acm/contest/33189/F)，作为退役选手尝试努力重新系统性的学习一下 EERTREE（2022年8月）
 
 也是想让自己被业务折磨的脑子放在一些喜欢的地方，由于本人没什么字符串背景，学习起来可能也比较费劲
 
@@ -10,10 +10,10 @@
 
 ## 预计学习路径
 
-- [ ] 1 直接浅读一遍 eertree 原论文的简介和目录部分 https://arxiv.org/pdf/1506.04862.pdf
+- [ ] 1 直接浅读一遍 EERTREE 原论文的简介和目录部分 https://arxiv.org/pdf/1506.04862.pdf
 - [ ] 2 根据论文中的知识点 link 到一些历史问题和它的解决方案
 - [ ] 3 延伸出来肯定要顺便重看一些古老的问题，例如 manacher,border,exkmp，好在之前还是会一些的，应该不会太复杂
-- [ ] 4 精读 eertree 原论文，了解构造步骤和细节
+- [ ] 4 精读 EERTREE 原论文，了解构造步骤和细节
 - [ ] 5 根据原论文写一些实现，初步估计 rust 和 c++ 版本
 - [ ] 6 手动解决回文串的一些经典问题（计数相关、正反插入、持久化）
 - [ ] 7 解决写题中碰到的问题，例如
@@ -81,7 +81,7 @@ linear time. Inform. Process. Lett. 110, 908–912 (2010)
 In: Proc. Prague Stringology Conference. PSC 2013. pp. 63–69. Czech Technical
 University in Prague (2013)
 
-1. 最小回文分解（找到最小的k,使得s正好由k个子回文串拼接而成）
+3. 最小回文分解（找到最小的k,使得s正好由k个子回文串拼接而成）
 
      在线 $n\log{n}$
 
@@ -104,7 +104,7 @@ Combinatorial Pattern Matching - 25th Annual Symposium, CPM 2014. Proceedings, L
 
    http://wwwmayr.informatik.tu-muenchen.de/personen/maass/at_slides.pdf
 
-### eertree简介
+### EERTREE简介
 
 原文描述为 tree-like 的数据结构，主要可用于回文串**计数**和**分解**问题
 
@@ -116,29 +116,32 @@ Combinatorial Pattern Matching - 25th Annual Symposium, CPM 2014. Proceedings, L
 6. 用于最小回文分解问题
 
 
-### eertree 具体构造、变种、解决问题方式
+### EERTREE 具体构造、变种、解决问题方式
 
-#### basic version
+#### Basic Version
 
-1. 接口为
-
-???note "参考代码"
+**接口**:
+=== "cpp"
      ```cpp
-     --8<-- "docs/badcw/字符串/eertree/codings/basic_interface.cpp"
+     --8<-- "docs/badcw/字符串/EERTREE/codings/basic_interface.cc"
+     ```
+=== "rust"
+     ```cpp
+     --8<-- "docs/badcw/字符串/EERTREE/codings/basic_interface.rs"
      ```
 
-1. 需要定义并维护以下数据结构
+**需要定义并维护以下数据结构**:
 
 一个有向图，其中每个节点有一个从 1 开始的编号，每个节点代表一个本质不同回文子串
 
 节点 $v$ 保存的信息是它代表的子串的长度 $len[v]$ 
 
-eertree 初始化时有奇偶两个 root 节点，其中
+EERTREE 初始化时有奇偶两个 root 节点，其中
 
 - 偶根的长度为 0,编号为0
 - 奇根的长度为 -1,编号为-1
 
-$c$ 是一个字符，$v$ 和 $cvc$ 是 eertree 上两个节点，则连一条从 $v$ 到 $cvc$ 的有向边，边的信息为 $c$
+$c$ 是一个字符，$v$ 和 $cvc$ 是 EERTREE 上两个节点，则连一条从 $v$ 到 $cvc$ 的有向边，边的信息为 $c$
 
 对于根节点，奇根会连向所有出现的 $c$，偶根会连向所有出现的 $cc$
 
@@ -146,15 +149,14 @@ $c$ 是一个字符，$v$ 和 $cvc$ 是 eertree 上两个节点，则连一条�
 
 对于根节点，所有 $link[c]=0$，$link[0]=link[-1]=-1$
 
-eertree示例，蓝色边为 link, 黑色边为原有向图
+EERTREE示例，蓝色边为 link, 黑色边为原有向图
 
 ![图例](./pics/eertree.png)
 
-3. 性质
+**性质**:
 
-- eertree 中的有向图点数级别 $O(n)$
-- 给定一个串 $S$，可以在 $O(n\log\sigma)$ 时间内构造它的 eertree
-- 
+   - EERTREE 中的有向图点数级别 $O(n)$
+   - 给定一个串 $S$，可以在 $O(n\log\sigma)$ 时间内构造它的 EERTREE
 
 ### 一些结论
 
