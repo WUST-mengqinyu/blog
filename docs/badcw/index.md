@@ -8,9 +8,9 @@
 - [SegmentTree2](./SegmentTree/SegmentTree2)
 - [状态压缩dp的相关问题](./动态规划/状态压缩dp的相关问题)
 - [矩阵快速幂](./动态规划/矩阵快速幂dp)
-- [KMP](./字符串/kmp)
-- [回文树](./字符串/回文树)
-- [eertree重学](./字符串/eertree/eertree重学.md)
+- [KMP](./string/kmp)
+- [回文树](./string/回文树)
+- [eertree重学](./string/eertree/eertree_relearn)
 
 ## To-Do List
 

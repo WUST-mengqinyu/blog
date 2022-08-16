@@ -123,11 +123,11 @@ Combinatorial Pattern Matching - 25th Annual Symposium, CPM 2014. Proceedings, L
 **接口**:
 === "cpp"
      ```cpp
-     --8<-- "docs/badcw/字符串/EERTREE/codings/basic_interface.cc"
+     --8<-- "docs/badcw/string/eertree/codings/basic_interface.cc"
      ```
 === "rust"
      ```cpp
-     --8<-- "docs/badcw/字符串/EERTREE/codings/basic_interface.rs"
+     --8<-- "docs/badcw/string/eertree/codings/basic_interface.rs"
      ```
 
 **需要定义并维护以下数据结构**:
@@ -170,3 +170,4 @@ EERTREE示例，蓝色边为 link, 黑色边为原有向图
 2. https://ac.nowcoder.com/acm/contest/5633/F
 3. https://ac.nowcoder.com/acm/contest/33189/F
 4. 20w 个操作，每次往s前或后塞入一个字符，每次都求本质不同子串个数
+5. 长度为 n 的 rich 串计数
