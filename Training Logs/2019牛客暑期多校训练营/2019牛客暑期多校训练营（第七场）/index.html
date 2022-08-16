@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -384,7 +384,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-governing-sand" class="md-nav__link">
+  <a href="#c--governing-sand" class="md-nav__link">
     C.  Governing sand
   </a>
   
@@ -398,7 +398,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#e-find-the-median" class="md-nav__link">
+  <a href="#e--find-the-median" class="md-nav__link">
     E.  Find the median
   </a>
   
@@ -458,21 +458,21 @@
 </tr>
 </tbody>
 </table>
-<h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link">Link</a></h2>
+<h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link"></a></h2>
 <p><code>a 最小表示法 b 多项式规约 c 瞎搞 d 瞎搞  e 线段树 f 离线瞎搞 h 数位dp i计数</code></p>
-<h2 id="a-string">A. <a href="https://ac.nowcoder.com/acm/contest/887/A">String</a><a class="headerlink" href="#a-string" title="Permanent link">Link</a></h2>
+<h2 id="a-string">A. <a href="https://ac.nowcoder.com/acm/contest/887/A">String</a><a class="headerlink" href="#a-string" title="Permanent link"></a></h2>
 <p>将一个串分割成多个最小表示串，求拆分方案</p>
 <p>线性推最小表示法即可</p>
-<h2 id="b-irreducible-polynomial">B. <a href="https://ac.nowcoder.com/acm/contest/887/B">Irreducible Polynomial</a><a class="headerlink" href="#b-irreducible-polynomial" title="Permanent link">Link</a></h2>
+<h2 id="b-irreducible-polynomial">B. <a href="https://ac.nowcoder.com/acm/contest/887/B">Irreducible Polynomial</a><a class="headerlink" href="#b-irreducible-polynomial" title="Permanent link"></a></h2>
 <p>求多项式是否能在实数域上规约</p>
 <p>一次多项式和判别式为负数的二次多项式无法规约，其他都可以。也不知道为啥。貌似是有共轭负数根。</p>
-<h2 id="c-governing-sand">C. <a href="https://ac.nowcoder.com/acm/contest/887/C"> Governing sand</a><a class="headerlink" href="#c-governing-sand" title="Permanent link">Link</a></h2>
+<h2 id="c--governing-sand">C. <a href="https://ac.nowcoder.com/acm/contest/887/C"> Governing sand</a><a class="headerlink" href="#c--governing-sand" title="Permanent link"></a></h2>
 <p>有一些权值，删除一种权值需要代价，求使最大权值个数超过总数一半的最小代价。输入为n种权值，每种PHC，表示有P个H，删除代价为C。</p>
 <p>对于每种权值，枚举它为最值时付出的代价取最小值即可。需要删除的是大于它的权值和大于它数量一半的最小权值，维护一下前缀序列即可。由于C范围较小可以保存一个C的前缀。</p>
-<h2 id="d-number">D. Number<a class="headerlink" href="#d-number" title="Permanent link">Link</a></h2>
+<h2 id="d-number">D. Number<a class="headerlink" href="#d-number" title="Permanent link"></a></h2>
 <p>给n和p，求任意一个n位数能被p整除（p是素数）</p>
 <p>末尾加0即可</p>
-<h2 id="e-find-the-median">E.  Find the median<a class="headerlink" href="#e-find-the-median" title="Permanent link">Link</a></h2>
+<h2 id="e--find-the-median">E.  Find the median<a class="headerlink" href="#e--find-the-median" title="Permanent link"></a></h2>
 <p>给一个空序列，每次往里面添加<code>[l, r]</code>，每次输出当前的中位数（n个数输出<code>x[n/2]</code>）</p>
 <p>首先对询问离线，将询问的端点离散化并建立线段树维护区间和即可。</p>
 <p>查询时类似主席树查询k大，优先左子树即可，单个区间内需要仔细讨论答案。</p>
@@ -516,15 +516,11 @@
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

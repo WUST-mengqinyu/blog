@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -370,49 +370,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-apprentice-learning-trajectory" class="md-nav__link">
+  <a href="#a---apprentice-learning-trajectory" class="md-nav__link">
     A - Apprentice Learning Trajectory
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-balls-of-buma" class="md-nav__link">
+  <a href="#b---balls-of-buma" class="md-nav__link">
     B - Balls of Buma
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#e-elections" class="md-nav__link">
+  <a href="#e---elections" class="md-nav__link">
     E - Elections
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-intriguing-selection" class="md-nav__link">
+  <a href="#i---intriguing-selection" class="md-nav__link">
     I - Intriguing Selection
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#j-just-arrange-the-icons" class="md-nav__link">
+  <a href="#j---just-arrange-the-icons" class="md-nav__link">
     J - Just Arrange the Icons
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#k-key-storage" class="md-nav__link">
+  <a href="#k---key-storage" class="md-nav__link">
     K - Key Storage
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#l-lexicography" class="md-nav__link">
+  <a href="#l---lexicography" class="md-nav__link">
     L - Lexicography
   </a>
   
@@ -474,44 +474,43 @@
 </tr>
 </tbody>
 </table>
-<h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link">Link</a></h2>
+<h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link"></a></h2>
 <p><code>a、set b、乱搞 e、暴力 i、构造交互 j、exgcd暴力 k、组合数 l、暴力</code></p>
-<h2 id="a-apprentice-learning-trajectory"><a href="https://codeforces.com/contest/1267/problem/A">A - Apprentice Learning Trajectory</a><a class="headerlink" href="#a-apprentice-learning-trajectory" title="Permanent link">Link</a></h2>
+<h2 id="a---apprentice-learning-trajectory"><a href="https://codeforces.com/contest/1267/problem/A">A - Apprentice Learning Trajectory</a><a class="headerlink" href="#a---apprentice-learning-trajectory" title="Permanent link"></a></h2>
 <p>题意：给n个区间和区间权值，表示在这段区间内可以使用任意多个连续的权值时间，每个时间获得1点答案。求不能时间重叠的情况下可以获得的最大答案。</p>
 <p>题解：</p>
 <p>并不太会的set题，随便思考一下可知它应该是优先权值时间小的取，然后小的取到不能取了才会用大的。</p>
-<p>然后考虑暴力解法：对于所有的时间点<span class="arithmatex"><span class="MathJax_Preview">dp[i]</span><script type="math/tex">dp[i]</script></span>表示到<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>时间能获得的最大答案，那么显然<span class="arithmatex"><span class="MathJax_Preview">dp[i]=max(dp[i-t[k]]+1)</span><script type="math/tex">dp[i]=max(dp[i-t[k]]+1)</script></span>，其中<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>为所有合法的点（在区间内的点）。</p>
-<p>但是复杂度达到<span class="arithmatex"><span class="MathJax_Preview">O(nt)</span><script type="math/tex">O(nt)</script></span>，而<span class="arithmatex"><span class="MathJax_Preview">t \le 10^{18}</span><script type="math/tex">t \le 10^{18}</script></span>显然是不能出现在复杂度中</p>
+<p>然后考虑暴力解法：对于所有的时间点<span class="arithmatex">\(dp[i]\)</span>表示到<span class="arithmatex">\(i\)</span>时间能获得的最大答案，那么显然<span class="arithmatex">\(dp[i]=max(dp[i-t[k]]+1)\)</span>，其中<span class="arithmatex">\(k\)</span>为所有合法的点（在区间内的点）。</p>
+<p>但是复杂度达到<span class="arithmatex">\(O(nt)\)</span>，而<span class="arithmatex">\(t \le 10^{18}\)</span>显然是不能出现在复杂度中</p>
 <p>然后考虑到由于每段的情况应该是相同的，可以枚举所有块求解。</p>
-<p>首先处理出每种区间的左终点和右终点。即<span class="arithmatex"><span class="MathJax_Preview">s[i]-t[i],e[i]</span><script type="math/tex">s[i]-t[i],e[i]</script></span>，因为对于同一个起点，显然是优先取会让起点更小的点。然后处理成查分序列的形式即可，用set维护当前最小的<span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>，然后维护一个当前起点即可。复杂度<span class="arithmatex"><span class="MathJax_Preview">O(nlogn)</span><script type="math/tex">O(nlogn)</script></span></p>
-<h2 id="b-balls-of-buma"><a href="https://codeforces.com/contest/1267/problem/B">B - Balls of Buma</a><a class="headerlink" href="#b-balls-of-buma" title="Permanent link">Link</a></h2>
+<p>首先处理出每种区间的左终点和右终点。即<span class="arithmatex">\(s[i]-t[i],e[i]\)</span>，因为对于同一个起点，显然是优先取会让起点更小的点。然后处理成查分序列的形式即可，用set维护当前最小的<span class="arithmatex">\(t\)</span>，然后维护一个当前起点即可。复杂度<span class="arithmatex">\(O(nlogn)\)</span></p>
+<h2 id="b---balls-of-buma"><a href="https://codeforces.com/contest/1267/problem/B">B - Balls of Buma</a><a class="headerlink" href="#b---balls-of-buma" title="Permanent link"></a></h2>
 <p>题意：给一个字符串，要添加一个字符，如果当前字符使得连起来的相同字符大于等于三个即可消去这些相同字符，然后如果扩充的字符满足大于等于三个也可以消去，求能全部删掉的方案数</p>
 <p>yysy，脑瘫设定，那么首先必然段数是奇数，其次左右字符对称，再其次左右和大于等于3，再其次中间和大于等于2即可。答案为中间和+1</p>
-<h2 id="e-elections"><a href="https://codeforces.com/contest/1267/problem/E">E - Elections</a><a class="headerlink" href="#e-elections" title="Permanent link">Link</a></h2>
+<h2 id="e---elections"><a href="https://codeforces.com/contest/1267/problem/E">E - Elections</a><a class="headerlink" href="#e---elections" title="Permanent link"></a></h2>
 <p>题意：n个人，m场选举，给出矩阵表示第i场第j个人的权重，要求第n个人死，死的定义是它不是最大值或者只是最大值之一。求最少删掉多少场选举并输出方案。</p>
 <p>由于数据范围较小所以直接爆就过了，枚举让他死的那个人是谁，然后做差排序，从小到大加，直到不能让他死的边界然后取最小值即可。</p>
-<h2 id="i-intriguing-selection"><a href="https://codeforces.com/contest/1267/problem/I">I - Intriguing Selection</a><a class="headerlink" href="#i-intriguing-selection" title="Permanent link">Link</a></h2>
+<h2 id="i---intriguing-selection"><a href="https://codeforces.com/contest/1267/problem/I">I - Intriguing Selection</a><a class="headerlink" href="#i---intriguing-selection" title="Permanent link"></a></h2>
 <p>题意：交互题，有2×n个人，每个人有1~2n的权值，每次询问i和j的大小关系，需要知道前n个人是哪些，但是不能使得前n个人的大小关系完全知道，询问次数不限（限制每对人不重复问的次数）。</p>
 <p>将人分成3类，一类n-1个，二类2个，三类n-1个</p>
 <p>将一类人两两比较得出一个关系矩阵。二类人也如此。</p>
 <p>然后将一类中的最小的与二类最小的比较得出更小的，将更小的淘汰，从三类中取一个补齐，直到三类为空，一类和二类人的并集即为答案，且一类和二类本身没有进行比较所以不是完全知道他们的关系。</p>
-<h2 id="j-just-arrange-the-icons"><a href="https://codeforces.com/contest/1267/problem/J">J - Just Arrange the Icons</a><a class="headerlink" href="#j-just-arrange-the-icons" title="Permanent link">Link</a></h2>
+<h2 id="j---just-arrange-the-icons"><a href="https://codeforces.com/contest/1267/problem/J">J - Just Arrange the Icons</a><a class="headerlink" href="#j---just-arrange-the-icons" title="Permanent link"></a></h2>
 <p>题意：给n个物品，每个物品有分类，求箱子大小为k，使得每个箱子只装一种物品，每个箱子至少填充到k-1情况下箱子的最小个数。（k是任意）</p>
-<p>首先处理成map形式，即第i类有<span class="arithmatex"><span class="MathJax_Preview">x[i]</span><script type="math/tex">x[i]</script></span>件物品，然后首先考虑k的范围，显然是<span class="arithmatex"><span class="MathJax_Preview">1～min(x[i])+
-1</span><script type="math/tex">1～min(x[i])+
-1</script></span>，然后考虑枚举这些值处理答案。</p>
+<p>首先处理成map形式，即第i类有<span class="arithmatex">\(x[i]\)</span>件物品，然后首先考虑k的范围，显然是<span class="arithmatex">\(1～min(x[i])+
+1\)</span>，然后考虑枚举这些值处理答案。</p>
 <p>显然，如果一个k是合法的，当且仅当它对所有的i都满足
-<script type="math/tex; mode=display">
+$$
 k * t_1 + (k - 1) * t_2 = a_i, 0 \le t1,t2
-</script>
+$$
 那么这个直接exgcd求是否有正整数解即可。然后把最小正整数解弄出来求和就可以了。</p>
-<h2 id="k-key-storage"><a href="https://codeforces.com/contest/1267/problem/K">K - Key Storage</a><a class="headerlink" href="#k-key-storage" title="Permanent link">Link</a></h2>
+<h2 id="k---key-storage"><a href="https://codeforces.com/contest/1267/problem/K">K - Key Storage</a><a class="headerlink" href="#k---key-storage" title="Permanent link"></a></h2>
 <p>题意：对一个数n，从2开始取模求余，直到n为0，得到一个余数序列，对余数序列排序，求余数序列与n相等的数的个数。</p>
 <p>由于每个数的余数序列显然是不同的，显然就是合法排列数。对于一个排列，它是合法的当且仅当对于每一个模数，它的余数都是小于模数的，然后其实隐藏条件是它不能有后缀0，即最后一个模数不能为0。</p>
-<p>那么显然就是可重排列的一个限制性的变种。不考虑后缀0的话，对于一个余数序列逆权排序之后：<span class="arithmatex"><span class="MathJax_Preview">\{a_1, a_2, \dots a_n\}</span><script type="math/tex">\{a_1, a_2, \dots a_n\}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span>和与<span class="arithmatex"><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span>相同的权值，必须放在<span class="arithmatex"><span class="MathJax_Preview">n+1-2-a[i]+1</span><script type="math/tex">n+1-2-a[i]+1</script></span>的长度的空格中，那么就是一个组合数，然后它前缀填充物品已经有i个了，组合数的下部还需要减掉一个权值，解出来就是原始答案。</p>
+<p>那么显然就是可重排列的一个限制性的变种。不考虑后缀0的话，对于一个余数序列逆权排序之后：<span class="arithmatex">\(\{a_1, a_2, \dots a_n\}\)</span>，<span class="arithmatex">\(a_i\)</span>和与<span class="arithmatex">\(a_i\)</span>相同的权值，必须放在<span class="arithmatex">\(n+1-2-a[i]+1\)</span>的长度的空格中，那么就是一个组合数，然后它前缀填充物品已经有i个了，组合数的下部还需要减掉一个权值，解出来就是原始答案。</p>
 <p>然后再来考虑后缀0，对于后缀0在原始答案中出现的次数，实际上是个递归问题，即取最后一位为0，把0的个数减一，然后再跑一次原始答案，即是含后缀0的合法答案，减去就可以了</p>
 <p>其实看错题了还以为是个状压，结果一看组数就放弃了，以后有机会出成题目。</p>
-<h2 id="l-lexicography"><a href="https://codeforces.com/contest/1267/problem/L">L - Lexicography</a><a class="headerlink" href="#l-lexicography" title="Permanent link">Link</a></h2>
+<h2 id="l---lexicography"><a href="https://codeforces.com/contest/1267/problem/L">L - Lexicography</a><a class="headerlink" href="#l---lexicography" title="Permanent link"></a></h2>
 <p>题意：脑瘫，给nlr，表示给出n×l个字符要构造n个长度为l的字符串，使得第r个字典序最小，求方案。</p>
 <p>真的脑瘫，显然是从上往下给字符，然后如果当前位与前一个位不同即表示两个串的字典序已经区分出来，就不用管其他的了，然后比r大的字符串也不用管，就可以构造出最小r。</p>
 
@@ -554,15 +553,11 @@ k * t_1 + (k - 1) * t_2 = a_i, 0 \le t1,t2
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-heretical-mobius" class="md-skip">
+        <a href="#c-heretical--möbius" class="md-skip">
           跳转至
         </a>
       
@@ -363,42 +363,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-heretical-mobius" class="md-nav__link">
+  <a href="#c-heretical--möbius" class="md-nav__link">
     C. Heretical … Möbius
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#d-deja-vu-of-go-players" class="md-nav__link">
+  <a href="#d-deja-vu-of--go-players" class="md-nav__link">
     D. Deja vu of … Go Players
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#f-interstellar-fantasy" class="md-nav__link">
+  <a href="#f-interstellar--fantasy" class="md-nav__link">
     F. Interstellar … Fantasy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-misunderstood-missing" class="md-nav__link">
+  <a href="#i-misunderstood--missing" class="md-nav__link">
     I. Misunderstood … Missing
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#j-philosophical-balance" class="md-nav__link">
+  <a href="#j-philosophical--balance" class="md-nav__link">
     J. Philosophical … Balance
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#l-eventual-journey" class="md-nav__link">
+  <a href="#l-eventual--journey" class="md-nav__link">
     L. Eventual … Journey
   </a>
   
@@ -460,13 +460,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="c-heretical-mobius">C. Heretical … Möbius<a class="headerlink" href="#c-heretical-mobius" title="Permanent link">Link</a></h2>
+<h2 id="c-heretical--möbius">C. Heretical … Möbius<a class="headerlink" href="#c-heretical--möbius" title="Permanent link"></a></h2>
 <p>给出一个20×10的01串，为一段连续的Mobius函数的绝对值，求这段序列起始位置的最小值，无解输出-1.</p>
 <p>题解：根据莫比乌斯函数的定义，可知所有平方数的倍数的值都是0，现在右连续的200个莫比乌斯函数的绝对值，若合法可以求出4、9、16、25、36、49、64、81、100、121、144、169、196的大致位置，即求出答案x对这些数取模得到的值的大致情况（做dfs判断即可），然后可以单点求出莫比乌斯函数的值做匹配或者用任意位置开头的线性筛即可。注意此题需要剪枝，可以发现1e9以内200个连续的莫比乌斯函数不可能出现100个以上的0，具体怎么算的我也不知道。</p>
-<h2 id="d-deja-vu-of-go-players">D. Deja vu of … Go Players<a class="headerlink" href="#d-deja-vu-of-go-players" title="Permanent link">Link</a></h2>
+<h2 id="d-deja-vu-of--go-players">D. Deja vu of … Go Players<a class="headerlink" href="#d-deja-vu-of--go-players" title="Permanent link"></a></h2>
 <p>签到</p>
-<h2 id="f-interstellar-fantasy">F. Interstellar … Fantasy<a class="headerlink" href="#f-interstellar-fantasy" title="Permanent link">Link</a></h2>
-<h2 id="i-misunderstood-missing">I. Misunderstood … Missing<a class="headerlink" href="#i-misunderstood-missing" title="Permanent link">Link</a></h2>
+<h2 id="f-interstellar--fantasy">F. Interstellar … Fantasy<a class="headerlink" href="#f-interstellar--fantasy" title="Permanent link"></a></h2>
+<h2 id="i-misunderstood--missing">I. Misunderstood … Missing<a class="headerlink" href="#i-misunderstood--missing" title="Permanent link"></a></h2>
 <p>打怪兽，初始时有A的攻击力，每轮增长D，初始时为0，有n轮，每轮在三种操作选择一种：</p>
 <p>①发起攻击，产生A+a[i]的伤害</p>
 <p>②D=D+b[i]</p>
@@ -480,12 +480,12 @@
 <li><code>dp[i][cnt][sum] = max(dp[i][cnt][sum], dp[i + 1][cnt][sum - cnt] + c[i] * cnt;</code></li>
 </ol>
 <p>即可求解。</p>
-<h2 id="j-philosophical-balance">J. Philosophical … Balance<a class="headerlink" href="#j-philosophical-balance" title="Permanent link">Link</a></h2>
-<p>给一个字符串，先手给串的每一个位置赋一个值<span class="arithmatex"><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span>并保证<span class="arithmatex"><span class="MathJax_Preview">p_i \ge 0, \sum_{i=1}^n p_i = 1</span><script type="math/tex">p_i \ge 0, \sum_{i=1}^n p_i = 1</script></span>，后手选择一个子串<span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>。有式子<span class="arithmatex"><span class="MathJax_Preview">\sum_{k=1}^n p_k \mathrm{lcp}(s_k,s_j)</span><script type="math/tex">\sum_{k=1}^n p_k \mathrm{lcp}(s_k,s_j)</script></span>，先手想使其尽可能大，后手想使其尽可能小。先手要如何操作才能使这个值最大，求这个最大值。</p>
+<h2 id="j-philosophical--balance">J. Philosophical … Balance<a class="headerlink" href="#j-philosophical--balance" title="Permanent link"></a></h2>
+<p>给一个字符串，先手给串的每一个位置赋一个值<span class="arithmatex">\(p_i\)</span>并保证<span class="arithmatex">\(p_i \ge 0, \sum_{i=1}^n p_i = 1\)</span>，后手选择一个子串<span class="arithmatex">\(j\)</span>。有式子<span class="arithmatex">\(\sum_{k=1}^n p_k \mathrm{lcp}(s_k,s_j)\)</span>，先手想使其尽可能大，后手想使其尽可能小。先手要如何操作才能使这个值最大，求这个最大值。</p>
 <p>题解：将原串反向，建立后缀自动机。</p>
-<p>对于反串的后缀树，此时后手如果选择某个子树<span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span>中选择串<span class="arithmatex"><span class="MathJax_Preview">s_j</span><script type="math/tex">s_j</script></span>，在<span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>固定的情况下要使lcp最小，显然最优解为选择子树的根。</p>
-<p>在后缀自动机的suffix link树中，如果当前state为np节点，则直接取当前节点的len作为答案。否则需要合并若干子树的答案，答案为一个纳什均衡的模型，即每个子节点的贡献相等。那么该点的贡献为<span class="arithmatex"><span class="MathJax_Preview">len[u]+x</span><script type="math/tex">len[u]+x</script></span>，其中$len[u])一定会取到，<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>为纳什均衡下可以取到的最大值，推一下子树的<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>得到<span class="arithmatex"><span class="MathJax_Preview">x = \frac{1}{\sum \frac{1}{f_i}}</span><script type="math/tex">x = \frac{1}{\sum \frac{1}{f_i}}</script></span>，那么在suffix link树上dfs即可求出答案。</p>
-<h2 id="l-eventual-journey">L. Eventual … Journey<a class="headerlink" href="#l-eventual-journey" title="Permanent link">Link</a></h2>
+<p>对于反串的后缀树，此时后手如果选择某个子树<span class="arithmatex">\(u\)</span>中选择串<span class="arithmatex">\(s_j\)</span>，在<span class="arithmatex">\(p\)</span>固定的情况下要使lcp最小，显然最优解为选择子树的根。</p>
+<p>在后缀自动机的suffix link树中，如果当前state为np节点，则直接取当前节点的len作为答案。否则需要合并若干子树的答案，答案为一个纳什均衡的模型，即每个子节点的贡献相等。那么该点的贡献为<span class="arithmatex">\(len[u]+x\)</span>，其中$len[u])一定会取到，<span class="arithmatex">\(x\)</span>为纳什均衡下可以取到的最大值，推一下子树的<span class="arithmatex">\(x\)</span>得到<span class="arithmatex">\(x = \frac{1}{\sum \frac{1}{f_i}}\)</span>，那么在suffix link树上dfs即可求出答案。</p>
+<h2 id="l-eventual--journey">L. Eventual … Journey<a class="headerlink" href="#l-eventual--journey" title="Permanent link"></a></h2>
 <p>有 n 个车站，相互之间有 m 条公共的双向铁路连通，车站分成 0,1 两种类别，任意两个 0 类车站之间都有一条私有的铁路相互连接，1 类车站也类似。</p>
 <p>现在，从每车站 i 出发，到车站 j 的最少走过的铁路数目为 D(u,v)，要求你对每个固定的车站 i，都输出到其他所有车站的 D(i,j) 之和。</p>
 <p>题解：分类讨论枚举状态即可。</p>
@@ -529,15 +529,11 @@
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

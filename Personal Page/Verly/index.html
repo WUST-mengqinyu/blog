@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -474,35 +474,35 @@
 
   <h1>Index</h1>
 
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">Link</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <ul>
 <li>博客: <a href="https://v-verly.github.io/">https://v-verly.github.io/</a></li>
 <li>CF: <a href="https://codeforces.com/profile/Verly">Verly</a></li>
 <li>有想详细写的题解丢在博客，wiki放个(mo)人(yu)记录</li>
 <li>这边写的东西应该不会很详细，康不懂的话私聊我一哈子</li>
 </ul>
-<h2 id="to-do-list">To-Do List<a class="headerlink" href="#to-do-list" title="Permanent link">Link</a></h2>
+<h2 id="to-do-list">To-Do List<a class="headerlink" href="#to-do-list" title="Permanent link"></a></h2>
 <ul>
 <li>补一下字符串(undo:exKMP, manachar, SA, SAM)</li>
 <li>切图论杂题，有空的时候学一些高级一点的东西</li>
 <li>以上两项都不想看的时候，去摸一下组合数学或者多项式</li>
 <li>有空开一个CF补题记录的page</li>
 </ul>
-<h2 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">Link</a></h2>
-<h3 id="topic">Topic<a class="headerlink" href="#topic" title="Permanent link">Link</a></h3>
-<h3 id="contest">Contest<a class="headerlink" href="#contest" title="Permanent link">Link</a></h3>
+<h2 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link"></a></h2>
+<h3 id="topic">Topic<a class="headerlink" href="#topic" title="Permanent link"></a></h3>
+<h3 id="contest">Contest<a class="headerlink" href="#contest" title="Permanent link"></a></h3>
 <ul>
 <li>2019/7/27 KMP(done)</li>
 <li>2019/7/17 <a href="../Verly/智力康复专题/网络流24题">网络流24题</a>(done)</li>
 </ul>
-<h3 id="daily">Daily<a class="headerlink" href="#daily" title="Permanent link">Link</a></h3>
-<h4 id="201989">2019/8/9<a class="headerlink" href="#201989" title="Permanent link">Link</a></h4>
+<h3 id="daily">Daily<a class="headerlink" href="#daily" title="Permanent link"></a></h3>
+<h4 id="201989">2019/8/9<a class="headerlink" href="#201989" title="Permanent link"></a></h4>
 <ul>
 <li>
 <p>BZOJ-1005:给出标号为1到N的点，以及某些点最终的度数，允许在任意两点间连线，可产生多少棵度数满足要求的树。
-    树的Purfer序列中，每个点的出现次数=点的度数-1。设度数确定的点共有<span class="arithmatex"><span class="MathJax_Preview">cnt</span><script type="math/tex">cnt</script></span>个，令其集合为<span class="arithmatex"><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span>，<span class="arithmatex"><span class="MathJax_Preview">sum=\sum_{i∈V}d[i]-1</span><script type="math/tex">sum=\sum_{i∈V}d[i]-1</script></span>
-    对于这样的度数序列，它的Purfer序列中，度数确定的点有<span class="arithmatex"><span class="MathJax_Preview">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}</span><script type="math/tex">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}</script></span>种填法，剩下的<span class="arithmatex"><span class="MathJax_Preview">n-2-sum</span><script type="math/tex">n-2-sum</script></span>个点可以填任意一个度数未知的点（在<span class="arithmatex"><span class="MathJax_Preview">n-cnt</span><script type="math/tex">n-cnt</script></span>个点中选），有<span class="arithmatex"><span class="MathJax_Preview">(n-cnt)^{n-2-sum}</span><script type="math/tex">(n-cnt)^{n-2-sum}</script></span>种方案。
-    总方案数为<span class="arithmatex"><span class="MathJax_Preview">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}</span><script type="math/tex">C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}</script></span>种</p>
+    树的Purfer序列中，每个点的出现次数=点的度数-1。设度数确定的点共有<span class="arithmatex">\(cnt\)</span>个，令其集合为<span class="arithmatex">\(V\)</span>，<span class="arithmatex">\(sum=\sum_{i∈V}d[i]-1\)</span>
+    对于这样的度数序列，它的Purfer序列中，度数确定的点有<span class="arithmatex">\(C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}\)</span>种填法，剩下的<span class="arithmatex">\(n-2-sum\)</span>个点可以填任意一个度数未知的点（在<span class="arithmatex">\(n-cnt\)</span>个点中选），有<span class="arithmatex">\((n-cnt)^{n-2-sum}\)</span>种方案。
+    总方案数为<span class="arithmatex">\(C_{n-2}^{sum}×\frac {sum!} {\prod_{i∈V} (d[i]-1)}×(n-cnt)^{n-2-sum}\)</span>种</p>
 </li>
 <li>
 <p>BZOJ-1004:给定m种置换和3种颜色，每种颜色的数量固定，求本质不同的染色方案数。
@@ -510,20 +510,20 @@
     这里的洗牌置换只要加上一个单位元，就能构成一个真正的置换群。对于每种置换，因为每种颜色的种类固定，对于每一类置换，求出循环节后对三种颜色做01背包，<code>dp[sr][sg][sb]</code>就是当前置换下不变的染色方案数。</p>
 </li>
 </ul>
-<h4 id="201982">2019/8/2<a class="headerlink" href="#201982" title="Permanent link">Link</a></h4>
+<h4 id="201982">2019/8/2<a class="headerlink" href="#201982" title="Permanent link"></a></h4>
 <ul>
 <li>
 <p>BZOJ-4568:在树上路径(u,v)之间选择一些点的权值，使异或和最大：对每个点预处理一个倍增的线性基，找LCA的时候倍增上跳维护整个路径的线性基，然后就可以求最大值了，<a href="https://v-verly.github.io/2019/08/02/BZOJ-4568/">并不详细的题解</a></p>
 </li>
 <li>
-<p>BZOJ-3122：<span class="arithmatex"><span class="MathJax_Preview">X_{i+1}=(aX_i+b) mod p</span><script type="math/tex">X_{i+1}=(aX_i+b) mod p</script></span>，求最小的i使<span class="arithmatex"><span class="MathJax_Preview">X_i=t</span><script type="math/tex">X_i=t</script></span>：推个式子处理掉特殊情况然后BSGS，多校那题是这题的加强版所以写了一下这题，<a href="https://v-verly.github.io/2019/08/02/BZOJ-3122/">详细题解</a></p>
+<p>BZOJ-3122：<span class="arithmatex">\(X_{i+1}=(aX_i+b) mod p\)</span>，求最小的i使<span class="arithmatex">\(X_i=t\)</span>：推个式子处理掉特殊情况然后BSGS，多校那题是这题的加强版所以写了一下这题，<a href="https://v-verly.github.io/2019/08/02/BZOJ-3122/">详细题解</a></p>
 </li>
 </ul>
-<h4 id="201981">2019/8/1<a class="headerlink" href="#201981" title="Permanent link">Link</a></h4>
+<h4 id="201981">2019/8/1<a class="headerlink" href="#201981" title="Permanent link"></a></h4>
 <ul>
 <li>BZOJ-2565:给定一个串，找到最长的一个子串，使它的左部X和右部Y(|X|&gt;0,|Y|&gt;0)都为回文串：比较常规的Manacher，标记每个#节点向左向右能够组成的最长回文串求和即可，manacher的以pos为中心的最长回文串的真实长度为Len[pos]-1。</li>
 </ul>
-<h4 id="2019731">2019/7/31<a class="headerlink" href="#2019731" title="Permanent link">Link</a></h4>
+<h4 id="2019731">2019/7/31<a class="headerlink" href="#2019731" title="Permanent link"></a></h4>
 <ul>
 <li>
 <p>CF-1199F:n×n的网格图中有若干个黑点，覆盖掉一段长度为(x,y)的块的花费是max(x,y)，求覆盖掉所有黑点的最小花费：弱智记忆化搜索，不知道这种题为什么放在F；</p>
@@ -532,12 +532,12 @@
 <p>CF-1199E: 给定3n个点和m条边的图，要求找到2n个点，其中两个点仅由一条边连接，不存在一个点与多个点相连；或找到n个点，使n个点为独立集(两两互不相连)：直接暴力vis找边集，如果能找到n对就输出边集；不能找到就说明剩下的相互独立的点集一定大于等于n，输出点集。</p>
 </li>
 </ul>
-<h4 id="2019730">2019/7/30<a class="headerlink" href="#2019730" title="Permanent link">Link</a></h4>
+<h4 id="2019730">2019/7/30<a class="headerlink" href="#2019730" title="Permanent link"></a></h4>
 <ul>
 <li>BZOJ-1283: 给出一个长度为n的正整数序列Ci，求一个子序列，使得原序列中任意长度为m的子串中被选出的元素不超过K(K,M&lt;=100) 个，并且选出的元素之和最大。
     将问题转化为选k次，每次选的数距离&gt;=m，跑费用流。S向1连边，流量为k；i向i+1连边，流量为inf，费用为0；i向min(i+m,T)连边，流量为1，费用为-c[i]，代表选这个点，最大费用流就是答案。</li>
 </ul>
-<h4 id="2019729">2019/7/29<a class="headerlink" href="#2019729" title="Permanent link">Link</a></h4>
+<h4 id="2019729">2019/7/29<a class="headerlink" href="#2019729" title="Permanent link"></a></h4>
 <ul>
 <li>
 <p>BZOJ-3931: 最短路+最大流，按题意模拟，求出所有满足最短路的边，拆点跑网络流即可</p>
@@ -587,15 +587,11 @@
     
       <script src="../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../search/main.js"></script>
+        <script src="../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

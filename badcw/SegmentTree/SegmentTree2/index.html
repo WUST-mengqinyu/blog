@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#f-counter-strike" class="md-skip">
+        <a href="#f---counter-strike" class="md-skip">
           跳转至
         </a>
       
@@ -363,70 +363,70 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#f-counter-strike" class="md-nav__link">
+  <a href="#f---counter-strike" class="md-nav__link">
     F - Counter Strike
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#g-rectangles" class="md-nav__link">
+  <a href="#g---rectangles" class="md-nav__link">
     G - Rectangles
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#h-ping-pong" class="md-nav__link">
+  <a href="#h---ping-pong" class="md-nav__link">
     H - Ping pong
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-lost-cows" class="md-nav__link">
+  <a href="#i---lost-cows" class="md-nav__link">
     I - Lost Cows
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#j-billboard" class="md-nav__link">
+  <a href="#j---billboard" class="md-nav__link">
     J - Billboard
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#k-memory-control" class="md-nav__link">
+  <a href="#k---memory-control" class="md-nav__link">
     K - Memory Control
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#l-man-down" class="md-nav__link">
+  <a href="#l---man-down" class="md-nav__link">
     L - Man Down
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#m-multiply-game" class="md-nav__link">
+  <a href="#m---multiply-game" class="md-nav__link">
     M - Multiply game
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#n-posters" class="md-nav__link">
+  <a href="#n---posters" class="md-nav__link">
     N - Posters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-light" class="md-nav__link">
+  <a href="#o---light" class="md-nav__link">
     O - Light
   </a>
   
@@ -449,35 +449,28 @@
   <h1>SegmentTree2</h1>
 
 <p><a href="https://vjudge.net/contest/314268">url</a></p>
-<h2 id="f-counter-strike">F - Counter Strike<a class="headerlink" href="#f-counter-strike" title="Permanent link">Link</a></h2>
+<h2 id="f---counter-strike">F - Counter Strike<a class="headerlink" href="#f---counter-strike" title="Permanent link"></a></h2>
 <p>题意：给n个带权物品求取法方案数，需要保证取的物品平均权值大于k且取的物品是连续的</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 pre[i] - pre[j] &gt; k * (i - j + 1) \\
 (a[i] - k) + (a[i + 1] - k) + \dots + (a[j] - k) &gt; 0 \\
 i &gt; j \&amp;\&amp; newpre[i] &gt; newpre[j] \\
-</div>
-<script type="math/tex; mode=display">
-pre[i] - pre[j] > k * (i - j + 1) \\
-(a[i] - k) + (a[i + 1] - k) + \dots + (a[j] - k) > 0 \\
-i > j \&\& newpre[i] > newpre[j] \\
-</script>
-</div>
+\]</div>
 <p>即求正序对个数</p>
-<h2 id="g-rectangles">G - Rectangles<a class="headerlink" href="#g-rectangles" title="Permanent link">Link</a></h2>
+<h2 id="g---rectangles">G - Rectangles<a class="headerlink" href="#g---rectangles" title="Permanent link"></a></h2>
 <p>题意：给n个二维区间，m次询问面积并</p>
 <p>n较小直接区间并即可，由于是整型面积，需要仔细对区间离散化，感觉可以玄学优化一下建树，但是这个题出的离谱，并不推荐。简单来说就是一个整型的面积并。</p>
-<h2 id="h-ping-pong">H - Ping pong<a class="headerlink" href="#h-ping-pong" title="Permanent link">Link</a></h2>
+<h2 id="h---ping-pong">H - Ping pong<a class="headerlink" href="#h---ping-pong" title="Permanent link"></a></h2>
 <p>题意：给n个数字，求三元逆序对和三元正序对数量和</p>
 <p>对于每个点正反求出正逆序对数量乘加即可</p>
 <p>很坑的一点是它并没有说a序列是n的排列</p>
-<h2 id="i-lost-cows">I - Lost Cows<a class="headerlink" href="#i-lost-cows" title="Permanent link">Link</a></h2>
+<h2 id="i---lost-cows">I - Lost Cows<a class="headerlink" href="#i---lost-cows" title="Permanent link"></a></h2>
 <p>题意：给出一个排列中每个点前面有多少个小于它的点，构造出此排列</p>
 <p>从后往前枚举即可，每次二分一个最小点使得前缀和符合题意即可</p>
-<h2 id="j-billboard">J - Billboard<a class="headerlink" href="#j-billboard" title="Permanent link">Link</a></h2>
-<p>题意：给<span class="arithmatex"><span class="MathJax_Preview">h*w</span><script type="math/tex">h*w</script></span>的矩阵，要把<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>件物品填入，每件物品的大小是<span class="arithmatex"><span class="MathJax_Preview">1*w_i</span><script type="math/tex">1*w_i</script></span>，每次贪心的找最上、最左的点，如果能填入则输出行号。</p>
+<h2 id="j---billboard">J - Billboard<a class="headerlink" href="#j---billboard" title="Permanent link"></a></h2>
+<p>题意：给<span class="arithmatex">\(h*w\)</span>的矩阵，要把<span class="arithmatex">\(n\)</span>件物品填入，每件物品的大小是<span class="arithmatex">\(1*w_i\)</span>，每次贪心的找最上、最左的点，如果能填入则输出行号。</p>
 <p>经典线段树，维护一个区间最大值即可，找出可以改的最左区间，比较类似权值线段树的操作</p>
-<h2 id="k-memory-control">K - Memory Control<a class="headerlink" href="#k-memory-control" title="Permanent link">Link</a></h2>
+<h2 id="k---memory-control">K - Memory Control<a class="headerlink" href="#k---memory-control" title="Permanent link"></a></h2>
 <p>题意：有一个全空地址，4种操作：
     1. 清空整个序列，输出“Reset Now”
     2. 取出最左端的连续x个空地址，输出“New at A”或者“Reject New”
@@ -491,17 +484,17 @@ i > j \&\& newpre[i] > newpre[j] \\
 <p>2操作取出最左端的不小于x的空地址</p>
 <p>3操作取出x的左右端点并更新</p>
 <p>4操作线段树上分治即可</p>
-<h2 id="l-man-down">L - Man Down<a class="headerlink" href="#l-man-down" title="Permanent link">Link</a></h2>
+<h2 id="l---man-down">L - Man Down<a class="headerlink" href="#l---man-down" title="Permanent link"></a></h2>
 <p>题意：是男人就下一百层，每个板子有权值，掉落下来加权，求最终最大权值，若是负数输出-1，初始在最高点，有最高的板子的权值+100</p>
 <p>按逆序进行DAG上dp，每次把一个板子的左右端点中大的那个权值加到板子区间上即可</p>
 <p>不知道为什么一直tle，重写一遍过了</p>
-<h2 id="m-multiply-game">M - Multiply game<a class="headerlink" href="#m-multiply-game" title="Permanent link">Link</a></h2>
+<h2 id="m---multiply-game">M - Multiply game<a class="headerlink" href="#m---multiply-game" title="Permanent link"></a></h2>
 <p>题意：区间积、单点修改</p>
 <p>傻逼题</p>
-<h2 id="n-posters">N - Posters<a class="headerlink" href="#n-posters" title="Permanent link">Link</a></h2>
+<h2 id="n---posters">N - Posters<a class="headerlink" href="#n---posters" title="Permanent link"></a></h2>
 <p>题意：给n个有矩形孔的矩形，求覆盖面积并</p>
 <p>沙比提</p>
-<h2 id="o-light">O - Light<a class="headerlink" href="#o-light" title="Permanent link">Link</a></h2>
+<h2 id="o---light">O - Light<a class="headerlink" href="#o---light" title="Permanent link"></a></h2>
 
               
             </article>
@@ -542,15 +535,11 @@ i > j \&\& newpre[i] > newpre[j] \\
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

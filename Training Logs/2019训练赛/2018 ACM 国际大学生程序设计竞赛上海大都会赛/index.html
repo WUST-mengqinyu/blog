@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -377,7 +377,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-perfect-numbers" class="md-nav__link">
+  <a href="#b--perfect-numbers" class="md-nav__link">
     B.  Perfect Numbers
   </a>
   
@@ -412,7 +412,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#k-matrix-multiplication" class="md-nav__link">
+  <a href="#k--matrix-multiplication" class="md-nav__link">
     K.  Matrix Multiplication
   </a>
   
@@ -474,45 +474,44 @@
 </tr>
 </tbody>
 </table>
-<h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link">Link</a></h2>
+<h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link"></a></h2>
 <p><code>A.几何、随机  B.暴力 C.三维几何 D.几何、暴力  E.回文串、hash F.差分数组、暴力 G.几何 H.线段树 I.费用流 J.数位dp  K.矩阵乘法、暴力 L.卷积</code></p>
-<h2 id="a-fruit-ninja">A. <a href="https://ac.nowcoder.com/acm/contest/163/A">Fruit Ninja</a><a class="headerlink" href="#a-fruit-ninja" title="Permanent link">Link</a></h2>
+<h2 id="a-fruit-ninja">A. <a href="https://ac.nowcoder.com/acm/contest/163/A">Fruit Ninja</a><a class="headerlink" href="#a-fruit-ninja" title="Permanent link"></a></h2>
 <p>给1e4个点，求在一条直线上的点最多多少个</p>
 <p>意会一下概率问题，假如答案为x，那么就有x/n的概率取到那个答案上。当答案较小时，解法较多，答案较大时，取点到答案直线的概率较大。所以随机取点并<code>O(n)</code>check答案即可。</p>
-<h2 id="b-perfect-numbers">B. <a href="https://ac.nowcoder.com/acm/contest/163/B"> Perfect Numbers</a><a class="headerlink" href="#b-perfect-numbers" title="Permanent link">Link</a></h2>
+<h2 id="b--perfect-numbers">B. <a href="https://ac.nowcoder.com/acm/contest/163/B"> Perfect Numbers</a><a class="headerlink" href="#b--perfect-numbers" title="Permanent link"></a></h2>
 <p>略</p>
-<h2 id="d-thinking-bear-magic">D. <a href="https://ac.nowcoder.com/acm/contest/163/D">Thinking-Bear magic</a><a class="headerlink" href="#d-thinking-bear-magic" title="Permanent link">Link</a></h2>
+<h2 id="d-thinking-bear-magic">D. <a href="https://ac.nowcoder.com/acm/contest/163/D">Thinking-Bear magic</a><a class="headerlink" href="#d-thinking-bear-magic" title="Permanent link"></a></h2>
 <p>给正多边形，输入边长a和边数l。操作为：把所有边的中点取出来依次连接形成新的正n边形，求多少次操作后多边形面积不超过l。</p>
 <p>正多边形面积可以用圆周角求出
-<script type="math/tex; mode=display">
+$$
 \frac{n*a^2}{4 * tan(pi / n)}
-</script>
+$$
 每次缩小相当于形状不变缩小a，所以算出a的比例即可，根据多边形内角和可以很轻易的写出来
-<script type="math/tex; mode=display">
+$$
 a' = a * sin^2(\frac{(n-2)*pi}{2 * n})
-</script>
+$$
 然后由于答案不会很大直接for就可以算出结果</p>
-<h2 id="f-color-it">F. <a href="https://ac.nowcoder.com/acm/contest/163/F">Color it</a><a class="headerlink" href="#f-color-it" title="Permanent link">Link</a></h2>
+<h2 id="f-color-it">F. <a href="https://ac.nowcoder.com/acm/contest/163/F">Color it</a><a class="headerlink" href="#f-color-it" title="Permanent link"></a></h2>
 <p>给定n×m的整点方格图，Q次操作，每次将一个圆内的整点涂黑，求最后白色点的个数。
-<script type="math/tex; mode=display">
+$$
 1 \le n, m \le 2*10^4, 1 \le q \le 200
-</script>
+$$
 显然暴力两种方式：枚举每个点是否在某个q中，或者枚举所有q中的点都是<code>O(nmq)</code>的复杂度</p>
 <p>考虑一维暴力，另一维用差分数组优化即可<code>O(nq)</code></p>
-<h2 id="i-matrix-game">I. <a href="https://ac.nowcoder.com/acm/contest/163/I">Matrix Game</a><a class="headerlink" href="#i-matrix-game" title="Permanent link">Link</a></h2>
-<p>给定一个<span class="arithmatex"><span class="MathJax_Preview">n×m</span><script type="math/tex">n×m</script></span>矩阵上的数，每次可以将矩阵上的某个数+1或-1，问最少操作多少次，能使每行上的个数相等，且每列上的个数相等。</p>
+<h2 id="i-matrix-game">I. <a href="https://ac.nowcoder.com/acm/contest/163/I">Matrix Game</a><a class="headerlink" href="#i-matrix-game" title="Permanent link"></a></h2>
+<p>给定一个<span class="arithmatex">\(n×m\)</span>矩阵上的数，每次可以将矩阵上的某个数+1或-1，问最少操作多少次，能使每行上的个数相等，且每列上的个数相等。</p>
 <p>费用流。行列模型建图，原有的点行列连边，流量为<code>mp[i][j]</code>，费用为-1(强制先取)，再对该行该列连流量为inf的边，费用为1。令原有的点总和为sum，当前的花费即为sum+mcmf。</p>
 <p>枚举流量，每次增加<code>n*m/__gcd(n,m)</code>，从源点向行分成n份，列向汇点分成m份，求出最大值。</p>
 <p>注意这里是**有负圈**的费用流。并且在跑的时候有些玄学的常数优化……？</p>
-<h2 id="j-beautiful-numbers">J. <a href="https://ac.nowcoder.com/acm/contest/163/J">Beautiful Numbers</a><a class="headerlink" href="#j-beautiful-numbers" title="Permanent link">Link</a></h2>
+<h2 id="j-beautiful-numbers">J. <a href="https://ac.nowcoder.com/acm/contest/163/J">Beautiful Numbers</a><a class="headerlink" href="#j-beautiful-numbers" title="Permanent link"></a></h2>
 <p>求<code>1～n</code>中的美丽数的个数，当一个数可以整除它的数位和即是美丽数。</p>
 <p>显然数位dp，考虑到模数并不确定，实际上可以枚举所有数位和（<code>1e12</code>以内只有<code>1~9*12</code>这些数位和可能出现）。然后就是数位dp解<code>1～n</code>中有多少模x为0且数位和为x的数的个数即可。</p>
 <p>由于模数不同，普通的使用数位dp并且每次清空复杂度过大，由于本题数据不那么大可以考虑多存一维不清空，即：
-<script type="math/tex; mode=display">
+$$
 dp[i][j][k][t] 表示模数、和都为i时，j位数，剩余k的和，当前余数的答案
-</script>
-</p>
-<h2 id="k-matrix-multiplication">K. <a href="https://ac.nowcoder.com/acm/contest/163/K"> Matrix Multiplication</a><a class="headerlink" href="#k-matrix-multiplication" title="Permanent link">Link</a></h2>
+$$</p>
+<h2 id="k--matrix-multiplication">K. <a href="https://ac.nowcoder.com/acm/contest/163/K"> Matrix Multiplication</a><a class="headerlink" href="#k--matrix-multiplication" title="Permanent link"></a></h2>
 <p>略</p>
 
               
@@ -554,15 +553,11 @@ dp[i][j][k][t] 表示模数、和都为i时，j位数，剩余k的和，当前�
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -497,40 +497,40 @@
 </tr>
 </tbody>
 </table>
-<h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link">Link</a></h2>
+<h2 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link"></a></h2>
 <p><code># A 思维 # B 思维 # C 状态枚举 #E 思维 # F 拓扑序/状压dp # G dfs树 # H 贪心  # I 思维 # K 思维 # L 数学思维</code></p>
-<h2 id="a-auxiliary-project">A. Auxiliary Project<a class="headerlink" href="#a-auxiliary-project" title="Permanent link">Link</a></h2>
+<h2 id="a-auxiliary-project">A. Auxiliary Project<a class="headerlink" href="#a-auxiliary-project" title="Permanent link"></a></h2>
 <p>题意：给x根火柴棒，拼出10种数字的和最大值。</p>
 <p>题解：3根即可拼出7，所以优先取这个，对3取模分类即可。</p>
 <p><code>== 0</code> 全部拼7</p>
 <p><code>== 1</code> 大部分拼7，剩4个拼4</p>
 <p><code>== 2</code> 大部分拼7，剩两个拼1</p>
-<h2 id="b-boolean-satisfiability">B. Boolean Satisfiability<a class="headerlink" href="#b-boolean-satisfiability" title="Permanent link">Link</a></h2>
+<h2 id="b-boolean-satisfiability">B. Boolean Satisfiability<a class="headerlink" href="#b-boolean-satisfiability" title="Permanent link"></a></h2>
 <p>题意：给只有<code>或</code>和<code>非</code>的表达式，求其为真的方案数。</p>
 <p>题解：显然如果出现了<code>x|~x</code>这样的表达式，则所有变量任意取都是对的，所以为<code>2^n</code>，如果没有出现则是<code>2^n-1</code>即可。</p>
-<h2 id="c-consonant-fencity">C. Consonant Fencity<a class="headerlink" href="#c-consonant-fencity" title="Permanent link">Link</a></h2>
+<h2 id="c-consonant-fencity">C. Consonant Fencity<a class="headerlink" href="#c-consonant-fencity" title="Permanent link"></a></h2>
 <p>题意：给一个串，有7种元音字母，其他的字母如果相邻且一个为大写一个为小写则计算一次，可以进行改写，将某一类小写改成大写，求改写后最大的方案。</p>
 <p>题解：直接20种字符枚举出所有状态即可，其中<code>mp[i][j]</code>记录每种对出现的次数，使他最大即可。</p>
-<h2 id="e-equal-numbers">E. Equal Numbers<a class="headerlink" href="#e-equal-numbers" title="Permanent link">Link</a></h2>
+<h2 id="e-equal-numbers">E. Equal Numbers<a class="headerlink" href="#e-equal-numbers" title="Permanent link"></a></h2>
 <p>题意：有n个数，每次操作选择1个数，使其变为原来的正整数倍；问操作1-n次后序列中最少有多少个不同的数。每个询问是独立的。</p>
-<p>两种操作，一种使一个数成为另一个已经存在的倍数，另一种直接变为<span class="arithmatex"><span class="MathJax_Preview">goal=lcm(a_1,a_2, ...,a_n)</span><script type="math/tex">goal=lcm(a_1,a_2, ...,a_n)</script></span>，更新每个点可能获得的最小值即可。</p>
-<h2 id="f-fygon-20">F. Fygon 2.0<a class="headerlink" href="#f-fygon-20" title="Permanent link">Link</a></h2>
+<p>两种操作，一种使一个数成为另一个已经存在的倍数，另一种直接变为<span class="arithmatex">\(goal=lcm(a_1,a_2, ...,a_n)\)</span>，更新每个点可能获得的最小值即可。</p>
+<h2 id="f-fygon-20">F. Fygon 2.0<a class="headerlink" href="#f-fygon-20" title="Permanent link"></a></h2>
 <p>题意：给一系列for循环和不超过20个变量，计算给的代码的时间复杂度（需要计算常数）。</p>
 <p>每个for循环相当于给出了变量之间大小关系的限制，a-&gt;b表示a≤b，每个SCC内的变量要相等。</p>
 <p>所点后得到一个n个点的DAG，渐进复杂度为n!，实际复杂度为拓扑序的方案数，用状压dp求解。</p>
-<h2 id="g-grand-test">G. Grand Test<a class="headerlink" href="#g-grand-test" title="Permanent link">Link</a></h2>
+<h2 id="g-grand-test">G. Grand Test<a class="headerlink" href="#g-grand-test" title="Permanent link"></a></h2>
 <p>题意：给一张无向图，求三条起点终点相同的不相交简单路径。</p>
 <p>求出DFS树，对于一条非树边，暴力将u-v的树边染色。如果一条边被染了两次色，说明两个简单环间有公共边。仅保留两个简单环，任选两个度数&gt;=3的点作为S和T，爆搜出三条路径即可。</p>
-<h2 id="h-hidden-supervisors">H. Hidden Supervisors<a class="headerlink" href="#h-hidden-supervisors" title="Permanent link">Link</a></h2>
+<h2 id="h-hidden-supervisors">H. Hidden Supervisors<a class="headerlink" href="#h-hidden-supervisors" title="Permanent link"></a></h2>
 <p>题意：给一棵以1为根的有n个节点的树，一些节点的父亲已知，构造一个方案，设置未知父亲节点的节点的父亲，使这棵树上父亲节点-儿子节点的匹配最大。</p>
 <p>求出每个连通块根的匹配情况以及内部未被匹配的点数。对于根已经被匹配的连通块，显然与1相连最优；剩下的联通块从大到小贪心向未匹配点连边即可。</p>
-<h2 id="i-intelligence-in-perpendicularia">I. Intelligence in Perpendicularia<a class="headerlink" href="#i-intelligence-in-perpendicularia" title="Permanent link">Link</a></h2>
+<h2 id="i-intelligence-in-perpendicularia">I. Intelligence in Perpendicularia<a class="headerlink" href="#i-intelligence-in-perpendicularia" title="Permanent link"></a></h2>
 <p>题意：给一个形状，其中所有边都是平行与坐标轴的，求外面四个方向看不到的长度。</p>
 <p>题解：显然，总-看到的</p>
-<h2 id="k-kotlin-island">K. Kotlin Island<a class="headerlink" href="#k-kotlin-island" title="Permanent link">Link</a></h2>
+<h2 id="k-kotlin-island">K. Kotlin Island<a class="headerlink" href="#k-kotlin-island" title="Permanent link"></a></h2>
 <p>题意：初始n×m的矩阵图，把某些行某些列添加分隔符求分割成x个区间的方案。</p>
 <p>题解：n，m不是很大直接枚举可能的a×b=x即可。</p>
-<h2 id="l-little-difference">L. Little Difference<a class="headerlink" href="#l-little-difference" title="Permanent link">Link</a></h2>
+<h2 id="l-little-difference">L. Little Difference<a class="headerlink" href="#l-little-difference" title="Permanent link"></a></h2>
 <p>题意：给n，求所有方案使得<code>n=x^p1*(x+1)^p2</code>成立</p>
 <p>题解：首先2的次方有无穷种方案，因为1可以随便乘，然后对于一个数n，在<code>[1，n**(1/3)]</code>内可以枚举所有解，在<code>[n**(1/3),n]</code>内如果有解只有两种情况<code>x*x=n</code>或者<code>x*(x+1)=n</code>，求平方根即可。</p>
 
@@ -573,15 +573,11 @@
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

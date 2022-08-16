@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -415,23 +415,20 @@
 
 <p><a href="https://codeforces.com/contest/1220">https://codeforces.com/contest/1220</a></p>
 <p>赛中<code>A,B,C</code>，赛后<code>D,E</code></p>
-<h2 id="a-cards">A. Cards<a class="headerlink" href="#a-cards" title="Permanent link">Link</a></h2>
+<h2 id="a-cards">A. Cards<a class="headerlink" href="#a-cards" title="Permanent link"></a></h2>
 <p>题意：给打乱后的只包含<code>zero</code>和<code>one</code>的串，求可能的最大字典序01串</p>
 <p>题解：记录<code>n</code>的个数为1的个数，<code>z</code>为0的个数或者0的个数为<code>(n-num(1)*3)/4</code></p>
-<h2 id="b-multiplication-table">B. Multiplication Table<a class="headerlink" href="#b-multiplication-table" title="Permanent link">Link</a></h2>
+<h2 id="b-multiplication-table">B. Multiplication Table<a class="headerlink" href="#b-multiplication-table" title="Permanent link"></a></h2>
 <p>题意：一个未知序列a，给出一个矩阵每个数表示<code>a_i * a_j</code>，主对角线上没有数字，求序列</p>
 <p>题解：</p>
-<div class="arithmatex">
-<div class="MathJax_Preview"> a_i = sqrt((a_i * a_j) * (a_i * a_k) / (a_j * a_k)) </div>
-<script type="math/tex; mode=display"> a_i = sqrt((a_i * a_j) * (a_i * a_k) / (a_j * a_k)) </script>
-</div>
-<h2 id="c-substring-game-in-the-lesson">C. Substring Game in the Lesson<a class="headerlink" href="#c-substring-game-in-the-lesson" title="Permanent link">Link</a></h2>
+<div class="arithmatex">\[ a_i = sqrt((a_i * a_j) * (a_i * a_k) / (a_j * a_k)) \]</div>
+<h2 id="c-substring-game-in-the-lesson">C. Substring Game in the Lesson<a class="headerlink" href="#c-substring-game-in-the-lesson" title="Permanent link"></a></h2>
 <p>题意：给一个串，求初始每个点为某位置时能博弈拓展串比当前串字典序小的。</p>
 <p>题解：显然先手如果能动就取最小的串即可获胜。</p>
-<h2 id="d-alex-and-julian">D. Alex and Julian<a class="headerlink" href="#d-alex-and-julian" title="Permanent link">Link</a></h2>
+<h2 id="d-alex-and-julian">D. Alex and Julian<a class="headerlink" href="#d-alex-and-julian" title="Permanent link"></a></h2>
 <p>题意：给定一个B集合，对于全体整数集合建图，如果B集合中存在<code>|i-j|</code>，则<code>i，j</code>之间有边。求至少从B中删掉多少（且要任意方案）个数可以使得建图为二分图。</p>
 <p>题解：二分图当且仅当图中没有奇环。考虑B中两个数x，y，令z=gcd(x,y)，x’ = x/z， y‘ = y/z。则必定存在环长度为<code>x'+y'</code>，由gcd定义可知<code>x‘</code>与<code>y’</code>互质，而<code>x'+y'</code>又为偶数，所以<code>x’</code>，<code>y‘</code>都为奇数，如果x与y中2的因子个数不同<code>x’</code>与<code>y‘</code>中必然有一个为偶数不满足题意，所以B中两两之间2的因子数相同，即B中所有元素2的因子数相同，取出任意最大的含相同数量2因子的集合即可。</p>
-<h2 id="e-tourism">E. Tourism<a class="headerlink" href="#e-tourism" title="Permanent link">Link</a></h2>
+<h2 id="e-tourism">E. Tourism<a class="headerlink" href="#e-tourism" title="Permanent link"></a></h2>
 <p>题意：给一张含点权无重边无自环的无向图，求不连续重复经过同一条边的情况下从s出发能经过最大的点权和。</p>
 <p>题解：首先考虑叶子，显然到达叶子时会直接终止，显然在一个环上从任意点进入环可以从任意点出环，然后对于多个联通的环显然可以取到所有点（从任意点出发到一个环然后回到该点再取另外的环）。唯一需要考虑的是叶子节点，对于孤立连向叶子节点的链，显然只有一条可以被选中，所以取其中最长（指权值和最大）的一条即可。注意如果起点在这样的链上那么起点这条链是必取的所以起点当做单个点的环看待即可。做一个类top序取出最大链然后加上所有环即是答案。</p>
 
@@ -474,15 +471,11 @@
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

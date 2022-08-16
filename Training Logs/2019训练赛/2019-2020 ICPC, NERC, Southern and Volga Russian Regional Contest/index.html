@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -485,19 +485,19 @@
 </tr>
 </tbody>
 </table>
-<h1 id="tag">Tag<a class="headerlink" href="#tag" title="Permanent link">Link</a></h1>
+<h1 id="tag">Tag<a class="headerlink" href="#tag" title="Permanent link"></a></h1>
 <p><code>a、模拟 b、贪心 c、线段树 e、2-sat f、暴力 h、思维 j、二分贪心 l、思维暴力 n、桥</code> </p>
-<h2 id="a-berstagram">A. Berstagram<a class="headerlink" href="#a-berstagram" title="Permanent link">Link</a></h2>
+<h2 id="a-berstagram">A. Berstagram<a class="headerlink" href="#a-berstagram" title="Permanent link"></a></h2>
 <p>签到</p>
-<h2 id="b-the-feast-and-the-bus">B. The Feast and the Bus<a class="headerlink" href="#b-the-feast-and-the-bus" title="Permanent link">Link</a></h2>
+<h2 id="b-the-feast-and-the-bus">B. The Feast and the Bus<a class="headerlink" href="#b-the-feast-and-the-bus" title="Permanent link"></a></h2>
 <p>题意：n个人，分k队，要构造一个车运送所有人，每趟车只能运送完整的一队人或者完整的两队人，求趟次×车的大小的最小值。n不超过5e5，k不超过8000。</p>
 <p>题解：</p>
 <p>遮住数据范围这题可以很多解法，k为8000所以考虑<code>O(k^2)</code>，枚举趟次x，可知x的范围为<code>[k/2, k]</code>，然后问题转化为：一个2×x的盒子，填入k个数使得列上和的最大值最小，贪心构造出解：第一列放最大值和最小值（k不足2×x时放入0），第二列次大次小……，可以证明只要任意调换顺序都会使最大值变大。即如果<code>x</code>与<code>y</code>在一列，<code>z</code>与<code>p</code>在一列，他们满足条件为<code>x&gt;=y &amp;&amp; z&gt;=p &amp;&amp; x&gt;=z &amp;&amp; p&gt;=y</code>，则<code>max(x+y, z+p)&lt;=max(x+p, z+y)</code>成立。</p>
-<h2 id="c-trip-to-saint-petersburg">C. Trip to Saint Petersburg<a class="headerlink" href="#c-trip-to-saint-petersburg" title="Permanent link">Link</a></h2>
+<h2 id="c-trip-to-saint-petersburg">C. Trip to Saint Petersburg<a class="headerlink" href="#c-trip-to-saint-petersburg" title="Permanent link"></a></h2>
 <p>题意：给一些区间以及区间的权值，求<code>L，R</code>使得完全包含于<code>L，R</code>的区间权值和-k×区间大小最大。要求输出方案。（区间数量2e5，区间范围也为2e5）</p>
 <p>题解：考虑到这个题的区间端点最大值也只有2e5，不需要离散化直接遍历求解即可。具体来讲枚举R的位置，需要求出的是r小于等于R的所有区间在轴上构成的最大值。然后就转化为线段树优化dp即可。</p>
-<h2 id="e-the-coronation">E. The Coronation<a class="headerlink" href="#e-the-coronation" title="Permanent link">Link</a></h2>
-<p>给定<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个长度为<span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
+<h2 id="e-the-coronation">E. The Coronation<a class="headerlink" href="#e-the-coronation" title="Permanent link"></a></h2>
+<p>给定<span class="arithmatex">\(n\)</span>个长度为<span class="arithmatex">\(m\)</span>的01串，可以对任意串进行翻转，求满足任意两个串至少有k位相同的翻转方案，并使翻转次数最小。</p>
 <p>2-SAT问题。</p>
 <p>设串不翻转为0，翻转为1，则对于任意两个串都有如下四种情况：</p>
 <ol>
@@ -508,19 +508,19 @@
 </ol>
 <p>一旦出现4，整组情况一定是无解的。</p>
 <p>相当于原串所代表的点形成若干个联通块，每一个联通块中的元素颜色是相互联系的（即如果翻转一个，必须翻转该块中的所有元素）。</p>
-<p>建完图后对点<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>和点<span class="arithmatex"><span class="MathJax_Preview">i+n​</span><script type="math/tex">i+n​</script></span>进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
-<h2 id="f-data-center">F. Data Center<a class="headerlink" href="#f-data-center" title="Permanent link">Link</a></h2>
+<p>建完图后对点<span class="arithmatex">\(i\)</span>和点<span class="arithmatex">\(i+n​\)</span>进行dfs，因为图的两侧完全对称，一定会搜出一组点完全相反的两种染色方案，只要选择翻转次数较小的那一组即可。注意在dfs时需要判奇环，如果出现奇环则无解。</p>
+<h2 id="f-data-center">F. Data Center<a class="headerlink" href="#f-data-center" title="Permanent link"></a></h2>
 <p>签到</p>
-<h2 id="h-happy-birthday">H. Happy Birthday<a class="headerlink" href="#h-happy-birthday" title="Permanent link">Link</a></h2>
+<h2 id="h-happy-birthday">H. Happy Birthday<a class="headerlink" href="#h-happy-birthday" title="Permanent link"></a></h2>
 <p>给定0-9各个数字的个数，输出最小的不能组成的数字。</p>
 <p>答案是出现的最少次数的数字多1个，如果是0就在前面加1。</p>
-<h2 id="j-the-parade">J. The Parade<a class="headerlink" href="#j-the-parade" title="Permanent link">Link</a></h2>
+<h2 id="j-the-parade">J. The Parade<a class="headerlink" href="#j-the-parade" title="Permanent link"></a></h2>
 <p>给定了一些身高不同的士兵，身高为i的士兵有c[i]个，要求构造一个k行的矩形，使每一行的人数相等，且该行的极差不超过1，问这个矩阵最大可以是多少。</p>
 <p>二分每行长度x，将前一类余下的人数pre与i相加，判断其是否大于x，如果是x则有贡献，将剩下的i排成长度为x的行，剩下的值更新pre.</p>
-<h2 id="l-divide-the-students">L. Divide The Students<a class="headerlink" href="#l-divide-the-students" title="Permanent link">Link</a></h2>
+<h2 id="l-divide-the-students">L. Divide The Students<a class="headerlink" href="#l-divide-the-students" title="Permanent link"></a></h2>
 <p>有三类人a,b,c，a类与c类不能同组，将他们分成3组，使最大组数最小。</p>
 <p>将a，c中较大的值分成两份，每次拿b填充3类中的最小值即可。</p>
-<h2 id="n-wires">N. Wires<a class="headerlink" href="#n-wires" title="Permanent link">Link</a></h2>
+<h2 id="n-wires">N. Wires<a class="headerlink" href="#n-wires" title="Permanent link"></a></h2>
 <p>给若干个联通块，每次可以修改一条边的一端，问最少修改多少次能使联通块变为只有1个（没有任何边相连的点视为游离，不用与块连通）。</p>
 <p>如果有n个联通块显然至少修改n-1次，每次选择联通块中的非桥边与第一个联通块相连，如果都为桥边（一条链的情况），修改链首即可。注意重边。</p>
 
@@ -563,15 +563,11 @@
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

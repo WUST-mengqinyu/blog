@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -467,29 +467,30 @@
 </tr>
 </tbody>
 </table>
-<h2 id="aangle-beats">A、Angle Beats<a class="headerlink" href="#aangle-beats" title="Permanent link">Link</a></h2>
-<h2 id="ddecimal">D、Decimal<a class="headerlink" href="#ddecimal" title="Permanent link">Link</a></h2>
+<h2 id="aangle-beats">A、Angle Beats<a class="headerlink" href="#aangle-beats" title="Permanent link"></a></h2>
+<h2 id="ddecimal">D、Decimal<a class="headerlink" href="#ddecimal" title="Permanent link"></a></h2>
 <p>题意：求<code>1/x</code>是否为有限循环小数。</p>
 <p>题解：显然如果<code>x</code>是<code>10^n</code>的因子它才是有限循环小数，即<code>x</code>只有2和5两种因子</p>
-<h2 id="eescape">E、Escape<a class="headerlink" href="#eescape" title="Permanent link">Link</a></h2>
+<h2 id="eescape">E、Escape<a class="headerlink" href="#eescape" title="Permanent link"></a></h2>
 <p>题意：有a个机器人从网格图最上方出发，有b个出口在网格图最下方，机器人只能直走或通过装置转弯，一个方格只能放一个装置；机器人无法从装置以外的方向进入装置所在的方格，也无法通过障碍物，问所有机器人是否都能到达下方出口。</p>
 <p>题解：空方格最多从横向/纵向各经过一次，有障碍物的方格横向+纵向最多经过一次；拆点建图，一张图为纵向路径，另一张图为横向路径，纵向点与横向点连边，所有流量均为1，跑网络流判断max_flow是否等于a。</p>
-<h2 id="fforest-program">F、Forest Program<a class="headerlink" href="#fforest-program" title="Permanent link">Link</a></h2>
+<h2 id="fforest-program">F、Forest Program<a class="headerlink" href="#fforest-program" title="Permanent link"></a></h2>
 <p>题意：给一个仙人掌群，求有多少种删边方案可以将其变成森林</p>
 <p>题解：显然对每个环，至少要删掉一条边即可，其他的边任意删。所以对每棵仙人掌dfs求出每个环的大小x，求出<code>2^x-1</code>的积，然后乘上不在环上的边的条数p,<code>2^p</code>，两者相乘就是答案。</p>
-<h2 id="iinvoker">I、Invoker<a class="headerlink" href="#iinvoker" title="Permanent link">Link</a></h2>
+<h2 id="iinvoker">I、Invoker<a class="headerlink" href="#iinvoker" title="Permanent link"></a></h2>
 <p>题意：给出卡尔的10种技能，组成技能的组合可以是无序的但是释放本身是有序的，求出最少需要多少次按键（含R键）。</p>
 <p>题解：不含R键进行三进制编码，由于数据范围很小直接暴力搜出27种编码互相之间的距离，比如<code>QQQ</code>和<code>QEE</code>，他们最长的后缀-前缀匹配为1（即<code>Q</code>），由于数据范围实在太小直接平方处理即可，当然exkmp专门解这个的。然后dp，<code>dp[i][j]</code>表示到第i个技能，现在队列中的状态为j的最少步数。<code>dp[i][j] = min(dp[i - 1][k] + mp[j][k])</code>即可，不合法的直接去掉，这里由于数据过小直接暴力cmp即可。然后代码写了挺长的。</p>
-<h2 id="jmuv-luv-extra">J、MUV LUV EXTRA<a class="headerlink" href="#jmuv-luv-extra" title="Permanent link">Link</a></h2>
+<h2 id="jmuv-luv-extra">J、MUV LUV EXTRA<a class="headerlink" href="#jmuv-luv-extra" title="Permanent link"></a></h2>
 <p>题意：给一个无限循环小数的前n位并猜测循环节，求<code>a*当前已经出现的循环总长度-b*循环节长度</code>的最大值。</p>
 <p>题解：对于同一后缀显然取其最小循环节，翻转串跑KMP，遍历一下每个点求最大值即可（res初值应该设负数而不是0因为b可能比a大，wa了一发）。</p>
-<h2 id="kmuv-luv-unlimited">K、MUV LUV UNLIMITED<a class="headerlink" href="#kmuv-luv-unlimited" title="Permanent link">Link</a></h2>
+<h2 id="kmuv-luv-unlimited">K、MUV LUV UNLIMITED<a class="headerlink" href="#kmuv-luv-unlimited" title="Permanent link"></a></h2>
 <p>题意：给一棵有根树，两个人博弈，a先手，每次每个人必须至少删掉一个叶子节点，也只能删掉叶子节点，求谁最先把树删空。</p>
 <p>题解：思考博弈了很久发现的一个结论是：如果是多条链组成的树（即只有根节点有出度大于1）时，只有
     - 1、有且仅有一条链为奇数长度
     - 2、大于1条链且所有链为奇数长度</p>
-<pre class="highlight"><code>是后手必胜，因为可以发现其他情况先手可以将状态转移为全奇数的情况，然后后手就没了，因为最后只剩一个（长度为0偶数）的时候是先手赢。
-</code></pre>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>是后手必胜，因为可以发现其他情况先手可以将状态转移为全奇数的情况，然后后手就没了，因为最后只剩一个（长度为0偶数）的时候是先手赢。
+</code></pre></div></td></tr></table></div>
+
 <p>然后考虑一下如果存在一个叶子节点的父节点有多余1个子节点，则先手必胜。</p>
 <p>证明如下：计满足先手必胜的叶子节点为x，其他所有叶子节点集合为S
     - 1、如果删掉x后为先手败状态，那么当前删掉x它就是必胜态
@@ -536,15 +537,11 @@
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>

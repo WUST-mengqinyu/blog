@@ -37,12 +37,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
     
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
   
     
     
@@ -384,14 +384,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#h-approximate-matching" class="md-nav__link">
+  <a href="#ｈ--approximate-matching" class="md-nav__link">
     Ｈ.  Approximate Matching
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-palindromes" class="md-nav__link">
+  <a href="#i--palindromes" class="md-nav__link">
     I.  Palindromes
   </a>
   
@@ -449,13 +449,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="a-jin-yongs-wukong-ranking-list">A. Jin Yong’s Wukong Ranking List<a class="headerlink" href="#a-jin-yongs-wukong-ranking-list" title="Permanent link">Link</a></h2>
+<h2 id="a-jin-yongs-wukong-ranking-list">A. Jin Yong’s Wukong Ranking List<a class="headerlink" href="#a-jin-yongs-wukong-ranking-list" title="Permanent link"></a></h2>
 <p>有向图判环，20个点</p>
-<h2 id="b-heshens-account-book">B. Heshen&rsquo;s Account Book<a class="headerlink" href="#b-heshens-account-book" title="Permanent link">Link</a></h2>
+<h2 id="b-heshens-account-book">B. Heshen's Account Book<a class="headerlink" href="#b-heshens-account-book" title="Permanent link"></a></h2>
 <p>按题意模拟，数据水</p>
 <p>给若干行字符，包含数字字母和空格换行</p>
 <p>求所有连续的非空串中，以数字开头数字结尾，开头非0的串，剔除字母。还要统计每行这样的串的个数，单个换行不影响串的连续性。但是换行前的一个字符不能为字母，后一个也不能。</p>
-<h2 id="d-frog-and-portal">D. Frog and Portal<a class="headerlink" href="#d-frog-and-portal" title="Permanent link">Link</a></h2>
+<h2 id="d-frog-and-portal">D. Frog and Portal<a class="headerlink" href="#d-frog-and-portal" title="Permanent link"></a></h2>
 <p>共200个点，初始在0位置，要到201格，每次可以跳1或2格，现在你可以设置一些传送点（左和右，表示到左边格子必会自动传送到右边格子），使得到201的方案数恰为m</p>
 <p>首先考虑方案数的记录：</p>
 <ul>
@@ -466,9 +466,9 @@
 </ul>
 <p>然后考虑如何构造方案</p>
 <p>由于m的范围为
-<script type="math/tex; mode=display">
-0 \le M < 2^{32}
-</script>
+$$
+0 \le M &lt; 2^{32}
+$$
 考虑二进制枚举</p>
 <p>由于这个dp看着就像倍增的复杂度，然后就可以随便写了</p>
 <p>比如：</p>
@@ -479,12 +479,12 @@
 <p><code>1 1 2 0 2 2 x 2 2 4 0 4 4 x 4 4</code></p>
 <p><code>x</code>表示当前为0，即如果当前数是M需要的则直接跳到200，否则跳到199自环。</p>
 <p>注意198也要自环否则会对200产生影响。</p>
-<h2 id="h-approximate-matching">Ｈ.  Approximate Matching<a class="headerlink" href="#h-approximate-matching" title="Permanent link">Link</a></h2>
+<h2 id="ｈ--approximate-matching">Ｈ.  Approximate Matching<a class="headerlink" href="#ｈ--approximate-matching" title="Permanent link"></a></h2>
 <p>题意：给定一个模式串，如果一个串的任意一个与模式串长度相同子串与该模式串只有&lt;=1位不同，则这个串与给的模式串近似匹配。求长度为n，且与该模式串近似匹配的字符串个数。</p>
 <p>被出烂了的题……把原串和所有改变一位的串加入AC自动机，答案等于字符串总数-不含任何模式串的字符串个数，后者在AC自动机上dp跑一下就好。</p>
-<h2 id="i-palindromes">I.  Palindromes<a class="headerlink" href="#i-palindromes" title="Permanent link">Link</a></h2>
+<h2 id="i--palindromes">I.  Palindromes<a class="headerlink" href="#i--palindromes" title="Permanent link"></a></h2>
 <p>输出长度优先字典序第k大不含前导零的回文串</p>
-<p>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, &hellip;</p>
+<p>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, ...</p>
 <p>k很大所以通过计算，实际比较复杂，因为不算前导0的原因会产生一些需要特别判断的点。</p>
 <p>总之就是首先判断有x位数，然后写出这(x/2)位数的前缀计数删去后剩下的第几位即可。</p>
 
@@ -527,15 +527,11 @@
     
       <script src="../../../assets/javascripts/bundle.c99f48ec.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/js/extra.js?v=16"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../_static/js/math-csr.js?math-csr"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="../../../search/main.js"></script>
+        <script src="../../../assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr"></script>
       
     
   </body>
