@@ -121,26 +121,13 @@ Combinatorial Pattern Matching - 25th Annual Symposium, CPM 2014. Proceedings, L
 #### basic version
 
 1. 接口为
-```cpp
-/**
- * @brief eertree
- * 
- */
-struct eertree {
 
-    /**
-     * @brief 往eertree末尾添加一个字符
-     * 
-     * @param ch 添加的字符
-     * @return int 出现了多少个新的本质不同回文子串
-     */
-    int add(char ch) {
-        todo;
-    }
-};
-```
+???note "参考代码"
+     ```cpp
+     --8<-- "docs/badcw/字符串/eertree/codings/basic_interface.cpp"
+     ```
 
-2. 需要定义并维护以下数据结构
+1. 需要定义并维护以下数据结构
 
 一个有向图，其中每个节点有一个从 1 开始的编号，每个节点代表一个本质不同回文子串
 
