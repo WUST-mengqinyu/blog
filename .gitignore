@@ -3,3 +3,4 @@ venv
 .idea/*
 site/*
 .vscode
+.DS_Store
