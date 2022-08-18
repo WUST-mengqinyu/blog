@@ -1,4 +1,4 @@
-# EERTREE 重新学习
+# Palindorme Problem Killer
 
 ## 背景
 
@@ -10,17 +10,13 @@
 
 ## 预计学习路径
 
-- [ ] 1 直接浅读一遍 EERTREE 原论文的简介和目录部分 https://arxiv.org/pdf/1506.04862.pdf
+- [x] 1 直接浅读一遍 EERTREE 原论文的简介和目录部分 https://arxiv.org/pdf/1506.04862.pdf
 - [ ] 2 根据论文中的知识点 link 到一些历史问题和它的解决方案
 - [ ] 3 延伸出来肯定要顺便重看一些古老的问题，例如 manacher,border,exkmp，好在之前还是会一些的，应该不会太复杂
 - [ ] 4 精读 EERTREE 原论文，了解构造步骤和细节
 - [ ] 5 根据原论文写一些实现，初步估计 rust 和 c++ 版本
 - [ ] 6 手动解决回文串的一些经典问题（计数相关、正反插入、持久化）
-- [ ] 7 解决写题中碰到的问题，例如
-     1. https://ac.nowcoder.com/acm/contest/5633/F
-     2. https://ac.nowcoder.com/acm/contest/33189/F
-     3. bzoj 5384（已经没有题了，只能根据其他 [blog](https://blog.csdn.net/litble/article/details/80765636) 对拍了）
-     4. https://codeforces.com/gym/101981/problem/M
+- [ ] 7 解决写题中碰到的问题
 - [ ] 8 补充阅读并初步完善实现版本，开源模板
 - [ ] 9 addition 长期维护模板（因为要学习rust）
 
@@ -167,7 +163,38 @@ EERTREE示例，蓝色边为 link, 黑色边为原有向图
 ## 2.题单
 
 1. https://www.spoj.com/problems/NUMOFPAL/
-2. https://ac.nowcoder.com/acm/contest/5633/F
+2. https://ac.nowcoder.com/acm/contest/5633/F （我草，和20题一模一样，难怪场上5分钟）
 3. https://ac.nowcoder.com/acm/contest/33189/F
-4. 20w 个操作，每次往s前或后塞入一个字符，每次都求本质不同子串个数
-5. 长度为 n 的 rich 串计数
+4. https://codeforces.com/problemset/problem/932/G
+5. https://codeforces.com/problemset/problem/906/E
+6. https://loj.ac/problem/2272
+7. https://acm.timus.ru/problem.aspx?space=1&num=2058
+8. https://acm.hdu.edu.cn/showproblem.php?pid=3948
+9. https://codeforces.com/problemset/problem/7/D
+10. https://www.spoj.com/problems/LPS/
+11. https://acm.hdu.edu.cn/showproblem.php?pid=5421
+12. https://www.codechef.com/LTIME23/problems/PALPROB
+13. https://www.luogu.com.cn/problem/P4287
+14. https://www.luogu.com.cn/problem/P4762
+15. https://www.luogu.com.cn/problem/P5555
+16. https://www.luogu.com.cn/problem/P5685
+17. https://codeforces.com/problemset/problem/17/E
+18. https://acm.timus.ru/problem.aspx?space=1&num=2044
+19. https://acm.timus.ru/problem.aspx?space=1&num=1635
+20. https://open.kattis.com/problems/palindromes
+21. https://nanti.jisuanke.com/t/A1955
+22. https://codeforces.com/gym/102787/problem/B
+23. 20w 个操作，支持双端插入、删除，在线求本质不同回文子串数
+24. 20w 个操作，支持持久化，从第 $k$ 个版本 `push_back` 和 `pop_back` 操作，求所有版本本质不同回文子串数
+25. 长度为 100w 的 rich 串计数
+26. 长度 10w，询问 10w 次区间本质不同回文子串个数（[据说](https://codeforces.com/blog/entry/63149?#comment-470987)能nlogn，但是原文找不到了）
+27. bzoj 5384（已经没有题了，只能根据其他 [blog](https://blog.csdn.net/litble/article/details/80765636) 对拍了）
+28. https://codeforces.com/gym/101981/problem/M
+
+## 3.拓展阅读、参考文档
+
+1. http://adilet.org/blog/palindromic-tree/
+2. https://mcginn7.github.io/2019/11/20/Palindromic-Factorization/
+3. https://zhuanlan.zhihu.com/p/93152631
+4. https://zhuanlan.zhihu.com/p/537113907
+5. https://www.luogu.com.cn/blog/ix-35/noi-yi-lun-fu-xi-ii-zi-fu-chuan

@@ -10,7 +10,7 @@
 - [矩阵快速幂](./动态规划/矩阵快速幂dp)
 - [KMP](./string/kmp)
 - [回文树](./string/回文树)
-- [eertree重学](./string/eertree/eertree_relearn)
+- [回文问题完全总结](./string/eertree/eertree_relearn)
 
 ## To-Do List
 
