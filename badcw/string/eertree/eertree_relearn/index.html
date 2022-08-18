@@ -15,7 +15,7 @@
     
     
       
-        <title>EERTREE 重新学习 - Team Wiki</title>
+        <title>Palindorme Problem Killer - Team Wiki</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eertree-重新学习" class="md-skip">
+        <a href="#palindorme-problem-killer" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              EERTREE 重新学习
+              Palindorme Problem Killer
             
           </span>
         </div>
@@ -446,6 +446,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3拓展阅读参考文档" class="md-nav__link">
+    3.拓展阅读、参考文档
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -460,25 +467,19 @@
                 
 
 
-<h1 id="eertree-重新学习">EERTREE 重新学习<a class="headerlink" href="#eertree-重新学习" title="Permanent link"></a></h1>
+<h1 id="palindorme-problem-killer">Palindorme Problem Killer<a class="headerlink" href="#palindorme-problem-killer" title="Permanent link"></a></h1>
 <h2 id="背景">背景<a class="headerlink" href="#背景" title="Permanent link"></a></h2>
 <p>发现还是不会<a href="https://ac.nowcoder.com/acm/contest/33189/F">写题</a>，作为退役选手尝试努力重新系统性的学习一下 EERTREE（2022年8月）</p>
 <p>也是想让自己被业务折磨的脑子放在一些喜欢的地方，由于本人没什么字符串背景，学习起来可能也比较费劲</p>
 <h2 id="预计学习路径">预计学习路径<a class="headerlink" href="#预计学习路径" title="Permanent link"></a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 1 直接浅读一遍 EERTREE 原论文的简介和目录部分 <a href="https://arxiv.org/pdf/1506.04862.pdf">https://arxiv.org/pdf/1506.04862.pdf</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1 直接浅读一遍 EERTREE 原论文的简介和目录部分 <a href="https://arxiv.org/pdf/1506.04862.pdf">https://arxiv.org/pdf/1506.04862.pdf</a></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 2 根据论文中的知识点 link 到一些历史问题和它的解决方案</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 3 延伸出来肯定要顺便重看一些古老的问题，例如 manacher,border,exkmp，好在之前还是会一些的，应该不会太复杂</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 4 精读 EERTREE 原论文，了解构造步骤和细节</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 5 根据原论文写一些实现，初步估计 rust 和 c++ 版本</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 6 手动解决回文串的一些经典问题（计数相关、正反插入、持久化）</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 7 解决写题中碰到的问题，例如<ol>
-<li><a href="https://ac.nowcoder.com/acm/contest/5633/F">https://ac.nowcoder.com/acm/contest/5633/F</a></li>
-<li><a href="https://ac.nowcoder.com/acm/contest/33189/F">https://ac.nowcoder.com/acm/contest/33189/F</a></li>
-<li>bzoj 5384（已经没有题了，只能根据其他 <a href="https://blog.csdn.net/litble/article/details/80765636">blog</a> 对拍了）</li>
-<li><a href="https://codeforces.com/gym/101981/problem/M">https://codeforces.com/gym/101981/problem/M</a></li>
-</ol>
-</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 7 解决写题中碰到的问题</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 8 补充阅读并初步完善实现版本，开源模板</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 9 addition 长期维护模板（因为要学习rust）</li>
 </ul>
@@ -689,10 +690,41 @@ Combinatorial Pattern Matching - 25<sup>th</sup> Annual Symposium, CPM 2014. Pro
 <h2 id="2题单">2.题单<a class="headerlink" href="#2题单" title="Permanent link"></a></h2>
 <ol>
 <li><a href="https://www.spoj.com/problems/NUMOFPAL/">https://www.spoj.com/problems/NUMOFPAL/</a></li>
-<li><a href="https://ac.nowcoder.com/acm/contest/5633/F">https://ac.nowcoder.com/acm/contest/5633/F</a></li>
+<li><a href="https://ac.nowcoder.com/acm/contest/5633/F">https://ac.nowcoder.com/acm/contest/5633/F</a> （我草，和20题一模一样，难怪场上5分钟）</li>
 <li><a href="https://ac.nowcoder.com/acm/contest/33189/F">https://ac.nowcoder.com/acm/contest/33189/F</a></li>
-<li>20w 个操作，每次往s前或后塞入一个字符，每次都求本质不同子串个数</li>
-<li>长度为 n 的 rich 串计数</li>
+<li><a href="https://codeforces.com/problemset/problem/932/G">https://codeforces.com/problemset/problem/932/G</a></li>
+<li><a href="https://codeforces.com/problemset/problem/906/E">https://codeforces.com/problemset/problem/906/E</a></li>
+<li><a href="https://loj.ac/problem/2272">https://loj.ac/problem/2272</a></li>
+<li><a href="https://acm.timus.ru/problem.aspx?space=1&amp;num=2058">https://acm.timus.ru/problem.aspx?space=1&amp;num=2058</a></li>
+<li><a href="https://acm.hdu.edu.cn/showproblem.php?pid=3948">https://acm.hdu.edu.cn/showproblem.php?pid=3948</a></li>
+<li><a href="https://codeforces.com/problemset/problem/7/D">https://codeforces.com/problemset/problem/7/D</a></li>
+<li><a href="https://www.spoj.com/problems/LPS/">https://www.spoj.com/problems/LPS/</a></li>
+<li><a href="https://acm.hdu.edu.cn/showproblem.php?pid=5421">https://acm.hdu.edu.cn/showproblem.php?pid=5421</a></li>
+<li><a href="https://www.codechef.com/LTIME23/problems/PALPROB">https://www.codechef.com/LTIME23/problems/PALPROB</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4287">https://www.luogu.com.cn/problem/P4287</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4762">https://www.luogu.com.cn/problem/P4762</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5555">https://www.luogu.com.cn/problem/P5555</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5685">https://www.luogu.com.cn/problem/P5685</a></li>
+<li><a href="https://codeforces.com/problemset/problem/17/E">https://codeforces.com/problemset/problem/17/E</a></li>
+<li><a href="https://acm.timus.ru/problem.aspx?space=1&amp;num=2044">https://acm.timus.ru/problem.aspx?space=1&amp;num=2044</a></li>
+<li><a href="https://acm.timus.ru/problem.aspx?space=1&amp;num=1635">https://acm.timus.ru/problem.aspx?space=1&amp;num=1635</a></li>
+<li><a href="https://open.kattis.com/problems/palindromes">https://open.kattis.com/problems/palindromes</a></li>
+<li><a href="https://nanti.jisuanke.com/t/A1955">https://nanti.jisuanke.com/t/A1955</a></li>
+<li><a href="https://codeforces.com/gym/102787/problem/B">https://codeforces.com/gym/102787/problem/B</a></li>
+<li>20w 个操作，支持双端插入、删除，在线求本质不同回文子串数</li>
+<li>20w 个操作，支持持久化，从第 <span class="arithmatex">\(k\)</span> 个版本 <code>push_back</code> 和 <code>pop_back</code> 操作，求所有版本本质不同回文子串数</li>
+<li>长度为 100w 的 rich 串计数</li>
+<li>长度 10w，询问 10w 次区间本质不同回文子串个数（<a href="https://codeforces.com/blog/entry/63149?#comment-470987">据说</a>能nlogn，但是原文找不到了）</li>
+<li>bzoj 5384（已经没有题了，只能根据其他 <a href="https://blog.csdn.net/litble/article/details/80765636">blog</a> 对拍了）</li>
+<li><a href="https://codeforces.com/gym/101981/problem/M">https://codeforces.com/gym/101981/problem/M</a></li>
+</ol>
+<h2 id="3拓展阅读参考文档">3.拓展阅读、参考文档<a class="headerlink" href="#3拓展阅读参考文档" title="Permanent link"></a></h2>
+<ol>
+<li><a href="http://adilet.org/blog/palindromic-tree/">http://adilet.org/blog/palindromic-tree/</a></li>
+<li><a href="https://mcginn7.github.io/2019/11/20/Palindromic-Factorization/">https://mcginn7.github.io/2019/11/20/Palindromic-Factorization/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/93152631">https://zhuanlan.zhihu.com/p/93152631</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/537113907">https://zhuanlan.zhihu.com/p/537113907</a></li>
+<li><a href="https://www.luogu.com.cn/blog/ix-35/noi-yi-lun-fu-xi-ii-zi-fu-chuan">https://www.luogu.com.cn/blog/ix-35/noi-yi-lun-fu-xi-ii-zi-fu-chuan</a></li>
 </ol>
 
               
