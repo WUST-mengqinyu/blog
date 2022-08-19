@@ -102,7 +102,7 @@ Combinatorial Pattern Matching - 25th Annual Symposium, CPM 2014. Proceedings, L
 
 ### EERTREE简介
 
-原文描述为 tree-like 的数据结构，主要可用于回文串**计数**和**分解**问题
+原文描述为 tree-like 的数据结构，主要可用于回文串 **计数** 和 **分解** 问题
 
 1. 可以在线计算本质不同回文子串个数，支持动态尾插入
 2. 空间复杂度线性，时间复杂度 $n\log{\sigma}$
@@ -193,8 +193,12 @@ EERTREE示例，蓝色边为 link, 黑色边为原有向图
 
 ## 3.拓展阅读、参考文档
 
-1. http://adilet.org/blog/palindromic-tree/
-2. https://mcginn7.github.io/2019/11/20/Palindromic-Factorization/
-3. https://zhuanlan.zhihu.com/p/93152631
-4. https://zhuanlan.zhihu.com/p/537113907
-5. https://www.luogu.com.cn/blog/ix-35/noi-yi-lun-fu-xi-ii-zi-fu-chuan
+1. [EERTREE: An Efficient Data Structure for Processing Palindromes in Strings](./1506.04862.pdf)
+2. [A Subquadratic Algorithm for Minimum Palindromic Factorization](./1403.2431.pdf)
+3. [Palk Is Linear Recognizable Online](./k_factor.pdf)
+4. [字符串算法选讲](./字符串算法选讲-金策.pdf)
+5. http://adilet.org/blog/palindromic-tree/
+6. https://mcginn7.github.io/2019/11/20/Palindromic-Factorization/
+7. https://zhuanlan.zhihu.com/p/93152631
+8. https://zhuanlan.zhihu.com/p/537113907
+9. https://www.luogu.com.cn/blog/ix-35/noi-yi-lun-fu-xi-ii-zi-fu-chuan
