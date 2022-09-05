@@ -28,9 +28,10 @@ struct eertree {
     }
 
     eertree(const std::basic_string<T>& _s) {
+        n = 0;
+        reserve(_s.length()), init();
         n = _s.length();
-        reserve(n), init();
-        for (int i = 0; i < n; ++i) _s[i] = s[i], __extend(_s[i], i);
+        for (int i = 0; i < n; ++i) s[i] = _s[i], __extend(s[i], i);
     }
 
     void init() {
@@ -59,18 +60,41 @@ struct eertree {
         nd.resize(cap + 2);
     }
 
+    template <class F>
+    void dump(const F& f) {
+        std::basic_string<T> t1;
+        __dump(0, f, t1);
+        std::basic_string<T> t2;
+        __dump(1, f, t2);
+    }
+
+    template <class F>
+    void __dump(int x, const F& f, std::basic_string<T>& s) {
+        if (nd[x].len > 0) {
+            std::basic_string<T> t = s;
+            std::reverse(t.begin(), t.end());
+            t.append(s.begin() + (nd[x].len & 1), s.end());
+            f(t);
+        }
+        for (auto& [k, v] : nd[x].ch) {
+            s.push_back(k);
+            __dump(v, f, s);
+            s.pop_back();
+        }
+    }
+
     /**
      * @brief 往回文树末尾添加一个字符
      *
      * @param ch 添加的字符
      * @return int 新出现了多少个新的本质不同回文子串，实际只会是0/1
      */
-    int extend(T ch, int ka) {
+    int extend(T ch) {
         s[n] = ch;
-        return __extend(ch, n++, ka);
+        return __extend(ch, n++);
     }
 
-    int __extend(T ch, int i, int ka) {
+    int __extend(T ch, int i) {
         int p = __getfail(last, i);
         if (nd[p].ch.find(ch) == nd[p].ch.end()) {
             cnt++;
