@@ -1,5 +1,9 @@
 struct eertree {
+}
+
+impl eertree {
+    use std::Vec;
     fn add(char ch) -> i32 {
-        todo!();
+        let a: Vec<i32> = vec![];
     }
 }

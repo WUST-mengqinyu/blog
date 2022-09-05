@@ -87,11 +87,12 @@ struct eertree {
     struct node {
         int len, fail;
 
-        std::map<T, int> ch;
+        array<int, 26> ch;
+        //std::map<T, int> ch;
 
         void renew() {
-            ch.clear();
-        }
+            // ch.clear();
+            }
     };
 
     int cnt, last, n;
@@ -173,7 +174,7 @@ struct eertree {
 
     int __extend(T ch, int i) {
         int p = __getfail(last, i);
-        if (nd[p].ch.find(ch) == nd[p].ch.end()) {
+        if (nd[p].ch[ch - 'a']) {
             cnt++;
             nd[cnt].renew();
             nd[cnt].fail = nd[__getfail(nd[p].fail, i)].ch[s[i]];
